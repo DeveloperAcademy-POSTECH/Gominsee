@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
-                MainPage().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
+                MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
                 Text("feed").tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
                 Text("my qna").tabItem { Image(systemName: "doc.text").environment(\.symbolVariants, .none) }.tag(3)
                 Text("my page").tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(4)
