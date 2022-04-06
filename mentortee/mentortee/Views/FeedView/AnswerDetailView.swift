@@ -7,14 +7,18 @@
 
 import SwiftUI
 
+var answer: String = ""
+
 struct AnswerView: View {
+    @State private var showingOptions = false
+    @State private var showingReportAlert = false
+    @State private var showingDeleteAlert = false
+    
     var thumbnail: String
     var nickname: String
     var date: String
     var contents: String
-    var myname: String = "brown"
-    
-    @State private var showingOptions = false
+    var myName: String = "meenu"
     
     var body: some View {
         VStack {
@@ -33,15 +37,29 @@ struct AnswerView: View {
                 }.frame(width: .infinity, alignment: .leading).background(RoundedRectangle(cornerRadius: 10).fill(Color.mint))
             }.padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .confirmationDialog("동작 선택", isPresented: $showingOptions, titleVisibility: .hidden) {
-                    if (myname == nickname) {
+                    if (myName == nickname) {
                         Button("수정하기") {
+                            answer = contents
                         }
                         Button("삭제하기") {
+                            showingDeleteAlert = true
+                        }
+                        .alert("정말 삭제하실 건가요?", isPresented: $showingDeleteAlert) {
+                            Button("삭제할래요", role: .destructive) {}
+                            Button("아니요", role: .cancel) {}
+                        } message: {
+                            Text("삭제하신 답변은 복구할 수 없어요 ㅠ^ㅠ      신중하게 생각하고 선택해주세요.")
                         }
                     }
                     else {
                         Button("신고하기", role: .destructive) {
-                            
+                            showingReportAlert = true
+                        }
+                        .alert("정말 신고하실 건가요?", isPresented: $showingReportAlert) {
+                            Button("신고할래요", role: .destructive) {}
+                            Button("아니요", role: .cancel) {}
+                        } message: {
+                            TextField("신고 사유를 적어주세요.", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                         }
                     }
                 }
@@ -52,22 +70,14 @@ struct AnswerView: View {
 struct AnswerDetailView: View {
     @State private var collapsed: Bool = true
     @State private var checked: Bool = false
+    @State private var rename: String = answer
     
     var myname: String = "meenu"
     
     var body: some View {
         VStack {
             VStack {
-//                Button(action: { self.collapsed.toggle() }) {
-//                    HStack {
-//                        Text("9개의 생각이 있어요")
-//                        Image(systemName: self.collapsed ? "chevron.down.circle.fill" : "chevron.up.circle.fill").foregroundColor(Color.green)
-//                    }.frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50).background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-//                }.foregroundColor(Color.black).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
                 ScrollView {
-//                        ForEach(0..<7) { i in
-//                            AnswerView(thumbnail: "person.crop.circle", nickname: i, date: i, contents: i, myname: myname)
-//                        }
                     Spacer().frame(height: 65)
                     AnswerView(thumbnail: "person", nickname: "meenu", date: "1시간 전", contents: "노란색을 보면 기분이 좋아짐")
                     AnswerView(thumbnail: "person.fill", nickname: "chemi", date: "2시간 전", contents: "보라색")
