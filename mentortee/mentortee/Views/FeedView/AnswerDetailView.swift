@@ -27,7 +27,7 @@ struct AnswerView: View {
                         Spacer()
                         Button(action: { showingOptions = true }) {
                             Image(systemName: "ellipsis")
-                        }.foregroundColor(Color.black)
+                        }.foregroundColor(Color.black).rotationEffect(Angle(degrees: 90))
                     }.padding(.init(top: 15, leading: 15, bottom: 5, trailing: 15))
                     Text(contents).font(.system(size: 16)).padding([.leading, .bottom, .trailing], 15)
                 }.frame(width: .infinity, alignment: .leading).background(RoundedRectangle(cornerRadius: 10).fill(Color.mint))
