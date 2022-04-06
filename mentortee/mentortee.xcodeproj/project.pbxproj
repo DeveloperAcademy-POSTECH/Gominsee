@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608E43627FD39500063E059 /* AnswerDetailView.swift */; };
 		26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */; };
 		26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F56B5027FBEC1B0066C0D1 /* ContentView.swift */; };
 		26F56B5327FBEC1E0066C0D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F56B5227FBEC1E0066C0D1 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2608E43627FD39500063E059 /* AnswerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailView.swift; sourceTree = "<group>"; };
 		26F56B4B27FBEC1B0066C0D1 /* mentortee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mentortee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mentorteeApp.swift; sourceTree = "<group>"; };
 		26F56B5027FBEC1B0066C0D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				3973A06627FD274000CDC599 /* File */,
+				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 			);
 			path = QnAView;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			files = (
 				A9AA19BC27FC33C2004ECC12 /* TapView.swift in Sources */,
 				3973A06527FD272F00CDC599 /* MainView.swift in Sources */,
+				2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */,
 				26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */,
 				A9AA19BE27FC3A14004ECC12 /* TopBar.swift in Sources */,
 				26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */,
