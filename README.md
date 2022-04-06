@@ -9,6 +9,8 @@
 
 미뉴
 
+노엘
+
 ## 목차
 
 - [mentortee](#mentortee)
