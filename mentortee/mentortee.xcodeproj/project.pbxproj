@@ -21,6 +21,9 @@
 		26F56B5027FBEC1B0066C0D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26F56B5227FBEC1E0066C0D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26F56B5527FBEC1E0066C0D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3973A05C27FD21A700CDC599 /* Empty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Empty.md; sourceTree = "<group>"; };
+		3973A05D27FD21B800CDC599 /* Empty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Empty.md; sourceTree = "<group>"; };
+		3973A05E27FD21B900CDC599 /* Empty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Empty.md; sourceTree = "<group>"; };
 		A9AA19B927FC3332004ECC12 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		A9AA19BD27FC3A14004ECC12 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +98,7 @@
 		3973A05927FD1D7D00CDC599 /* FeedView */ = {
 			isa = PBXGroup;
 			children = (
+				3973A05E27FD21B900CDC599 /* Empty.md */,
 			);
 			path = FeedView;
 			sourceTree = "<group>";
@@ -102,6 +106,7 @@
 		3973A05A27FD1D8300CDC599 /* QnAView */ = {
 			isa = PBXGroup;
 			children = (
+				3973A05D27FD21B800CDC599 /* Empty.md */,
 			);
 			path = QnAView;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 		3973A05B27FD1DB000CDC599 /* MyPageView */ = {
 			isa = PBXGroup;
 			children = (
+				3973A05C27FD21A700CDC599 /* Empty.md */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";
