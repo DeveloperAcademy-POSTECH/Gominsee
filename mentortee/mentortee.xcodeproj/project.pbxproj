@@ -105,6 +105,7 @@
 		3973A06127FD26DD00CDC599 /* FeedView */ = {
 			isa = PBXGroup;
 			children = (
+				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 				3973A06827FD274400CDC599 /* File */,
 			);
 			path = FeedView;
@@ -114,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				3973A06627FD274000CDC599 /* File */,
-				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 			);
 			path = QnAView;
 			sourceTree = "<group>";
