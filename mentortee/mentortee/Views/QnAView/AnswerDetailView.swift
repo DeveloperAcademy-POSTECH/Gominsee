@@ -55,23 +55,33 @@ struct AnswerDetailView: View {
     var body: some View {
         VStack {
             VStack {
-                Button(action: { self.collapsed.toggle() }) {
-                    HStack {
-                        Text("9개의 생각이 있어요")
-                        Image(systemName: self.collapsed ? "chevron.down.circle.fill" : "chevron.up.circle.fill").foregroundColor(Color.green)
-                    }.frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50).background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-                }.foregroundColor(Color.black).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+//                Button(action: { self.collapsed.toggle() }) {
+//                    HStack {
+//                        Text("9개의 생각이 있어요")
+//                        Image(systemName: self.collapsed ? "chevron.down.circle.fill" : "chevron.up.circle.fill").foregroundColor(Color.green)
+//                    }.frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50).background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+//                }.foregroundColor(Color.black).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
                 ScrollView {
 //                        ForEach(0..<7) { i in
 //                            AnswerView(thumbnail: "person.crop.circle", nickname: i, date: i, contents: i, myname: myname)
 //                        }
+                    Spacer().frame(height: 50)
                     AnswerView(thumbnail: "person", nickname: "meenu", date: "1시간 전", contents: "노란색을 보면 기분이 좋아짐")
                     AnswerView(thumbnail: "person.fill", nickname: "chemi", date: "2시간 전", contents: "보라색")
                     AnswerView(thumbnail: "person.crop.circle", nickname: "brown", date: "3시간 전", contents: "브라운")
                     AnswerView(thumbnail: "person.crop.circle.fill", nickname: "noel", date: "4시간 전", contents: "보라색")
                     AnswerView(thumbnail: "person.circle", nickname: "rookie", date: "5시간 전", contents: "주황색")
                     AnswerView(thumbnail: "person.circle.fill", nickname: "daon", date: "6시간 전", contents: "연두색")
-                }
+                }.overlay(
+                    VStack {
+                        Button(action: { self.collapsed.toggle() }) {
+                        HStack {
+                            Text("9개의 생각이 있어요")
+                            Image(systemName: self.collapsed ? "chevron.down.circle.fill" : "chevron.up.circle.fill").foregroundColor(Color.green)
+                        }.frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50).background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+                            Spacer()
+                    }
+                    }.frame(maxHeight: .infinity, alignment: .top).foregroundColor(Color.black).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
             }.background(RoundedRectangle(cornerRadius: 10).fill(Color.white)).frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: collapsed ? 0 : .infinity).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0).padding(16)
             Spacer()
             VStack (alignment: .leading) {
