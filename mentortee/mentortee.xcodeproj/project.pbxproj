@@ -18,6 +18,8 @@
 		7B23C96627FD8D9A00EA7C2E /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B23C96527FD8D9A00EA7C2E /* QuestionDetailView.swift */; };
 		7B23C96827FD8E5D00EA7C2E /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B23C96727FD8E5D00EA7C2E /* QuestionView.swift */; };
 		A73E251927FE7DB6006C42CB /* FeedCategoryBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E251827FE7DB6006C42CB /* FeedCategoryBtn.swift */; };
+		A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D877D727FF2641001257EC /* AnswerModalSheet.swift */; };
+		A7D877DA27FF70F6001257EC /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D877D927FF70F6001257EC /* KeyboardHandler.swift */; };
 		A9AA19BA27FC3332004ECC12 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA19B927FC3332004ECC12 /* MainPage.swift */; };
 		A9AA19BC27FC33C2004ECC12 /* TapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA19BB27FC33C2004ECC12 /* TapView.swift */; };
 		A9AA19BE27FC3A14004ECC12 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA19BD27FC3A14004ECC12 /* TopBar.swift */; };
@@ -42,6 +44,8 @@
 		7B23C96527FD8D9A00EA7C2E /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
 		7B23C96727FD8E5D00EA7C2E /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		A73E251827FE7DB6006C42CB /* FeedCategoryBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCategoryBtn.swift; sourceTree = "<group>"; };
+		A7D877D727FF2641001257EC /* AnswerModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModalSheet.swift; sourceTree = "<group>"; };
+		A7D877D927FF70F6001257EC /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		A9AA19B927FC3332004ECC12 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		A9AA19BB27FC33C2004ECC12 /* TapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapView.swift; sourceTree = "<group>"; };
 		A9AA19BD27FC3A14004ECC12 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				7B23C96527FD8D9A00EA7C2E /* QuestionDetailView.swift */,
 				7B23C96727FD8E5D00EA7C2E /* QuestionView.swift */,
 				A73E251827FE7DB6006C42CB /* FeedCategoryBtn.swift */,
+				A7D877D727FF2641001257EC /* AnswerModalSheet.swift */,
+				A7D877D927FF70F6001257EC /* KeyboardHandler.swift */,
 			);
 			path = FeedView;
 			sourceTree = "<group>";
@@ -239,6 +245,8 @@
 				A9F7C50B27FE664000052F36 /* QuestionSub1.swift in Sources */,
 				A9F7C50F27FE672100052F36 /* QuestionMain.swift in Sources */,
 				A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */,
+				A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */,
+				A7D877DA27FF70F6001257EC /* KeyboardHandler.swift in Sources */,
 				3973A06527FD272F00CDC599 /* MainView.swift in Sources */,
 				A9F7C50727FE65C000052F36 /* MakingQuestion.swift in Sources */,
 				2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */,
