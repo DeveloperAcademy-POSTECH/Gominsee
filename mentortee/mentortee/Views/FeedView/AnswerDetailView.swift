@@ -70,14 +70,26 @@ struct AnswerView: View {
                                         print("수정하기")
                                     }
                                     Button("삭제하기", role: .destructive) {
-                                        print("삭제하기")
+                                        showingDeleteAlert = true
                                     }
                                 }
                                 else {
                                     Button("신고하기", role: .destructive) {
-                                        print("신고하기")
+                                        showingReportAlert = true
                                     }
                                 }
+                            }
+                            .alert("정말 삭제하실 건가요?", isPresented: $showingDeleteAlert) {
+                                Button("삭제할래요", role: .destructive) {}
+                                Button("아니요", role: .cancel) {}
+                            } message: {
+                                Text("삭제하신 답변은 복구할 수 없어요 ㅠ^ㅠ      신중하게 생각하고 선택해주세요.")
+                            }
+                            .alert("정말 신고하실 건가요?", isPresented: $showingReportAlert) {
+                                Button("신고할래요", role: .destructive) {}
+                                Button("아니요", role: .cancel) {}
+                            } message: {
+                                Text("신고 사유를 적어주세요.")
                             }
                     }.padding(.init(top: 15, leading: 15, bottom: 5, trailing: 15))
                     Text(contents).font(.system(size: 16)).padding([.leading, .bottom, .trailing], 15)
@@ -136,7 +148,7 @@ struct Accordion: View {
     var body: some View {
         ZStack {
             VStack {
-                Spacer().frame(height: 55)
+                Spacer().frame(height: 60)
                 ScrollView {
                     AnswerView(thumbnail: "person", nickname: "meenu", date: "1시간 전", contents: "노란색을 보면 기분이 좋아짐")
                     AnswerView(thumbnail: "person.fill", nickname: "chemi", date: "2시간 전", contents: "보라색")
@@ -144,7 +156,7 @@ struct Accordion: View {
                     AnswerView(thumbnail: "person.crop.circle.fill", nickname: "noel", date: "4시간 전", contents: "보라색")
                     AnswerView(thumbnail: "person.circle", nickname: "rookie", date: "5시간 전", contents: "주황색")
                     AnswerView(thumbnail: "person.circle.fill", nickname: "daon", date: "6시간 전", contents: "연두색")
-                    Spacer().frame(height: 5)
+                    Spacer().frame(height: 10)
                 }
             }.frame(maxWidth: .infinity, minHeight: 0, maxHeight: collapsed ? .infinity : 0).background(RoundedRectangle(cornerRadius: 10).fill(Color.white)).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
             VStack {
