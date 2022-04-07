@@ -97,6 +97,7 @@
 		3973A06027FD26D400CDC599 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				A9AA19BD27FC3A14004ECC12 /* TopBar.swift */,
 				3973A06427FD272F00CDC599 /* MainView.swift */,
 			);
 			path = MainView;
@@ -131,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				A9AA19B927FC3332004ECC12 /* MainPage.swift */,
-				A9AA19BD27FC3A14004ECC12 /* TopBar.swift */,
 				A9AA19BB27FC33C2004ECC12 /* TapView.swift */,
 			);
 			path = "Chemi & Rookie";
