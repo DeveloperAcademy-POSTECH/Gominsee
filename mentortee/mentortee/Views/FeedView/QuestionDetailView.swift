@@ -16,6 +16,7 @@ struct QuestionDetailView: View {
         NavigationView {
             VStack {
                 QuestionView()
+                AnswerDetailView()
             }
             .frame(alignment: .top)
             .navigationBarItems(leading: Button(action: { // do something
