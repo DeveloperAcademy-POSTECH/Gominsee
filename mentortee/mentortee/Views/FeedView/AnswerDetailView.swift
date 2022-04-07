@@ -7,32 +7,7 @@
 
 import SwiftUI
 
-var answer: String = ""
 var showingOptions = false
-
-struct CustomAlert: View {
-    var body: some View {
-        ZStack {
-            Rectangle().fill(Color(hex: 0x000000).opacity(0.7)).frame(maxWidth: .infinity, maxHeight: .infinity)
-            VStack {
-                Text("정말 삭제할건가요?").font(.system(size: 20)).bold().padding([.top, .leading, .trailing], 10.0).padding(.bottom, 5)
-                Text("삭제하신 답변은 복구할 수 없어요 ㅠ^ㅠ\n신중하게 생각하고 선택해주세요.").padding([.leading, .bottom, .trailing], 10.0).padding(.top, 5)
-                    .multilineTextAlignment(.center)
-                Divider().frame(width: 300)
-                HStack {
-                    Button("아니오", role: .cancel) {
-                        
-                    }.padding(10)
-                    Spacer().frame(width: 40)
-                    Divider().frame(height: 30)
-                    Button("삭제할래요", role: .destructive) {
-                        
-                    }.padding(10).padding(.leading, 30)
-                }
-            }.background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-        }
-    }
-}
 
 struct TextFieldAlert: View {
     var body: some View {
@@ -44,7 +19,6 @@ struct AnswerView: View {
     @State private var showingOptions = false
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
-    @State private var showingAlert = false
     
     var thumbnail: String
     var nickname: String
@@ -99,50 +73,6 @@ struct AnswerView: View {
     }
 }
 
-struct CustomConfirm: View {
-    @State private var showingAlert = false
-    
-//    var DialType: Bool // true: Question, false: Answer
-    var dialAuthor = false // true: Author, false: Other User
-    var body: some View {
-        ZStack {
-            Rectangle().fill(Color(hex: 0x000000).opacity(0.7)).frame(maxWidth: .infinity, maxHeight: .infinity)
-            VStack {
-                if (dialAuthor) {
-                    Button("수정하기") {
-                        
-                    }.font(.system(size: 30)).foregroundColor(Color.blue).padding(10)
-                    Divider()
-                    Button("삭제하기") {
-                        showingAlert = true
-                    }.font(.system(size: 30)).foregroundColor(Color.red).padding(10)
-                        .alert("정말 삭제하실 건가요?", isPresented: $showingAlert) {
-                            Button("삭제할래요", role: .destructive) {}
-                            Button("아니요", role: .cancel) {}
-                        } message: {
-                            Text("삭제하신 답변은 복구할 수 없어요 ㅠ^ㅠ      신중하게 생각하고 선택해주세요.")
-                        }
-                }
-                else {
-                    Button("신고하기") {
-                        showingAlert = true
-                    }.font(.system(size: 30)).foregroundColor(Color.red).padding(10)
-                        .alert("정말 신고하실 건가요?", isPresented: $showingAlert) {
-                            Button("신고할래요", role: .destructive) {}
-                            Button("아니요", role: .cancel) {}
-                                                } message: {
-                            TextField("신고 사유를 적어주세요.", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                                                }
-                }
-                Divider()
-                Button("취소") {
-                    
-                }.font(.system(size: 30)).foregroundColor(Color.blue).padding(10)
-            }.frame(maxWidth: .infinity).background(RoundedRectangle(cornerRadius: 10).fill(Color.white)).padding(.horizontal, 16)
-        }
-    }
-}
-
 struct Accordion: View {
     @State private var collapsed = false
     var body: some View {
@@ -175,11 +105,12 @@ struct Accordion: View {
 
 struct replyAnswer: View {
     @State private var checked = false
+    @State var answer: String = ""
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                TextField("질문에 대한 나의 생각을 적어주세요", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).font(.system(size: 16)).padding(.leading, 5.0)
+                TextField("질문에 대한 나의 생각을 적어주세요", text: $answer).font(.system(size: 16)).padding(.leading, 5.0)
                 Button(action: {}) {
                     Image(systemName: "arrow.up.circle.fill").resizable().frame(width: 30, height: 30).foregroundColor(Color.primaryColor)
                 }.padding(.trailing, 5.0)
@@ -198,7 +129,6 @@ struct AnswerDetailView: View {
     var body: some View {
         VStack {
             Accordion()
-//            CustomAlert()
 //            TextFieldAlert()
             replyAnswer()
         }
