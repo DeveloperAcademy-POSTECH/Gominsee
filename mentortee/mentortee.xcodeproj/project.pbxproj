@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608E43627FD39500063E059 /* AnswerDetailView.swift */; };
 		26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */; };
 		26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F56B5027FBEC1B0066C0D1 /* ContentView.swift */; };
 		26F56B5327FBEC1E0066C0D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F56B5227FBEC1E0066C0D1 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2608E43627FD39500063E059 /* AnswerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailView.swift; sourceTree = "<group>"; };
 		26F56B4B27FBEC1B0066C0D1 /* mentortee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mentortee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mentorteeApp.swift; sourceTree = "<group>"; };
 		26F56B5027FBEC1B0066C0D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,7 +105,8 @@
 		3973A06027FD26D400CDC599 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				3973A06927FD274500CDC599 /* File */,
+				A9AA19BD27FC3A14004ECC12 /* TopBar.swift */,
+				3973A06427FD272F00CDC599 /* MainView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -111,6 +114,7 @@
 		3973A06127FD26DD00CDC599 /* FeedView */ = {
 			isa = PBXGroup;
 			children = (
+				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 				3973A06827FD274400CDC599 /* File */,
 			);
 			path = FeedView;
@@ -131,7 +135,7 @@
 		3973A06327FD26F200CDC599 /* MyPageView */ = {
 			isa = PBXGroup;
 			children = (
-				3973A06427FD272F00CDC599 /* MainView.swift */,
+				3973A06927FD274500CDC599 /* File */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";
@@ -140,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				A9AA19B927FC3332004ECC12 /* MainPage.swift */,
-				A9AA19BD27FC3A14004ECC12 /* TopBar.swift */,
 				A9AA19BB27FC33C2004ECC12 /* TapView.swift */,
 			);
 			path = "Chemi & Rookie";
@@ -223,6 +226,7 @@
 				A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */,
 				3973A06527FD272F00CDC599 /* MainView.swift in Sources */,
 				A9F7C50727FE65C000052F36 /* MakingQuestion.swift in Sources */,
+				2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */,
 				26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */,
 				A9AA19BE27FC3A14004ECC12 /* TopBar.swift in Sources */,
 				26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */,
