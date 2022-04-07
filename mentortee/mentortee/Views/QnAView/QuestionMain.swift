@@ -18,7 +18,7 @@ struct QuestionMain: View {
         ZStack {
             
             Rectangle()
-                .foregroundColor(Color.BackgroundGray)
+                .foregroundColor(Color.subIvory)
             
             VStack(alignment:.leading) {
                 
@@ -33,28 +33,28 @@ struct QuestionMain: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 15)
                         .padding(.vertical, 5)
-                        .background(Color.MainOrange)
+                        .background(Color.primaryColor)
                         .cornerRadius(15)
                     
                     Text("가치관")
                         .foregroundColor(.white)
                         .padding(.horizontal, 15)
                         .padding(.vertical, 5)
-                        .background(Color.MainOrange)
+                        .background(Color.primaryColor)
                         .cornerRadius(15)
                     
                     Text("습관")
                         .foregroundColor(.white)
                         .padding(.horizontal, 15)
                         .padding(.vertical, 5)
-                        .background(Color.MainOrange)
+                        .background(Color.primaryColor)
                         .cornerRadius(15)
                     
                     Text("자존감")
                         .foregroundColor(.white)
                         .padding(.horizontal, 15)
                         .padding(.vertical, 5)
-                        .background(Color.MainOrange)
+                        .background(Color.primaryColor)
                         .cornerRadius(15)
                     }
                 

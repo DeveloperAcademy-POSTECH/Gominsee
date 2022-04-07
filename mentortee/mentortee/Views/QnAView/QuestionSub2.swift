@@ -29,7 +29,7 @@ struct QuestionSub2: View {
                 .foregroundColor(.white)
                 .padding(.horizontal, 40)
                 .padding(.vertical, 10)
-                .background(Color.MainOrange)
+                .background(Color.primaryColor)
                 .cornerRadius(15)
             
         }

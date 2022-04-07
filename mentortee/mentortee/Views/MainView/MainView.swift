@@ -7,28 +7,6 @@
 
 import SwiftUI
 
-extension Color {
-    init(hex: String) {
-        let scanner = Scanner(string: hex)
-        _ = scanner.scanString("#")
-        
-        var rgb: UInt64 = 0
-        scanner.scanHexInt64(&rgb)
-        
-        let r = Double((rgb >> 16) & 0xFF) / 255.0
-        let g = Double((rgb >>  8) & 0xFF) / 255.0
-        let b = Double((rgb >>  0) & 0xFF) / 255.0
-        self.init(red: r, green: g, blue: b)
-    }
-}
-
-extension Color {
-    
-    static let gradientBrownStart = Color(hex: "#C5AC9A")
-    static let gradientBrownEnd = Color(hex: "e2d7cd")
-    
-}
-
 extension View {
     func hideKeyboard() {
         let resign = #selector(UIResponder.resignFirstResponder)
@@ -57,7 +35,7 @@ struct MainView: View {
                 configuration.content
             }
             .padding(EdgeInsets(top: 30, leading: 20, bottom: 150, trailing: 20))
-            .background(LinearGradient(gradient: Gradient(colors:[Color.gradientBrownStart, Color.gradientBrownEnd]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .background(LinearGradient(gradient: Gradient(colors:[Color.primaryColor, Color.subIvory]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
@@ -81,7 +59,7 @@ struct MainView: View {
                     ForEach(categoryList, id: \.self){ value in
                         Text(value).padding(.vertical, 3)
                             .padding(.horizontal, 10)
-                            .foregroundColor(Color.gradientBrownStart)
+                            .foregroundColor(Color.primaryColor)
                             .background(RoundedRectangle(cornerRadius: 10))
                             .font(.system(size: 14))
                     }

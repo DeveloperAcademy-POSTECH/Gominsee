@@ -22,36 +22,6 @@ struct MakingQuestion_Previews: PreviewProvider {
             
         }
     }
-
-
-
-// Hex Color 추가 코드
-extension Color {
- 
-//    static let peach = Color(hex: "#ff8882")
-    static let Ivory = Color(hex: "E6E7D5")
-    static let Text_sub2 = Color(hex: "807A7A")
-    static let MainOrange = Color(hex: "DC8D6C")
-    static let BackgroundGray = Color(hex: "D8D8D8")
-            
-            
-}
-
-extension Color {
-  init(hex: String) {
-    let scanner = Scanner(string: hex)
-    _ = scanner.scanString("#")
-    
-    var rgb: UInt64 = 0
-    scanner.scanHexInt64(&rgb)
-    
-    let r = Double((rgb >> 16) & 0xFF) / 255.0
-    let g = Double((rgb >>  8) & 0xFF) / 255.0
-    let b = Double((rgb >>  0) & 0xFF) / 255.0
-    self.init(red: r, green: g, blue: b)
-  }
-}
-
 //
 
 // [ 추가 개발 요소]
