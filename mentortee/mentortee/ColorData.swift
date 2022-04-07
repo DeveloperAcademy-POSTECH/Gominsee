@@ -29,6 +29,6 @@ extension Color {
     static let subDeepGreen = Color(hex: "#53584C")
     static let subLightGreen = Color(hex: "#97A884")
     static let subIvory = Color(hex: "#E6E7D5")
-    static let backgroundColor = Color(hex: "#F5F5F5")
+    static let backgroundColor = Color(hex: "#eeeeee")
     static let inactiveColor = Color(hex: "#999999")
 }
