@@ -15,10 +15,8 @@ public struct TextAlert {
   public var placeholder: String = "신고 사유를 적어주세요." // Placeholder text for the TextField
   public var accept: String = "신고할래요" // The left-most button label
   public var cancel: String? = "아니오" // The optional cancel (right-most) button label
-  public var secondaryActionTitle: String? = nil // The optional center button label
   public var keyboardType: UIKeyboardType = .default // Keyboard tzpe of the TextField
   public var action: (String?) -> Void // Triggers when either of the two buttons closes the dialog
-  public var secondaryAction: (() -> Void)? = nil // Triggers when the optional center button is tapped
 } // 이거랑
 
 extension UIAlertController {
@@ -32,11 +30,6 @@ extension UIAlertController {
       addAction(UIAlertAction(title: cancel, style: .cancel) { _ in
         alert.action(nil)
       })
-    }
-    if let secondaryActionTitle = alert.secondaryActionTitle {
-       addAction(UIAlertAction(title: secondaryActionTitle, style: .default, handler: { _ in
-         alert.secondaryAction?()
-       }))
     }
     let textField = self.textFields?.first
     addAction(UIAlertAction(title: alert.accept, style: .destructive) { _ in
@@ -84,7 +77,7 @@ struct AlertWrapper<Content: View>: UIViewControllerRepresentable {
 
 extension View {
   public func alert(isPresented: Binding<Bool>, _ alert: TextAlert) -> some View {
-    AlertWrapper(isPresented: isPresented, alert: alert, content: self)
+      AlertWrapper(isPresented: isPresented, alert: alert, content: self).frame(width: 5)
   }
 } // 이거랑
 
@@ -113,7 +106,7 @@ struct AnswerView: View {
                         // 이 아래부분까지요
                         Button(action: { showingOptions = true }) {
                             Image(systemName: "ellipsis")
-                        }.foregroundColor(Color.black).rotationEffect(Angle(degrees: 90))
+                        }.background(Rectangle().fill(Color.backgroundColor)).foregroundColor(Color.black).rotationEffect(Angle(degrees: 90))
 
                             .confirmationDialog("행동 선택", isPresented: $showingOptions) {
                                 if (myName == nickname) {
