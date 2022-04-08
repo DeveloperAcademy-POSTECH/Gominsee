@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection = 1
+    @State private var isShowingDetailView = false
+    
     var body: some View {
         VStack {
-            TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
+            TabView(selection: $selection) {
                 MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
                 Text("feed").tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
             
