@@ -15,24 +15,26 @@ struct QuestionCardStyle: GroupBoxStyle {
         }
         .background(RoundedRectangle(cornerRadius: 10.0).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
         .padding(15)
+        .frame(alignment: .top)
     }
 }
 
 
 struct Question: View {
-    var userName: String
+    var thumbnail: String
+    var nickName: String
     var uploadTime : String
     var category: String
     var question: String
     
+    
     var body: some View {
     
-    GroupBox(){
-        HStack{
+        GroupBox(){
+        HStack(){
             HStack{
-                Circle()
-                    .frame(width: 30, height:30, alignment: .leading)
-                Text(userName)
+                Image(systemName: thumbnail).resizable().frame(width: 30, height: 30)
+                Text(nickName)
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                 }//프로필
@@ -44,6 +46,7 @@ struct Question: View {
             //업로드 시간
             }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
             Divider() //구분선
+                .padding(.trailing, 15)
             VStack(alignment: .leading){
                 Text(category)
                     .font(.system(size: 14))
@@ -64,7 +67,7 @@ struct QuestionView: View {
     var body: some View {
         
             VStack {
-                Question(userName:"노엘",uploadTime:"1시간 전", category:"카테고리", question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?")
+                Question(thumbnail: "person.crop.circle",nickName:"노엘",uploadTime:"1시간 전", category:"카테고리", question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?")
             }
         }
 }
