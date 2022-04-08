@@ -34,25 +34,46 @@ struct AnswerModalSheet: View {
     @StateObject private var keyboardHandler = KeyboardHandler()
     @Environment(\.presentationMode) var presentation
     @State private var userAnswer = ""
+    @State private var userAnswerArray: [String] = []
+    @State private var checked = false
+    
     var feedQuestion = "OOO님이 생각하는 이상적인 삶은 어떤 모cffsdvdasfgadfgdfgsdfgerbfdvedfscaerebvdscythgbrsfvdsvfgtyhfbvfsfgbsgbhsdfgdf습인가요?"
     
+    func saveAnswer() {
+        userAnswerArray.append(userAnswer)
+        userAnswer = ""
+    }
     
     var body: some View {
         VStack {
             Text(feedQuestion)
                 .bold()
                 .font(.system(size: 18))
-                .frame(width: 340, height: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .multilineTextAlignment(.leading)
                 .lineLimit(nil) //줄바꿈 무제한 가능
                 .fixedSize(horizontal: false, vertical: true) //옆으로 비활성화, 여러줄로
-                .padding(26)
+                .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
             Divider() //구분선
+                .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
             TextField("질문에 대한 나의 생각을 적어주세요.", text: $userAnswer)
-                .frame(width: .infinity, height: 150, alignment: .topLeading)
-                .padding(EdgeInsets(top: 0, leading: 26, bottom: 30, trailing: 26))
+                .frame(maxWidth: .infinity, maxHeight: 150, alignment: .topLeading)
+                .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
+            
+            HStack{
+                Button (action: { self.checked.toggle() }) {
+                    HStack{
+                        Image(systemName: checked ? "checkmark.circle.fill" : "checkmark.circle").foregroundColor(checked ? Color.mainGreen : Color.gray)
+                        Text("내 생각 나만 볼래요").font(.system(size: 14)).foregroundColor(checked ? Color.black : Color.gray)
+                    }
+                }
+            }.frame(maxWidth: .infinity, alignment: .leading)
+                .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
+            
+            
             
             Button(action: {
+                saveAnswer()
                 presentation.wrappedValue.dismiss()
             }) {
                 Text("작성완료:)").bold()
@@ -64,17 +85,16 @@ struct AnswerModalSheet: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.bottom, keyboardHandler.keyboardHeight)
-        .animation(.default) //withanimation
-        .background(RoundedRectangle(cornerRadius: 20).fill(Color.subIvory))
+        .background(RoundedRectangle(cornerRadius: 20).fill(Color.backgroundColor))
         .ignoresSafeArea(edges: .bottom)
         
     }
 }
 
 
-//struct AnswerModalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TestView()
-//    }
-//}
+struct AnswerModalView_Previews: PreviewProvider {
+    static var previews: some View {
+        AnswerModalSheet()
+    }
+}
 
