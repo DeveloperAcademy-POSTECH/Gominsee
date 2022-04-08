@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-struct TestView: View {  //최종적으로 feedview가 와야함 -> 임시라서 testview
-    @State private var showModal = false
-    
-    var body: some View {
-        VStack{
-            Text("다온이 만든 feed card 연결, 다온이 만든 생각적기 버튼누르면 모달 등장")
-            Button(action: {
-                self.showModal = true
-            }){
-                Text("생각적기").bold()
-            }
-            .frame(width: 80, height: 30, alignment: .center)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryColor))
-            .font(.system(size: 16))
-            .foregroundColor(Color.white)
-            .sheet(isPresented: self.$showModal) {
-                AnswerModalSheet()
-            }
-        }
-    }
-}
+//struct TestView: View {  //최종적으로 feedview가 와야함 -> 임시라서 testview
+//    @State private var showModal = false
+//
+//    var body: some View {
+//        VStack{
+//            Text("다온이 만든 feed card 연결, 다온이 만든 생각적기 버튼누르면 모달 등장")
+//            Button(action: {
+//                self.showModal = true
+//            }){
+//                Text("생각적기").bold()
+//            }
+//            .frame(width: 80, height: 30, alignment: .center)
+//            .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryColor))
+//            .font(.system(size: 16))
+//            .foregroundColor(Color.white)
+//            .sheet(isPresented: self.$showModal) {
+//                AnswerModalSheet()
+//            }
+//        }
+//    }
+//}
 
 
 struct AnswerModalSheet: View {
@@ -72,9 +72,9 @@ struct AnswerModalSheet: View {
 }
 
 
-struct AnswerModalView_Previews: PreviewProvider {
-    static var previews: some View {
-        TestView()
-    }
-}
+//struct AnswerModalView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TestView()
+//    }
+//}
 

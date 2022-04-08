@@ -34,7 +34,7 @@ struct QuestionMakingMain: View {
                             .padding(.leading, 80)
                             .padding(.top,10)
                     
-                    Button(action: ){
+                    Button(action: {}){
                     
                             Text("완료")
                             .font(.system(size: 21))
