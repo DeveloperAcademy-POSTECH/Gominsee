@@ -50,23 +50,6 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: 0) {
-                HStack {
-
-                    Text("고민씨")
-                        .padding(.all, 16)
-                        .font(.system(size: 22)
-                            .weight(.bold))
-                        .foregroundColor(.primaryColor)
-                    Spacer()
-                    NavigationLink(destination: TopBar())
-                    {
-                        Image(systemName: "square.and.pencil")
-                            .padding(.all, 16)
-                            .font(.system(size: 26))
-                            .foregroundColor(.mainGreen)
-                    }
-                }
-                    .padding(.all, 16)
                 GroupBox(content: {
                     Text("\(today, formatter: MainView.dateformat)")
                         .bold()
@@ -98,6 +81,20 @@ struct MainView: View {
                     cardTextHeight = screenHeight * 0.1
                 }
             }
+                .navigationBarItems(leading: Text("고민씨")
+                    .padding(.all, 16)
+                    .font(.system(size: 22)
+                        .weight(.bold))
+                    .foregroundColor(.primaryColor)
+                                    , trailing: NavigationLink(destination: QuestionMakingMain()
+                                        .navigationBarBackButtonHidden(true)
+                                                              ) {
+                    Image(systemName: "square.and.pencil")
+                        .padding(.all, 16)
+                        .font(.system(size: 20))
+                        .foregroundColor(.mainGreen)
+                }
+            )
 
                 .onTapGesture {
                 hideKeyboard()
@@ -113,9 +110,3 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
-
-//struct TestView: View {
-//    var body: some View {
-//        Text("TestView")
-//    }
-//}
