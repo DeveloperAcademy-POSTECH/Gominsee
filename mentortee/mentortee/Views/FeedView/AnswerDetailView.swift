@@ -19,7 +19,7 @@ public struct TextAlert {
   public var keyboardType: UIKeyboardType = .default // Keyboard tzpe of the TextField
   public var action: (String?) -> Void // Triggers when either of the two buttons closes the dialog
   public var secondaryAction: (() -> Void)? = nil // Triggers when the optional center button is tapped
-}
+} // 이거랑
 
 extension UIAlertController {
   convenience init(alert: TextAlert) {
@@ -43,7 +43,7 @@ extension UIAlertController {
       alert.action(textField?.text)
     })
   }
-}
+} // 이거랑
 
 struct AlertWrapper<Content: View>: UIViewControllerRepresentable {
   @Binding var isPresented: Bool
@@ -80,13 +80,13 @@ struct AlertWrapper<Content: View>: UIViewControllerRepresentable {
       uiViewController.dismiss(animated: true)
     }
   }
-}
+} // 이거랑
 
 extension View {
   public func alert(isPresented: Binding<Bool>, _ alert: TextAlert) -> some View {
     AlertWrapper(isPresented: isPresented, alert: alert, content: self)
   }
-}
+} // 이거랑
 
 struct AnswerView: View {
     @State private var showingOptions = false
@@ -110,6 +110,7 @@ struct AnswerView: View {
                         Text(nickname).font(.system(size: 16)).bold()
                         Text(date).font(.system(size: 12)).foregroundColor(Color.gray)
                         Spacer()
+                        // 이 아래부분까지요
                         Button(action: { showingOptions = true }) {
                             Image(systemName: "ellipsis")
                         }.foregroundColor(Color.black).rotationEffect(Angle(degrees: 90))
