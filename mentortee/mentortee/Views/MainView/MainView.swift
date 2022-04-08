@@ -56,6 +56,7 @@ struct MainView: View {
                     .minimumScaleFactor(0.5)
                     .frame(width: screenWidth * 0.7, height: cardTextHeight)
                 HStack {
+                    
                     ForEach(categoryList, id: \.self){ value in
                         Text(value).padding(.vertical, 3)
                             .padding(.horizontal, 10)

@@ -11,7 +11,7 @@ public let main_orange = Color(red: 0.22, green: 0.141, blue: 0.108)
 
 struct TopBar: View {
     
- 
+    
     var body: some View {
         NavigationView {
             
@@ -25,11 +25,11 @@ struct TopBar: View {
             
             TapView()
         }
-}
-
+    }
     
-struct NavigatorView: View {
-    var body: some View {
+    
+    struct NavigatorView: View {
+        var body: some View {
             HStack {
                 Text("고민씨")
                     .font(.title2)
@@ -61,4 +61,3 @@ struct Topbar_Previwer: PreviewProvider {
         TopBar()
     }
 }
-
