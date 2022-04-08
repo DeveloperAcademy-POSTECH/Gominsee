@@ -38,6 +38,7 @@ struct AnswerView: View {
                         Button(action: { showingOptions = true }) {
                             Image(systemName: "ellipsis")
                         }.foregroundColor(Color.black).rotationEffect(Angle(degrees: 90))
+
                             .confirmationDialog("행동 선택", isPresented: $showingOptions) {
                                 if (myName == nickname) {
                                     Button("수정하기") {
@@ -68,6 +69,7 @@ struct AnswerView: View {
                     }.padding(.init(top: 15, leading: 15, bottom: 5, trailing: 15))
                     Text(contents).font(.system(size: 16)).padding([.leading, .bottom, .trailing], 15)
                 }.frame(maxWidth: .infinity, alignment: .leading).background(RoundedRectangle(cornerRadius: 10).fill(Color.backgroundColor))
+            
             }.padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
         }
     }

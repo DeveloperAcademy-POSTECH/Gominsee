@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct QuestionCardStyle: GroupBoxStyle {
+    
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading) {
             configuration.label
@@ -21,6 +22,7 @@ struct QuestionCardStyle: GroupBoxStyle {
 
 
 struct Question: View {
+
     var thumbnail: String
     var nickName: String
     var uploadTime : String
@@ -38,15 +40,19 @@ struct Question: View {
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                 }//프로필
+            
             Spacer()
+            
             Text(uploadTime)
                 .frame(alignment: .trailing)
                 .font(.system(size: 14))
-            
             //업로드 시간
+            
             }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
+        
             Divider() //구분선
                 .padding(.trailing, 15)
+          
             VStack(alignment: .leading){
                 Text(category)
                     .font(.system(size: 14))
@@ -59,6 +65,7 @@ struct Question: View {
                     
             }//카테고리와 질문
             .padding(EdgeInsets(top: 15, leading:25 , bottom: 30, trailing: 25))
+        
     }.groupBoxStyle(QuestionCardStyle())
     }
 }

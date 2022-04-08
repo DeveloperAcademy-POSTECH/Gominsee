@@ -51,6 +51,7 @@ struct MainView: View {
         NavigationView {
             VStack(alignment: .center, spacing: 0) {
                 HStack {
+
                     Text("고민씨")
                         .padding(.all, 16)
                         .font(.system(size: 22)
