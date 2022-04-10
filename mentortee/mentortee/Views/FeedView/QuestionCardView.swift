@@ -25,7 +25,7 @@ struct FeedQuestion: View {
     var otherThoughts : String
     var question: String
     var questionOwner: String
-    @State var showDetails = false
+    @State var showModal = false
     
     var body: some View {
     
@@ -56,20 +56,18 @@ struct FeedQuestion: View {
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
-                
+        
                 Button(action: {
-                    self.showDetails.toggle()
+                    self.showModal = true
                 }) {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.primaryColor)
                         .frame(width: 80, height: 30)
                         .overlay(Text("생각 적기").foregroundColor(Color.white))
                 }
-                    if showDetails {
-                        Text("You should see me in a crown")
-                            .font(.largeTitle)
-                            .lineLimit(nil)
-                        }
+                .sheet(isPresented: self.$showModal) {
+                    AnswerModalSheet(feedQuestion: question)
+                }
             }
             .padding(EdgeInsets(top: 0, leading:25 , bottom: 10, trailing: 25))
         Divider()
@@ -97,6 +95,7 @@ struct FeedQuestionView: View {
                              otherThoughts: "다른 생각 9개",
                              question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
                              questionOwner: "Chemi")
+                
             }
         }
 }

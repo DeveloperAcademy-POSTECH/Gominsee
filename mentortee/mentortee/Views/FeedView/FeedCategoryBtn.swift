@@ -5,21 +5,17 @@
 //  Created by 이지수 on 2022/04/06.
 //
 
-// frame width 에다가 .infinity 에 전체 패딩값 16 주기
+// 1. 카테고리별 필터 주는 거
+// false/ true 주는거 인덱스로 바꿔보기
+
 
 import SwiftUI
 
-// 1.frame / padding (일단 ok, scroll bar 없애거나,) -> ok
-// 2. 버튼 둥글게 (ok)
-// 3. 하나 클릭하면 하나 false 되는거 구현 I(ok)
-// 4. 클릭되면 해당 페이지로
-// 5. 지금 버튼 8개가 나열 -> 효율적인 코딩방법 없을까
-
-struct FeeedCategoryBtn: View {
+struct FeedCategoryBtn: View {
     @State var click = [true, false, false, false, false, false, false, false, false]
     
     let screenHeight = UIScreen.main.bounds.height
-   
+    
     // 카테고리 - 전체,가치관, 진로, 취향, 취미, 고민, 비밀, 회고, 습관
     var body: some View {
         HStack {
@@ -85,7 +81,7 @@ struct FeeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[2] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[1] ? Color.white : Color.black)
+                    .foregroundColor(click[2] ? Color.white : Color.black)
                     
                     // 취향 3
                     Button(action: {
@@ -219,19 +215,18 @@ struct FeeedCategoryBtn: View {
                         .fill(click[8] ? Color.primaryColor  : Color.gray))
                     .foregroundColor(click[8] ? Color.white : Color.black)
                     
-                }.frame(width: .infinity, height: screenHeight - 200 , alignment: .topLeading)
+                }//.frame(width: .infinity, height: screenHeight - 200 , alignment: .topLeading)
                 .padding(16)
+                .background(Color.backgroundColor)
                 
             }
         }
     }
 }
-        
-
 
 struct FeedCategoryBtn_Previews: PreviewProvider {
     static var previews: some View {
-        FeeedCategoryBtn()
+        FeedCategoryBtn()
     }
 }
 
