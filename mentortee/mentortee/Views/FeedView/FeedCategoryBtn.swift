@@ -5,11 +5,13 @@
 //  Created by 이지수 on 2022/04/06.
 //
 
-// frame width 에다가 .infinity 에 전체 패딩값 16 주기
+// 1. 카테고리별 필터 주는 거
+// false/ true 주는거 인덱스로 바꿔보기
+
 
 import SwiftUI
 
-struct FeeedCategoryBtn: View {
+struct FeedCategoryBtn: View {
     @State var click = [true, false, false, false, false, false, false, false, false]
     
     let screenHeight = UIScreen.main.bounds.height
@@ -213,8 +215,9 @@ struct FeeedCategoryBtn: View {
                         .fill(click[8] ? Color.primaryColor  : Color.gray))
                     .foregroundColor(click[8] ? Color.white : Color.black)
                     
-                }.frame(width: .infinity, height: screenHeight - 200 , alignment: .topLeading)
+                }//.frame(width: .infinity, height: screenHeight - 200 , alignment: .topLeading)
                 .padding(16)
+                .background(Color.backgroundColor)
                 
             }
         }
@@ -223,7 +226,7 @@ struct FeeedCategoryBtn: View {
 
 struct FeedCategoryBtn_Previews: PreviewProvider {
     static var previews: some View {
-        FeeedCategoryBtn()
+        FeedCategoryBtn()
     }
 }
 

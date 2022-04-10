@@ -5,30 +5,9 @@
 //  Created by 이지수 on 2022/04/07.
 //
 
+// 1. 키보드 해결
+
 import SwiftUI
-
-//struct TestView: View {  //최종적으로 feedview가 와야함 -> 임시라서 testview
-//    @State private var showModal = false
-//
-//    var body: some View {
-//        VStack{
-//            Text("다온이 만든 feed card 연결, 다온이 만든 생각적기 버튼누르면 모달 등장")
-//            Button(action: {
-//                self.showModal = true
-//            }){
-//                Text("생각적기").bold()
-//            }
-//            .frame(width: 80, height: 30, alignment: .center)
-//            .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryColor))
-//            .font(.system(size: 16))
-//            .foregroundColor(Color.white)
-//            .sheet(isPresented: self.$showModal) {
-//                AnswerModalSheet()
-//            }
-//        }
-//    }
-//}
-
 
 struct AnswerModalSheet: View {
     @StateObject private var keyboardHandler = KeyboardHandler()
@@ -37,7 +16,7 @@ struct AnswerModalSheet: View {
     @State private var userAnswerArray: [String] = []
     @State private var checked = false
     
-    var feedQuestion = "OOO님이 생각하는 이상적인 삶은 어떤 모cffsdvdasfgadfgdfgsdfgerbfdvedfscaerebvdscythgbrsfvdsvfgtyhfbvfsfgbsgbhsdfgdf습인가요?"
+    var feedQuestion: String
     
     func saveAnswer() {
         userAnswerArray.append(userAnswer)
@@ -92,9 +71,9 @@ struct AnswerModalSheet: View {
 }
 
 
-struct AnswerModalView_Previews: PreviewProvider {
-    static var previews: some View {
-        AnswerModalSheet()
-    }
-}
-
+//struct AnswerModalView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AnswerModalSheet()
+//    }
+//}
+//
