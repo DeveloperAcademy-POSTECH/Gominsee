@@ -80,7 +80,7 @@ struct QuestionDetailView: View {
                         Button("따돌림 또는 괴롭힘") {
                             //신고 누르면 카운트 기능?
                         }
-                        Button("폭력ㄷ 또는 위험한 단체") {
+                        Button("폭력 또는 위험한 단체") {
                             //신고 누르면 카운트 기능?
                         }
                         Button("지식 재산권 침해") {

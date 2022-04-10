@@ -1,42 +1,19 @@
 //
-//  QuestionCardView.swift
+//  AnswerCardView.swift
 //  mentortee
 //
-//  Created by Jihye Hong on 2022/04/07.
+//  Created by 김민택 on 2022/04/10.
 //
 
-import Foundation
 import SwiftUI
 
-//struct QnaTopBar: View {
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-////                .navigationBarItems(leading: Text("고민씨")
-////                    .padding(.all, 16)
-////                    .font(.system(size: 22)
-////                        .weight(.bold))
-////                        .foregroundColor(.primaryColor),
-////                                    trailing: NavigationLink(destination: QuestionMakingMain()
-////                                        .navigationBarBackButtonHidden(true))
-////                                    {
-////                    Image(systemName: "square.and.pencil")
-////                        .padding(.all, 16)
-////                        .font(.system(size: 20))
-////                        .foregroundColor(.mainGreen)
-////                })
-//            }
-//        }
-//    }
-//}
-
-struct CountQuestion: View {
+struct CountAnswer: View {
     var body: some View {
         Text("총 n개").frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 16.0)
     }
 }
 
-struct FeedQuestionCardStyle: GroupBoxStyle {
+struct FeedAnswerCardStyle: GroupBoxStyle {
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading) {
             configuration.label
@@ -48,7 +25,7 @@ struct FeedQuestionCardStyle: GroupBoxStyle {
 }
 
 
-struct FeedQuestion: View {
+struct FeedAnswer: View {
     var category: String
     var otherThoughts : String
     var question: String
@@ -90,8 +67,8 @@ struct FeedQuestion: View {
                 }) {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.primaryColor)
-                        .frame(width: 80, height: 30)
-                        .overlay(Text("생각 적기").foregroundColor(Color.white))
+                        .frame(width: 100, height: 30)
+                        .overlay(Text("내 생각 보기").foregroundColor(Color.white))
                 }
                 .sheet(isPresented: self.$showModal) {
                     AnswerModalSheet(feedQuestion: question)
@@ -119,27 +96,26 @@ struct FeedQuestion: View {
     }
 }
 
-struct FeedQuestionView: View {
+struct FeedAnswerView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CountQuestion()
+                CountAnswer()
                 ScrollView {
-                    FeedQuestion(category: "가치관",
+                    FeedAnswer(category: "가치관",
                                  otherThoughts: "다른 생각 9개",
                                  question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
                                  questionOwner: "Chemi")
                 }
             }
-            .navigationBarTitle("내가 한 질문", displayMode: .inline)
+            .navigationBarTitle("내가 답한 질문", displayMode: .inline)
             .navigationBarItems(leading: Image(systemName: "arrow.left"))
         }
     }
 }
 
-struct FeedQuestionView_Previews: PreviewProvider {
+struct FeedAnswerView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedQuestionView()
+        FeedAnswerView()
     }
 }
-
