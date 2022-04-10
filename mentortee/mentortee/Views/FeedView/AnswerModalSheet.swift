@@ -64,7 +64,7 @@ struct AnswerModalSheet: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.bottom, keyboardHandler.keyboardHeight)
-        .animation(.default) //withanimation
+//        .animation(.default) //withanimation
         .background(RoundedRectangle(cornerRadius: 20).fill(Color.subIvory))
         .ignoresSafeArea(edges: .bottom)
         

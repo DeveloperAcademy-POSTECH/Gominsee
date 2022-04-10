@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+
 struct QuestionDetailView: View {
     
     @State private var isShowingConfirmation = false
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
-//    var nickname: String
-//    var myName: String = "meenu"
+    var nickname: String
+    var myName: String = "meenu"
     
 
     var body: some View {
@@ -40,38 +41,39 @@ struct QuestionDetailView: View {
                                     .foregroundColor(.black)
                                     .rotationEffect(Angle(degrees: 90))
                     })
-                .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation){
+                    .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation){
+                        if(myName == nickname){
                         Button("수정하기") {
-//                            NavigationLink(destination:MakingQuestion()){
-//
-//                            }
+                            //수정하기페이지로 이동
+                            //NavigationLink(destination:MakingQuestion())
+                                }
+                        Button("삭제하기", role: .destructive) {
+                            self.showingDeleteAlert = true
                             }
-                    Button("삭제하기") {
-                        self.showingDeleteAlert = true
+                    }else{
+                        Button("신고하기", role: .destructive) {
+                                    showingReportAlert = true
+                                }
                         }
-                        .alert(isPresented: $showingDeleteAlert) {
-                        Alert(title: Text("게시글을 삭제하시겠습니까?"), message: Text(""), primaryButton: .destructive(Text("Primary"), action: {
-                                        // Some action
-                                    }), secondaryButton: .cancel())
-                    
-//                        Button("신고하기", role: .destructive) {
-//                                showingReportAlert = true
-//                            }
-//                            .alert("정말 신고하실 건가요?", isPresented: $showingReportAlert) {
-//                                Button("신고할래요", role: .destructive) {}
-//                                Button("아니요", role: .cancel) {}
-//                            } message: {
-//                                TextField("신고 사유를 적어주세요.", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                           }
-
-                        }//나중에 합칠때 수정 필요!(작성자:수정,삭제/ 비작성자 : 신고 기능)
-                    }
+                               }.alert("게시글을 삭제하시겠습니까?", isPresented: $showingDeleteAlert) {
+                                   Button("삭제", role: .destructive) {}
+                                   Button("취소", role: .cancel) {}
+                               } message: {
+                                   Text("게시글을 삭제하시면 복구할 수 없어요ㅠ^ㅠ 신중하게 생각하고 선택해주세요.")
+                                    }
+                               .alert("게시글을 신고하시겠습니까?", isPresented: $showingReportAlert){
+                                   Button("신고", role: .destructive) {}
+                                   Button("취소", role: .cancel) {}
+                               } message: {
+                                   Text("신고사유를 입력해주세요")
+                               }
+                            }
             }
         }
     }
         
 struct QuestionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionDetailView()
+        QuestionDetailView(nickname: "noel")
     }
 }
