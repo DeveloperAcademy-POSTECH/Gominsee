@@ -8,6 +8,34 @@
 import Foundation
 import SwiftUI
 
+//struct QnaTopBar: View {
+//    var body: some View {
+//        NavigationView {
+//            VStack {
+////                .navigationBarItems(leading: Text("고민씨")
+////                    .padding(.all, 16)
+////                    .font(.system(size: 22)
+////                        .weight(.bold))
+////                        .foregroundColor(.primaryColor),
+////                                    trailing: NavigationLink(destination: QuestionMakingMain()
+////                                        .navigationBarBackButtonHidden(true))
+////                                    {
+////                    Image(systemName: "square.and.pencil")
+////                        .padding(.all, 16)
+////                        .font(.system(size: 20))
+////                        .foregroundColor(.mainGreen)
+////                })
+//            }
+//        }
+//    }
+//}
+
+struct CountQna: View {
+    var body: some View {
+        Text("총 n개").frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 16.0)
+    }
+}
+
 struct FeedQuestionCardStyle: GroupBoxStyle {
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading) {
@@ -89,15 +117,20 @@ struct FeedQuestion: View {
 
 struct FeedQuestionView: View {
     var body: some View {
-        
+        NavigationView {
             VStack {
-                FeedQuestion(category: "가치관",
-                             otherThoughts: "다른 생각 9개",
-                             question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
-                             questionOwner: "Chemi")
-                
+                CountQna()
+                ScrollView {
+                    FeedQuestion(category: "가치관",
+                                 otherThoughts: "다른 생각 9개",
+                                 question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
+                                 questionOwner: "Chemi")
+                }
             }
+            .navigationBarTitle("내가 한 질문", displayMode: .inline)
+            .navigationBarItems(leading: Image(systemName: "arrow.left"))
         }
+    }
 }
 
 struct FeedQuestionView_Previews: PreviewProvider {
