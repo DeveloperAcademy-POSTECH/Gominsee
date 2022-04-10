@@ -15,7 +15,7 @@ struct ContentView: View {
         VStack {
             TabView(selection: $selection) {
                 MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
-                AnswerDetailView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
+                QuestionDetailView(nickname: "noel").tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
             
                 Text("my qna").tabItem { Image(systemName: "doc.text").environment(\.symbolVariants, .none) }.tag(3)
                 Text("my page").tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(4)
