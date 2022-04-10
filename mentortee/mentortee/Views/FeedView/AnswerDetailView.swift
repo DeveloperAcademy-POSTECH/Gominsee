@@ -180,10 +180,10 @@ struct replyAnswer: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                TextField("질문에 대한 나의 생각을 적어주세요", text: $answer).font(.system(size: 16)).padding(.leading, 5.0)
+                TextField("질문에 대한 나의 생각을 적어주세요", text: $answer).multilineTextAlignment(.leading).font(.system(size: 16)).padding(.leading, 5.0)
                 Button(action: {}) {
                     Image(systemName: "arrow.up.circle.fill").resizable().frame(width: 30, height: 30).foregroundColor(Color.primaryColor)
-                }.padding(.trailing, 5.0)
+                }.padding(.trailing, 5.0).padding(.bottom, 3)
             }.background(RoundedRectangle(cornerRadius: 20).fill(Color.backgroundColor)).padding(.horizontal, 10)
             Button (action: { self.checked.toggle() }) {
                 HStack{
