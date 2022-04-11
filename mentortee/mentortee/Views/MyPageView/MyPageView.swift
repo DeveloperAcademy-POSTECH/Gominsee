@@ -72,7 +72,7 @@ struct MyCharacter: View {
                     Spacer()
                 }
                 Spacer()
-            }.frame(maxWidth: .infinity, alignment: .leading).padding(20)
+            }.frame(maxWidth: .infinity, alignment: .leading).padding(25)
         }
     }
 }
@@ -88,7 +88,7 @@ struct favoriteCategory: View {
             .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
             .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
-        }.foregroundColor(Color.black).offset(y: -50)
+        }.foregroundColor(Color.black)
     }
 }
 
