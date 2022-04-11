@@ -12,6 +12,7 @@ struct QuestionDetailView: View {
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
     @State private var showDialog = false
+    
     var nickname: String
     var myName: String = "meenu"
     
@@ -43,14 +44,14 @@ struct QuestionDetailView: View {
                             Button("수정하기") {
                             //수정하기페이지로 이동
                             //NavigationLink(destination:MakingQuestion())
+                            }
+                            Button("삭제하기", role: .destructive) {
+                                self.showingDeleteAlert = true
+                            }
                         }
-                        Button("삭제하기", role: .destructive) {
-                            self.showingDeleteAlert = true
-                        }
-                    }
                         else {
                             Button("신고하기", role: .destructive) {
-                                showingReportAlert = true
+                                    showingReportAlert = true
                             }
                         }
                     }
