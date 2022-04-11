@@ -26,7 +26,7 @@ struct QuestionSub1: View {
                 Text("게시판에 내가 쓴 질문이 올라갔어요!")
                     .font(.subheadline)
                 
-                NavigationLink(destination: QuestionDetailView(nickname: "noel") //추후 destination 수정 필요
+                NavigationLink(destination: QuestionDetailView(nickname: "meenu") //추후 destination 수정 필요
                     .navigationBarBackButtonHidden(true)
                     .navigationBarHidden(true)) {
                     

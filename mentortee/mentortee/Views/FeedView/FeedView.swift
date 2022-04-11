@@ -45,6 +45,7 @@ struct FeedView: View {
                     .foregroundColor(.primaryColor)
                                 , trailing: NavigationLink(destination: QuestionMakingMain()
                                     .navigationBarBackButtonHidden(true)
+                                    .navigationBarHidden(true)
                                 ) {
                 Image(systemName: "square.and.pencil")
                     .padding(.all, 16)

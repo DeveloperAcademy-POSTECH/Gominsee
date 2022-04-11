@@ -34,7 +34,7 @@ struct Question: View {
         GroupBox() {
         HStack() {
             HStack{
-                Image(systemName: thumbnail)
+                Image(thumbnail)
                     .resizable()
                     .frame(width: 30, height: 30)
                 Text(nickName)
@@ -67,7 +67,7 @@ struct Question: View {
 struct QuestionView: View {
     var body: some View {
         VStack {
-                Question(thumbnail: "person.crop.circle",nickName:"노엘",uploadTime:"1시간 전", category:"카테고리", question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?")
+                Question(thumbnail: "thumbnail_lv1",nickName:"노엘",uploadTime:"1시간 전", category:"카테고리", question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?")
         }
     }
 }

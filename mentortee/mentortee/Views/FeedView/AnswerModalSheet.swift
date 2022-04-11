@@ -66,15 +66,24 @@ struct AnswerModalSheet: View {
             .padding(keyboardHandler.keyboardHeight)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .padding(.bottom, keyboardHandler.keyboardHeight)
-//        .animation(.default) //withanimation
-        .background(RoundedRectangle(cornerRadius: 20).fill(Color(hex: 0x000000).opacity(0.7)))
-
+        .groupBoxStyle(PlainGroupBoxStyle())
         .ignoresSafeArea(edges: .bottom)
         .background(Color.backgroundColor)
         .onTapGesture {
             hideKeyboard()
         }
+    }
+}
+
+
+struct PlainGroupBoxStyle: GroupBoxStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .leading) {
+            configuration.label
+            configuration.content
+        }
+            .background(Color.backgroundColor)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 

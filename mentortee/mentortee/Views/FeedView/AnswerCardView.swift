@@ -24,7 +24,6 @@ struct FeedAnswerCardStyle: GroupBoxStyle {
     }
 }
 
-
 struct FeedAnswer: View {
     var category: String
     var otherThoughts : String
@@ -33,30 +32,26 @@ struct FeedAnswer: View {
     @State var showModal = false
     
     var body: some View {
-    
-    GroupBox(){
-        HStack{
+        GroupBox(){
             HStack{
-                Text(category)
-                    .font(.system(size: 14))
-                    .foregroundColor(Color.gray)
-                    .padding(.bottom, 5)
-
-            }
+                HStack{
+                    Text(category)
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.gray)
+                        .padding(.bottom, 5)
+                }
             
-            Spacer()
+                Spacer()
             
-            Button(action: {}) {
-                Image(systemName: "ellipsis")
-                    .foregroundColor(Color.black)
-                    .rotationEffect(Angle(degrees: 90))
-            }
+                Button(action: {}) {
+                    Image(systemName: "ellipsis")
+                        .foregroundColor(Color.black)
+                        .rotationEffect(Angle(degrees: 90))
+                }
             
-        }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
-            
-            
-            VStack(alignment: .leading){
-               
+            }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
+                
+            VStack(alignment: .leading) {
                 Text(question)
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
@@ -75,24 +70,25 @@ struct FeedAnswer: View {
                 }
             }
             .padding(EdgeInsets(top: 0, leading:25 , bottom: 10, trailing: 25))
-        Divider()
+            
+            Divider()
+            
+            HStack{
+                HStack {
+                    Text(questionOwner)
+                        .font(.system(size: 16)).bold()
+                    Text("의 질문")
+                        .font(.system(size: 16)).padding(.leading, -5)
+                }
+                
+                Spacer()
+                
+                Text(otherThoughts)
+                    .font(.system(size: 14))
+                
+            }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
         
-        HStack{
-            HStack {
-                Text(questionOwner)
-                    .font(.system(size: 16)).bold()
-                Text("의 질문")
-                    .font(.system(size: 16)).padding(.leading, -5)
-            }
-            
-            Spacer()
-            
-            Text(otherThoughts)
-                .font(.system(size: 14))
-            
-        }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
-    
-    }.groupBoxStyle(QuestionCardStyle())
+        }.groupBoxStyle(QuestionCardStyle())
     }
 }
 
