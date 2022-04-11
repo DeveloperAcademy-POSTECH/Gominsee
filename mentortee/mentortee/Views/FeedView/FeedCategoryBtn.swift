@@ -5,10 +5,6 @@
 //  Created by 이지수 on 2022/04/06.
 //
 
-// 1. 카테고리별 필터 주는 거
-// false/ true 주는거 인덱스로 바꿔보기
-
-
 import SwiftUI
 
 struct FeedCategoryBtn: View {
