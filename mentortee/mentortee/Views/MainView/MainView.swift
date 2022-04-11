@@ -33,7 +33,7 @@ struct MainView: View {
                 configuration.label
                 configuration.content
             }
-                .padding(EdgeInsets(top: 30, leading: 20, bottom: 100, trailing: 20))
+                .padding(EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20))
                 .frame(width: UIScreen.main.bounds.width - 50, height: nil)
                 .background(
                 LinearGradient(
@@ -47,6 +47,9 @@ struct MainView: View {
     var today = Date()
     @State private var cardHeight = UIScreen.main.bounds.height * 0.45
     @State private var cardTextHeight = UIScreen.main.bounds.height * 0.2
+    @State private var answerText = "질문에 대한 나의 생각을 적어보세요."
+    @State private var answerColor = Color.black.opacity(0.2)
+    @State private var tapTextEditor = false
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: 0) {
@@ -67,35 +70,59 @@ struct MainView: View {
                                 .font(.system(size: 14))
                         }
                     }
+                    tapTextEditor ?
+                    HStack {
+                        Text("제출")
+                            .foregroundColor(Color.mainGreen)
+                        .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                            .background(
+                                RoundedRectangle(cornerRadius: 10))
+                            .onTapGesture {
+                                print(answerText)
+                            }
+                    }
+                    .padding(.top, 50)
+                        .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
+                    : nil
                 })
                     .foregroundColor(.white)
                     .groupBoxStyle(PlainGroupBoxStyle())
 
-                TextField("질문에 대한 나의 생각을 적어보세요.", text: .constant(""))
-                    .padding(EdgeInsets(top: 16, leading: 16, bottom: screenHeight * 0.15, trailing: 16))
-                    .background(
-                    RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
-                    .frame(width: UIScreen.main.bounds.width - 50, height: nil)
+                TextEditor(text: $answerText)
                     .onTapGesture {
+                    answerText = ""
+                    answerColor = Color.black
                     cardHeight = screenHeight * 0.1
                     cardTextHeight = screenHeight * 0.1
                 }
+                    .foregroundColor(answerColor)
+                    .padding()
+                    .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height * 0.2)
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+                    .onChange(of: answerText) { value in
+                        if answerText.count == 0 {
+                            tapTextEditor = false
+                        } else {
+                            tapTextEditor = true
+                        }
+                }
+
             }
                 .navigationBarItems(leading: Text("고민씨")
                     .padding(.all, 16)
                     .font(.system(size: 22)
                         .weight(.bold))
                     .foregroundColor(.primaryColor)
-                                    , trailing: NavigationLink(destination: QuestionMakingMain()
-                                        .navigationBarBackButtonHidden(true)
-                                                              ) {
+                , trailing: NavigationLink(destination: QuestionMakingMain()
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarHidden(true)
+                ) {
                     Image(systemName: "square.and.pencil")
                         .padding(.all, 16)
                         .font(.system(size: 20))
                         .foregroundColor(.mainGreen)
                 }
             )
-
                 .onTapGesture {
                 hideKeyboard()
                 cardHeight = UIScreen.main.bounds.height * 0.45
