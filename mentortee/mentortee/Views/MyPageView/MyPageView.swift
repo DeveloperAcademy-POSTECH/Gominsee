@@ -44,8 +44,36 @@ struct MyQna: View {
 }
 
 struct MyCharacter: View {
+    var userLV = 1
+    var cntRequireQuestion = 1
+    var cntRequireAnswer = 2
+    
     var body: some View {
-        Text("a").frame(maxWidth: .infinity, maxHeight: .infinity).background(RoundedRectangle(cornerRadius: 10).fill(Color.white)).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+        ZStack {
+            VStack {
+                Image("character_lv1").shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+                Spacer()
+            }
+            VStack {
+                HStack {
+                    HStack {
+                        Text("곰민").font(.system(size: 20)).bold()
+                        Text("Lv. \(userLV)").font(.system(size: 14))
+                    }.frame(alignment: .leading).padding(10).background(RoundedRectangle(cornerRadius: 10).fill(Color.white)).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+                    Spacer()
+                }
+                Spacer().frame(height: 5)
+                HStack {
+                    HStack {
+                        Text("다음 성장까지")
+                        Text("질문 \(cntRequireQuestion)개, 답변 \(cntRequireAnswer)개").bold()
+                        Text("가 필요해요!")
+                    }.font(.system(size: 14)).padding(10).background(RoundedRectangle(cornerRadius: 10).fill(Color.white)).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+                    Spacer()
+                }
+                Spacer()
+            }.frame(maxWidth: .infinity, alignment: .leading).padding(20)
+        }
     }
 }
 
@@ -60,7 +88,7 @@ struct favoriteCategory: View {
             .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
             .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
-        }.foregroundColor(Color.black)
+        }.foregroundColor(Color.black).offset(y: -50)
     }
 }
 
