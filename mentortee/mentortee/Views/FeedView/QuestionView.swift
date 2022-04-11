@@ -49,7 +49,7 @@ struct Question: View {
         }
         .padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
             Divider() //구분선
-                .padding(.trailing, 15)
+                .padding(.horizontal, 15)
             VStack(alignment: .leading) {
                 Text(category)
                     .font(.system(size: 14))
