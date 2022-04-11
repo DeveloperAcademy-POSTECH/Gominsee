@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct QuestionDetailView: View {
-    
     @State private var isShowingConfirmation = false
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
@@ -16,52 +15,52 @@ struct QuestionDetailView: View {
     var nickname: String
     var myName: String = "meenu"
     
-
     var body: some View {
         NavigationView {
             ZStack {
-//                       Color.backgroundColor
-//                           .ignoresSafeArea()
-                        //배경색 영역
+                Color.backgroundColor.ignoresSafeArea()
+                //배경색 영역
                 VStack {
                     QuestionView().padding(.top, -40)
                     AnswerDetailView()
                 }
                 .navigationBarItems(leading: Button(action: {
                     // 뒤로가기 기능이 들어가야함
-                    }) { Image(systemName: "arrow.left")
-                        .imageScale(.large)
-                        .foregroundColor(.black)
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .imageScale(.large)
+                            .foregroundColor(.black)
                     }, trailing: Button(action: {
-                            isShowingConfirmation = true
-                    }) {Image(systemName: "ellipsis")
-                                    .imageScale(.large)
-                                    .foregroundColor(.black)
-                                    .rotationEffect(Angle(degrees: 90))
+                        isShowingConfirmation = true
+                    }) {
+                        Image(systemName: "ellipsis")
+                            .imageScale(.large)
+                            .foregroundColor(.black)
+                            .rotationEffect(Angle(degrees: 90))
                     }
-                    .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation){
-                        if(myName == nickname){
-                        Button("수정하기") {
+                    .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation) {
+                        if(myName == nickname) {
+                            Button("수정하기") {
                             //수정하기페이지로 이동
                             //NavigationLink(destination:MakingQuestion())
                         }
                         Button("삭제하기", role: .destructive) {
                             self.showingDeleteAlert = true
                         }
-                    } else {
-                        Button("신고하기", role: .destructive) {
-                                    showingReportAlert = true
-                                }
+                    }
+                        else {
+                            Button("신고하기", role: .destructive) {
+                                showingReportAlert = true
+                            }
                         }
-                               }
+                    }
                     .alert("게시글을 삭제하시겠습니까?", isPresented: $showingDeleteAlert) {
                         Button("삭제", role: .destructive) {}
                         Button("취소", role: .cancel) {}
-
                     } message: {
                         Text("게시글을 삭제하시면 복구할 수 없어요ㅠ^ㅠ 신중하게 생각하고 선택해주세요.")
                     }
-                    .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility:.visible){
+                    .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility:.visible) {
                         Button("스팸") {
                             //신고 누르면 카운트 기능?
                         }

@@ -53,7 +53,7 @@ struct favoriteCategory: View {
     var body: some View {
         Button (action: {}) {
             HStack {
-                Text("aaaaaa").font(.system(size: 16)).padding(.leading, 10)
+                Text("관심 카테고리").font(.system(size: 16)).padding(.leading, 10)
                 Spacer()
                 Image(systemName: "chevron.right").padding(.trailing, 10)
             }
@@ -72,7 +72,7 @@ struct MyPageView: View {
                 MyQna(cntMyQuestion: 10, cntMyAnswer: 10)
                 MyCharacter()
                 favoriteCategory()
-            }.offset(y:-40).padding(.horizontal, 16)
+            }.offset(y: -40).padding(.horizontal, 16)
             .navigationBarItems(leading: Text("고민씨")
                 .padding(.all, 16)
                 .font(.system(size: 22).weight(.bold))
