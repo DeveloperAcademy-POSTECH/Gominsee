@@ -23,21 +23,19 @@ struct QuestionSub2: View {
             Text("보관함에 내가 쓴 질문이 한개 더 쌓였네요!")
                 .font(.subheadline)
             
-            Button(action: {
-                //버튼을 클릭했을 때 실행되는 코드
+            NavigationLink(destination: QuestionView() //추후 destination 수정 필요
+                .navigationBarBackButtonHidden(true)
+                .navigationBarHidden(true)) {
                 
-            }){
-                //버튼의 보여지는 UI 코드
-                
-                Text("보관함으로 가볼래요?")
-                    .font(.title3)
-                    .bold()
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 10)
-                    .background(Color.primaryColor)
-                    .cornerRadius(10)
-            }
+                    Text("보관함으로 가볼래요?")
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 40)
+                        .padding(.vertical, 10)
+                        .background(Color.primaryColor)
+                        .cornerRadius(10)
+                }
             
         }
     }
