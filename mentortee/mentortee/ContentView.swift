@@ -16,10 +16,7 @@ struct ContentView: View {
             TabView(selection: $selection) {
                 MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
                 FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
-
-            
-                Text("my qna").tabItem { Image(systemName: "doc.text").environment(\.symbolVariants, .none) }.tag(3)
-                Text("my page").tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(4)
+                MyPageView().tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
             }
         }
     }
