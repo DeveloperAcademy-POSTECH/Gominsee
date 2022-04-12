@@ -33,7 +33,7 @@ struct FeedCategoryBtn: View {
                     .frame(width: 60, height: 30)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[0] ? Color.primaryColor : Color.gray))
-                    .foregroundColor(click[0] ? Color.white : Color.black)
+                    .foregroundColor(Color.white)
                 
                     // 가치관 1
                     Button(action: {
@@ -56,7 +56,6 @@ struct FeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[1] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[1] ? Color.white : Color.black)
                     
                     // 진로 2
                     Button(action: {
@@ -79,7 +78,6 @@ struct FeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[2] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[2] ? Color.white : Color.black)
                     
                     // 취향 3
                     Button(action: {
@@ -102,7 +100,6 @@ struct FeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[3] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[3] ? Color.white : Color.black)
                     
                     //취미 4
                     Button(action: {
@@ -125,7 +122,6 @@ struct FeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[4] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[4] ? Color.white : Color.black)
                     
                     // 고민 5
                     Button(action: {
@@ -148,7 +144,6 @@ struct FeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[5] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[5] ? Color.white : Color.black)
                     
                     // 비밀 6
                     Button(action: {
@@ -171,7 +166,6 @@ struct FeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[6] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[6] ? Color.white : Color.black)
                     
                     // 회고 7
                     Button(action: {
@@ -194,7 +188,6 @@ struct FeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[7] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[7] ? Color.white : Color.black)
                     
                     // 습관 8
                     Button(action: {
@@ -217,7 +210,6 @@ struct FeedCategoryBtn: View {
                     .foregroundColor(Color.white)
                     .background(RoundedRectangle(cornerRadius: 40)
                         .fill(click[8] ? Color.primaryColor  : Color.gray))
-                    .foregroundColor(click[8] ? Color.white : Color.black)
                     
                 }//.frame(width: .infinity, height: screenHeight - 200 , alignment: .topLeading)
                 .padding(16)
