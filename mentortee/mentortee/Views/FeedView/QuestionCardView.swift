@@ -54,37 +54,38 @@ struct FeedQuestion: View {
     var question: String
     var questionOwner: String
     @State var showModal = false
+    @State var showQuestionDetailview = false
     
     var body: some View {
-    
-    GroupBox(){
-        HStack{
+        
+        GroupBox(){
             HStack{
-                Text(category)
-                    .font(.system(size: 14))
-                    .foregroundColor(Color.gray)
-                    .padding(.bottom, 5)
-
-            }
-            
-            Spacer()
-            
-            Button(action: {}) {
-                Image(systemName: "ellipsis")
-                    .foregroundColor(Color.black)
-                    .rotationEffect(Angle(degrees: 90))
-            }
-            
-        }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
+                HStack{
+                    Text(category)
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.gray)
+                        .padding(.bottom, 5)
+                    
+                }
+                
+                Spacer()
+                
+                Button(action: {}) {
+                    Image(systemName: "ellipsis")
+                        .foregroundColor(Color.black)
+                        .rotationEffect(Angle(degrees: 90))
+                }
+                
+            }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
             
             
             VStack(alignment: .leading){
-               
+                
                 Text(question)
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
-        
+                
                 Button(action: {
                     self.showModal = true
                 }) {
@@ -98,24 +99,28 @@ struct FeedQuestion: View {
                 }
             }
             .padding(EdgeInsets(top: 0, leading:25 , bottom: 10, trailing: 25))
-        Divider()
-        
-        HStack{
-            HStack {
-                Text(questionOwner)
-                    .font(.system(size: 16)).bold()
-                Text("의 질문")
-                    .font(.system(size: 16)).padding(.leading, -5)
-            }
+            Divider()
             
-            Spacer()
+            HStack{
+                HStack {
+                    Text(questionOwner)
+                        .font(.system(size: 16)).bold()
+                    Text("의 질문")
+                        .font(.system(size: 16)).padding(.leading, -5)
+                }
+                
+                Spacer()
+                NavigationLink(destination: QuestionDetailView(nickname: "노엘")
+                    .navigationBarHidden(true)) {
+                            VStack{
+                                Text(otherThoughts)
+                        }
+                }
+                
+                
+            }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
             
-            Text(otherThoughts)
-                .font(.system(size: 14))
-            
-        }.padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
-    
-    }.groupBoxStyle(QuestionCardStyle())
+        }.groupBoxStyle(QuestionCardStyle())
     }
 }
 
@@ -137,12 +142,12 @@ struct QuestionCardView: View {
             }
             .navigationBarTitle("내가 한 질문", displayMode: .inline)
             .navigationBarItems(leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
-                }) {
-                        Image(systemName: "chevron.backward")
-                            .font(.system(size: 20))
-                            .foregroundColor(.black)
-                    })
+                self.mode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "chevron.backward")
+                    .font(.system(size: 20))
+                    .foregroundColor(.black)
+            })
         }
     }
 }
