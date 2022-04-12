@@ -12,6 +12,7 @@ struct QuestionDetailView: View {
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
     @State private var showDialog = false
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var nickname: String
     var myName: String = "meenu"
@@ -26,7 +27,7 @@ struct QuestionDetailView: View {
                     AnswerDetailView()
                 }
                 .navigationBarItems(leading: Button(action: {
-                    // 뒤로가기 기능이 들어가야함
+                    self.mode.wrappedValue.dismiss()// 뒤로가기 기능이 들어가야함
                     }) {
                         Image(systemName: "arrow.left")
                             .imageScale(.large)
