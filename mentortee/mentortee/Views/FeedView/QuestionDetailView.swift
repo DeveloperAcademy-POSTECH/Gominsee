@@ -29,7 +29,7 @@ struct QuestionDetailView: View {
                 .navigationBarItems(leading: Button(action: {
                     self.mode.wrappedValue.dismiss()// 뒤로가기 기능이 들어가야함
                     }) {
-                        Image(systemName: "arrow.left")
+                        Image(systemName: "chevron.backward")
                             .imageScale(.large)
                             .foregroundColor(.black)
                     }, trailing: Button(action: {
