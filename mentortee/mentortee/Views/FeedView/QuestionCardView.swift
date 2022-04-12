@@ -119,8 +119,12 @@ struct FeedQuestion: View {
     }
 }
 
-struct FeedQuestionView: View {
+struct QuestionCardView: View {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
+        
+        
         NavigationView {
             VStack {
                 CountQuestion()
@@ -132,14 +136,20 @@ struct FeedQuestionView: View {
                 }
             }
             .navigationBarTitle("내가 한 질문", displayMode: .inline)
-            .navigationBarItems(leading: Image(systemName: "arrow.left"))
+            .navigationBarItems(leading: Button(action: {
+                    self.mode.wrappedValue.dismiss()
+                }) {
+                        Image(systemName: "chevron.backward")
+                            .font(.system(size: 20))
+                            .foregroundColor(.black)
+                    })
         }
     }
 }
 
-struct FeedQuestionView_Previews: PreviewProvider {
+struct QuestionCardView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedQuestionView()
+        QuestionCardView()
     }
 }
 

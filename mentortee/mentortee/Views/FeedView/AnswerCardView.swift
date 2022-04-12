@@ -92,7 +92,10 @@ struct FeedAnswer: View {
     }
 }
 
-struct FeedAnswerView: View {
+struct AnswerCardView: View {
+    
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -105,13 +108,40 @@ struct FeedAnswerView: View {
                 }
             }
             .navigationBarTitle("내가 답한 질문", displayMode: .inline)
-            .navigationBarItems(leading: Image(systemName: "arrow.left"))
+            .navigationBarItems(leading: Button(action: {
+                    self.mode.wrappedValue.dismiss()
+                }) {
+                        Image(systemName: "chevron.backward")
+                            .font(.system(size: 20))
+                            .foregroundColor(.black)
+                    })
         }
     }
 }
 
-struct FeedAnswerView_Previews: PreviewProvider {
+struct AnswerCardView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedAnswerView()
+        AnswerCardView()
     }
 }
+
+
+//    .navigationBarTitle(Text("질문 만들기"), displayMode: .inline)
+//    .navigationBarItems(leading: Button(action: {
+//    self.mode.wrappedValue.dismiss()
+//}) {
+//        Image(systemName: "chevron.backward")
+//            .padding(.all, 16)
+//            .font(.system(size: 20))
+//            .foregroundColor(.black)
+//    },
+//    trailing: NavigationLink(destination: getDestination()
+//            .navigationBarBackButtonHidden(true)
+//    )
+//    {
+//        Text("완료")
+//    }
+//)
+//    .onTapGesture {
+//    hideKeyboard()
+//}

@@ -51,7 +51,6 @@ struct MainView: View {
     @State private var answerColor = Color.black.opacity(0.2)
     @State private var tapTextEditor = false
     var body: some View {
-        NavigationView {
             VStack(alignment: .center, spacing: 0) {
                 GroupBox(content: {
                     Text("\(today, formatter: MainView.dateformat)")
@@ -106,14 +105,12 @@ struct MainView: View {
                             tapTextEditor = true
                         }
                 }
-
             }
                 .onTapGesture {
                 hideKeyboard()
                 cardHeight = UIScreen.main.bounds.height * 0.45
                 cardTextHeight = screenHeight * 0.2
             }
-        }
     }
 }
 
