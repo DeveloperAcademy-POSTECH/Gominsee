@@ -13,27 +13,36 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            VStack() {
                 TabView(selection: $selection) {
                     MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
                     FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
                     MyPageView().tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
                 }
             }
-            .navigationBarItems(leading: Text("고민씨")
-                .padding(.all, 16)
-                .font(.system(size: 22)
-                    .weight(.bold))
-                .foregroundColor(.primaryColor)
-            , trailing: NavigationLink(destination: QuestionMakingMain()
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarHidden(true)
-            ) {
-                Image(systemName: "square.and.pencil")
+                .navigationBarItems(leading: Text("고민씨")
                     .padding(.all, 16)
-                    .font(.system(size: 20))
-                    .foregroundColor(.mainGreen)
-            })
+                    .font(.system(size: 22)
+                        .weight(.bold))
+                    .foregroundColor(.primaryColor),
+                trailing: NavigationLink(destination: getDestination()) {
+                    Image(systemName: selection == 3 ? "gearshape" : "square.and.pencil")
+                        .padding(.all, 16)
+                        .font(.system(size: 20))
+                        .foregroundColor(.mainGreen)
+                }
+
+            )
+        }
+    }
+
+    func getDestination() -> AnyView {
+        if (selection == 3) {
+            return AnyView(SettingsView())
+        }
+        else {
+            return AnyView(QuestionMakingMain()
+                    .navigationBarHidden(true))
         }
     }
 }
