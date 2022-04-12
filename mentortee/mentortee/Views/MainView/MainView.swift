@@ -74,14 +74,14 @@ struct MainView: View {
                     HStack {
                         Text("제출")
                             .foregroundColor(Color.mainGreen)
-                        .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                            .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                             .background(
-                                RoundedRectangle(cornerRadius: 10))
+                            RoundedRectangle(cornerRadius: 10))
                             .onTapGesture {
-                                print(answerText)
-                            }
+                            print(answerText)
+                        }
                     }
-                    .padding(.top, 50)
+                        .padding(.top, 50)
                         .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
                     : nil
                 })
@@ -100,29 +100,14 @@ struct MainView: View {
                     .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height * 0.2)
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
                     .onChange(of: answerText) { value in
-                        if answerText.count == 0 {
-                            tapTextEditor = false
-                        } else {
-                            tapTextEditor = true
-                        }
+                    if answerText.count == 0 {
+                        tapTextEditor = false
+                    } else {
+                        tapTextEditor = true
+                    }
                 }
 
             }
-                .navigationBarItems(leading: Text("고민씨")
-                    .padding(.all, 16)
-                    .font(.system(size: 22)
-                        .weight(.bold))
-                    .foregroundColor(.primaryColor)
-                , trailing: NavigationLink(destination: QuestionMakingMain()
-                        .navigationBarBackButtonHidden(true)
-                        .navigationBarHidden(true)
-                ) {
-                    Image(systemName: "square.and.pencil")
-                        .padding(.all, 16)
-                        .font(.system(size: 20))
-                        .foregroundColor(.mainGreen)
-                }
-            )
                 .onTapGesture {
                 hideKeyboard()
                 cardHeight = UIScreen.main.bounds.height * 0.45
