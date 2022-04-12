@@ -11,8 +11,7 @@ struct FeedView: View {
     @State private var showModal = false
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .center, spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
                 ZStack{
                     VStack {
                         FeedCategoryBtn()
@@ -38,7 +37,6 @@ struct FeedView: View {
                 .offset(y: -30)
                 .background(Color.backgroundColor)
             }
-        }
     }
 }
 
