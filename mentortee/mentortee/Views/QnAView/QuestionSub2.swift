@@ -13,30 +13,27 @@ struct QuestionSub2: View {
             Image("ManUser")
                 .resizable()
                 .frame(width: 200, height: 200)
-            
+
             Text("작성 완료!")
                 .font(.title2)
                 .padding()
-            
+
             Text("스스로에게 한발짝 더 다가갔군요?")
                 .font(.subheadline)
             Text("보관함에 내가 쓴 질문이 한개 더 쌓였네요!")
                 .font(.subheadline)
-            
-            NavigationLink(destination: QuestionView() //추후 destination 수정 필요
-                .navigationBarBackButtonHidden(true)
-                .navigationBarHidden(true)) {
-                
-                    Text("보관함으로 가볼래요?")
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 40)
-                        .padding(.vertical, 10)
-                        .background(Color.primaryColor)
-                        .cornerRadius(10)
-                }
-            
+
+            NavigationLink(destination: ContentView()
+                    .navigationBarHidden(true)) {
+                Text("보관함으로 가볼래요?")
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 40)
+                    .padding(.vertical, 10)
+                    .background(Color.primaryColor)
+                    .cornerRadius(10)
+            }
         }
     }
 }
