@@ -38,20 +38,6 @@ struct FeedView: View {
                 .offset(y: -30)
                 .background(Color.backgroundColor)
             }
-            .navigationBarItems(leading: Text("고민씨")
-                .padding(.all, 16)
-                .font(.system(size: 22)
-                    .weight(.bold))
-                    .foregroundColor(.primaryColor)
-                                , trailing: NavigationLink(destination: QuestionMakingMain()
-                                    .navigationBarBackButtonHidden(true)
-                                    .navigationBarHidden(true)
-                                ) {
-                Image(systemName: "square.and.pencil")
-                    .padding(.all, 16)
-                    .font(.system(size: 20))
-                    .foregroundColor(.mainGreen)
-            })
         }
     }
 }
