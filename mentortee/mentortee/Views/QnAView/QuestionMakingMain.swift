@@ -99,7 +99,6 @@ struct QuestionMakingMain: View {
                     self.mode.wrappedValue.dismiss()
                 }) {
                         Image(systemName: "chevron.backward")
-                            .padding(.all, 16)
                             .font(.system(size: 20))
                             .foregroundColor(.black)
                     },
