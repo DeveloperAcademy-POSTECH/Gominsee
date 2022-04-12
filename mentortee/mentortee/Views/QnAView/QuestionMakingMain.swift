@@ -119,10 +119,12 @@ struct QuestionMakingMain: View {
 
     func getDestination() -> AnyView {
         if (isShare == true) {
-            return AnyView(ContentView())
+            return AnyView(QuestionSub1()
+                .navigationBarHidden(true))
         }
         else {
-            return AnyView(ContentView())
+            return AnyView(QuestionSub2()
+                .navigationBarHidden(true))
         }
     }
 

@@ -10,15 +10,30 @@ import SwiftUI
 struct ContentView: View {
     @State private var selection = 1
     @State private var isShowingDetailView = false
-    
+
     var body: some View {
-        VStack {
-            TabView(selection: $selection) {
-                MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
-                FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
-//                QuestionDetailView(nickname: "meenu").tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
-                MyPageView().tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
+        NavigationView {
+            VStack {
+                TabView(selection: $selection) {
+                    MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
+                    FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
+                    MyPageView().tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
+                }
             }
+            .navigationBarItems(leading: Text("고민씨")
+                .padding(.all, 16)
+                .font(.system(size: 22)
+                    .weight(.bold))
+                .foregroundColor(.primaryColor)
+            , trailing: NavigationLink(destination: QuestionMakingMain()
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true)
+            ) {
+                Image(systemName: "square.and.pencil")
+                    .padding(.all, 16)
+                    .font(.system(size: 20))
+                    .foregroundColor(.mainGreen)
+            })
         }
     }
 }
