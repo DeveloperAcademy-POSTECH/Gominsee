@@ -90,8 +90,12 @@ struct MyCharacter: View {
 }
 
 struct favoriteCategory: View {
+    
+
+
     var body: some View {
-        NavigationLink(destination: CategoryView()) {
+        NavigationLink(destination: CategoryView()
+            .navigationBarHidden(true)) {
                 HStack {
                     Text("관심 카테고리").font(.system(size: 16)).padding(.leading, 10)
                     Spacer()
@@ -101,6 +105,12 @@ struct favoriteCategory: View {
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
                 .foregroundColor(.black)
                 .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+//                .toolbar {
+//                    ToolbarItem(placement: .principal) {
+//                        // this sets the screen title in the navigation bar, when the screen is visible
+//                        Text("")
+//                    }
+//                }
         }
     }
 }
