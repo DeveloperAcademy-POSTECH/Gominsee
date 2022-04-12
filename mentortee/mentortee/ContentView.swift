@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var selection = 1
     @State private var isShowingDetailView = false
+    @State var firstNaviLinkActive: Bool = false
 
     var body: some View {
         NavigationView {
@@ -25,7 +26,7 @@ struct ContentView: View {
                     .font(.system(size: 22)
                         .weight(.bold))
                     .foregroundColor(.primaryColor),
-                trailing: NavigationLink(destination: getDestination()) {
+                trailing: NavigationLink(destination: getDestination(), isActive: $firstNaviLinkActive) {
                     Image(systemName: selection == 3 ? "gearshape" : "square.and.pencil")
                         .padding(.all, 16)
                         .font(.system(size: 20))
@@ -41,7 +42,7 @@ struct ContentView: View {
             return AnyView(SettingsView())
         }
         else {
-            return AnyView(QuestionMakingMain()
+            return AnyView(QuestionMakingMain(firstNaviLinkActive: $firstNaviLinkActive)
                     .navigationBarHidden(true))
         }
     }
