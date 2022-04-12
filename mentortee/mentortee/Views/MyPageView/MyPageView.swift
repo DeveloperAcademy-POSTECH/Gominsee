@@ -72,7 +72,8 @@ struct MyCharacter: View {
                     Spacer()
                 }
                 Spacer()
-            }.frame(maxWidth: .infinity, alignment: .leading).padding(25)
+            }.frame(maxWidth: .infinity, alignment: .leading)
+                .padding(25)
         }
     }
 }
@@ -94,26 +95,15 @@ struct favoriteCategory: View {
 
 struct MyPageView: View {
     var body: some View {
-        NavigationView {
             VStack {
                 MyInfo(username: "meenu")
                 MyQna(cntMyQuestion: 10, cntMyAnswer: 10)
                 MyCharacter()
                 favoriteCategory()
-            }.offset(y: -40).padding(.horizontal, 16)
-            .navigationBarItems(leading: Text("고민씨")
-                .padding(.all, 16)
-                .font(.system(size: 22).weight(.bold))
-                .foregroundColor(.primaryColor),
-                                trailing: NavigationLink(destination: QuestionMakingMain()
-                                    .navigationBarBackButtonHidden(true))
-                                {
-                Image(systemName: "gearshape")
-                    .padding(.all, 16)
-                    .foregroundColor(.mainGreen)
-                }
-            )
-        }
+                Spacer()
+            }
+            .offset(y: -40)
+            .padding(.horizontal, 16)
     }
 }
 
