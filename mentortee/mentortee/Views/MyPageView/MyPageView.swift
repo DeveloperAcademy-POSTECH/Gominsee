@@ -41,7 +41,7 @@ struct MyQna: View {
             
             Divider()
             
-            NavigationLink(destination: QuestionCardView()
+            NavigationLink(destination: AnswerCardView()
                 .navigationBarHidden(true)) {
                 VStack {
                     Text("내가 답한 질문").font(.system(size: 14)).bold()
