@@ -30,15 +30,26 @@ struct MyQna: View {
     
     var body: some View {
         HStack {
-            VStack {
-                Text("내가 만든 질문").font(.system(size: 14)).bold()
-                Text("\(cntMyQuestion)").font(.system(size: 30)).bold()
-            }.frame(width: (screenWidth - 50) / 2)
+            NavigationLink(destination: QuestionCardView()
+                .navigationBarHidden(true)) {
+                VStack {
+                    Text("내가 만든 질문").font(.system(size: 14)).bold()
+                    Text("\(cntMyQuestion)").font(.system(size: 30)).bold()
+                }.frame(width: (screenWidth - 50) / 2)
+            }
+            .foregroundColor(.black)
+            
             Divider()
-            VStack {
-                Text("내가 답한 질문").font(.system(size: 14)).bold()
-                Text("\(cntMyAnswer)").font(.system(size: 30)).bold()
-            }.frame(width: (screenWidth - 50) / 2)
+            
+            NavigationLink(destination: QuestionCardView()
+                .navigationBarHidden(true)) {
+                VStack {
+                    Text("내가 답한 질문").font(.system(size: 14)).bold()
+                    Text("\(cntMyAnswer)").font(.system(size: 30)).bold()
+                }.frame(width: (screenWidth - 50) / 2)
+            }
+            .foregroundColor(.black)
+            
         }.frame(maxWidth: .infinity, maxHeight: 90).background(RoundedRectangle(cornerRadius: 10).fill(Color.white)).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
     }
 }
@@ -79,16 +90,17 @@ struct MyCharacter: View {
 
 struct favoriteCategory: View {
     var body: some View {
-        Button (action: {}) {
-            HStack {
-                Text("관심 카테고리").font(.system(size: 16)).padding(.leading, 10)
-                Spacer()
-                Image(systemName: "chevron.right").padding(.trailing, 10)
-            }
-            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
-        }.foregroundColor(Color.black)
+        NavigationLink(destination: CategoryView()) {
+                HStack {
+                    Text("관심 카테고리").font(.system(size: 16)).padding(.leading, 10)
+                    Spacer()
+                    Image(systemName: "chevron.right").padding(.trailing, 10)
+                }
+                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+                .foregroundColor(.black)
+                .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+        }
     }
 }
 
