@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct QuestionSub2: View {
+    @Binding var firstNaviLinkActive: Bool
+    
     var body: some View {
         VStack {
             Image("ManUser")
@@ -23,28 +25,23 @@ struct QuestionSub2: View {
             Text("보관함에 내가 쓴 질문이 한개 더 쌓였네요!")
                 .font(.subheadline)
 
-            NavigationLink(destination: ContentView()
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarHidden(true)) {
-
-                Text("보관함으로 가볼래요?")
-                    .font(.title3)
-                    .bold()
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 10)
-                    .background(Color.primaryColor)
-                    .cornerRadius(10)
-            }
-
+            Text("보관함으로 가볼래요?")
+                .font(.title3)
+                .bold()
+                .foregroundColor(.white)
+                .padding(.horizontal, 40)
+                .padding(.vertical, 10)
+                .background(Color.primaryColor)
+                .cornerRadius(10)
+                .onTapGesture {
+                    firstNaviLinkActive = false
+                }
         }
     }
 }
 
-struct QuestionSub2_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionSub2()
-    }
-}
-
-// 수정1. "보관함으로 가볼래요 텍스트 박스를 버튼으로 수정 "
+//struct QuestionSub2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuestionSub2()
+//    }
+//}

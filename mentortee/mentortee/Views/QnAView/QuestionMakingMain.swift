@@ -14,6 +14,7 @@ struct QuestionMakingMain: View {
     @State private var myThought: String = "무엇이든지 자유롭게 적어주세요"
     @State private var myQuestionColor = Color.black.opacity(0.2)
     @State private var myThoughtColor = Color.black.opacity(0.2)
+    @Binding var firstNaviLinkActive: Bool
 
     let screenWidth1 = UIScreen.main.bounds.size.width
     let screenHeight1 = UIScreen.main.bounds.size.height
@@ -104,6 +105,7 @@ struct QuestionMakingMain: View {
                     },
                     trailing: NavigationLink(destination: getDestination()
                             .navigationBarBackButtonHidden(true)
+                                             
                     )
                     {
                         Text("완료")
@@ -118,11 +120,11 @@ struct QuestionMakingMain: View {
 
     func getDestination() -> AnyView {
         if (isShare == true) {
-            return AnyView(QuestionSub1()
+            return AnyView(QuestionSub1(firstNaviLinkActive: $firstNaviLinkActive)
                 .navigationBarHidden(true))
         }
         else {
-            return AnyView(QuestionSub2()
+            return AnyView(QuestionSub2(firstNaviLinkActive: $firstNaviLinkActive)
                 .navigationBarHidden(true))
         }
     }
@@ -133,8 +135,10 @@ struct QuestionMakingMain: View {
     }
 }
 
-struct QuestionMakingMain_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionMakingMain()
-    }
-}
+//struct QuestionMakingMain_Previews: PreviewProvider {
+//    @State var firstNaviLinkActive: Bool
+//    
+//    static var previews: some View {
+//        QuestionMakingMain()
+//    }
+//}
