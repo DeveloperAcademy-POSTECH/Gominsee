@@ -23,7 +23,7 @@ struct AnswerView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Image(systemName: thumbnail).resizable().frame(width: 28, height: 28).padding(5)
+                Image(thumbnail).resizable().frame(width: 40, height: 40).padding(5)
                 VStack(alignment: .leading) {
                     HStack {
                         Text(nickname).font(.system(size: 16)).bold()
@@ -106,12 +106,12 @@ struct Accordion: View {
             VStack {
                 Spacer().frame(height: 60)
                 ScrollView {
-                    AnswerView(thumbnail: "person", nickname: "meenu", date: "1시간 전", contents: "노란색을 보면 기분이 좋아짐")
-                    AnswerView(thumbnail: "person.fill", nickname: "chemi", date: "2시간 전", contents: "보라색")
-                    AnswerView(thumbnail: "person.crop.circle", nickname: "brown", date: "3시간 전", contents: "브라운")
-                    AnswerView(thumbnail: "person.crop.circle.fill", nickname: "noel", date: "4시간 전", contents: "보라색")
-                    AnswerView(thumbnail: "person.circle", nickname: "rookie", date: "5시간 전", contents: "주황색")
-                    AnswerView(thumbnail: "person.circle.fill", nickname: "daon", date: "6시간 전", contents: "연두색")
+                    AnswerView(thumbnail: "thumbnail_lv1", nickname: "meenu", date: "1시간 전", contents: "노란색을 보면 기분이 좋아짐")
+                    AnswerView(thumbnail: "thumbnail_lv2", nickname: "chemi", date: "2시간 전", contents: "보라색")
+                    AnswerView(thumbnail: "thumbnail_lv3", nickname: "brown", date: "3시간 전", contents: "브라운")
+                    AnswerView(thumbnail: "thumbnail_lv1", nickname: "noel", date: "4시간 전", contents: "보라색")
+                    AnswerView(thumbnail: "thumbnail_lv3", nickname: "rookie", date: "5시간 전", contents: "주황색")
+                    AnswerView(thumbnail: "thumbnail_lv2", nickname: "daon", date: "6시간 전", contents: "연두색")
                     Spacer().frame(height: 10)
                 }
             }
