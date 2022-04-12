@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Answer" representedClassName=".Answer" syncable="YES">
+        <attribute name="aid" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="contents" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="secret" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="answerToQuestion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="questionToAnswer" inverseEntity="Question"/>
+        <relationship name="answerToReport" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Report" inverseName="reportToAnswer" inverseEntity="Report"/>
+        <relationship name="answerToUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userToAnswer" inverseEntity="User"/>
+    </entity>
+    <entity name="Category" representedClassName=".Category" syncable="YES">
+        <attribute name="cid" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="contents" optional="YES" attributeType="String"/>
+        <relationship name="categoryToQuestionCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionCategory" inverseName="questionCategoryToCategory" inverseEntity="QuestionCategory"/>
+        <relationship name="categoryToUserCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserCategory" inverseName="userCategoryToCategory" inverseEntity="UserCategory"/>
+    </entity>
+    <entity name="Character" representedClassName=".Character" syncable="YES">
+        <attribute name="point" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="characterToUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userToCharacter" inverseEntity="User"/>
+    </entity>
+    <entity name="Question" representedClassName=".Question" syncable="YES">
+        <attribute name="contents" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="qid" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="secret" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="questionToAnswer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answer" inverseName="answerToQuestion" inverseEntity="Answer"/>
+        <relationship name="questionToQuestionCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionCategory" inverseName="questionCategoryToQuestion" inverseEntity="QuestionCategory"/>
+        <relationship name="questionToReport" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Report" inverseName="reportToQuestion" inverseEntity="Report"/>
+        <relationship name="questionToUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userToQuestion" inverseEntity="User"/>
+    </entity>
+    <entity name="QuestionCategory" representedClassName=".QuestionCategory" syncable="YES">
+        <attribute name="qcid" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="questionCategoryToCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="categoryToQuestionCategory" inverseEntity="Category"/>
+        <relationship name="questionCategoryToQuestion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="questionToQuestionCategory" inverseEntity="Question"/>
+    </entity>
+    <entity name="Report" representedClassName=".Report" syncable="YES">
+        <attribute name="contents" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rid" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="reportToAnswer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Answer" inverseName="answerToReport" inverseEntity="Answer"/>
+        <relationship name="reportToQuestion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="questionToReport" inverseEntity="Question"/>
+        <relationship name="reportToUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userToReport" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="uid" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="userToAnswer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answer" inverseName="answerToUser" inverseEntity="Answer"/>
+        <relationship name="userToCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="characterToUser" inverseEntity="Character"/>
+        <relationship name="userToQuestion" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="questionToUser" inverseEntity="Question"/>
+        <relationship name="userToReport" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Report" inverseName="reportToUser" inverseEntity="Report"/>
+        <relationship name="userToUserCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserCategory" inverseName="userCategoryToUser" inverseEntity="UserCategory"/>
+    </entity>
+    <entity name="UserCategory" representedClassName=".UserCategory" syncable="YES">
+        <attribute name="ucid" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="userCategoryToCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="categoryToUserCategory" inverseEntity="Category"/>
+        <relationship name="userCategoryToUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userToUserCategory" inverseEntity="User"/>
+    </entity>
+    <elements>
+        <element name="Answer" positionX="-546.328125" positionY="212.45703125" width="128" height="148"/>
+        <element name="Category" positionX="-984.390625" positionY="-309.75" width="128" height="103"/>
+        <element name="Character" positionX="-861.6796875" positionY="224.71875" width="128" height="73"/>
+        <element name="Question" positionX="-342.26171875" positionY="-305.6015625" width="128" height="163"/>
+        <element name="QuestionCategory" positionX="-558.1875" positionY="-396.39453125" width="128" height="88"/>
+        <element name="Report" positionX="-603" positionY="9" width="128" height="118"/>
+        <element name="User" positionX="-970.51171875" positionY="-136.46484375" width="128" height="148"/>
+        <element name="UserCategory" positionX="-717.3828125" positionY="-211.08984375" width="139.328125" height="88"/>
+    </elements>
+</model>
