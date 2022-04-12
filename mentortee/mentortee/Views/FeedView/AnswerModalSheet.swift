@@ -55,9 +55,10 @@ struct AnswerModalSheet: View {
                 Button(action: {
                     saveAnswer()
                     presentation.wrappedValue.dismiss()
-                }) {
+                }, label: {
                     Text("작성완료:)").bold()
-                }
+                        .frame(width: 310, height: 40, alignment: .center)
+                })
                 .frame(width: 310, height: 40, alignment: .center)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryColor))
                 .font(.system(size: 16))
