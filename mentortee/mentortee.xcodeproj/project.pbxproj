@@ -8,6 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608E43627FD39500063E059 /* AnswerDetailView.swift */; };
+		263175C228051E9B00C13368 /* TestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263175C128051E9B00C13368 /* TestApi.swift */; };
+		263175C62805211900C13368 /* mentortee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 263175C42805211900C13368 /* mentortee.xcdatamodeld */; };
+		263175E72805230000C13368 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263175E62805230000C13368 /* Persistence.swift */; };
+		263175E9280558C200C13368 /* createTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263175E8280558C200C13368 /* createTestData.swift */; };
+		263176102805647E00C13368 /* Answer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631760E2805647E00C13368 /* Answer+CoreDataClass.swift */; };
+		263176112805647E00C13368 /* Answer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631760F2805647E00C13368 /* Answer+CoreDataProperties.swift */; };
+		26317620280564C300C13368 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26317612280564C300C13368 /* User+CoreDataClass.swift */; };
+		26317621280564C300C13368 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26317613280564C300C13368 /* User+CoreDataProperties.swift */; };
+		26317622280564C300C13368 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26317614280564C300C13368 /* Category+CoreDataClass.swift */; };
+		26317623280564C300C13368 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26317615280564C300C13368 /* Category+CoreDataProperties.swift */; };
+		26317624280564C300C13368 /* Question+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26317616280564C300C13368 /* Question+CoreDataClass.swift */; };
+		26317625280564C300C13368 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26317617280564C300C13368 /* Question+CoreDataProperties.swift */; };
+		26317626280564C300C13368 /* QuestionCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26317618280564C300C13368 /* QuestionCategory+CoreDataClass.swift */; };
+		26317627280564C300C13368 /* QuestionCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26317619280564C300C13368 /* QuestionCategory+CoreDataProperties.swift */; };
+		26317628280564C300C13368 /* Report+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761A280564C300C13368 /* Report+CoreDataClass.swift */; };
+		26317629280564C300C13368 /* Report+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761B280564C300C13368 /* Report+CoreDataProperties.swift */; };
+		2631762A280564C300C13368 /* Character+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761C280564C300C13368 /* Character+CoreDataClass.swift */; };
+		2631762B280564C300C13368 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761D280564C300C13368 /* Character+CoreDataProperties.swift */; };
+		2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761E280564C300C13368 /* UserCategory+CoreDataClass.swift */; };
+		2631762D280564C300C13368 /* UserCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761F280564C300C13368 /* UserCategory+CoreDataProperties.swift */; };
 		26A1D6782802CA7C002373FB /* AnswerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1D6772802CA7C002373FB /* AnswerCardView.swift */; };
 		26A1D67A2802CB3C002373FB /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1D6792802CB3C002373FB /* MyPageView.swift */; };
 		26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */; };
@@ -36,6 +56,26 @@
 
 /* Begin PBXFileReference section */
 		2608E43627FD39500063E059 /* AnswerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailView.swift; sourceTree = "<group>"; };
+		263175C128051E9B00C13368 /* TestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApi.swift; sourceTree = "<group>"; };
+		263175C52805211900C13368 /* Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Test.xcdatamodel; sourceTree = "<group>"; };
+		263175E62805230000C13368 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		263175E8280558C200C13368 /* createTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createTestData.swift; sourceTree = "<group>"; };
+		2631760E2805647E00C13368 /* Answer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2631760F2805647E00C13368 /* Answer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		26317612280564C300C13368 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		26317613280564C300C13368 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		26317614280564C300C13368 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		26317615280564C300C13368 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		26317616280564C300C13368 /* Question+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataClass.swift"; sourceTree = "<group>"; };
+		26317617280564C300C13368 /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		26317618280564C300C13368 /* QuestionCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		26317619280564C300C13368 /* QuestionCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2631761A280564C300C13368 /* Report+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Report+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2631761B280564C300C13368 /* Report+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Report+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2631761C280564C300C13368 /* Character+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2631761D280564C300C13368 /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2631761E280564C300C13368 /* UserCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2631761F280564C300C13368 /* UserCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		26A1D6772802CA7C002373FB /* AnswerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCardView.swift; sourceTree = "<group>"; };
 		26A1D6792802CB3C002373FB /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		26F56B4B27FBEC1B0066C0D1 /* mentortee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mentortee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +116,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		263175C32805210900C13368 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				26317612280564C300C13368 /* User+CoreDataClass.swift */,
+				26317613280564C300C13368 /* User+CoreDataProperties.swift */,
+				26317614280564C300C13368 /* Category+CoreDataClass.swift */,
+				26317615280564C300C13368 /* Category+CoreDataProperties.swift */,
+				26317616280564C300C13368 /* Question+CoreDataClass.swift */,
+				26317617280564C300C13368 /* Question+CoreDataProperties.swift */,
+				26317618280564C300C13368 /* QuestionCategory+CoreDataClass.swift */,
+				26317619280564C300C13368 /* QuestionCategory+CoreDataProperties.swift */,
+				2631761A280564C300C13368 /* Report+CoreDataClass.swift */,
+				2631761B280564C300C13368 /* Report+CoreDataProperties.swift */,
+				2631761C280564C300C13368 /* Character+CoreDataClass.swift */,
+				2631761D280564C300C13368 /* Character+CoreDataProperties.swift */,
+				2631761E280564C300C13368 /* UserCategory+CoreDataClass.swift */,
+				2631761F280564C300C13368 /* UserCategory+CoreDataProperties.swift */,
+				2631760E2805647E00C13368 /* Answer+CoreDataClass.swift */,
+				2631760F2805647E00C13368 /* Answer+CoreDataProperties.swift */,
+				263175C42805211900C13368 /* mentortee.xcdatamodeld */,
+				263175E8280558C200C13368 /* createTestData.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		26F56B4227FBEC1B0066C0D1 = {
 			isa = PBXGroup;
 			children = (
@@ -98,10 +163,13 @@
 				399B32FA27FE73BE0005F887 /* ColorData.swift */,
 				3973A05F27FD26CE00CDC599 /* Views */,
 				26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */,
+				263175E62805230000C13368 /* Persistence.swift */,
 				26F56B5027FBEC1B0066C0D1 /* ContentView.swift */,
 				A9AA19B827FC330A004ECC12 /* Chemi & Rookie */,
 				26F56B5227FBEC1E0066C0D1 /* Assets.xcassets */,
 				26F56B5427FBEC1E0066C0D1 /* Preview Content */,
+				263175C128051E9B00C13368 /* TestApi.swift */,
+				263175C32805210900C13368 /* DataModel */,
 			);
 			path = mentortee;
 			sourceTree = "<group>";
@@ -262,25 +330,54 @@
 			files = (
 				7B23C96827FD8E5D00EA7C2E /* QuestionView.swift in Sources */,
 				A9CFEE5C27FF3AE300EBE12E /* QuestionMakingMain.swift in Sources */,
+				26317623280564C300C13368 /* Category+CoreDataProperties.swift in Sources */,
 				A9AA19BC27FC33C2004ECC12 /* TapView.swift in Sources */,
+				263176102805647E00C13368 /* Answer+CoreDataClass.swift in Sources */,
+				26317628280564C300C13368 /* Report+CoreDataClass.swift in Sources */,
 				7B23C96627FD8D9A00EA7C2E /* QuestionDetailView.swift in Sources */,
+
+				7BBF34FB2803C7E3007E718E /* MakingNicknameView.swift in Sources */,
+				2631762B280564C300C13368 /* Character+CoreDataProperties.swift in Sources */,
+				26317620280564C300C13368 /* User+CoreDataClass.swift in Sources */,
+				2631762A280564C300C13368 /* Character+CoreDataClass.swift in Sources */,
+				263175E72805230000C13368 /* Persistence.swift in Sources */,
+
 				399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */,
 				A9F7C50B27FE664000052F36 /* QuestionSub1.swift in Sources */,
+				263175E9280558C200C13368 /* createTestData.swift in Sources */,
 				A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */,
+				2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */,
 				A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */,
+
+				26317622280564C300C13368 /* Category+CoreDataClass.swift in Sources */,
+
 				A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */,
+
 				A7D877DA27FF70F6001257EC /* KeyboardHandler.swift in Sources */,
+				26317625280564C300C13368 /* Question+CoreDataProperties.swift in Sources */,
 				A752B59C280034BF00B41987 /* FeedView.swift in Sources */,
 				3973A06527FD272F00CDC599 /* MainView.swift in Sources */,
 				2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */,
+				26317624280564C300C13368 /* Question+CoreDataClass.swift in Sources */,
 				26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */,
+				263176112805647E00C13368 /* Answer+CoreDataProperties.swift in Sources */,
+				26317626280564C300C13368 /* QuestionCategory+CoreDataClass.swift in Sources */,
 				26A1D67A2802CB3C002373FB /* MyPageView.swift in Sources */,
 				A9AA19BE27FC3A14004ECC12 /* TopBar.swift in Sources */,
 				A952D08728051F210098DBE8 /* CategoryView.swift in Sources */,
 				26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */,
+
+				26317621280564C300C13368 /* User+CoreDataProperties.swift in Sources */,
+
 				A952D08C280520400098DBE8 /* MakingNicknameView.swift in Sources */,
+
 				A73E251927FE7DB6006C42CB /* FeedCategoryBtn.swift in Sources */,
+				26317629280564C300C13368 /* Report+CoreDataProperties.swift in Sources */,
+				263175C228051E9B00C13368 /* TestApi.swift in Sources */,
+				263175C62805211900C13368 /* mentortee.xcdatamodeld in Sources */,
 				26A1D6782802CA7C002373FB /* AnswerCardView.swift in Sources */,
+				2631762D280564C300C13368 /* UserCategory+CoreDataProperties.swift in Sources */,
+				26317627280564C300C13368 /* QuestionCategory+CoreDataProperties.swift in Sources */,
 				A9AA19BA27FC3332004ECC12 /* MainPage.swift in Sources */,
 				275EDE0727FE83CC002D1CA4 /* QuestionCardView.swift in Sources */,
 			);
@@ -481,6 +578,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		263175C42805211900C13368 /* mentortee.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				263175C52805211900C13368 /* Test.xcdatamodel */,
+			);
+			currentVersion = 263175C52805211900C13368 /* Test.xcdatamodel */;
+			path = mentortee.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 26F56B4327FBEC1B0066C0D1 /* Project object */;
 }
