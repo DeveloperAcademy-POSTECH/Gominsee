@@ -11,15 +11,15 @@ struct CategoryView: View {
     
     @State var click1 = [false, false, false, false, false, false, false, false, false]
     
+    @State var isLogIn = true
+    
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
         
-        VStack(alignment: .leading){
+        VStack{
             
-        Text("간단한")
-            .font(.system(size: 24))
-            .bold()
-            .padding(.leading, 16)
-        Text("카테고리 설정")
+        Text("어떤 것에 관심이 있나요?")
             .font(.system(size: 24))
             .bold()
             .padding(.leading, 16)
@@ -269,12 +269,61 @@ struct CategoryView: View {
                     }
                 .padding()
                     
+                
                 }
             
+            Text("")
+                .padding()
             
+            if isLogIn == true {
+                            
+                            Button(action: {
+                            self.mode.wrappedValue.dismiss()
+                        }) {
+                            Text("다 골랐어요!")
+                                .font(.title3)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .background(Color.primaryColor)
+                                .cornerRadius(10)
+
+                            }
+
+            } else {
+                
+                NavigationLink(destination: ContentView()
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarHidden(true)) {
+                            
+                            Text("다 골랐어요!")
+                                .font(.title3)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .background(Color.primaryColor)
+                                .cornerRadius(10)
+
+                            }
+
+                }
+
+            
+
+                
+            }
+            
+
         }
+        
+    
+        
     }
-}
+    
+
+
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
