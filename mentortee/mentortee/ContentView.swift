@@ -16,7 +16,8 @@ struct ContentView: View {
         NavigationView {
             VStack() {
                 TabView(selection: $selection) {
-                    MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
+//                    MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
+                    Nickname().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
                     FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
                     MyPageView().tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
                 }

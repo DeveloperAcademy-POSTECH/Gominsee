@@ -15,6 +15,10 @@ extension View {
 }
 
 struct MainView: View {
+    @ObservedObject var userSetting = UserSetting()
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)]) var UserInfo: FetchedResults<User>
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     static let dateformat: DateFormatter = {
@@ -24,7 +28,7 @@ struct MainView: View {
         return formatter
     }()
 
-    var dailyQuestion = "OOO님이 생각하는 이상적인 삶은 어떤 모습인가요?"
+//    var dailyQuestion = "\(token)님이 생각하는 이상적인 삶은 어떤 모습인가요?"
     var categoryList = ["가치관"]
 
     struct PlainGroupBoxStyle: GroupBoxStyle {
@@ -55,7 +59,7 @@ struct MainView: View {
                 GroupBox(content: {
                     Text("\(today, formatter: MainView.dateformat)")
                         .bold()
-                    Text(dailyQuestion)
+                    Text("\(self.userSetting.accessToken)님이 생각하는 이상적인 삶은 어떤 모습인가요?")
                         .bold()
                         .font(.system(size: 35))
                         .minimumScaleFactor(0.5)

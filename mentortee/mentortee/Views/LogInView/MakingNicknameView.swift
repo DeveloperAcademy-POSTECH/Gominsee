@@ -6,16 +6,24 @@
 ////
 
 import SwiftUI
+import UIKit
 
 struct Nickname: View {
+    @ObservedObject var userSetting = UserSetting()
+
     @Environment(\.managedObjectContext) private var viewContext
 
-    @FetchRequest(entity: User.entity(), sortDescriptors: []) var UserInfo: FetchedResults<User>
+
+
+
+//    let fetchRequest: NSFetchRequest<User> fetchRequest = User.fetchRequest()
 
     @State private var name : String = ""
     // 기기별 스크린너비 변수받아오기
     let screenWidth1 = UIScreen.main.bounds.size.width
     let screenHeight1 = UIScreen.main.bounds.size.height
+
+    @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)], predicate: NSPredicate(format:"username == %@", $name)) var UserInfo: FetchedResults<User>
 
     var body: some View {
         ZStack{
@@ -38,18 +46,24 @@ struct Nickname: View {
                         .multilineTextAlignment(.leading)
                         .font(.system(size: 16))
                         .padding(.leading, 10)
+                    Button(action: {
+                        addItem()
+                    }) {
+                        Text("중복 확인")
+                    }
                 }
                 .padding(.vertical, 15)
                 .background(RoundedRectangle(cornerRadius: 10)
                     .fill(Color.white))
-                Button(action: {
-                    addItem()
-                }) {
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .fill(Color.primaryColor)
-                        .frame(maxWidth: .infinity, maxHeight: 50)
-                        .overlay(Text("입력완료 :)").foregroundColor(Color.white))
-                }
+                NavigationLink(destination: MainView()) {
+                    Text("입력 완료")
+                }.frame(maxWidth: .infinity, maxHeight: 50).background(RoundedRectangle(cornerRadius: 10.0)
+                    .fill(Color.primaryColor))
+//                NavigationLink(destination: MainView()) {
+//                    Button(action: { addItem() }) {
+//                        Text("입력 완료").foregroundColor(Color.white)
+//                    }.background(Color.primaryColor)
+//                }
             }.padding(.horizontal, 16)
                 .padding(.top, -200)
         }
@@ -59,18 +73,28 @@ struct Nickname: View {
     }
 
     private func addItem() {
+        print("a")
         withAnimation {
+//            @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)], predicate: NSPredicate(format:"username == %@", self.name)) var UserInfo: FetchedResults<User>
+            
+            let _ = print(self.name)
+            
             //수정 부분
-            let newUser = User(context: viewContext)
-            newUser.username = name
-            //textFieldTitle을 사용 후 재설정
-            name = ""
-
-            saveItems()
+            if UserInfo.isEmpty {
+                let newUser = User(context: viewContext)
+                newUser.username = name
+                name = ""
+                saveItems()
+            } else {
+                print("success")
+            }
+            self.userSetting.accessToken = name
+//            }
         }
     }
 
     private func saveItems() {
+        print("b")
         do {
             try viewContext.save()
         } catch {
