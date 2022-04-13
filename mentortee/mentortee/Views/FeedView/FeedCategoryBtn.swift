@@ -219,12 +219,12 @@ struct FeedCategoryBtn: View {
                         .fill(click[8] ? Color.primaryColor  : Color.gray))
                     .foregroundColor(click[8] ? Color.white : Color.black)
                     
-                }//.frame(width: .infinity, height: screenHeight - 200 , alignment: .topLeading)
-                .padding(16)
+                }
                 .background(Color.backgroundColor)
                 
             }
         }
+        .padding(.all, 16)
     }
 }
 
