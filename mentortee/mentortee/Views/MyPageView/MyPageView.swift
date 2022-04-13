@@ -16,9 +16,6 @@ struct MyInfo: View {
                 Text("님").padding(.leading, -5)
             }.font(.system(size: 24))
             Spacer()
-            Button("로그아웃") {
-                
-            }
         }
     }
 }
