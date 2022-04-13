@@ -30,8 +30,13 @@ struct FeedQuestion: View {
     var otherThoughts: String
     var question: String
     var questionOwner: String
+    var nickname: String
+    var myName: String = "meenu"
     @State var showModal = false
     @State var showQuestionDetailview = false
+    @State private var isShowingConfirmation = false
+    @State private var showingReportAlert = false
+    @State private var showingDeleteAlert = false
 
     var body: some View {
         GroupBox() {
@@ -43,10 +48,61 @@ struct FeedQuestion: View {
                         .padding(.bottom, 5)
                 }
                 Spacer()
-                Button(action: { }) {
+                Button(action: {
+                    isShowingConfirmation = true
+                }) {
                     Image(systemName: "ellipsis")
                         .foregroundColor(Color.black)
                         .rotationEffect(Angle(degrees: 90))
+                }
+                    .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation) {
+                    if(myName == nickname) {
+                        Button("수정하기") {
+                        }
+                        Button("삭제하기", role: .destructive) {
+                            self.showingDeleteAlert = true
+                        }
+                    }
+                    else {
+                        Button("신고하기", role: .destructive) {
+                            showingReportAlert = true
+                        }
+                    }
+                }
+                    .alert("게시글을 삭제하시겠습니까?", isPresented: $showingDeleteAlert) {
+                    Button("삭제", role: .destructive) { }
+                    Button("취소", role: .cancel) { }
+                } message: {
+                    Text("게시글을 삭제하시면 복구할 수 없어요ㅠ^ㅠ 신중하게 생각하고 선택해주세요.")
+                }
+                    .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility: .visible) {
+                    Button("스팸") {
+                        //신고 누르면 카운트 기능?
+                    }
+                    Button("성적인 발언") {
+                        //신고 누르면 카운트 기능?
+                    }
+                    Button("마음에 들지 않습니다") {
+                        //신고 누르면 카운트 기능?
+                    }
+                    Button("혐오 발언") {
+                        //신고 누르면 카운트 기능?
+                    }
+                    Button("사기 또는 거짓") {
+                        //신고 누르면 카운트 기능?
+                    }
+                    Button("따돌림 또는 괴롭힘") {
+                        //신고 누르면 카운트 기능?
+                    }
+                    Button("폭력 또는 위험한 단체") {
+                        //신고 누르면 카운트 기능?
+                    }
+                    Button("지식 재산권 침해") {
+                        //신고 누르면 카운트 기능?
+                    }
+                    Button("기타") {
+                        //신고 누르면 카운트 기능?
+                    }
                 }
             }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
 
@@ -104,7 +160,9 @@ struct QuestionCardView: View {
                         FeedQuestion(category: "가치관",
                             otherThoughts: "다른 생각 9개",
                             question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
-                            questionOwner: "Chemi")
+                            questionOwner: "Chemi",
+                            nickname: "Chemi"
+                        )
                     }
                 }
                     .navigationBarTitle("내가 한 질문", displayMode: .inline)
