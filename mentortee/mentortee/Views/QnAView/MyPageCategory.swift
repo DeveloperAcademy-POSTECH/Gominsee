@@ -19,7 +19,7 @@ struct MypageCategory: View {
                 HStack (spacing: 5) {
                     Button("전체") {
                         withAnimation(.easeInOut) {
-                            click2[0] = true
+                            click2[0].toggle()
 
                         }
                     }
@@ -30,7 +30,7 @@ struct MypageCategory: View {
 
                     Button(action: {
                         withAnimation(.easeInOut) {
-                            click2[1] = true
+                            click2[1].toggle()
 
                         }
                     }, label: {
@@ -47,7 +47,7 @@ struct MypageCategory: View {
 
                     Button(action: {
                         withAnimation(.easeInOut) {
-                            click2[2] = true
+                            click2[2].toggle()
 
                         }
                     }, label: {
@@ -64,7 +64,7 @@ struct MypageCategory: View {
 
                     Button(action: {
                         withAnimation(.easeInOut) {
-                            click2[3] = true
+                            click2[3].toggle()
 
                         }
                     }, label: {
@@ -81,7 +81,7 @@ struct MypageCategory: View {
 
                     Button(action: {
                         withAnimation(.easeInOut) {
-                            click2[4] = true
+                            click2[4].toggle()
                   
                         }
                     }, label: {
@@ -98,7 +98,7 @@ struct MypageCategory: View {
 
                     Button(action: {
                         withAnimation(.easeInOut) {
-                            click2[5] = true
+                            click2[5].toggle()
                           
                         }
                     }, label: {
@@ -115,7 +115,7 @@ struct MypageCategory: View {
 
                     Button(action: {
                         withAnimation(.easeInOut) {
-                            click2[6] = true
+                            click2[6].toggle()
                        
                         }
                     }, label: {
@@ -132,7 +132,7 @@ struct MypageCategory: View {
 
                     Button(action: {
                         withAnimation(.easeInOut) {
-                            click2[7] = true
+                            click2[7].toggle()
                       
                         }
                     }, label: {
@@ -149,7 +149,7 @@ struct MypageCategory: View {
 
                     Button(action: {
                         withAnimation(.easeInOut) {
-                            click2[8] = true
+                            click2[8].toggle()
                          
                         }
                     }, label: {

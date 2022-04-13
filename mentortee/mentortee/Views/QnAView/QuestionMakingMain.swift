@@ -15,6 +15,7 @@ struct QuestionMakingMain: View {
     @State private var myQuestionColor = Color.black.opacity(0.2)
     @State private var myThoughtColor = Color.black.opacity(0.2)
     @Binding var firstNaviLinkActive: Bool
+    
 
     let screenWidth1 = UIScreen.main.bounds.size.width
     let screenHeight1 = UIScreen.main.bounds.size.height
