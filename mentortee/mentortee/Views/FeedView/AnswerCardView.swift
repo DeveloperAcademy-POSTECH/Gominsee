@@ -58,12 +58,12 @@ struct FeedAnswer: View {
                     self.showModal = true
                 }) {
                     RoundedRectangle(cornerRadius: 10.0)
-                        .fill(Color.primaryColor)
+                        .fill(Color.subLightGreen)
                         .frame(width: 100, height: 30)
                         .overlay(Text("내 생각 보기").foregroundColor(Color.white))
                 }
-                    .sheet(isPresented: self.$showModal) {
-                    AnswerModalSheet(feedQuestion: question)
+                .sheet(isPresented: self.$showModal) {
+                    MythoughtModalSheet()
                 }
             }
                 .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25))
