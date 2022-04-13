@@ -34,12 +34,11 @@ struct AnswerView: View {
                         }
                         .background(Rectangle().fill(Color.backgroundColor))
                         .foregroundColor(Color.black)
-                        .rotationEffect(Angle(degrees: 90))
+                            .rotationEffect(Angle(degrees: 90))
                         .confirmationDialog("행동 선택", isPresented: $showingOptions) {
                             if (myName == nickname) {
                                 Button("수정하기") {
                                     print("수정하기")
-                                    
                                 }
                                 Button("삭제하기", role: .destructive) {
                                     showingDeleteAlert = true

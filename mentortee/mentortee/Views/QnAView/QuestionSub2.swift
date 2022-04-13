@@ -9,7 +9,7 @@ import SwiftUI
 
 struct QuestionSub2: View {
     @Binding var firstNaviLinkActive: Bool
-    
+
     var body: some View {
         ZStack {
             Color.backgroundColor
@@ -37,8 +37,8 @@ struct QuestionSub2: View {
                     .background(Color.primaryColor)
                     .cornerRadius(10)
                     .onTapGesture {
-                        firstNaviLinkActive = false
-                    }
+                    firstNaviLinkActive = false
+                }
             }
         }
     }

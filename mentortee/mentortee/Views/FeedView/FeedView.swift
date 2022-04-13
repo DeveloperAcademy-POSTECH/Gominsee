@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FeedView: View {
     @State private var showModal = false
-    
+
     var body: some View {
             VStack(alignment: .leading, spacing: 0) {
                 ZStack{
@@ -33,9 +33,10 @@ struct FeedView: View {
                         }
                     }
                 }
+            }
                 .offset(y: -30)
                 .background(Color.backgroundColor)
-            }
+        }
     }
 }
 

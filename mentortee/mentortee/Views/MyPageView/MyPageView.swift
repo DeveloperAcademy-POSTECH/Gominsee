@@ -24,29 +24,29 @@ struct MyQna: View {
     let screenWidth = UIScreen.main.bounds.width
     var cntMyQuestion: Int
     var cntMyAnswer: Int
-    
+
     var body: some View {
         HStack {
             NavigationLink(destination: QuestionCardView()
-                .navigationBarHidden(true)) {
+                    .navigationBarHidden(true)) {
                 VStack {
                     Text("내가 만든 질문").font(.system(size: 14)).bold()
                     Text("\(cntMyQuestion)").font(.system(size: 30)).bold()
                 }.frame(width: (screenWidth - 50) / 2)
             }
-            .foregroundColor(.black)
-            
+                .foregroundColor(.black)
+
             Divider()
-            
+
             NavigationLink(destination: AnswerCardView()
-                .navigationBarHidden(true)) {
+                    .navigationBarHidden(true)) {
                 VStack {
                     Text("내가 답한 질문").font(.system(size: 14)).bold()
                     Text("\(cntMyAnswer)").font(.system(size: 30)).bold()
                 }.frame(width: (screenWidth - 50) / 2)
             }
-            .foregroundColor(.black)
-            
+                .foregroundColor(.black)
+
         }.frame(maxWidth: .infinity, maxHeight: 90).background(RoundedRectangle(cornerRadius: 10).fill(Color.white)).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
     }
 }
@@ -55,7 +55,7 @@ struct MyCharacter: View {
     var userLV = 1
     var cntRequireQuestion = 1
     var cntRequireAnswer = 2
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -87,40 +87,31 @@ struct MyCharacter: View {
 }
 
 struct favoriteCategory: View {
-    
-
-
     var body: some View {
         NavigationLink(destination: CategoryView()
-            .navigationBarHidden(true)) {
-                HStack {
-                    Text("관심 카테고리").font(.system(size: 16)).padding(.leading, 10)
-                    Spacer()
-                    Image(systemName: "chevron.right").padding(.trailing, 10)
-                }
+                .navigationBarHidden(true)) {
+            HStack {
+                Text("관심 카테고리").font(.system(size: 16)).padding(.leading, 10)
+                Spacer()
+                Image(systemName: "chevron.right").padding(.trailing, 10)
+            }
                 .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
                 .foregroundColor(.black)
                 .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
-//                .toolbar {
-//                    ToolbarItem(placement: .principal) {
-//                        // this sets the screen title in the navigation bar, when the screen is visible
-//                        Text("")
-//                    }
-//                }
         }
     }
 }
 
 struct MyPageView: View {
     var body: some View {
-            VStack {
-                MyInfo(username: "meenu")
-                MyQna(cntMyQuestion: 10, cntMyAnswer: 10)
-                MyCharacter()
-                favoriteCategory()
-                Spacer()
-            }
+        VStack {
+            MyInfo(username: "meenu")
+            MyQna(cntMyQuestion: 10, cntMyAnswer: 10)
+            MyCharacter()
+            favoriteCategory()
+            Spacer()
+        }
             .offset(y: -40)
             .padding(.horizontal, 16)
             .background(Color.backgroundColor)

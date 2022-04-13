@@ -21,13 +21,12 @@ struct QuestionDetailView: View {
         NavigationView {
             ZStack {
                 Color.backgroundColor.ignoresSafeArea()
-                //배경색 영역
                 VStack {
                     QuestionView().padding(.top, -40)
                     AnswerDetailView()
                 }
                 .navigationBarItems(leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()// 뒤로가기 기능이 들어가야함
+                    self.mode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "chevron.backward")
                             .imageScale(.large)
@@ -43,8 +42,6 @@ struct QuestionDetailView: View {
                     .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation) {
                         if(myName == nickname) {
                             Button("수정하기") {
-                            //수정하기페이지로 이동
-                            //NavigationLink(destination:MakingQuestion())
                             }
                             Button("삭제하기", role: .destructive) {
                                 self.showingDeleteAlert = true
