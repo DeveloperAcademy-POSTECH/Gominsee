@@ -79,9 +79,12 @@ struct MainView: View {
 
                     Button("제출하기") {
                         showAlert = true
+                        tapTextEditor = false
                         hideKeyboard()
                         answerText = "질문에 대한 나의 생각을 적어보세요"
                         answerColor = Color.black.opacity(0.2)
+                        cardHeight = UIScreen.main.bounds.height * 0.45
+                        cardTextHeight = screenHeight * 0.2
                     }
                         .foregroundColor(Color.mainGreen)
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
