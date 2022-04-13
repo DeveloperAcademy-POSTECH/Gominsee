@@ -30,6 +30,8 @@ struct FeedAnswer: View {
     var question: String
     var questionOwner: String
     @State var showModal = false
+    @Environment(\.presentationMode) var presentation
+    
 
     var body: some View {
         GroupBox() {
@@ -62,9 +64,7 @@ struct FeedAnswer: View {
                         .frame(width: 100, height: 30)
                         .overlay(Text("내 생각 보기").foregroundColor(Color.white))
                 }
-                .sheet(isPresented: self.$showModal) {
-                    MythoughtModalSheet()
-                }
+                .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet() }
             }
                 .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25))
 
@@ -78,8 +78,13 @@ struct FeedAnswer: View {
                 }
 
                 Spacer()
-                Text(otherThoughts)
-                    .font(.system(size: 14))
+                
+                NavigationLink(destination: QuestionDetailView(nickname: "노엘")
+                        .navigationBarHidden(true)) {
+                    VStack {
+                        Text(otherThoughts)
+                    }
+                }
             }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
         }.groupBoxStyle(QuestionCardStyle())
     }
