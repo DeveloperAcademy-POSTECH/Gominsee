@@ -16,9 +16,6 @@ struct MyInfo: View {
                 Text("님").padding(.leading, -5)
             }.font(.system(size: 24))
             Spacer()
-            Button("로그아웃") {
-                
-            }
         }
     }
 }
@@ -41,7 +38,7 @@ struct MyQna: View {
             
             Divider()
             
-            NavigationLink(destination: QuestionCardView()
+            NavigationLink(destination: AnswerCardView()
                 .navigationBarHidden(true)) {
                 VStack {
                     Text("내가 답한 질문").font(.system(size: 14)).bold()
@@ -126,6 +123,7 @@ struct MyPageView: View {
             }
             .offset(y: -40)
             .padding(.horizontal, 16)
+            .background(Color.backgroundColor)
     }
 }
 
