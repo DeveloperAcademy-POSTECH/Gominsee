@@ -19,15 +19,14 @@ struct QuestionMakingMain: View {
     let screenWidth1 = UIScreen.main.bounds.size.width
     let screenHeight1 = UIScreen.main.bounds.size.height
 
-    var categoryList = ["가치관", "적성", "진로"]
-
+    var categoryList = ["가치관", "적성", "진로", "취향", "취미", "고민", "비밀", "회고", "습관"]
+    @State var click2 = [false, false, false, false, false, false, false, false, false]
+    @State var checkList: [String] = []
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
 
     var body: some View {
 
         ZStack {
-            
-
             NavigationView {
                     ScrollView {
                         VStack {
@@ -41,8 +40,148 @@ struct QuestionMakingMain: View {
                                     .font(.system(size: 24))
                                     .bold()
 
-                                MypageCategory()
-                                    .padding(.leading, -10)
+                                ScrollView(.horizontal,
+                                showsIndicators: false) {
+                                    HStack (spacing: 5) {
+
+                                        Button(action: {
+                                            withAnimation(.easeInOut) {
+                                                click2[1].toggle()
+
+                                            }
+                                        }, label: {
+                                                Text("가치관")
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 15))
+                                                    .frame(width: 60, height: 35, alignment: .center)
+                                            })
+                                            .padding()
+                                            .frame(width: 60, height: 30, alignment: .center)
+                                            .foregroundColor(Color.white)
+                                            .background(RoundedRectangle(cornerRadius: 40)
+                                                .fill(click2[1] ? Color.primaryColor : Color.gray))
+
+                                        Button(action: {
+                                            withAnimation(.easeInOut) {
+                                                click2[2].toggle()
+
+                                            }
+                                        }, label: {
+                                                Text("진로")
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 15))
+                                                    .frame(width: 60, height: 35, alignment: .center)
+                                            })
+                                            .padding()
+                                            .frame(width: 60, height: 30, alignment: .center)
+                                            .foregroundColor(Color.white)
+                                            .background(RoundedRectangle(cornerRadius: 40)
+                                                .fill(click2[2] ? Color.primaryColor : Color.gray))
+
+                                        Button(action: {
+                                            withAnimation(.easeInOut) {
+                                                click2[3].toggle()
+
+                                            }
+                                        }, label: {
+                                                Text("취향")
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 15))
+                                                    .frame(width: 60, height: 35, alignment: .center)
+                                            })
+                                            .padding()
+                                            .frame(width: 60, height: 30, alignment: .center)
+                                            .foregroundColor(Color.white)
+                                            .background(RoundedRectangle(cornerRadius: 40)
+                                                .fill(click2[3] ? Color.primaryColor : Color.gray))
+
+                                        Button(action: {
+                                            withAnimation(.easeInOut) {
+                                                click2[4].toggle()
+                                      
+                                            }
+                                        }, label: {
+                                                Text("취미")
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 15))
+                                                    .frame(width: 60, height: 35, alignment: .center)
+                                            })
+                                            .padding()
+                                            .frame(width: 60, height: 30, alignment: .center)
+                                            .foregroundColor(Color.white)
+                                            .background(RoundedRectangle(cornerRadius: 40)
+                                                .fill(click2[4] ? Color.primaryColor : Color.gray))
+
+                                        Button(action: {
+                                            withAnimation(.easeInOut) {
+                                                click2[5].toggle()
+                                              
+                                            }
+                                        }, label: {
+                                                Text("고민")
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 15))
+                                                    .frame(width: 60, height: 35, alignment: .center)
+                                            })
+                                            .padding()
+                                            .frame(width: 60, height: 30, alignment: .center)
+                                            .foregroundColor(Color.white)
+                                            .background(RoundedRectangle(cornerRadius: 40)
+                                                .fill(click2[5] ? Color.primaryColor : Color.gray))
+
+                                        Button(action: {
+                                            withAnimation(.easeInOut) {
+                                                click2[6].toggle()
+                                           
+                                            }
+                                        }, label: {
+                                                Text("비밀")
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 15))
+                                                    .frame(width: 60, height: 35, alignment: .center)
+                                            })
+                                            .padding()
+                                            .frame(width: 60, height: 30, alignment: .center)
+                                            .foregroundColor(Color.white)
+                                            .background(RoundedRectangle(cornerRadius: 40)
+                                                .fill(click2[6] ? Color.primaryColor : Color.gray))
+
+                                        Button(action: {
+                                            withAnimation(.easeInOut) {
+                                                click2[7].toggle()
+                                          
+                                            }
+                                        }, label: {
+                                                Text("회고")
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 15))
+                                                    .frame(width: 60, height: 35, alignment: .center)
+                                            })
+                                            .padding()
+                                            .frame(width: 60, height: 30, alignment: .center)
+                                            .foregroundColor(Color.white)
+                                            .background(RoundedRectangle(cornerRadius: 40)
+                                                .fill(click2[7] ? Color.primaryColor : Color.gray))
+
+                                        Button(action: {
+                                            withAnimation(.easeInOut) {
+                                                click2[8].toggle()
+                                             
+                                            }
+                                        }, label: {
+                                                Text("습관")
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 15))
+                                                    .frame(width: 60, height: 35, alignment: .center)
+                                            })
+                                            .padding()
+                                            .frame(width: 60, height: 30, alignment: .center)
+                                            .foregroundColor(Color.white)
+                                            .background(RoundedRectangle(cornerRadius: 40)
+                                                .fill(click2[8] ? Color.primaryColor : Color.gray))
+                                    }
+                                }
+                                .padding(.bottom, 10)
                                 
                                 TextEditor(text: $myQuestion)
                                     .padding(EdgeInsets(top: 5, leading: 8, bottom: 10, trailing: 25))
