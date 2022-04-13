@@ -149,6 +149,8 @@ struct FeedQuestion: View {
 
 struct QuestionCardView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Binding var firstNaviLinkActive: Bool
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -167,7 +169,7 @@ struct QuestionCardView: View {
                 }
                     .navigationBarTitle("내가 한 질문", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
+                        firstNaviLinkActive = false
                 }) {
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 20))
@@ -180,7 +182,6 @@ struct QuestionCardView: View {
 
 struct QuestionCardView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionCardView()
+        QuestionCardView(firstNaviLinkActive: .constant(true))
     }
 }
-

@@ -24,10 +24,11 @@ struct MyQna: View {
     let screenWidth = UIScreen.main.bounds.width
     var cntMyQuestion: Int
     var cntMyAnswer: Int
+    @Binding var firstNaviLinkActive: Bool
 
     var body: some View {
         HStack {
-            NavigationLink(destination: QuestionCardView()
+            NavigationLink(destination: QuestionCardView(firstNaviLinkActive: $firstNaviLinkActive)
                     .navigationBarHidden(true)) {
                 VStack {
                     Text("내가 만든 질문").font(.system(size: 14)).bold()
@@ -104,10 +105,11 @@ struct favoriteCategory: View {
 }
 
 struct MyPageView: View {
+    @Binding var firstNaviLinkActive: Bool
     var body: some View {
         VStack {
             MyInfo(username: "meenu")
-            MyQna(cntMyQuestion: 10, cntMyAnswer: 10)
+            MyQna(cntMyQuestion: 10, cntMyAnswer: 10, firstNaviLinkActive: $firstNaviLinkActive)
             MyCharacter()
             favoriteCategory()
             Spacer()
@@ -120,6 +122,6 @@ struct MyPageView: View {
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
-        MyPageView()
+        MyPageView(firstNaviLinkActive: .constant(true))
     }
 }
