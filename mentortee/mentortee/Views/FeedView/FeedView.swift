@@ -29,7 +29,6 @@ struct FeedView: View {
                                 questionOwner: "Brown",
                                 nickname: "Chemi"
                             )
-                                .padding(.vertical, -30.0)
                             FeedQuestion(category: "습관",
                                 otherThoughts: "다른 생각 120개",
                                 question: "오늘 아침에 일어나자마자 한 행동은 무엇인가요?",
