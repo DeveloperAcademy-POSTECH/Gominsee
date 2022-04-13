@@ -12,7 +12,6 @@ struct QuestionSub1: View {
     var body: some View {
         
         NavigationView {
-            
             ZStack {
                 Color.backgroundColor
                     .ignoresSafeArea()

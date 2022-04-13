@@ -50,6 +50,8 @@ struct MainView: View {
     @State private var answerText = "질문에 대한 나의 생각을 적어보세요."
     @State private var answerColor = Color.black.opacity(0.2)
     @State private var tapTextEditor = false
+    @State private var showAlert = false
+    
     var body: some View {
         ZStack {
             Color.backgroundColor
@@ -72,31 +74,40 @@ struct MainView: View {
                                     .font(.system(size: 14))
                             }
                         }
-                        tapTextEditor ?
-                        HStack {
-                            Text("제출")
-                                .foregroundColor(Color.mainGreen)
-                            .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10))
-                                .onTapGesture {
-                                    print(answerText)
-                                }
-                        }
-                        .padding(.top, 50)
-                            .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
-                        : nil
-                    })
-                        .foregroundColor(.white)
-                        .groupBoxStyle(PlainGroupBoxStyle())
+                      
+                    tapTextEditor ?
+                    
+                    Button("제출하기") {
+                        showAlert = true
+                        hideKeyboard()
+                        answerText = "질문에 대한 나의 생각을 적어보세요"
+                        answerColor = Color.black.opacity(0.2)
+                                    }
+                        .foregroundColor(Color.mainGreen)
+                        .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                        .background(
+                              RoundedRectangle(cornerRadius: 10))
+                        .alert(isPresented: $showAlert) {
+                                Alert(
+                                        title: Text("완료"),
+                                        message: Text("제출이 완료되었어요!")                                            )
+                                            }
+                    .padding(.top, 50)
+                        .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
+                    : nil
+                    
+                })
+                    .foregroundColor(.white)
+                    .groupBoxStyle(PlainGroupBoxStyle())
 
-                    TextEditor(text: $answerText)
-                        .onTapGesture {
-                        answerText = ""
-                        answerColor = Color.black
-                        cardHeight = screenHeight * 0.1
-                        cardTextHeight = screenHeight * 0.1
+                TextEditor(text: $answerText)
+                    .onTapGesture {
+                    answerText = ""
+                    answerColor = Color.black
+                    cardHeight = screenHeight * 0.1
+                    cardTextHeight = screenHeight * 0.1
                     }
+
                         .foregroundColor(answerColor)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height * 0.2)
@@ -113,7 +124,6 @@ struct MainView: View {
                     hideKeyboard()
                     cardHeight = UIScreen.main.bounds.height * 0.45
                     cardTextHeight = screenHeight * 0.2
-                }
         }
     }
 }
@@ -123,3 +133,14 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
+
+
+
+//            Button("제출하기") {
+//                    showAlert = true
+//                            }
+//                .alert(isPresented: $showAlert) {
+//                        Alert(
+//                                title: Text("완료"),
+//                                message: Text("제출이 완료되었어요!")                                            )
+//                                    }

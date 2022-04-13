@@ -20,15 +20,20 @@ struct CategoryView: View {
         VStack{
             
         Text("어떤 것에 관심이 있나요?")
-            .font(.system(size: 24))
+            .font(.system(size: 26))
             .bold()
             .padding(.leading, 16)
+            .foregroundColor(.mainGreen)
+            
+        Text("")
+                .padding(.top, 10)
+            
             
             
         HStack {
             Group {
                     VStack{
-                Image("hobby")
+                Image("category_1")
                     .resizable()
                     .frame(width: 80, height: 80)
                 .clipShape(Circle())
@@ -56,7 +61,7 @@ struct CategoryView: View {
             
             Group {
                     VStack{
-                Image("hobby")
+                Image("category_2")
                     .resizable()
                     .frame(width: 80, height: 80)
                 .clipShape(Circle())
@@ -83,7 +88,7 @@ struct CategoryView: View {
             
             Group {
                     VStack{
-                Image("hobby")
+                Image("category_3")
                     .resizable()
                     .frame(width: 80, height: 80)
                 .clipShape(Circle())
@@ -112,7 +117,7 @@ struct CategoryView: View {
             HStack {
                 Group {
                         VStack{
-                    Image("hobby")
+                    Image("category_4")
                         .resizable()
                         .frame(width: 80, height: 80)
                     .clipShape(Circle())
@@ -140,7 +145,7 @@ struct CategoryView: View {
                 
                 Group {
                         VStack{
-                    Image("hobby")
+                    Image("category_5")
                         .resizable()
                         .frame(width: 80, height: 80)
                     .clipShape(Circle())
@@ -165,7 +170,7 @@ struct CategoryView: View {
                 
                 Group {
                         VStack{
-                    Image("hobby")
+                    Image("category_6")
                         .resizable()
                         .frame(width: 80, height: 80)
                     .clipShape(Circle())
@@ -193,7 +198,7 @@ struct CategoryView: View {
             HStack {
                 Group {
                         VStack{
-                    Image("hobby")
+                    Image("category_7")
                         .resizable()
                         .frame(width: 80, height: 80)
                     .clipShape(Circle())
@@ -220,7 +225,7 @@ struct CategoryView: View {
                 
                 Group {
                         VStack{
-                    Image("hobby")
+                    Image("category_8")
                         .resizable()
                         .frame(width: 80, height: 80)
                     .clipShape(Circle())
@@ -246,7 +251,7 @@ struct CategoryView: View {
                 
                 Group {
                         VStack{
-                    Image("hobby")
+                    Image("category_9")
                         .resizable()
                         .frame(width: 80, height: 80)
                     .clipShape(Circle())
@@ -275,21 +280,28 @@ struct CategoryView: View {
             Text("")
                 .padding()
             
-            if isLogIn == true {
+            if isLogIn == false {
                             
-                            Button(action: {
-                            self.mode.wrappedValue.dismiss()
-                        }) {
-                            Text("다 골랐어요!")
-                                .font(.title3)
-                                .bold()
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
-                                .background(Color.primaryColor)
-                                .cornerRadius(10)
-
-                            }
+                                Button(action: {
+                                    self.mode.wrappedValue.dismiss()
+                                }) {
+                                    RoundedRectangle(cornerRadius: 10.0)
+                                    .fill(Color.primaryColor)
+                                    .frame(width: .infinity, height: 50)
+                                    .overlay(Text("다 골랐어요!")
+                                        .foregroundColor(Color.white)
+                                        .bold())
+                                }
+                                .padding(.horizontal, 16)
+                
+//                Button(action: {
+//                    self.mode.wrappedValue.dismiss()
+//                }) {
+//                    RoundedRectangle(cornerRadius: 10.0)
+//                        .fill(Color.primaryColor)
+//                        .frame(width: .infinity, height: 50)
+//                        .overlay(Text("입력완료 :)").foregroundColor(Color.white))
+//                }
 
             } else {
                 
@@ -297,14 +309,18 @@ struct CategoryView: View {
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)) {
                             
-                            Text("다 골랐어요!")
-                                .font(.title3)
-                                .bold()
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
-                                .background(Color.primaryColor)
-                                .cornerRadius(10)
+                            Button(action: {
+                                self.mode.wrappedValue.dismiss()
+                            }) {
+                                RoundedRectangle(cornerRadius: 10.0)
+                                .fill(Color.primaryColor)
+                                .frame(width: .infinity, height: 50)
+                                .overlay(Text("다 골랐어요!")
+                                    .foregroundColor(Color.white)
+                                    .bold())
+                                
+                            }
+                            .padding(.horizontal, 16)
 
                             }
 
