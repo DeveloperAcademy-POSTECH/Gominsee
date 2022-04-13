@@ -20,12 +20,13 @@ struct CategoryView: View {
         VStack{
             
         Text("어떤 것에 관심이 있나요?")
-            .font(.system(size: 24))
+            .font(.system(size: 26))
             .bold()
             .padding(.leading, 16)
+            .foregroundColor(.mainGreen)
             
         Text("")
-                .padding()
+                .padding(.top, 10)
             
             
             
@@ -285,10 +286,13 @@ struct CategoryView: View {
                                     self.mode.wrappedValue.dismiss()
                                 }) {
                                     RoundedRectangle(cornerRadius: 10.0)
-                                        .fill(Color.primaryColor)
-                                        .frame(width: .infinity, height: 50)
-                                        .overlay(Text("입력완료 :)").foregroundColor(Color.white))
+                                    .fill(Color.primaryColor)
+                                    .frame(width: .infinity, height: 50)
+                                    .overlay(Text("다 골랐어요!")
+                                        .foregroundColor(Color.white)
+                                        .bold())
                                 }
+                                .padding(.horizontal, 16)
                 
 //                Button(action: {
 //                    self.mode.wrappedValue.dismiss()
@@ -309,10 +313,14 @@ struct CategoryView: View {
                                 self.mode.wrappedValue.dismiss()
                             }) {
                                 RoundedRectangle(cornerRadius: 10.0)
-                                    .fill(Color.primaryColor)
-                                    .frame(width: .infinity, height: 50)
-                                    .overlay(Text("입력완료 :)").foregroundColor(Color.white))
+                                .fill(Color.primaryColor)
+                                .frame(width: .infinity, height: 50)
+                                .overlay(Text("다 골랐어요!")
+                                    .foregroundColor(Color.white)
+                                    .bold())
+                                
                             }
+                            .padding(.horizontal, 16)
 
                             }
 
