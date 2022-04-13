@@ -51,51 +51,51 @@ struct MainView: View {
     @State private var answerColor = Color.black.opacity(0.2)
     @State private var tapTextEditor = false
     @State private var showAlert = false
-    
+
     var body: some View {
         ZStack {
             Color.backgroundColor
                 .ignoresSafeArea()
             VStack(alignment: .center, spacing: 0) {
-                    GroupBox(content: {
-                        Text("\(today, formatter: MainView.dateformat)")
-                            .bold()
-                        Text(dailyQuestion)
-                            .bold()
-                            .font(.system(size: 35))
-                            .minimumScaleFactor(0.5)
-                            .frame(width: nil, height: cardTextHeight)
-                        HStack {
-                            ForEach(categoryList, id: \.self) { value in
-                                Text(value).padding(.vertical, 3)
-                                    .padding(.horizontal, 10)
-                                    .foregroundColor(Color.primaryColor)
-                                    .background(RoundedRectangle(cornerRadius: 10))
-                                    .font(.system(size: 14))
-                            }
+                GroupBox(content: {
+                    Text("\(today, formatter: MainView.dateformat)")
+                        .bold()
+                    Text(dailyQuestion)
+                        .bold()
+                        .font(.system(size: 35))
+                        .minimumScaleFactor(0.5)
+                        .frame(width: nil, height: cardTextHeight)
+                    HStack {
+                        ForEach(categoryList, id: \.self) { value in
+                            Text(value).padding(.vertical, 3)
+                                .padding(.horizontal, 10)
+                                .foregroundColor(Color.primaryColor)
+                                .background(RoundedRectangle(cornerRadius: 10))
+                                .font(.system(size: 14))
                         }
-                      
+                    }
+
                     tapTextEditor ?
-                    
+
                     Button("제출하기") {
                         showAlert = true
                         hideKeyboard()
                         answerText = "질문에 대한 나의 생각을 적어보세요"
                         answerColor = Color.black.opacity(0.2)
-                                    }
+                    }
                         .foregroundColor(Color.mainGreen)
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                         .background(
-                              RoundedRectangle(cornerRadius: 10))
+                        RoundedRectangle(cornerRadius: 10))
                         .alert(isPresented: $showAlert) {
-                                Alert(
-                                        title: Text("완료"),
-                                        message: Text("제출이 완료되었어요!")                                            )
-                                            }
-                    .padding(.top, 50)
+                        Alert(
+                            title: Text("완료"),
+                            message: Text("제출이 완료되었어요!"))
+                    }
+                        .padding(.top, 50)
                         .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
                     : nil
-                    
+
                 })
                     .foregroundColor(.white)
                     .groupBoxStyle(PlainGroupBoxStyle())
@@ -106,41 +106,31 @@ struct MainView: View {
                     answerColor = Color.black
                     cardHeight = screenHeight * 0.1
                     cardTextHeight = screenHeight * 0.1
-                    }
+                }
 
-                        .foregroundColor(answerColor)
-                        .padding()
-                        .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height * 0.2)
-                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
-                        .onChange(of: answerText) { value in
-                            if answerText.count == 0 {
-                                tapTextEditor = false
-                            } else {
-                                tapTextEditor = true
-                            }
+                    .foregroundColor(answerColor)
+                    .padding()
+                    .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height * 0.2)
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+                    .onChange(of: answerText) { value in
+                    if answerText.count == 0 {
+                        tapTextEditor = false
+                    } else {
+                        tapTextEditor = true
                     }
                 }
-                    .onTapGesture {
-                    hideKeyboard()
-                    cardHeight = UIScreen.main.bounds.height * 0.45
-                    cardTextHeight = screenHeight * 0.2
+            }
+                .onTapGesture {
+                hideKeyboard()
+                cardHeight = UIScreen.main.bounds.height * 0.45
+                cardTextHeight = screenHeight * 0.2
+            }
+        }
+    }
+
+    struct MainView_Previews: PreviewProvider {
+        static var previews: some View {
+            MainView()
         }
     }
 }
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
-
-
-
-//            Button("제출하기") {
-//                    showAlert = true
-//                            }
-//                .alert(isPresented: $showAlert) {
-//                        Alert(
-//                                title: Text("완료"),
-//                                message: Text("제출이 완료되었어요!")                                            )
-//                                    }
