@@ -10,24 +10,20 @@ import SwiftUI
 public let main_orange = Color(red: 0.22, green: 0.141, blue: 0.108)
 
 struct TopBar: View {
-    
-    
+
     var body: some View {
         NavigationView {
-            
             VStack {
                 NavigatorView ()
                     .padding()
                 Spacer()
             }
-            .navigationTitle("")
-            .navigationBarHidden(true)
-            
+                .navigationTitle("")
+                .navigationBarHidden(true)
             TapView()
         }
     }
-    
-    
+
     struct NavigatorView: View {
         var body: some View {
             HStack {
@@ -35,14 +31,11 @@ struct TopBar: View {
                     .font(.title2)
                     .contentShape(Rectangle())
                     .foregroundStyle(main_orange)
-                
                 Spacer()
-                
                 NavigationLink(destination: SecondaryView()) {
                     Image(systemName: "square.and.pencil")
                         .scaledToFit()
                 }
-                
             }
         }
     }

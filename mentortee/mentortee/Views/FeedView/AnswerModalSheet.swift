@@ -5,8 +5,6 @@
 //  Created by 이지수 on 2022/04/07.
 //
 
-// 1. 키보드 해결
-
 import SwiftUI
 
 struct AnswerModalSheet: View {
@@ -15,14 +13,14 @@ struct AnswerModalSheet: View {
     @State private var userAnswer = ""
     @State private var userAnswerArray: [String] = []
     @State private var checked = false
-    
+
     var feedQuestion: String
-    
+
     func saveAnswer() {
         userAnswerArray.append(userAnswer)
         userAnswer = ""
     }
-    
+
     var body: some View {
         GroupBox {
             VStack {
@@ -31,46 +29,44 @@ struct AnswerModalSheet: View {
                     .font(.system(size: 18))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
-                    .lineLimit(nil) //줄바꿈 무제한 가능
-                    .fixedSize(horizontal: false, vertical: true) //옆으로 비활성화, 여러줄로
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
                     .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
-                Divider() //구분선
+                Divider()
                     .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
                 TextField("질문에 대한 나의 생각을 적어주세요.", text: $userAnswer)
                     .frame(maxWidth: .infinity, maxHeight: 150, alignment: .topLeading)
                     .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
-                
-                HStack{
+
+                HStack {
                     Button (action: { self.checked.toggle() }) {
-                        HStack{
+                        HStack {
                             Image(systemName: checked ? "checkmark.circle.fill" : "checkmark.circle").foregroundColor(checked ? Color.mainGreen : Color.gray)
                             Text("내 생각 나만 볼래요").font(.system(size: 14)).foregroundColor(checked ? Color.black : Color.gray)
                         }
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
-                
-                
-                
+
                 Button(action: {
                     saveAnswer()
                     presentation.wrappedValue.dismiss()
                 }, label: {
-                    Text("작성완료:)").bold()
-                        .frame(width: 310, height: 40, alignment: .center)
-                })
-                .frame(width: 310, height: 40, alignment: .center)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryColor))
-                .font(.system(size: 16))
-                .foregroundColor(Color.white)
+                        Text("작성완료:)").bold()
+                            .frame(width: 310, height: 40, alignment: .center)
+                    })
+                    .frame(width: 310, height: 40, alignment: .center)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryColor))
+                    .font(.system(size: 16))
+                    .foregroundColor(Color.white)
             }
-            .padding(keyboardHandler.keyboardHeight)
+                .padding(keyboardHandler.keyboardHeight)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .groupBoxStyle(PlainGroupBoxStyle())
-        .ignoresSafeArea(edges: .bottom)
-        .background(Color.backgroundColor)
-        .onTapGesture {
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .groupBoxStyle(PlainGroupBoxStyle())
+            .ignoresSafeArea(edges: .bottom)
+            .background(Color.backgroundColor)
+            .onTapGesture {
             hideKeyboard()
         }
     }

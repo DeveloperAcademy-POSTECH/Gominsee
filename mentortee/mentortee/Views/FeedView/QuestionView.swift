@@ -13,12 +13,12 @@ struct QuestionCardStyle: GroupBoxStyle {
             configuration.label
             configuration.content
         }
-        .background(RoundedRectangle(cornerRadius: 10.0)
-            .foregroundColor(.white)
-            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+            .background(RoundedRectangle(cornerRadius: 10.0)
+                .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
         )
-        .padding(15)
-        .frame(alignment: .top)
+            .padding(15)
+            .frame(alignment: .top)
     }
 }
 
@@ -26,29 +26,28 @@ struct QuestionCardStyle: GroupBoxStyle {
 struct QuestionAnswerCard: View {
     var thumbnail: String
     var nickName: String
-    var uploadTime : String
+    var uploadTime: String
     var category: String
     var question: String
-    
+
     var body: some View {
         GroupBox() {
-        HStack() {
-            HStack{
-                Image(thumbnail)
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                Text(nickName)
-                    .font(.system(size: 16))
-                    .fontWeight(.bold)
-                } //프로필
-            Spacer()
-            Text(uploadTime)
-                .frame(alignment: .trailing)
-                .font(.system(size: 14))
-            //업로드 시간
-        }
-        .padding(EdgeInsets(top: 15, leading:25 , bottom: 10, trailing: 25))
-            Divider() //구분선
+            HStack() {
+                HStack {
+                    Image(thumbnail)
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                    Text(nickName)
+                        .font(.system(size: 16))
+                        .fontWeight(.bold)
+                }
+                Spacer()
+                Text(uploadTime)
+                    .frame(alignment: .trailing)
+                    .font(.system(size: 14))
+            }
+                .padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
+            Divider()
                 .padding(.horizontal, 15)
             VStack(alignment: .leading) {
                 Text(category)
@@ -58,8 +57,8 @@ struct QuestionAnswerCard: View {
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
-            } //카테고리와 질문
-            .padding(EdgeInsets(top: 15, leading:25 , bottom: 30, trailing: 25))
+            }
+                .padding(EdgeInsets(top: 15, leading: 25, bottom: 30, trailing: 25))
         }.groupBoxStyle(QuestionCardStyle())
     }
 }
@@ -67,7 +66,7 @@ struct QuestionAnswerCard: View {
 struct QuestionView: View {
     var body: some View {
         VStack {
-                QuestionAnswerCard(thumbnail: "thumbnail_lv1",nickName:"노엘",uploadTime:"1시간 전", category:"카테고리", question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?")
+            QuestionAnswerCard(thumbnail: "thumbnail_lv1", nickName: "노엘", uploadTime: "1시간 전", category: "카테고리", question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?")
         }
     }
 }

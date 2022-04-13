@@ -10,7 +10,6 @@ import SwiftUI
 struct MainPage: View {
     var body: some View {
         VStack {
-            TopBar()
             TapView()
         }
     }

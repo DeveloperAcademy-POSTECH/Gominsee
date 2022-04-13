@@ -50,7 +50,6 @@ struct QuestionMakingMain: View {
                         TextEditor(text: $myQuestion)
                             .padding(EdgeInsets(top: 5, leading: 8, bottom: 10, trailing: 25))
                             .frame(width: screenWidth1 * 0.9, height: screenHeight1 * 0.2, alignment: .top).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
-
                             .background(RoundedRectangle(
                             cornerRadius: 10).fill(.white))
                             .foregroundColor(myQuestionColor)
@@ -70,7 +69,6 @@ struct QuestionMakingMain: View {
                         TextEditor(text: $myThought)
                             .padding(EdgeInsets(top: -5, leading: 8, bottom: 10, trailing: 25))
                             .frame(width: screenWidth1 * 0.9, height: screenHeight1 * 0.2, alignment: .top).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
-
                             .background(RoundedRectangle(
                             cornerRadius: 10).fill(.white))
                             .foregroundColor(myThoughtColor)
@@ -94,7 +92,6 @@ struct QuestionMakingMain: View {
                         }
                     }
                 }
-
                     .navigationBarTitle(Text("질문 만들기"), displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                     self.mode.wrappedValue.dismiss()
@@ -105,7 +102,6 @@ struct QuestionMakingMain: View {
                     },
                     trailing: NavigationLink(destination: getDestination()
                             .navigationBarBackButtonHidden(true)
-                                             
                     )
                     {
                         Text("완료")
@@ -121,11 +117,11 @@ struct QuestionMakingMain: View {
     func getDestination() -> AnyView {
         if (isShare == true) {
             return AnyView(QuestionSub1(firstNaviLinkActive: $firstNaviLinkActive)
-                .navigationBarHidden(true))
+                    .navigationBarHidden(true))
         }
         else {
             return AnyView(QuestionSub2(firstNaviLinkActive: $firstNaviLinkActive)
-                .navigationBarHidden(true))
+                    .navigationBarHidden(true))
         }
     }
 
