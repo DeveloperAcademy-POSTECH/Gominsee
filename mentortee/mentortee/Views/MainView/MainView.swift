@@ -50,6 +50,8 @@ struct MainView: View {
     @State private var answerText = "질문에 대한 나의 생각을 적어보세요."
     @State private var answerColor = Color.black.opacity(0.2)
     @State private var tapTextEditor = false
+    @State private var showAlert = false
+    
     var body: some View {
             VStack(alignment: .center, spacing: 0) {
                 GroupBox(content: {
@@ -70,19 +72,26 @@ struct MainView: View {
                         }
                     }
                     tapTextEditor ?
-                    HStack {
-                        Text("제출")
-                            .foregroundColor(Color.mainGreen)
+                    
+                    Button("제출하기") {
+                        showAlert = true
+                        hideKeyboard()
+                        answerText = "질문에 대한 나의 생각을 적어보세요"
+                        answerColor = Color.black.opacity(0.2)
+                                    }
+                        .foregroundColor(Color.mainGreen)
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                            .background(
-                                RoundedRectangle(cornerRadius: 10))
-                            .onTapGesture {
-                                print(answerText)
-                            }
-                    }
+                        .background(
+                              RoundedRectangle(cornerRadius: 10))
+                        .alert(isPresented: $showAlert) {
+                                Alert(
+                                        title: Text("완료"),
+                                        message: Text("제출이 완료되었어요!")                                            )
+                                            }
                     .padding(.top, 50)
                         .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
                     : nil
+                    
                 })
                     .foregroundColor(.white)
                     .groupBoxStyle(PlainGroupBoxStyle())
@@ -119,3 +128,14 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
+
+
+
+//            Button("제출하기") {
+//                    showAlert = true
+//                            }
+//                .alert(isPresented: $showAlert) {
+//                        Alert(
+//                                title: Text("완료"),
+//                                message: Text("제출이 완료되었어요!")                                            )
+//                                    }
