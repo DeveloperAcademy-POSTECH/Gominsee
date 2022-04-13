@@ -120,7 +120,7 @@ struct FeedQuestion: View {
                         .frame(width: 80, height: 30)
                         .overlay(Text("생각 적기").foregroundColor(Color.white))
                 }
-                    .sheet(isPresented: self.$showModal) {
+                    .fullScreenCover(isPresented: self.$showModal) {
                     AnswerModalSheet(feedQuestion: question)
                 }
             }
