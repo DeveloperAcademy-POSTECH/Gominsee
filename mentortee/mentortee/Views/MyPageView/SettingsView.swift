@@ -8,10 +8,24 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+
     var body: some View {
-        NavigationView {
-            Text("Settings View")
+        List {
+            Text("닉네임 변경")
+            Text("로그아웃")
+            Text("버전 정보 1.0.0")
         }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: {
+            self.mode.wrappedValue.dismiss()
+        }) {
+                Image(systemName: "chevron.backward")
+                    .padding(.all, 16)
+                    .font(.system(size: 20))
+                    .foregroundColor(.black)
+            }
+        )
     }
 }
 
