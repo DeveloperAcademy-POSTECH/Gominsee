@@ -35,6 +35,7 @@
 		26F56B5327FBEC1E0066C0D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F56B5227FBEC1E0066C0D1 /* Assets.xcassets */; };
 		26F56B5627FBEC1E0066C0D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F56B5527FBEC1E0066C0D1 /* Preview Assets.xcassets */; };
 		275EDE0727FE83CC002D1CA4 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */; };
+		388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388749662806B3E70005D616 /* MythoughtModalSheet.swift */; };
 		390223DF2805241A008D9C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390223DE2805241A008D9C64 /* SettingsView.swift */; };
 		3973A06527FD272F00CDC599 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3973A06427FD272F00CDC599 /* MainView.swift */; };
 		399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B32FA27FE73BE0005F887 /* ColorData.swift */; };
@@ -84,6 +85,7 @@
 		26F56B5227FBEC1E0066C0D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26F56B5527FBEC1E0066C0D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
+		388749662806B3E70005D616 /* MythoughtModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythoughtModalSheet.swift; sourceTree = "<group>"; };
 		390223DE2805241A008D9C64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3973A06427FD272F00CDC599 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		399B32FA27FE73BE0005F887 /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				A752B59B280034BF00B41987 /* FeedView.swift */,
 				A73E251827FE7DB6006C42CB /* FeedCategoryBtn.swift */,
 				A7D877D727FF2641001257EC /* AnswerModalSheet.swift */,
+				388749662806B3E70005D616 /* MythoughtModalSheet.swift */,
 				275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */,
 				26A1D6772802CA7C002373FB /* AnswerCardView.swift */,
 				A7D877D927FF70F6001257EC /* KeyboardHandler.swift */,
@@ -344,6 +347,7 @@
 				26317622280564C300C13368 /* Category+CoreDataClass.swift in Sources */,
 				A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */,
 				A7D877DA27FF70F6001257EC /* KeyboardHandler.swift in Sources */,
+				388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */,
 				26317625280564C300C13368 /* Question+CoreDataProperties.swift in Sources */,
 				A752B59C280034BF00B41987 /* FeedView.swift in Sources */,
 				3973A06527FD272F00CDC599 /* MainView.swift in Sources */,
