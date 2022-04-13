@@ -131,10 +131,10 @@ struct QuestionMakingMain: View {
     }
 }
 
-//struct QuestionMakingMain_Previews: PreviewProvider {
-//    @State var firstNaviLinkActive: Bool
-//
-//    static var previews: some View {
-//        QuestionMakingMain()
-//    }
-//}
+struct QuestionMakingMain_Previews: PreviewProvider {
+    @State var firstNaviLinkActive: Bool
+
+    static var previews: some View {
+        QuestionMakingMain(firstNaviLinkActive: .constant(true))
+    }
+}

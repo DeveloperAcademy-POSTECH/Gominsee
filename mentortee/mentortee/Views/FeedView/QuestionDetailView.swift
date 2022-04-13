@@ -91,6 +91,9 @@ struct QuestionDetailView: View {
                 )
             }
         }
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
 }
         
