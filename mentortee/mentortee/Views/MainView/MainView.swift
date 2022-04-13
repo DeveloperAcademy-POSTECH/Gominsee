@@ -51,66 +51,70 @@ struct MainView: View {
     @State private var answerColor = Color.black.opacity(0.2)
     @State private var tapTextEditor = false
     var body: some View {
+        ZStack {
+            Color.backgroundColor
+                .ignoresSafeArea()
             VStack(alignment: .center, spacing: 0) {
-                GroupBox(content: {
-                    Text("\(today, formatter: MainView.dateformat)")
-                        .bold()
-                    Text(dailyQuestion)
-                        .bold()
-                        .font(.system(size: 35))
-                        .minimumScaleFactor(0.5)
-                        .frame(width: nil, height: cardTextHeight)
-                    HStack {
-                        ForEach(categoryList, id: \.self) { value in
-                            Text(value).padding(.vertical, 3)
-                                .padding(.horizontal, 10)
-                                .foregroundColor(Color.primaryColor)
-                                .background(RoundedRectangle(cornerRadius: 10))
-                                .font(.system(size: 14))
+                    GroupBox(content: {
+                        Text("\(today, formatter: MainView.dateformat)")
+                            .bold()
+                        Text(dailyQuestion)
+                            .bold()
+                            .font(.system(size: 35))
+                            .minimumScaleFactor(0.5)
+                            .frame(width: nil, height: cardTextHeight)
+                        HStack {
+                            ForEach(categoryList, id: \.self) { value in
+                                Text(value).padding(.vertical, 3)
+                                    .padding(.horizontal, 10)
+                                    .foregroundColor(Color.primaryColor)
+                                    .background(RoundedRectangle(cornerRadius: 10))
+                                    .font(.system(size: 14))
+                            }
                         }
+                        tapTextEditor ?
+                        HStack {
+                            Text("제출")
+                                .foregroundColor(Color.mainGreen)
+                            .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10))
+                                .onTapGesture {
+                                    print(answerText)
+                                }
+                        }
+                        .padding(.top, 50)
+                            .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
+                        : nil
+                    })
+                        .foregroundColor(.white)
+                        .groupBoxStyle(PlainGroupBoxStyle())
+
+                    TextEditor(text: $answerText)
+                        .onTapGesture {
+                        answerText = ""
+                        answerColor = Color.black
+                        cardHeight = screenHeight * 0.1
+                        cardTextHeight = screenHeight * 0.1
                     }
-                    tapTextEditor ?
-                    HStack {
-                        Text("제출")
-                            .foregroundColor(Color.mainGreen)
-                        .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                            .background(
-                                RoundedRectangle(cornerRadius: 10))
-                            .onTapGesture {
-                                print(answerText)
+                        .foregroundColor(answerColor)
+                        .padding()
+                        .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height * 0.2)
+                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+                        .onChange(of: answerText) { value in
+                            if answerText.count == 0 {
+                                tapTextEditor = false
+                            } else {
+                                tapTextEditor = true
                             }
                     }
-                    .padding(.top, 50)
-                        .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
-                    : nil
-                })
-                    .foregroundColor(.white)
-                    .groupBoxStyle(PlainGroupBoxStyle())
-
-                TextEditor(text: $answerText)
+                }
                     .onTapGesture {
-                    answerText = ""
-                    answerColor = Color.black
-                    cardHeight = screenHeight * 0.1
-                    cardTextHeight = screenHeight * 0.1
+                    hideKeyboard()
+                    cardHeight = UIScreen.main.bounds.height * 0.45
+                    cardTextHeight = screenHeight * 0.2
                 }
-                    .foregroundColor(answerColor)
-                    .padding()
-                    .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height * 0.2)
-                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
-                    .onChange(of: answerText) { value in
-                        if answerText.count == 0 {
-                            tapTextEditor = false
-                        } else {
-                            tapTextEditor = true
-                        }
-                }
-            }
-                .onTapGesture {
-                hideKeyboard()
-                cardHeight = UIScreen.main.bounds.height * 0.45
-                cardTextHeight = screenHeight * 0.2
-            }
+        }
     }
 }
 

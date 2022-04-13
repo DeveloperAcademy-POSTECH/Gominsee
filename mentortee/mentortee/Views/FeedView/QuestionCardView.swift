@@ -131,23 +131,27 @@ struct QuestionCardView: View {
         
         
         NavigationView {
-            VStack {
-                CountQuestion()
-                ScrollView {
-                    FeedQuestion(category: "가치관",
-                                 otherThoughts: "다른 생각 9개",
-                                 question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
-                                 questionOwner: "Chemi")
+            ZStack {
+                Color.backgroundColor
+                    .ignoresSafeArea()
+                VStack {
+                    CountQuestion()
+                    ScrollView {
+                        FeedQuestion(category: "가치관",
+                                     otherThoughts: "다른 생각 9개",
+                                     question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
+                                     questionOwner: "Chemi")
+                    }
                 }
-            }
-            .navigationBarTitle("내가 한 질문", displayMode: .inline)
-            .navigationBarItems(leading: Button(action: {
-                self.mode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "chevron.backward")
-                    .font(.system(size: 20))
-                    .foregroundColor(.black)
+                .navigationBarTitle("내가 한 질문", displayMode: .inline)
+                .navigationBarItems(leading: Button(action: {
+                    self.mode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.backward")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
             })
+            }
         }
     }
 }
