@@ -126,6 +126,7 @@ struct MyPageView: View {
             }
             .offset(y: -40)
             .padding(.horizontal, 16)
+            .background(Color.backgroundColor)
     }
 }
 

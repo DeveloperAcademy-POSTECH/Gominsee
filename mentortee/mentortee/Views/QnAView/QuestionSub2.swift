@@ -11,31 +11,35 @@ struct QuestionSub2: View {
     @Binding var firstNaviLinkActive: Bool
     
     var body: some View {
-        VStack {
-            Image("ManUser")
-                .resizable()
-                .frame(width: 200, height: 200)
+        ZStack {
+            Color.backgroundColor
+                .ignoresSafeArea()
+            VStack {
+                Image("ManUser")
+                    .resizable()
+                    .frame(width: 200, height: 200)
 
-            Text("작성 완료!")
-                .font(.title2)
-                .padding()
+                Text("작성 완료!")
+                    .font(.title2)
+                    .padding()
 
-            Text("스스로에게 한발짝 더 다가갔군요?")
-                .font(.subheadline)
-            Text("보관함에 내가 쓴 질문이 한개 더 쌓였네요!")
-                .font(.subheadline)
+                Text("스스로에게 한발짝 더 다가갔군요?")
+                    .font(.subheadline)
+                Text("보관함에 내가 쓴 질문이 한개 더 쌓였네요!")
+                    .font(.subheadline)
 
-            Text("보관함으로 가볼래요?")
-                .font(.title3)
-                .bold()
-                .foregroundColor(.white)
-                .padding(.horizontal, 40)
-                .padding(.vertical, 10)
-                .background(Color.primaryColor)
-                .cornerRadius(10)
-                .onTapGesture {
-                    firstNaviLinkActive = false
-                }
+                Text("보관함으로 가볼래요?")
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 40)
+                    .padding(.vertical, 10)
+                    .background(Color.primaryColor)
+                    .cornerRadius(10)
+                    .onTapGesture {
+                        firstNaviLinkActive = false
+                    }
+            }
         }
     }
 }
