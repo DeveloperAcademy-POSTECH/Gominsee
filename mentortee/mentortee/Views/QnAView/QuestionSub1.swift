@@ -26,7 +26,7 @@ struct QuestionSub1: View {
                 Text("게시판에 내가 쓴 질문이 올라갔어요!")
                     .font(.subheadline)
 
-                Text("보관함으로 가볼래요?")
+                Text("게시판으로 가볼래요?")
                     .font(.title3)
                     .bold()
                     .foregroundColor(.white)
