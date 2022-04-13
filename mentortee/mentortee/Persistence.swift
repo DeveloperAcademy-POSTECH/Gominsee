@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftUI
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -13,10 +14,10 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-//            let newItem = User(context: viewContext)
-//            newItem.timestamp = Date()
-        }
+//        for _ in 0..<10 {
+//            let newUser = User(context: viewContext)
+//            newUser.username = "곰민"
+//        }
         do {
             try viewContext.save()
         } catch {
@@ -31,7 +32,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "testejslkj_alj_f")
+        container = NSPersistentContainer(name: "mentortee")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -53,4 +54,30 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+
+    
+//    private func addItem() {
+//
+//        let result = PersistenceController(inMemory: true)
+//        let viewContext = result.container.viewContext
+//
+//        withAnimation {
+//        //newItem 이라는 빈항목을 생성
+//            let newUser = User(context: viewContext)
+//            //현재 날짜인 timestamp 수행
+//            newUser.username = "테스트"
+//
+//
+//            //context를 호출하는 do state. save를 호출하고 오류가 발생하면 error 호출
+//            do {
+//                try viewContext.save()
+//            } catch {
+//                // Replace this implementation with code to handle the error appropriately.
+//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
+//        }
+//    }
+
 }
