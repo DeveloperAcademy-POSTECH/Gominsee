@@ -17,11 +17,11 @@ struct ContentView: View {
             VStack() {
                 TabView(selection: $selection) {
                     MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
-                    FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
+                    FeedView_Presentation().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
                     MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
                 }
             }
-                .navigationBarItems(leading: Text("고민씨")
+                .navigationBarItems(leading: Text("🐼고민씨")
                     .padding(.all, 16)
                     .font(.system(size: 22)
                         .weight(.bold))
