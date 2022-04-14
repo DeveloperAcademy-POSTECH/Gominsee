@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CountQuestion: View {
     var body: some View {
-        Text("총 n개").frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 16.0)
+        Text("총 2개").frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 16.0)
     }
 }
 
@@ -159,15 +159,23 @@ struct QuestionCardView: View {
                 VStack {
                     CountQuestion()
                     ScrollView {
-                        FeedQuestion(category: "가치관",
-                            otherThoughts: "다른 생각 9개",
-                            question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
+                        
+                        FeedQuestion(category: "관심사",
+                            otherThoughts: "다른 생각 3개",
+                            question: "내 인생에서 가장 중요하다고 생각하는 것을 위해 나는 무엇을 하고 있나요?",
                             questionOwner: "Chemi",
                             nickname: "Chemi"
-                        )
+                        ).padding(.bottom, 10)
+                        
+                        FeedAnswer(category: "가치관",
+                            otherThoughts: "다른 생각 5개",
+                            question: "하루 중 가장 행복하다고 느끼는 순간은 언제인가요?",
+                            questionOwner: "Chemi")
+                    
+                        
                     }
                 }
-                    .navigationBarTitle("내가 한 질문", displayMode: .inline)
+                    .navigationBarTitle("내가 만든 질문", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                         firstNaviLinkActive = false
                 }) {

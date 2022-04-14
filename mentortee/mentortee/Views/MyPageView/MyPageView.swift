@@ -108,8 +108,8 @@ struct MyPageView: View {
     @Binding var firstNaviLinkActive: Bool
     var body: some View {
         VStack {
-            MyInfo(username: "meenu")
-            MyQna(cntMyQuestion: 10, cntMyAnswer: 10, firstNaviLinkActive: $firstNaviLinkActive)
+            MyInfo(username: "Chemi")
+            MyQna(cntMyQuestion: 2, cntMyAnswer: 3, firstNaviLinkActive: $firstNaviLinkActive)
             MyCharacter()
             favoriteCategory()
             Spacer()

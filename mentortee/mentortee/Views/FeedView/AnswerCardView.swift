@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CountAnswer: View {
     var body: some View {
-        Text("총 n개").frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 16.0)
+        Text("총 3개").frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 16.0)
     }
 }
 
@@ -101,10 +101,20 @@ struct AnswerCardView: View {
                 VStack {
                     CountAnswer()
                     ScrollView {
-                        FeedAnswer(category: "가치관",
-                            otherThoughts: "다른 생각 9개",
-                            question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
-                            questionOwner: "Chemi")
+                        FeedAnswer(category: "회고",
+                            otherThoughts: "다른 생각 10개",
+                            question: "오늘 하루 하고(사고)싶었는데 못한 것이 있나요??",
+                                   questionOwner: "Brown")
+                        
+                        FeedAnswer(category: "습관",
+                            otherThoughts: "다른 생각 4개",
+                            question: "아침에 일어나면 가장 먼저 무엇을 하시나요?",
+                            questionOwner: "Meenu").padding(.vertical, 10)
+                        
+                        FeedAnswer(category: "진로",
+                            otherThoughts: "다른 생각 3개",
+                            question: "진로를 선택한 순간을 떠올려보세요 선택에 영향을 준 요인은 무엇인가요?",
+                            questionOwner: "Daon")
                     }
                 }
                     .navigationBarTitle("내가 답한 질문", displayMode: .inline)
