@@ -75,19 +75,17 @@ struct MainView: View {
                         }
                     }
 
-                    tapTextEditor ?
-
-                    Button("제출하기") {
+                    Button("제출하기", action: answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? {} : {
                         showAlert = true
-                        tapTextEditor = false
+                        answerText = "질문에 대한 나의 생각을 적어보세요."
                         hideKeyboard()
-                        answerText = "질문에 대한 나의 생각을 적어보세요"
                         answerColor = Color.black.opacity(0.2)
                         cardHeight = UIScreen.main.bounds.height * 0.45
                         cardTextHeight = screenHeight * 0.2
-                    }
-                        .foregroundColor(Color.mainGreen)
+                    })
+                    .foregroundColor(answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? Color.mainGreen.opacity(0.4) : Color.mainGreen)
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                    .padding(.all, 0)
                         .background(
                         RoundedRectangle(cornerRadius: 10))
                         .alert(isPresented: $showAlert) {
@@ -95,12 +93,12 @@ struct MainView: View {
                             title: Text("제출 완료"),
                             message: Text("마이페이지에서 확인할 수 있어요!"),
                             primaryButton: .default(Text("보러가기")),
-                            secondaryButton: .cancel(Text("완료")))
+                            secondaryButton: .cancel(Text("완료"), action: {
+                                    tapTextEditor = false
+                                }))
                     }
                         .padding(.top, 50)
                         .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
-                    : nil
-
                 })
                     .foregroundColor(.white)
                     .groupBoxStyle(PlainGroupBoxStyle())
