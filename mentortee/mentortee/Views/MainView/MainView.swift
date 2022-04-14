@@ -92,8 +92,10 @@ struct MainView: View {
                         RoundedRectangle(cornerRadius: 10))
                         .alert(isPresented: $showAlert) {
                         Alert(
-                            title: Text("완료"),
-                            message: Text("제출이 완료되었어요!"))
+                            title: Text("제출 완료"),
+                            message: Text("마이페이지에서 확인할 수 있어요!"),
+                            primaryButton: .default(Text("보러가기")),
+                            secondaryButton: .cancel(Text("완료")))
                     }
                         .padding(.top, 50)
                         .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
