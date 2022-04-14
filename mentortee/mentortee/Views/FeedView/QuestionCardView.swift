@@ -161,8 +161,8 @@ struct QuestionCardView: View {
                     ScrollView {
                         
                         FeedQuestion(category: "관심사",
-                            otherThoughts: "다른 생각 3개",
-                            question: "내 인생에서 가장 중요하다고 생각하는 것을 위해 나는 무엇을 하고 있나요?",
+                            otherThoughts: "다른 생각 0개",
+                            question: "좋아하는 운동은 무엇인가요?",
                             questionOwner: "Chemi",
                             nickname: "Chemi"
                         ).padding(.bottom, 10)
