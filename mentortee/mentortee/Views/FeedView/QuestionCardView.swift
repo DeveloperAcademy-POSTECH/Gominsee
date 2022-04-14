@@ -150,7 +150,7 @@ struct FeedQuestion: View {
 struct QuestionCardView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @Binding var firstNaviLinkActive: Bool
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -169,7 +169,8 @@ struct QuestionCardView: View {
                 }
                     .navigationBarTitle("내가 한 질문", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
-                        firstNaviLinkActive = false
+                    self.mode.wrappedValue.dismiss()
+                    firstNaviLinkActive = false
                 }) {
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 20))
