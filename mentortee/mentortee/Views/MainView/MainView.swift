@@ -24,7 +24,7 @@ struct MainView: View {
         return formatter
     }()
 
-    var dailyQuestion = "OOO님이 생각하는 이상적인 삶은 어떤 모습인가요?"
+    var dailyQuestion = "Chemi님이 생각하는 이상적인 삶은 어떤 모습인가요?"
     var categoryList = ["가치관"]
 
     struct PlainGroupBoxStyle: GroupBoxStyle {
