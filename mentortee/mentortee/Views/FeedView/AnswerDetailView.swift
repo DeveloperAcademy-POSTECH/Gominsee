@@ -121,7 +121,7 @@ struct Accordion: View {
             VStack {
                 Button(action: { self.collapsed.toggle() }) {
                     HStack {
-                        Text("9개의 생각이 있어요.").font(.system(size: 14)).foregroundColor(Color.black)
+                        Text("6개의 생각이 있어요.").font(.system(size: 14)).foregroundColor(Color.black)
                         Spacer()
                         Image(systemName: collapsed ? "chevron.up.circle.fill" : "chevron.down.circle.fill")
                             .resizable().frame(width: 30, height: 30)

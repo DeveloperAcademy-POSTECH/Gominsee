@@ -218,16 +218,16 @@ struct FeedView_Presentation: View {
                     if count == 0 {
                         ScrollView {
                             VStack {
-                                FeedAnswer(category: "취향",
+                                FeedQuestion(category: "취향",
                                     otherThoughts: "다른 생각 6개",
                                     question: "무슨 색을 좋아하나요?",
-                                    questionOwner: "noel"
+                                    questionOwner: "noel",
+                                   nickname: "Chemi"
                                 )
-                                FeedQuestion(category: "가치관",
+                                FeedAnswer(category: "가치관",
                                     otherThoughts: "다른 생각 4개",
                                     question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
-                                    questionOwner: "Chemi",
-                                    nickname: "Chemi"
+                                    questionOwner: "Chemi"
                                 )
                                 FeedQuestion(category: "회고",
                                     otherThoughts: "다른 생각 39개",

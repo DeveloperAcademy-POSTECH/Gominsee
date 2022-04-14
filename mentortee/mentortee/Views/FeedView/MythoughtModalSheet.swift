@@ -10,7 +10,7 @@ import SwiftUI
 struct MythoughtModalSheet: View {
     @Environment(\.presentationMode) var presentation
     var answerDatetime = ["2022.04.14"]
-    var myAnswer = ["보라색"]
+    var myAnswer = ["건강하면서 좋아하는 일을 할 수 있는 삶이라고 생각한다."]
     
     var body: some View {
        
