@@ -23,6 +23,10 @@ extension User {
     @NSManaged public var userToQuestion: NSSet?
     @NSManaged public var userToReport: NSSet?
     @NSManaged public var userToUserCategory: NSSet?
+    
+    var wrappedUserName: String {
+        username ?? "Unknown"
+    }
 
 }
 

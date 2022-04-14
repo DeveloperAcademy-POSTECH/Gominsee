@@ -7,30 +7,29 @@
 
 import SwiftUI
 import UIKit
+import CoreData
 
 struct Nickname: View {
-    @ObservedObject var userSetting = UserSetting()
+//    @ObservedObject var userSetting = UserSetting()
 
     @Environment(\.managedObjectContext) private var viewContext
 
-
-
-
-//    let fetchRequest: NSFetchRequest<User> fetchRequest = User.fetchRequest()
+//    @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)])
+    @FetchRequest(entity: User.entity(), sortDescriptors: [])
+    var UserInfo: FetchedResults<User>
+    @Binding var accessToken: String
 
     @State private var name : String = ""
     // 기기별 스크린너비 변수받아오기
     let screenWidth1 = UIScreen.main.bounds.size.width
     let screenHeight1 = UIScreen.main.bounds.size.height
 
-    @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)], predicate: NSPredicate(format:"username == %@", $name)) var UserInfo: FetchedResults<User>
-
     var body: some View {
         ZStack{
             Color.backgroundColor.ignoresSafeArea()
             //배경색 영역
             VStack {
-                VStack{
+                VStack {
                     Text("반가워요!")
                         .font(.system(size: 30))
                         .bold()
@@ -39,7 +38,8 @@ struct Nickname: View {
                         .font(.system(size: 30))
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                }.foregroundColor(.mainGreen)
+                }
+                .foregroundColor(.mainGreen)
                     .padding(.bottom, 50)
                 HStack {
                     TextField("닉네임을 입력하세요(최대 n자)", text: $name)
@@ -50,12 +50,12 @@ struct Nickname: View {
                         addItem()
                     }) {
                         Text("중복 확인")
-                    }
+                    }.padding(.trailing, 10)
                 }
                 .padding(.vertical, 15)
                 .background(RoundedRectangle(cornerRadius: 10)
                     .fill(Color.white))
-                NavigationLink(destination: MainView()) {
+                NavigationLink(destination: MainView(accessToken: .constant(""))) {
                     Text("입력 완료")
                 }.frame(maxWidth: .infinity, maxHeight: 50).background(RoundedRectangle(cornerRadius: 10.0)
                     .fill(Color.primaryColor))
@@ -66,35 +66,84 @@ struct Nickname: View {
 //                }
             }.padding(.horizontal, 16)
                 .padding(.top, -200)
+//            ScrollView {
+//                List {
+//                    ForEach(UserInfo) { users in
+//                        Text(users.username ?? "이름 없음")
+//                    }
+//                }
+//            }
         }
         .onTapGesture {
             hideKeyboard()
         }//탭치면 키보드 내려감
+
     }
 
     private func addItem() {
-        print("a")
+        
+        print("add item")
         withAnimation {
-//            @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)], predicate: NSPredicate(format:"username == %@", self.name)) var UserInfo: FetchedResults<User>
-            
-            let _ = print(self.name)
-            
             //수정 부분
             if UserInfo.isEmpty {
-                let newUser = User(context: viewContext)
-                newUser.username = name
-                name = ""
-                saveItems()
-            } else {
-                print("success")
+                print("empty array")
             }
-            self.userSetting.accessToken = name
+            else {
+                print("before foreach")
+                var cnt = 0
+                for i in UserInfo {
+                    if i.username == self.name {
+                        self.accessToken = self.name
+                        break
+                    }
+                    if UserInfo.endIndex == cnt {
+                        self.accessToken = self.name
+                        let newUser = User(context: viewContext)
+                        newUser.username = self.name
+                        name = ""
+                        saveItems()
+                    }
+                    cnt += 1
+                    print(i.username ?? "이름없음")
+                }
+//                ForEach(UserInfo) { users in
+//                    print(users.wrappedUserName)
+//                    if users.wrappedUserName == self.name {
+//                        self.accessToken = self.name
+//                    }
+//                }
+//                print(self.UserInfo.wrappedUserName)
+//                ForEach(UserInfo, id: \.self) { (users: User) in
+//                    Text(users.username! )
+//                    let _ = print("되는거니")
+//                    let _ = print(users.wrappedUserName)
+    //                if users.wrappedUserName == self.name {
+    //                    self.accessToken = self.name
+    //                }
+//                }
+                print("after foreach")
+            }
+//            ForEach(UserInfo) { users in
+//                let _ = print(users.wrappedUserName)
+//                if users.wrappedUserName == self.name {
+//                    self.accessToken = self.name
+//                }
 //            }
+//            if UserInfo.isEmpty {
+//                let newUser = User(context: viewContext)
+//                newUser.username = name
+//                name = ""
+//                saveItems()
+//                print(newUser.username)
+//            } else {
+//                print("success")
+//            }
+////            }
         }
     }
 
     private func saveItems() {
-        print("b")
+        print("saveItems")
         do {
             try viewContext.save()
         } catch {
@@ -102,6 +151,22 @@ struct Nickname: View {
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
+    
+//    private func getUser(){
+////        let request = NSFetchRequest<User>(entityName:"User")
+////
+////        let filter = NSPredicate(format: "username == %@", self.name)
+////
+////
+////        request.predicate = filter
+//
+//        @FetchRequest(
+//            sortDescriptors: [NSSortDescriptor(keyPath: \User.userName, ascending: true)],
+//            predicate: NSPredicate(format: "User == %@", self.name),
+//            animation: .default) var users: FetchedResults<User>
+//
+//
+//    }
 
 }
 
@@ -179,7 +244,8 @@ struct Nickname: View {
 
 struct Nickname_Previews: PreviewProvider {
     static var previews: some View {
-        Nickname()
+        Nickname(accessToken: .constant(""))
+//        Nickname()
     }
 }
 

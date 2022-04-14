@@ -11,13 +11,15 @@ struct ContentView: View {
     @State private var selection = 1
     @State private var isShowingDetailView = false
     @State var firstNaviLinkActive: Bool = false
+    @Binding var accessToken: String
 
     var body: some View {
         NavigationView {
             VStack() {
                 TabView(selection: $selection) {
 //                    MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
-                    Nickname().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
+                    Nickname(accessToken: .constant("")).tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
+//                    Nickname().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
                     FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
                     MyPageView().tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
                 }
@@ -51,6 +53,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(accessToken: .constant(""))
     }
 }

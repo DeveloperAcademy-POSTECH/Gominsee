@@ -19,12 +19,13 @@ struct MainView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)]) var UserInfo: FetchedResults<User>
+    @Binding var accessToken: String
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     static let dateformat: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko-KR")
-        formatter.dateFormat = "YY년 M월 d일 (eeee)"
+        formatter.dateFormat = "YYYY년 M월 d일 (eeee)"
         return formatter
     }()
 
@@ -59,7 +60,7 @@ struct MainView: View {
                 GroupBox(content: {
                     Text("\(today, formatter: MainView.dateformat)")
                         .bold()
-                    Text("\(self.userSetting.accessToken)님이 생각하는 이상적인 삶은 어떤 모습인가요?")
+                    Text("\(self.accessToken)님이 생각하는 이상적인 삶은 어떤 모습인가요?")
                         .bold()
                         .font(.system(size: 35))
                         .minimumScaleFactor(0.5)
@@ -120,6 +121,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(accessToken: .constant(""))
     }
 }

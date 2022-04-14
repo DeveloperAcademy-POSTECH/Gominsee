@@ -13,7 +13,7 @@ struct mentorteeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(accessToken: .constant(""))
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

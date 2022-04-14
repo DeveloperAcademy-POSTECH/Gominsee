@@ -293,7 +293,7 @@ struct CategoryView: View {
 
             } else {
                 
-                NavigationLink(destination: ContentView()
+                NavigationLink(destination: ContentView(accessToken: .constant(""))
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)) {
                             
