@@ -218,25 +218,25 @@ struct FeedView_Presentation: View {
                     if count == 0 {
                         ScrollView {
                             VStack {
+                                FeedAnswer(category: "취향",
+                                    otherThoughts: "다른 생각 6개",
+                                    question: "무슨 색을 좋아하나요?",
+                                    questionOwner: "noel"
+                                )
                                 FeedQuestion(category: "가치관",
-                                    otherThoughts: "다른 생각 9개",
+                                    otherThoughts: "다른 생각 4개",
                                     question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
                                     questionOwner: "Chemi",
                                     nickname: "Chemi"
                                 )
-                                FeedAnswer(category: "취향",
-                                    otherThoughts: "다른 생각 9개",
-                                    question: "무슨 색을 좋아하나요?",
-                                    questionOwner: "noel"
-                                )
                                 FeedQuestion(category: "회고",
-                                    otherThoughts: "다른 생각 9개",
+                                    otherThoughts: "다른 생각 39개",
                                     question: "오늘 하루 하려다가 못한 일이 있나요?",
                                     questionOwner: "Chemi",
                                     nickname: "Chemi"
                                 )
                                 FeedAnswer(category: "회고",
-                                    otherThoughts: "다른 생각 9개",
+                                    otherThoughts: "다른 생각 34개",
                                     question: "오늘 감사했던 일을 적어주세요!",
                                     questionOwner: "Chemi")
                                 FeedQuestion(category: "회고",
@@ -246,25 +246,25 @@ struct FeedView_Presentation: View {
                                     nickname: "Chemi"
                                 )
                                 FeedQuestion(category: "회고",
-                                             otherThoughts: "다른 생각 120개",
+                                             otherThoughts: "다른 생각 2개",
                                              question: "오늘 하루 행복했던 일에 대해 적어주세요",
                                              questionOwner: "Daon",
                                              nickname: "Chemi"
                                      )
                                 FeedQuestion(category: "진로",
-                                              otherThoughts: "다른 생각 9개",
+                                              otherThoughts: "다른 생각 1개",
                                               question: "최근에 가장 관심갖고 있는 직업이나 직무가 있나요?",
                                               questionOwner: "Chemi",
                                               nickname: "brown"
                                           )
                                           FeedQuestion(category: "진로",
-                                              otherThoughts: "다른 생각 10개",
+                                              otherThoughts: "다른 생각 45개",
                                               question: "요즘 가장 배우고 싶은 것이 있나요?",
                                               questionOwner: "Brown",
                                               nickname: "Hello"
                                           )
                                 FeedQuestion(category: "취향",
-                                    otherThoughts: "다른 생각 10개",
+                                    otherThoughts: "다른 생각 3개",
                                     question: "요즘 자주 듣는 노래가 있나요?",
                                     questionOwner: "apple",
                                     nickname: "apple"
@@ -276,7 +276,7 @@ struct FeedView_Presentation: View {
                         ScrollView {
                             VStack {
                                 FeedQuestion(category: "가치관",
-                                    otherThoughts: "다른 생각 9개",
+                                    otherThoughts: "다른 생각 4개",
                                     question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
                                     questionOwner: "Chemi",
                                     nickname: "Chemi"
@@ -287,41 +287,41 @@ struct FeedView_Presentation: View {
                                     questionOwner: "noel"
                                 )
                                 FeedQuestion(category: "회고",
-                                    otherThoughts: "다른 생각 9개",
+                                    otherThoughts: "다른 생각 54개",
                                     question: "오늘 하루 하려다가 못한 일이 있나요?",
                                     questionOwner: "Chemi",
                                     nickname: "Chemi"
                                 )
                                 FeedAnswer(category: "회고",
-                                    otherThoughts: "다른 생각 9개",
+                                    otherThoughts: "다른 생각 6개",
                                     question: "오늘 감사했던 일을 적어주세요!",
                                     questionOwner: "Chemi")
                                 FeedQuestion(category: "회고",
-                                    otherThoughts: "다른 생각 120개",
+                                    otherThoughts: "다른 생각 8개",
                                     question: "오늘 후회되는 일이 있나요? 후회하지 않기 위해서 다음엔 어떻게 하실 건가요?",
                                     questionOwner: "Daon",
                                     nickname: "Chemi"
                                 )
                                 FeedQuestion(category: "회고",
-                                             otherThoughts: "다른 생각 120개",
+                                             otherThoughts: "다른 생각 34개",
                                              question: "오늘 하루 행복했던 일에 대해 적어주세요",
                                              questionOwner: "Daon",
                                              nickname: "Chemi"
                                      )
                                 FeedQuestion(category: "진로",
-                                              otherThoughts: "다른 생각 9개",
+                                              otherThoughts: "다른 생각 78개",
                                               question: "최근에 가장 관심갖고 있는 직업이나 직무가 있나요?",
                                               questionOwner: "Chemi",
                                               nickname: "brown"
                                           )
                                           FeedQuestion(category: "진로",
-                                              otherThoughts: "다른 생각 10개",
+                                              otherThoughts: "다른 생각 5개",
                                               question: "요즘 가장 배우고 싶은 것이 있나요?",
                                               questionOwner: "Brown",
                                               nickname: "Hello"
                                           )
                                 FeedQuestion(category: "취향",
-                                    otherThoughts: "다른 생각 10개",
+                                    otherThoughts: "다른 생각 76개",
                                     question: "요즘 자주 듣는 노래가 있나요?",
                                     questionOwner: "apple",
                                     nickname: "apple"

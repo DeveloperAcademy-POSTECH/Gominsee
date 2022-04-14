@@ -66,7 +66,7 @@ struct QuestionAnswerCard: View {
 struct QuestionView: View {
     var body: some View {
         VStack {
-            QuestionAnswerCard(thumbnail: "thumbnail_lv1", nickName: "노엘", uploadTime: "1시간 전", category: "카테고리", question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?")
+            QuestionAnswerCard(thumbnail: "thumbnail_lv1", nickName: "noel", uploadTime: "1시간 전", category: "취향", question: "무슨 색을 좋아하나요?")
         }
     }
 }
