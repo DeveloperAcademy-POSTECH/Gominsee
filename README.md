@@ -17,7 +17,7 @@
   - [프로젝트 구조](##프로젝트-구조)
   - [Swift Code convention](##Swift-Code-Convention)
 
-    - [1. 코드 포매팅](###1.-코드-포매팅)
+    - [1. 코드 포매팅](###1-코드-포매팅)
 
       - [1.1. import](####1.1.-import)
 
