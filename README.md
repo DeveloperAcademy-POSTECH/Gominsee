@@ -36,8 +36,6 @@
       - [3.3. self](#33-self)
       - [3.4. 타입](#34---)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 ## 프로젝트 구조
 
 ### 디렉터리 구조
