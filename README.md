@@ -466,7 +466,7 @@ switch animal {
 
 - 변수 / 상수 이름은 camelCase 사용
 
-- 객체를 가리키는 객체 이름은 Hungarian Notation으로 표기하며, 가독성을 위해 접두의 약어는 몯무 소문자로 표기
+- 객체를 가리키는 객체 이름은 Hungarian Notation으로 표기하며, 가독성을 위해 접두의 약어는 모두 소문자로 표기
 
   ex) let btnSave
 
