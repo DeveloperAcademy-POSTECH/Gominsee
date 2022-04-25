@@ -204,7 +204,7 @@ struct QuestionMakingMain: View {
                                     .font(.system(size: 24))
                                     .bold()
 
-                                Text("OOO님의 생각은 어떠신가요?")
+                                Text("Chemi님의 생각은 어떠신가요?")
                                     .font(.system(size: 24))
                                     .bold()
 

@@ -120,7 +120,7 @@ struct FeedQuestion: View {
                         .frame(width: 80, height: 30)
                         .overlay(Text("생각 적기").foregroundColor(Color.white))
                 }
-                    .fullScreenCover(isPresented: self.$showModal) {
+                    .sheet(isPresented: self.$showModal) {
                     AnswerModalSheet(feedQuestion: question)
                 }
             }
@@ -160,7 +160,7 @@ struct QuestionCardView: View {
                     CountQuestion()
                     ScrollView {
                         
-                        FeedQuestion(category: "관심사",
+                        FeedQuestion(category: "취미",
                             otherThoughts: "다른 생각 0개",
                             question: "좋아하는 운동은 무엇인가요?",
                             questionOwner: "Chemi",
