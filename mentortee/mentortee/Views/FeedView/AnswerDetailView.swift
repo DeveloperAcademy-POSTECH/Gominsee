@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+enum ReportCategory: String, CaseIterable {
+    case spam = "스팸"
+    case secualActivity = "성적인 발언"
+    case dontLike = "마음에 들지 않습니다"
+    case hateSpeech = "혐오 발언"
+    case scam = "사기 또는 거짓"
+    case bullying = "따돌림 또는 괴롭힘"
+    case violence = "폭력 또는 위험한 단체"
+    case copyright = "지식 재산권 침해"
+    case etc = "기타"
+}
+
 var showingOptions = false
 
 struct AnswerView: View {
@@ -57,32 +69,8 @@ struct AnswerView: View {
                             Text("삭제하신 답변은 복구할 수 없어요 ㅠ^ㅠ      신중하게 생각하고 선택해주세요.")
                         }
                         .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility:.visible) {
-                            Button("스팸") {
-                                //신고 누르면 카운트 기능?
-                            }
-                            Button("성적인 발언") {
-                                //신고 누르면 카운트 기능?
-                            }
-                            Button("마음에 들지 않습니다") {
-                                //신고 누르면 카운트 기능?
-                            }
-                            Button("혐오 발언") {
-                                //신고 누르면 카운트 기능?
-                            }
-                            Button("사기 또는 거짓") {
-                                //신고 누르면 카운트 기능?
-                            }
-                            Button("따돌림 또는 괴롭힘") {
-                                //신고 누르면 카운트 기능?
-                            }
-                            Button("폭력 또는 위험한 단체") {
-                                //신고 누르면 카운트 기능?
-                            }
-                            Button("지식 재산권 침해") {
-                                //신고 누르면 카운트 기능?
-                            }
-                            Button("기타") {
-                                //신고 누르면 카운트 기능?
+                            ForEach(ReportCategory.allCases, id: \.rawValue) { value in
+                                Button(value.rawValue) {}
                             }
                         }
                     }

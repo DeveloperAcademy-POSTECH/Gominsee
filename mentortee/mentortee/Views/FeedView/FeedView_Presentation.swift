@@ -224,21 +224,21 @@ struct FeedView_Presentation: View {
                                     questionOwner: "noel",
                                    nickname: "Chemi"
                                 )
-                                FeedAnswer(category: "가치관",
-                                    otherThoughts: "다른 생각 4개",
-                                    question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
-                                    questionOwner: "Chemi"
-                                )
+//                                FeedAnswer(category: "가치관",
+//                                    otherThoughts: "다른 생각 4개",
+//                                    question: "당신이 생각하는 이상적인 삶은 어떤 모습인가요?",
+//                                    questionOwner: "Chemi"
+//                                )
                                 FeedQuestion(category: "회고",
                                     otherThoughts: "다른 생각 39개",
                                     question: "오늘 하루 하려다가 못한 일이 있나요?",
                                     questionOwner: "Chemi",
                                     nickname: "Chemi"
                                 )
-                                FeedAnswer(category: "회고",
-                                    otherThoughts: "다른 생각 34개",
-                                    question: "오늘 감사했던 일을 적어주세요!",
-                                    questionOwner: "Chemi")
+//                                FeedAnswer(category: "회고",
+//                                    otherThoughts: "다른 생각 34개",
+//                                    question: "오늘 감사했던 일을 적어주세요!",
+//                                    questionOwner: "Chemi")
                                 FeedQuestion(category: "회고",
                                     otherThoughts: "다른 생각 120개",
                                     question: "오늘 후회되는 일이 있나요? 후회하지 않기 위해서 다음엔 어떻게 하실 건가요?",
@@ -281,21 +281,21 @@ struct FeedView_Presentation: View {
                                     questionOwner: "Chemi",
                                     nickname: "Chemi"
                                 )
-                                FeedAnswer(category: "취향",
-                                    otherThoughts: "다른 생각 9개",
-                                    question: "무슨 색을 좋아하나요?",
-                                    questionOwner: "noel"
-                                )
+//                                FeedAnswer(category: "취향",
+//                                    otherThoughts: "다른 생각 9개",
+//                                    question: "무슨 색을 좋아하나요?",
+//                                    questionOwner: "noel"
+//                                )
                                 FeedQuestion(category: "회고",
                                     otherThoughts: "다른 생각 54개",
                                     question: "오늘 하루 하려다가 못한 일이 있나요?",
                                     questionOwner: "Chemi",
                                     nickname: "Chemi"
                                 )
-                                FeedAnswer(category: "회고",
-                                    otherThoughts: "다른 생각 6개",
-                                    question: "오늘 감사했던 일을 적어주세요!",
-                                    questionOwner: "Chemi")
+//                                FeedAnswer(category: "회고",
+//                                    otherThoughts: "다른 생각 6개",
+//                                    question: "오늘 감사했던 일을 적어주세요!",
+//                                    questionOwner: "Chemi")
                                 FeedQuestion(category: "회고",
                                     otherThoughts: "다른 생각 8개",
                                     question: "오늘 후회되는 일이 있나요? 후회하지 않기 위해서 다음엔 어떻게 하실 건가요?",
@@ -359,11 +359,11 @@ struct FeedView_Presentation: View {
                     } else if count == 4 { //취향
                         ScrollView {
                             VStack {
-                                FeedAnswer(category: "취향",
-                                    otherThoughts: "다른 생각 9개",
-                                    question: "무슨 색을 좋아하나요?",
-                                    questionOwner: "noel"
-                                )
+//                                FeedAnswer(category: "취향",
+//                                    otherThoughts: "다른 생각 9개",
+//                                    question: "무슨 색을 좋아하나요?",
+//                                    questionOwner: "noel"
+//                                )
                                 FeedQuestion(category: "취향",
                                     otherThoughts: "다른 생각 10개",
                                     question: "요즘 자주 듣는 노래가 있나요?",
@@ -392,10 +392,10 @@ struct FeedView_Presentation: View {
                     } else if count == 6 { // 고민
                         ScrollView {
                             VStack {
-                                FeedAnswer(category: "고민",
-                                    otherThoughts: "다른 생각 9개",
-                                    question: "남들에게 물어보지 못했던 고민이 있나요?",
-                                    questionOwner: "Chemi")
+//                                FeedAnswer(category: "고민",
+//                                    otherThoughts: "다른 생각 9개",
+//                                    question: "남들에게 물어보지 못했던 고민이 있나요?",
+//                                    questionOwner: "Chemi")
                             }
                         }
                     } else if count == 7 { // 비밀
@@ -418,10 +418,10 @@ struct FeedView_Presentation: View {
                                     questionOwner: "Chemi",
                                     nickname: "Chemi"
                                 )
-                                FeedAnswer(category: "회고",
-                                    otherThoughts: "다른 생각 9개",
-                                    question: "오늘 감사했던 일을 적어주세요!",
-                                    questionOwner: "Chemi")
+//                                FeedAnswer(category: "회고",
+//                                    otherThoughts: "다른 생각 9개",
+//                                    question: "오늘 감사했던 일을 적어주세요!",
+//                                    questionOwner: "Chemi")
                                 FeedQuestion(category: "회고",
                                     otherThoughts: "다른 생각 120개",
                                     question: "오늘 후회되는 일이 있나요? 후회하지 않기 위해서 다음엔 어떻게 하실 건가요?",
@@ -439,18 +439,18 @@ struct FeedView_Presentation: View {
                     } else { // 습관
                         ScrollView {
                             VStack {
-                                FeedAnswer(category: "습관",
-                                    otherThoughts: "다른 생각 9개",
-                                    question: "오늘 하루 얼만큼의 물을 마셨나요?",
-                                    questionOwner: "켐켐")
-                                FeedAnswer(category: "습관",
-                                    otherThoughts: "다른 생각 9개",
-                                    question: "본인만의 모닝 루틴이 있나요? 일어나자마자 주로 무슨 일을 하시나요?",
-                                    questionOwner: "Chemi")
-                                FeedAnswer(category: "습관",
-                                    otherThoughts: "다른 생각 9개",
-                                    question: "매일 7시에 무슨 일을 하고 계신가요?",
-                                    questionOwner: "Chemi")
+//                                FeedAnswer(category: "습관",
+//                                    otherThoughts: "다른 생각 9개",
+//                                    question: "오늘 하루 얼만큼의 물을 마셨나요?",
+//                                    questionOwner: "켐켐")
+//                                FeedAnswer(category: "습관",
+//                                    otherThoughts: "다른 생각 9개",
+//                                    question: "본인만의 모닝 루틴이 있나요? 일어나자마자 주로 무슨 일을 하시나요?",
+//                                    questionOwner: "Chemi")
+//                                FeedAnswer(category: "습관",
+//                                    otherThoughts: "다른 생각 9개",
+//                                    question: "매일 7시에 무슨 일을 하고 계신가요?",
+//                                    questionOwner: "Chemi")
                             }
                         }
                     }
