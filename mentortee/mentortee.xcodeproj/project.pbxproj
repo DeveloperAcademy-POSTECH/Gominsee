@@ -190,7 +190,6 @@
 		394D105128192AE700CD538D /* Answer */ = {
 			isa = PBXGroup;
 			children = (
-				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 				394D104B28192A0A00CD538D /* Accordion.swift */,
 				394D104D28192A3900CD538D /* ReplyAnswer.swift */,
 				394D104F28192A6C00CD538D /* AnswerView.swift */,
@@ -224,6 +223,7 @@
 				394D105128192AE700CD538D /* Answer */,
 				A752B59B280034BF00B41987 /* FeedView.swift */,
 				38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */,
+				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 				A73E251827FE7DB6006C42CB /* FeedCategoryBtn.swift */,
 				A7D877D727FF2641001257EC /* AnswerModalSheet.swift */,
 				388749662806B3E70005D616 /* MythoughtModalSheet.swift */,
