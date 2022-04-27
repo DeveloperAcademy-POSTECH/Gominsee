@@ -37,6 +37,10 @@
 		388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388749662806B3E70005D616 /* MythoughtModalSheet.swift */; };
 		38B05F1E2807FDF400136931 /* FeedView_Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */; };
 		390223DF2805241A008D9C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390223DE2805241A008D9C64 /* SettingsView.swift */; };
+		394D104C28192A0A00CD538D /* Accordion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D104B28192A0A00CD538D /* Accordion.swift */; };
+		394D104E28192A3900CD538D /* ReplyAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D104D28192A3900CD538D /* ReplyAnswer.swift */; };
+		394D105028192A6C00CD538D /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D104F28192A6C00CD538D /* AnswerView.swift */; };
+		394D105328192B7E00CD538D /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D105228192B7E00CD538D /* AnswerData.swift */; };
 		3973A06527FD272F00CDC599 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3973A06427FD272F00CDC599 /* MainView.swift */; };
 		399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B32FA27FE73BE0005F887 /* ColorData.swift */; };
 		7B23C96627FD8D9A00EA7C2E /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B23C96527FD8D9A00EA7C2E /* QuestionDetailView.swift */; };
@@ -86,6 +90,10 @@
 		388749662806B3E70005D616 /* MythoughtModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythoughtModalSheet.swift; sourceTree = "<group>"; };
 		38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView_Presentation.swift; sourceTree = "<group>"; };
 		390223DE2805241A008D9C64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		394D104B28192A0A00CD538D /* Accordion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accordion.swift; sourceTree = "<group>"; };
+		394D104D28192A3900CD538D /* ReplyAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyAnswer.swift; sourceTree = "<group>"; };
+		394D104F28192A6C00CD538D /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
+		394D105228192B7E00CD538D /* AnswerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
 		3973A06427FD272F00CDC599 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		399B32FA27FE73BE0005F887 /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		7B23C96527FD8D9A00EA7C2E /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
@@ -159,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				399B32FA27FE73BE0005F887 /* ColorData.swift */,
+				394D105228192B7E00CD538D /* AnswerData.swift */,
 				3973A05F27FD26CE00CDC599 /* Views */,
 				26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */,
 				263175E62805230000C13368 /* Persistence.swift */,
@@ -176,6 +185,16 @@
 				26F56B5527FBEC1E0066C0D1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		394D105128192AE700CD538D /* Answer */ = {
+			isa = PBXGroup;
+			children = (
+				394D104B28192A0A00CD538D /* Accordion.swift */,
+				394D104D28192A3900CD538D /* ReplyAnswer.swift */,
+				394D104F28192A6C00CD538D /* AnswerView.swift */,
+			);
+			path = Answer;
 			sourceTree = "<group>";
 		};
 		3973A05F27FD26CE00CDC599 /* Views */ = {
@@ -201,8 +220,10 @@
 		3973A06127FD26DD00CDC599 /* FeedView */ = {
 			isa = PBXGroup;
 			children = (
+				394D105128192AE700CD538D /* Answer */,
 				A752B59B280034BF00B41987 /* FeedView.swift */,
 				38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */,
+				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 				A73E251827FE7DB6006C42CB /* FeedCategoryBtn.swift */,
 				A7D877D727FF2641001257EC /* AnswerModalSheet.swift */,
 				388749662806B3E70005D616 /* MythoughtModalSheet.swift */,
@@ -211,7 +232,6 @@
 				A7D877D927FF70F6001257EC /* KeyboardHandler.swift */,
 				7B23C96527FD8D9A00EA7C2E /* QuestionDetailView.swift */,
 				7B23C96727FD8E5D00EA7C2E /* QuestionView.swift */,
-				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 			);
 			path = FeedView;
 			sourceTree = "<group>";
@@ -332,6 +352,7 @@
 				263175E9280558C200C13368 /* createTestData.swift in Sources */,
 				A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */,
 				2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */,
+				394D104E28192A3900CD538D /* ReplyAnswer.swift in Sources */,
 				A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */,
 				26317622280564C300C13368 /* Category+CoreDataClass.swift in Sources */,
 				A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */,
@@ -340,6 +361,7 @@
 				26317625280564C300C13368 /* Question+CoreDataProperties.swift in Sources */,
 				A752B59C280034BF00B41987 /* FeedView.swift in Sources */,
 				3973A06527FD272F00CDC599 /* MainView.swift in Sources */,
+				394D104C28192A0A00CD538D /* Accordion.swift in Sources */,
 				2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */,
 				26317624280564C300C13368 /* Question+CoreDataClass.swift in Sources */,
 				26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */,
@@ -348,6 +370,8 @@
 				26A1D67A2802CB3C002373FB /* MyPageView.swift in Sources */,
 				A952D08728051F210098DBE8 /* CategoryView.swift in Sources */,
 				26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */,
+				394D105028192A6C00CD538D /* AnswerView.swift in Sources */,
+				394D105328192B7E00CD538D /* AnswerData.swift in Sources */,
 				26317621280564C300C13368 /* User+CoreDataProperties.swift in Sources */,
 				A952D08C280520400098DBE8 /* MakingNicknameView.swift in Sources */,
 				A73E251927FE7DB6006C42CB /* FeedCategoryBtn.swift in Sources */,
