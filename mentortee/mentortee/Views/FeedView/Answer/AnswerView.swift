@@ -54,7 +54,9 @@ struct AnswerView: View {
                         } message: {
                             Text("삭제하신 답변은 복구할 수 없어요 ㅠ^ㅠ      신중하게 생각하고 선택해주세요.")
                         }
-                        .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $isShowingReportAlert, titleVisibility:.visible) {
+                        .confirmationDialog("게시글 신고 사유를 선택해주세요",
+                                            isPresented: $isShowingReportAlert,
+                                            titleVisibility:.visible) {
                             ForEach(ReportDialog.allCases, id: \.self) { value in
                                 Button(value.rawValue) {}
                             }
