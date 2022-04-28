@@ -1,10 +1,3 @@
-//
-//  MainView.swift
-//  mentortee
-//
-//  Created by Mingwan Choi on 2022/04/06.
-//
-
 import SwiftUI
 
 extension View {
@@ -15,35 +8,8 @@ extension View {
 }
 
 struct MainView: View {
-    let screenWidth = UIScreen.main.bounds.width
-    let screenHeight = UIScreen.main.bounds.height
-    static let dateformat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko-KR")
-        formatter.dateFormat = "YY년 M월 d일 (eeee)"
-        return formatter
-    }()
-
     var dailyQuestion = "Chemi님은 뭘 할 때 행복한가요 ?"
     var categoryList = ["가치관"]
-
-    struct PlainGroupBoxStyle: GroupBoxStyle {
-        func makeBody(configuration: Configuration) -> some View {
-            VStack(alignment: .leading) {
-                configuration.label
-                configuration.content
-            }
-                .padding(EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20))
-                .frame(width: UIScreen.main.bounds.width - 50, height: nil)
-                .background(
-                LinearGradient(
-                    gradient: Gradient(
-                        colors: [Color.primaryColor, Color.subIvory]),
-                    startPoint: .topLeading, endPoint: .bottomTrailing))
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-        }
-    }
-
     var today = Date()
     @State private var cardHeight = UIScreen.main.bounds.height * 0.45
     @State private var cardTextHeight = UIScreen.main.bounds.height * 0.2
@@ -52,19 +18,25 @@ struct MainView: View {
     @State private var tapTextEditor = false
     @State private var showAlert = false
 
+    static let dateformat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko-KR")
+        formatter.dateFormat = "YY년 M월 d일 (eeee)"
+        return formatter
+    }()
+
     var body: some View {
-        ZStack {
-            Color.backgroundColor
-                .ignoresSafeArea()
+        GeometryReader { geometry in
             VStack(alignment: .center, spacing: 0) {
-                GroupBox(content: {
+                VStack(alignment: .leading) {
                     Text("\(today, formatter: MainView.dateformat)")
                         .bold()
+                        .padding(.top, 20)
                     Text(dailyQuestion)
                         .bold()
                         .font(.system(size: 35))
                         .minimumScaleFactor(0.5)
-                        .frame(width: nil, height: cardTextHeight)
+                        .frame(width: geometry.size.width * 0.8, height: cardTextHeight, alignment: .leading)
                     HStack {
                         ForEach(categoryList, id: \.self) { value in
                             Text(value).padding(.vertical, 3)
@@ -74,18 +46,16 @@ struct MainView: View {
                                 .font(.system(size: 14))
                         }
                     }
-
-                    Button("제출하기", action: answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? {} : {
-                        showAlert = true
-                        answerText = "질문에 대한 나의 생각을 적어보세요."
-                        hideKeyboard()
-                        answerColor = Color.black.opacity(0.2)
-                        cardHeight = UIScreen.main.bounds.height * 0.45
-                        cardTextHeight = screenHeight * 0.2
-                    })
-                    .foregroundColor(answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? Color.mainGreen.opacity(0.4) : Color.mainGreen)
+                    Button("제출하기", action: answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? { }: {
+                            showAlert = true
+                            answerText = "질문에 대한 나의 생각을 적어보세요."
+                            hideKeyboard()
+                            answerColor = Color.black.opacity(0.2)
+                            cardHeight = UIScreen.main.bounds.height * 0.45
+                            cardTextHeight = geometry.size.height * 0.2
+                        })
+                        .foregroundColor(answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? Color.mainGreen.opacity(0.4) : Color.mainGreen)
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                    .padding(.all, 0)
                         .background(
                         RoundedRectangle(cornerRadius: 10))
                         .alert(isPresented: $showAlert) {
@@ -98,22 +68,25 @@ struct MainView: View {
                                 }))
                     }
                         .padding(.top, 50)
-                        .frame(width: screenWidth * 0.75, height: nil, alignment: .trailing)
-                })
+                        .frame(width: geometry.size.width * 0.8, alignment: .trailing)
+                }
+                    .padding()
+                    .background(LinearGradient(
+                    gradient: Gradient(colors: [Color.primaryColor, Color.subIvory]),
+                    startPoint: .topLeading, endPoint: .bottomTrailing))
                     .foregroundColor(.white)
-                    .groupBoxStyle(PlainGroupBoxStyle())
+                    .cornerRadius(10)
 
                 TextEditor(text: $answerText)
+                    .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.2)
                     .onTapGesture {
                     answerText = ""
                     answerColor = Color.black
-                    cardHeight = screenHeight * 0.1
-                    cardTextHeight = screenHeight * 0.1
+                    cardHeight = geometry.size.height * 0.1
+                    cardTextHeight = geometry.size.height * 0.1
                 }
-
                     .foregroundColor(answerColor)
                     .padding()
-                    .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height * 0.2)
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
                     .onChange(of: answerText) { value in
                     if answerText.count == 0 {
@@ -123,10 +96,12 @@ struct MainView: View {
                     }
                 }
             }
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .background(Color.backgroundColor.ignoresSafeArea())
                 .onTapGesture {
                 hideKeyboard()
-                cardHeight = UIScreen.main.bounds.height * 0.45
-                cardTextHeight = screenHeight * 0.2
+                cardHeight = geometry.size.height * 0.45
+                cardTextHeight = geometry.size.height * 0.2
             }
         }
     }
