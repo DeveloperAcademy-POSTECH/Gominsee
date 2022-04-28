@@ -13,38 +13,37 @@ struct ContentView: View {
     @State var firstNaviLinkActive: Bool = false
 
     var body: some View {
-//        NavigationView {
-//            VStack() {
-//                TabView(selection: $selection) {
-//                    MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
-//                    FeedView_Presentation().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
-//                    MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
-//                }
-//            }
-//                .navigationBarItems(leading: Text("🐼고민씨")
-//                    .padding(.all, 16)
-//                    .font(.system(size: 22)
-//                        .weight(.bold))
-//                    .foregroundColor(.primaryColor),
-//                trailing: NavigationLink(destination: getDestination(), isActive: $firstNaviLinkActive) {
-//                    Image(systemName: selection == 3 ? "gearshape" : "square.and.pencil")
-//                        .padding(.all, 16)
-//                        .font(.system(size: 20))
-//                        .foregroundColor(.mainGreen)
-//                }
-//            )
-//        }
-//    }
-//
-//    func getDestination() -> AnyView {
-//        if (selection == 3) {
-//            return AnyView(SettingsView())
-//        }
-//        else {
-//            return AnyView(QuestionMakingMain(firstNaviLinkActive: $firstNaviLinkActive)
-//                    .navigationBarHidden(true))
-//        }
-    FeedCategoryBtn()
+        NavigationView {
+            VStack() {
+                TabView(selection: $selection) {
+                    MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
+                    FeedView_Presentation().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
+                    MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
+                }
+            }
+                .navigationBarItems(leading: Text("🐼고민씨")
+                    .padding(.all, 16)
+                    .font(.system(size: 22)
+                        .weight(.bold))
+                    .foregroundColor(.primaryColor),
+                trailing: NavigationLink(destination: getDestination(), isActive: $firstNaviLinkActive) {
+                    Image(systemName: selection == 3 ? "gearshape" : "square.and.pencil")
+                        .padding(.all, 16)
+                        .font(.system(size: 20))
+                        .foregroundColor(.mainGreen)
+                }
+            )
+        }
+    }
+
+    func getDestination() -> AnyView {
+        if (selection == 3) {
+            return AnyView(SettingsView())
+        }
+        else {
+            return AnyView(QuestionMakingMain(firstNaviLinkActive: $firstNaviLinkActive)
+                    .navigationBarHidden(true))
+        }
     }
 }
 
