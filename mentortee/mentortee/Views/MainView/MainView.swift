@@ -33,10 +33,9 @@ struct MainView: View {
                         .bold()
                         .padding(.top, 20)
                     Text(dailyQuestion)
-                        .bold()
-                        .font(.system(size: 35))
-                        .minimumScaleFactor(0.5)
-                        .frame(width: geometry.size.width * 0.8, height: cardTextHeight, alignment: .leading)
+                        .dailyQuestion()
+                    .frame(width: geometry.size.width * 0.8, height: cardTextHeight, alignment: .leading)
+                    
                     HStack {
                         ForEach(categoryList, id: \.self) { value in
                             Text(value).padding(.vertical, 3)
@@ -46,7 +45,11 @@ struct MainView: View {
                                 .font(.system(size: 14))
                         }
                     }
-                    Button("제출하기", action: answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? { }: {
+                    
+                    Button("제출하기", action: answerText.count == 0
+                           || answerText == "질문에 대한 나의 생각을 적어보세요."
+                           ? { }
+                           : {
                             showAlert = true
                             answerText = "질문에 대한 나의 생각을 적어보세요."
                             hideKeyboard()
@@ -54,7 +57,10 @@ struct MainView: View {
                             cardHeight = UIScreen.main.bounds.height * 0.45
                             cardTextHeight = geometry.size.height * 0.2
                         })
-                        .foregroundColor(answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? Color.mainGreen.opacity(0.4) : Color.mainGreen)
+                        .foregroundColor(answerText.count == 0
+                                         || answerText == "질문에 대한 나의 생각을 적어보세요."
+                                         ? Color.mainGreen.opacity(0.4)
+                                         : Color.mainGreen)
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                         .background(
                         RoundedRectangle(cornerRadius: 10))
@@ -87,7 +93,9 @@ struct MainView: View {
                 }
                     .foregroundColor(answerColor)
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
                     .onChange(of: answerText) { value in
                     if answerText.count == 0 {
                         tapTextEditor = false
