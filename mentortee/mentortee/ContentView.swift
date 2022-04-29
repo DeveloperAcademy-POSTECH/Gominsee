@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  mentortee
-//
-//  Created by 김민택 on 2022/04/05.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -44,7 +37,6 @@ struct ContentView: View {
             return AnyView(QuestionMakingMain(firstNaviLinkActive: $firstNaviLinkActive)
                     .navigationBarHidden(true))
         }
-//    FeedCategoryBtn()
     }
 }
 

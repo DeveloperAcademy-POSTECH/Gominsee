@@ -35,6 +35,8 @@
 		26F56B5627FBEC1E0066C0D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F56B5527FBEC1E0066C0D1 /* Preview Assets.xcassets */; };
 		275EDE0727FE83CC002D1CA4 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */; };
 		388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388749662806B3E70005D616 /* MythoughtModalSheet.swift */; };
+		38AE0782281A7EE80035EB0C /* QuestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0781281A7EE80035EB0C /* QuestionCard.swift */; };
+		38AE0784281A86D60035EB0C /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0783281A86D60035EB0C /* QuestionData.swift */; };
 		38B05F1E2807FDF400136931 /* FeedView_Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */; };
 		390223DF2805241A008D9C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390223DE2805241A008D9C64 /* SettingsView.swift */; };
 		390469B4281BE00E0085BACA /* TextTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390469B3281BE00E0085BACA /* TextTheme.swift */; };
@@ -89,6 +91,8 @@
 		26F56B5527FBEC1E0066C0D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 		388749662806B3E70005D616 /* MythoughtModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythoughtModalSheet.swift; sourceTree = "<group>"; };
+		38AE0781281A7EE80035EB0C /* QuestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCard.swift; sourceTree = "<group>"; };
+		38AE0783281A86D60035EB0C /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView_Presentation.swift; sourceTree = "<group>"; };
 		390223DE2805241A008D9C64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		390469B3281BE00E0085BACA /* TextTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTheme.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				26F56B5227FBEC1E0066C0D1 /* Assets.xcassets */,
 				26F56B5427FBEC1E0066C0D1 /* Preview Content */,
 				263175C32805210900C13368 /* DataModel */,
+				38AE0783281A86D60035EB0C /* QuestionData.swift */,
 			);
 			path = mentortee;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				A7D877D927FF70F6001257EC /* KeyboardHandler.swift */,
 				7B23C96527FD8D9A00EA7C2E /* QuestionDetailView.swift */,
 				7B23C96727FD8E5D00EA7C2E /* QuestionView.swift */,
+				38AE0781281A7EE80035EB0C /* QuestionCard.swift */,
 			);
 			path = FeedView;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 				A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */,
 				2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */,
 				394D104E28192A3900CD538D /* ReplyAnswer.swift in Sources */,
+				38AE0784281A86D60035EB0C /* QuestionData.swift in Sources */,
 				A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */,
 				26317622280564C300C13368 /* Category+CoreDataClass.swift in Sources */,
 				A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */,
@@ -371,6 +378,7 @@
 				26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */,
 				263176112805647E00C13368 /* Answer+CoreDataProperties.swift in Sources */,
 				26317626280564C300C13368 /* QuestionCategory+CoreDataClass.swift in Sources */,
+				38AE0782281A7EE80035EB0C /* QuestionCard.swift in Sources */,
 				26A1D67A2802CB3C002373FB /* MyPageView.swift in Sources */,
 				A952D08728051F210098DBE8 /* CategoryView.swift in Sources */,
 				26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */,

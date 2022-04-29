@@ -159,20 +159,20 @@ struct QuestionCardView: View {
                 VStack {
                     CountQuestion()
                     ScrollView {
-                        
+
                         FeedQuestion(category: "취미",
                             otherThoughts: "다른 생각 0개",
                             question: "좋아하는 운동은 무엇인가요?",
                             questionOwner: "Chemi",
                             nickname: "Chemi"
                         ).padding(.bottom, 10)
-                        
+
                         FeedAnswer(category: "가치관",
                             otherThoughts: "다른 생각 5개",
                             question: "하루 중 가장 행복하다고 느끼는 순간은 언제인가요?",
                             questionOwner: "Chemi")
-                    
-                        
+
+
                     }
                 }
                     .navigationBarTitle("내가 만든 질문", displayMode: .inline)
