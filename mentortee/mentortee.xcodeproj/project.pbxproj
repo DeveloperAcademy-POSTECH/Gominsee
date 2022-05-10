@@ -37,7 +37,6 @@
 		388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388749662806B3E70005D616 /* MythoughtModalSheet.swift */; };
 		38AE0782281A7EE80035EB0C /* QuestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0781281A7EE80035EB0C /* QuestionCard.swift */; };
 		38AE0784281A86D60035EB0C /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0783281A86D60035EB0C /* QuestionData.swift */; };
-		38B05F1E2807FDF400136931 /* FeedView_Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */; };
 		390223DF2805241A008D9C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390223DE2805241A008D9C64 /* SettingsView.swift */; };
 		390469B4281BE00E0085BACA /* TextTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390469B3281BE00E0085BACA /* TextTheme.swift */; };
 		394D104C28192A0A00CD538D /* Accordion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D104B28192A0A00CD538D /* Accordion.swift */; };
@@ -56,7 +55,6 @@
 		A952D08728051F210098DBE8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A952D08628051F210098DBE8 /* CategoryView.swift */; };
 		A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A952D08828051F3D0098DBE8 /* LogInView.swift */; };
 		A952D08C280520400098DBE8 /* MakingNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A952D08B280520400098DBE8 /* MakingNicknameView.swift */; };
-		A9CD36AA280703E7007AC47D /* MyPageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD36A9280703E7007AC47D /* MyPageCategory.swift */; };
 		A9CFEE5C27FF3AE300EBE12E /* QuestionMakingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */; };
 		A9F7C50B27FE664000052F36 /* QuestionSub1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7C50A27FE664000052F36 /* QuestionSub1.swift */; };
 		A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7C50C27FE665F00052F36 /* QuestionSub2.swift */; };
@@ -94,7 +92,6 @@
 		388749662806B3E70005D616 /* MythoughtModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythoughtModalSheet.swift; sourceTree = "<group>"; };
 		38AE0781281A7EE80035EB0C /* QuestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCard.swift; sourceTree = "<group>"; };
 		38AE0783281A86D60035EB0C /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
-		38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView_Presentation.swift; sourceTree = "<group>"; };
 		390223DE2805241A008D9C64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		390469B3281BE00E0085BACA /* TextTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTheme.swift; sourceTree = "<group>"; };
 		394D104B28192A0A00CD538D /* Accordion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accordion.swift; sourceTree = "<group>"; };
@@ -113,7 +110,6 @@
 		A952D08628051F210098DBE8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		A952D08828051F3D0098DBE8 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		A952D08B280520400098DBE8 /* MakingNicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakingNicknameView.swift; sourceTree = "<group>"; };
-		A9CD36A9280703E7007AC47D /* MyPageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCategory.swift; sourceTree = "<group>"; };
 		A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMakingMain.swift; sourceTree = "<group>"; };
 		A9F7C50A27FE664000052F36 /* QuestionSub1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSub1.swift; sourceTree = "<group>"; };
 		A9F7C50C27FE665F00052F36 /* QuestionSub2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSub2.swift; sourceTree = "<group>"; };
@@ -174,16 +170,15 @@
 		26F56B4D27FBEC1B0066C0D1 /* mentortee */ = {
 			isa = PBXGroup;
 			children = (
+				39B618D2282A967F00678A00 /* System */,
+				39B618D3282A977B00678A00 /* Helper */,
 				39B618CF282A8A4400678A00 /* Datas */,
-				390469B3281BE00E0085BACA /* TextTheme.swift */,
 				3973A05F27FD26CE00CDC599 /* Views */,
-				26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */,
 				263175E62805230000C13368 /* Persistence.swift */,
 				26F56B5027FBEC1B0066C0D1 /* ContentView.swift */,
 				26F56B5227FBEC1E0066C0D1 /* Assets.xcassets */,
 				26F56B5427FBEC1E0066C0D1 /* Preview Content */,
 				263175C32805210900C13368 /* DataModel */,
-				38AE0783281A86D60035EB0C /* QuestionData.swift */,
 			);
 			path = mentortee;
 			sourceTree = "<group>";
@@ -199,6 +194,7 @@
 		394D105128192AE700CD538D /* Answer */ = {
 			isa = PBXGroup;
 			children = (
+				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 				394D104B28192A0A00CD538D /* Accordion.swift */,
 				394D104D28192A3900CD538D /* ReplyAnswer.swift */,
 				394D104F28192A6C00CD538D /* AnswerView.swift */,
@@ -209,10 +205,10 @@
 		3973A05F27FD26CE00CDC599 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3973A06027FD26D400CDC599 /* MainView */,
+				3973A06127FD26DD00CDC599 /* FeedView */,
 				3973A06327FD26F200CDC599 /* MyPageView */,
 				3973A06227FD26EA00CDC599 /* QnAView */,
-				3973A06127FD26DD00CDC599 /* FeedView */,
-				3973A06027FD26D400CDC599 /* MainView */,
 				A952D08A28051FD00098DBE8 /* LogInView */,
 			);
 			path = Views;
@@ -230,15 +226,9 @@
 			isa = PBXGroup;
 			children = (
 				394D105128192AE700CD538D /* Answer */,
-				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
 				A752B59B280034BF00B41987 /* FeedView.swift */,
-				38B05F1D2807FDF400136931 /* FeedView_Presentation.swift */,
 				A73E251827FE7DB6006C42CB /* FeedCategoryBtn.swift */,
 				A7D877D727FF2641001257EC /* AnswerModalSheet.swift */,
-				388749662806B3E70005D616 /* MythoughtModalSheet.swift */,
-				275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */,
-				26A1D6772802CA7C002373FB /* AnswerCardView.swift */,
-				A7D877D927FF70F6001257EC /* KeyboardHandler.swift */,
 				7B23C96527FD8D9A00EA7C2E /* QuestionDetailView.swift */,
 				7B23C96727FD8E5D00EA7C2E /* QuestionView.swift */,
 				38AE0781281A7EE80035EB0C /* QuestionCard.swift */,
@@ -252,7 +242,6 @@
 				A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */,
 				A9F7C50A27FE664000052F36 /* QuestionSub1.swift */,
 				A9F7C50C27FE665F00052F36 /* QuestionSub2.swift */,
-				A9CD36A9280703E7007AC47D /* MyPageCategory.swift */,
 			);
 			path = QnAView;
 			sourceTree = "<group>";
@@ -260,6 +249,9 @@
 		3973A06327FD26F200CDC599 /* MyPageView */ = {
 			isa = PBXGroup;
 			children = (
+				26A1D6772802CA7C002373FB /* AnswerCardView.swift */,
+				275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */,
+				388749662806B3E70005D616 /* MythoughtModalSheet.swift */,
 				26A1D6792802CB3C002373FB /* MyPageView.swift */,
 				390223DE2805241A008D9C64 /* SettingsView.swift */,
 			);
@@ -269,11 +261,29 @@
 		39B618CF282A8A4400678A00 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
+				38AE0783281A86D60035EB0C /* QuestionData.swift */,
 				399B32FA27FE73BE0005F887 /* ColorData.swift */,
 				394D105228192B7E00CD538D /* AnswerData.swift */,
 				39B618D0282A8A6400678A00 /* CategoryData.swift */,
 			);
 			path = Datas;
+			sourceTree = "<group>";
+		};
+		39B618D2282A967F00678A00 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		39B618D3282A977B00678A00 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				390469B3281BE00E0085BACA /* TextTheme.swift */,
+				A7D877D927FF70F6001257EC /* KeyboardHandler.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		A952D08A28051FD00098DBE8 /* LogInView */ = {
@@ -363,7 +373,6 @@
 				39B618D1282A8A6400678A00 /* CategoryData.swift in Sources */,
 				263176102805647E00C13368 /* Answer+CoreDataClass.swift in Sources */,
 				26317628280564C300C13368 /* Report+CoreDataClass.swift in Sources */,
-				38B05F1E2807FDF400136931 /* FeedView_Presentation.swift in Sources */,
 				7B23C96627FD8D9A00EA7C2E /* QuestionDetailView.swift in Sources */,
 				2631762B280564C300C13368 /* Character+CoreDataProperties.swift in Sources */,
 				26317620280564C300C13368 /* User+CoreDataClass.swift in Sources */,
@@ -404,7 +413,6 @@
 				26A1D6782802CA7C002373FB /* AnswerCardView.swift in Sources */,
 				2631762D280564C300C13368 /* UserCategory+CoreDataProperties.swift in Sources */,
 				26317627280564C300C13368 /* QuestionCategory+CoreDataProperties.swift in Sources */,
-				A9CD36AA280703E7007AC47D /* MyPageCategory.swift in Sources */,
 				275EDE0727FE83CC002D1CA4 /* QuestionCardView.swift in Sources */,
 				390223DF2805241A008D9C64 /* SettingsView.swift in Sources */,
 			);
