@@ -10,7 +10,7 @@ struct ContentView: View {
             VStack() {
                 TabView(selection: $selection) {
                     MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
-                    FeedView_Presentation().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
+                    FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
                     MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
                 }
             }
