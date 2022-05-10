@@ -35,7 +35,8 @@ struct ContentView: View {
         }
         else {
             return AnyView(QuestionMakingMain(firstNaviLinkActive: $firstNaviLinkActive)
-                    .navigationBarHidden(true))
+//                    .navigationBarHidden(true)
+            )
         }
     }
 }
