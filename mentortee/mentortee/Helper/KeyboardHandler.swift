@@ -1,10 +1,3 @@
-//
-//  KeyboardHandler.swift
-//  mentortee
-//
-//  Created by 이지수 on 2022/04/08.
-//
-
 import Combine
 import SwiftUI
 
@@ -25,5 +18,12 @@ final class KeyboardHandler: ObservableObject {
         cancellabel = Publishers.Merge(keyboardWillShow, keyboardWillHide)
             .subscribe(on: DispatchQueue.main)
             .assign(to: \.self.keyboardHeight, on: self)
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }

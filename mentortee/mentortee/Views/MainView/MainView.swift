@@ -1,12 +1,5 @@
 import SwiftUI
 
-extension View {
-    func hideKeyboard() {
-        let resign = #selector(UIResponder.resignFirstResponder)
-        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
-    }
-}
-
 struct MainView: View {
     var dailyQuestion = "Chemi님은 뭘 할 때 행복한가요 ?"
     var categoryList = ["가치관"]
