@@ -9,11 +9,13 @@ import SwiftUI
 
 struct QuestionSub2: View {
     @Binding var firstNaviLinkActive: Bool
-
+    
     var body: some View {
+        
         ZStack {
             Color.backgroundColor
                 .ignoresSafeArea()
+            
             VStack {
                 Image("ManUser")
                     .resizable()
@@ -22,7 +24,6 @@ struct QuestionSub2: View {
                 Text("작성 완료!")
                     .font(.title2)
                     .padding()
-
                 Text("스스로에게 한발짝 더 다가갔군요?")
                     .font(.subheadline)
                 Text("보관함에 내가 쓴 질문이 한개 더 쌓였네요!")

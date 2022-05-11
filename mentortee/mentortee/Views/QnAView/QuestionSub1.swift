@@ -9,12 +9,13 @@ import SwiftUI
 
 struct QuestionSub1: View {
     @Binding var firstNaviLinkActive: Bool
+    
     var body: some View {
 
-        NavigationView {
             ZStack {
                 Color.backgroundColor
                     .ignoresSafeArea()
+                
                 VStack {
                     Image("WomanUser")
                         .resizable()
@@ -23,7 +24,6 @@ struct QuestionSub1: View {
                     Text("작성 완료!")
                         .font(.title2)
                         .padding()
-
                     Text("스스로에게 한발짝 더 다가갔군요?")
                         .font(.subheadline)
                     Text("게시판에 내가 쓴 질문이 올라갔어요!")
@@ -41,8 +41,6 @@ struct QuestionSub1: View {
                             .cornerRadius(10)
                     }
                 }
-                    .navigationBarHidden(true)
-            }
         }
     }
 }
