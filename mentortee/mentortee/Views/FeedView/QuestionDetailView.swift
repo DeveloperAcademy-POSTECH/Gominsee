@@ -12,7 +12,7 @@ struct QuestionDetailView: View {
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
     @State private var showDialog = false
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
     
     var nickname: String
     var myName: String = "meenu"
@@ -26,7 +26,7 @@ struct QuestionDetailView: View {
                     AnswerDetailView()
                 }
                 .navigationBarItems(leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
+                    dismiss()
                     }) {
                         Image(systemName: "chevron.backward")
                             .imageScale(.large)

@@ -12,4 +12,12 @@ extension View {
     func dailyQuestion() -> some View {
         modifier(DailyQuestionTextStyle())
     }
+
+    func dailyCategoryStyle() -> some View {
+        padding(.vertical, 3)
+            .padding(.horizontal, 10)
+            .foregroundColor(Color.primaryColor)
+            .background(RoundedRectangle(cornerRadius: 10))
+            .font(.system(size: 14))
+    }
 }

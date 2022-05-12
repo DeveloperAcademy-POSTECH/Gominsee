@@ -12,7 +12,7 @@ struct QuestionMakingMain: View {
     let screenHeight1 = UIScreen.main.bounds.size.height
 
     @State private var selection: Set<Category> = []
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
 
@@ -105,7 +105,7 @@ struct QuestionMakingMain: View {
                 .navigationBarTitle(Text("질문 만들기"), displayMode: .inline)
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button(action: {
-                self.mode.wrappedValue.dismiss()
+                dismiss()
             }) {
                     Image(systemName: "chevron.backward")
                         .font(.system(size: 20))

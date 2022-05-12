@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MythoughtModalSheet: View {
-    @Environment(\.presentationMode) var presentation
+    @Environment(\.dismiss) private var dismiss
     var answerDatetime = ["2022.04.14"]
     var myAnswer = ["건강하면서 좋아하는 일을 할 수 있는 삶이라고 생각한다."]
     
@@ -24,7 +24,7 @@ struct MythoughtModalSheet: View {
                     .groupBoxStyle(PlainGroupBoxStyle())
                     
                     Button(action: {
-                        presentation.wrappedValue.dismiss()
+                        dismiss()
                     }, label: {
                         Text("닫기").bold()
                             .frame(width: 310, height: 40, alignment: .center)

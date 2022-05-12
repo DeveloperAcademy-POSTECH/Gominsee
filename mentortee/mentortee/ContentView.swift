@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.dismiss) private var dismiss
     @State private var selection = 1
     @State private var isShowingDetailView = false
     @State var firstNaviLinkActive: Bool = false
