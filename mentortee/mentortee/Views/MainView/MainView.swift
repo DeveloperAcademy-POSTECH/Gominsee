@@ -1,12 +1,5 @@
 import SwiftUI
 
-extension View {
-    func hideKeyboard() {
-        let resign = #selector(UIResponder.resignFirstResponder)
-        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
-    }
-}
-
 struct MainView: View {
     var dailyQuestion = "Chemi님은 뭘 할 때 행복한가요 ?"
     var categoryList = ["가치관"]
@@ -34,22 +27,19 @@ struct MainView: View {
                         .padding(.top, 20)
                     Text(dailyQuestion)
                         .dailyQuestion()
-                    .frame(width: geometry.size.width * 0.8, height: cardTextHeight, alignment: .leading)
-                    
+                        .frame(width: geometry.size.width * 0.8, height: cardTextHeight, alignment: .leading)
+
                     HStack {
                         ForEach(categoryList, id: \.self) { value in
-                            Text(value).padding(.vertical, 3)
-                                .padding(.horizontal, 10)
-                                .foregroundColor(Color.primaryColor)
-                                .background(RoundedRectangle(cornerRadius: 10))
-                                .font(.system(size: 14))
+                            Text(value)
+                                .dailyCategoryStyle()
                         }
                     }
-                    
+
                     Button("제출하기", action: answerText.count == 0
-                           || answerText == "질문에 대한 나의 생각을 적어보세요."
-                           ? { }
-                           : {
+                            || answerText == "질문에 대한 나의 생각을 적어보세요."
+                            ? { }
+                        : {
                             showAlert = true
                             answerText = "질문에 대한 나의 생각을 적어보세요."
                             hideKeyboard()
@@ -58,9 +48,9 @@ struct MainView: View {
                             cardTextHeight = geometry.size.height * 0.2
                         })
                         .foregroundColor(answerText.count == 0
-                                         || answerText == "질문에 대한 나의 생각을 적어보세요."
-                                         ? Color.mainGreen.opacity(0.4)
-                                         : Color.mainGreen)
+                            || answerText == "질문에 대한 나의 생각을 적어보세요."
+                            ? Color.mainGreen.opacity(0.4)
+                        : Color.mainGreen)
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                         .background(
                         RoundedRectangle(cornerRadius: 10))

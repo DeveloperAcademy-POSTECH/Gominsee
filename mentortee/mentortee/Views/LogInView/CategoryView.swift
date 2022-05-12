@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryView: View {
     @State var click1 = [false, false, false, false, false, false, false, false, false]
     @State var isLogIn = true
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack {
@@ -263,7 +263,7 @@ struct CategoryView: View {
 
             if isLogIn == false {
                 Button(action: {
-                    self.mode.wrappedValue.dismiss()
+                    dismiss()
                 }) {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.primaryColor)
@@ -278,7 +278,7 @@ struct CategoryView: View {
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)) {
                     Button(action: {
-                        self.mode.wrappedValue.dismiss()
+                        dismiss()
                     }) {
                         RoundedRectangle(cornerRadius: 10.0)
                             .fill(Color.primaryColor)

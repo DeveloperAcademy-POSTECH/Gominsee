@@ -148,7 +148,7 @@ struct FeedQuestion: View {
 }
 
 struct QuestionCardView: View {
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
     @Binding var firstNaviLinkActive: Bool
 
     var body: some View {
@@ -177,7 +177,7 @@ struct QuestionCardView: View {
                 }
                     .navigationBarTitle("내가 만든 질문", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
+                    dismiss()
                     firstNaviLinkActive = false
                 }) {
                         Image(systemName: "chevron.backward")
