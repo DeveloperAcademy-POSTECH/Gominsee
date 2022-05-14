@@ -1,13 +1,7 @@
-//
-//  ContentView.swift
-//  mentortee
-//
-//  Created by 김민택 on 2022/04/05.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.dismiss) private var dismiss
     @State private var selection = 1
     @State private var isShowingDetailView = false
     @State var firstNaviLinkActive: Bool = false
@@ -45,6 +39,7 @@ struct ContentView: View {
         else {
             return AnyView(QuestionMakingMain(firstNaviLinkActive: $firstNaviLinkActive)
                 .navigationBarHidden(true))
+
         }
     }
 }

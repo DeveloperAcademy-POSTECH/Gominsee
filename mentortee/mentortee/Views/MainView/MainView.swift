@@ -1,18 +1,10 @@
-//
-//  MainView.swift
-//  mentortee
-//
-//  Created by Mingwan Choi on 2022/04/06.
-//
-
 import SwiftUI
 
 struct MainView: View {
-    
+
     var dailyQuestion = "Chemi님은 뭘 할 때 행복한가요 ?"
     var categoryList = ["가치관"]
     var today = Date()
-    
     @State private var answerText = "질문에 대한 나의 생각을 적어보세요."
     @State private var answerColor = Color.black.opacity(0.2)
     @State private var showAlert = false

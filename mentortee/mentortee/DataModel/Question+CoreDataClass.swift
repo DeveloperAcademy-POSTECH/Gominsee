@@ -1,15 +1,15 @@
+////
+////  Question+CoreDataClass.swift
+////  mentortee
+////
+////  Created by 김민택 on 2022/04/12.
+////
+////
 //
-//  Question+CoreDataClass.swift
-//  mentortee
-//
-//  Created by 김민택 on 2022/04/12.
+//import Foundation
+//import CoreData
 //
 //
-
-import Foundation
-import CoreData
-
-
-public class Question: NSManagedObject {
-
-}
+//public class Question: NSManagedObject {
+//
+//}

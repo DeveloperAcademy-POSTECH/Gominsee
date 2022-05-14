@@ -1,15 +1,15 @@
+////
+////  User+CoreDataClass.swift
+////  mentortee
+////
+////  Created by 김민택 on 2022/04/12.
+////
+////
 //
-//  User+CoreDataClass.swift
-//  mentortee
-//
-//  Created by 김민택 on 2022/04/12.
+//import Foundation
+//import CoreData
 //
 //
-
-import Foundation
-import CoreData
-
-
-public class User: NSManagedObject {
-
-}
+//public class User: NSManagedObject {
+//
+//}

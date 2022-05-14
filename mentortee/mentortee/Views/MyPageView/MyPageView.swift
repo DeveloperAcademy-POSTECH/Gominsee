@@ -81,6 +81,8 @@ struct MyPageView: View {
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
-        MyPageView(firstNaviLinkActive: .constant(true))
+        NavigationView {
+            MyPageView(firstNaviLinkActive: .constant(true))
+        }
     }
 }

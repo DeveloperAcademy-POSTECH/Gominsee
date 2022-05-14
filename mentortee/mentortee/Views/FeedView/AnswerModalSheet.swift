@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AnswerModalSheet: View {
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var keyboardHandler = KeyboardHandler()
-    @Environment(\.presentationMode) var presentation
     @State private var userAnswer = ""
     @State private var userAnswerArray: [String] = []
     @State private var checked = false
@@ -50,7 +50,7 @@ struct AnswerModalSheet: View {
 
                 Button(action: {
                     saveAnswer()
-                    presentation.wrappedValue.dismiss()
+                    dismiss()
                 }, label: {
                         Text("작성완료:)").bold()
                             .frame(width: 310, height: 40, alignment: .center)

@@ -91,7 +91,7 @@ struct FeedAnswer: View {
 }
 
 struct AnswerCardView: View {
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationView {
@@ -119,7 +119,7 @@ struct AnswerCardView: View {
                 }
                     .navigationBarTitle("내가 답한 질문", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
+                    dismiss()
                 }) {
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 20))
