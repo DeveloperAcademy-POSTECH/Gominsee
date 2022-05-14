@@ -18,7 +18,7 @@ struct MainView: View {
     @State private var showAlert = false
     @State private var cardHeight = UIScreen.main.bounds.height * 0.45
     @State private var cardTextHeight = UIScreen.main.bounds.height * 0.2
-    @State private var isTapped = false
+    @State private var cardOpacity : Double = 1
     
     var body: some View {
         
@@ -86,6 +86,7 @@ struct MainView: View {
                                     colors: [Color.primaryColor, Color.subIvory]),
                                 startPoint: .topLeading, endPoint: .bottomTrailing))
                         .cornerRadius(10)
+                        .opacity(cardOpacity)
                         
                         
                         TextEditor(text: $answerText)
@@ -100,15 +101,16 @@ struct MainView: View {
                                     answerText = ""
                                 }
                                 answerColor = Color.black
-                                isTapped.toggle()
+                                cardOpacity = 0.7
+
                             }
                         Spacer()
                     }
-                }
+                }.padding(.top,15)
             }
             .onTapGesture {
                 hideKeyboard()
-                isTapped.toggle()
+                cardOpacity = 1.0
             }
         }
     }
