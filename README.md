@@ -1,14 +1,14 @@
 # mentortee
 
-너는내멘토티
+MC #1 Team 11 너는내멘토티
 
-루키
+## 구성원
 
-다온
+|<img src="https://github.com/taek0622.png">|<img src="https://github.com/Rookie0031.png">|<img src="https://github.com/deslog.png">|<img src="https://github.com/MMMIIIN.png">|<img src="https://github.com/GODNOEL.png">|<img src="https://github.com/jola7373.png">|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|[Meenu](https://github.com/taek0622)|[Rookie](https://github.com/Rookie0031)|[Brown](https://github.com/deslog)|[Chemi](https://github.com/MMMIIIN)|[Noel](https://github.com/GODNOEL)|[Daon](https://github.com/jola7373)|
 
-케미
-
-미뉴 미뉴
+with 곰민, 제이슨
 
 ## 목차 <a name="toc"></a>
 
