@@ -13,7 +13,6 @@ struct QuestionCardStyle: GroupBoxStyle {
                 .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
         )
         .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-        .frame(alignment: .top)
     }
 }
 
