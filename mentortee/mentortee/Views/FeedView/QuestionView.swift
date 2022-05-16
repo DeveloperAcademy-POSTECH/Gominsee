@@ -1,12 +1,7 @@
-//
-//  QuestionView.swift
-//  mentortee
-//
-//  Created by Yu ahyeon on 2022/04/06.
-//
-
 import SwiftUI
 
+
+// MARK: - 수정필요 GroupBox -> VStack 변경 후 삭제
 struct QuestionCardStyle: GroupBoxStyle {
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading) {
@@ -22,8 +17,9 @@ struct QuestionCardStyle: GroupBoxStyle {
     }
 }
 
-
+// MARK: - 수정필요 struct 페이지 분리 or 변수로 바꾸기
 struct QuestionAnswerCard: View {
+    // MARK: - 수정필요 (struct를 만들 수 있지 않을까?)
     var thumbnail: String
     var nickName: String
     var uploadTime: String
@@ -31,6 +27,7 @@ struct QuestionAnswerCard: View {
     var question: String
 
     var body: some View {
+        // MARK: - 수정필요 GroupBox -> VStack
         GroupBox() {
             HStack() {
                 HStack {

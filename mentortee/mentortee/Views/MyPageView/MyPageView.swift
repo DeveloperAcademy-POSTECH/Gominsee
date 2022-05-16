@@ -18,6 +18,7 @@ struct MyPageView: View {
             HStack {
                 NavigationLink(destination: QuestionCardView(firstNaviLinkActive: $firstNaviLinkActive).navigationBarHidden(true)) {
                         VStack {
+                            // MARK: - 수정필요
                             Text("내가 만든 질문").font(.system(size: 14)).bold()
                             Text("\(myQuestionCount)").font(.system(size: 30)).bold()
                         }
@@ -29,6 +30,7 @@ struct MyPageView: View {
                 
                 NavigationLink(destination: AnswerCardView().navigationBarHidden(true)) {
                         VStack {
+                            // MARK: - 수정필요
                             Text("내가 답한 질문").font(.system(size: 14)).bold()
                             Text("\(myAnswerCount)").font(.system(size: 30)).bold()
                         }
@@ -43,12 +45,14 @@ struct MyPageView: View {
             
             ZStack {
                 VStack {
+                    // MARK: - 수정필요
                     Image("character_lv1").shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
                     Spacer()
                 }
                 VStack {
                     HStack {
                         HStack {
+                            // MARK: - 수정필요
                             Text("곰민").font(.system(size: 20)).bold()
                             Text("Lv. \(userLV)").font(.system(size: 14))
                         }.frame(alignment: .leading).padding(10)

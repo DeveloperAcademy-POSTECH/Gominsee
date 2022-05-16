@@ -1,10 +1,3 @@
-//
-//  MakingNicknameView.swift
-//  mentortee
-//
-//  Created by Yu ahyeon on 2022/04/11.
-//
-
 import SwiftUI
 
 struct Nickname: View {

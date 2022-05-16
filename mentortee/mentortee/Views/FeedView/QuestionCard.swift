@@ -1,6 +1,6 @@
 import SwiftUI
 
-
+// MARK: - 수정필요 (Card 완성 필요)
 struct QuestionCard: View {
     var body: some View {
         VStack {
@@ -29,9 +29,7 @@ struct QuestionCard: View {
 
 struct BtnMyThought: View {
     @State var showModal = false
-    
     var body: some View {
-        
         Button(action: {
             self.showModal = true
         }, label: {
@@ -67,6 +65,6 @@ struct BtnMyThought: View {
 
 struct QuestionCard_Previews: PreviewProvider {
     static var previews: some View {
-        BtnMyThought()
+        QuestionCard()
     }
 }

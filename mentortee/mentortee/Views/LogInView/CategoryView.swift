@@ -1,13 +1,7 @@
-//
-//  CategoryView.swift
-//  mentortee
-//
-//  Created by Jisu Jang on 2022/04/12.
-//
-
 import SwiftUI
 
 struct CategoryView: View {
+    // MARK: - 수정필요
     @State var click1 = [false, false, false, false, false, false, false, false, false]
     @State var isLogIn = true
     @Environment(\.dismiss) private var dismiss
@@ -22,6 +16,7 @@ struct CategoryView: View {
             Text("")
                 .padding(.top, 10)
             HStack {
+                // MARK: - 수정필요 ForEach로 수정
                 Group {
                     VStack {
                         Image("category_1")

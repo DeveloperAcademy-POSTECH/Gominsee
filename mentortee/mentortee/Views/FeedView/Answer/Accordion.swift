@@ -23,10 +23,12 @@ struct Accordion: View {
             VStack {
                 Button(action: { self.collapsed.toggle() }) {
                     HStack {
+                        // MARK: - 수정필요
                         Text("6개의 생각이 있어요.")
                             .font(.system(size: 14))
                             .foregroundColor(Color.black)
                         Spacer()
+                        // MARK: - 수정필요
                         Image(systemName: collapsed
                               ? "chevron.up.circle.fill"
                               : "chevron.down.circle.fill")

@@ -1,10 +1,3 @@
-//
-//  LogInView.swift
-//  mentortee
-//
-//  Created by Jisu Jang on 2022/04/12.
-//
-
 import SwiftUI
 
 struct LogInView: View {
