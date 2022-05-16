@@ -28,10 +28,10 @@ struct Accordion: View {
                             .font(.system(size: 14))
                             .foregroundColor(Color.black)
                         Spacer()
-                        // MARK: - 수정필요
+                        // MARK: - 수정완료
                         Image(systemName: collapsed
-                              ? "chevron.up.circle.fill"
-                              : "chevron.down.circle.fill")
+                              ? IconName.upArrow
+                              : IconName.downArrow)
                             .resizable()
                             .frame(width: 30, height: 30)
                             .foregroundColor(Color.mainGreen)

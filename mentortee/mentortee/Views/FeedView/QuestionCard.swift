@@ -24,11 +24,11 @@ struct QuestionCard: View {
                     .foregroundColor(Color.gray)
                 
                 Spacer()
-                
+
                 Button(action: {
                     isShowingConfirmation = true
                 }) {
-                    Image(systemName: "ellipsis")
+                    Image(systemName: IconName.ellipsis)
                         .foregroundColor(Color.black)
                         .rotationEffect(Angle(degrees: 90))
                 }

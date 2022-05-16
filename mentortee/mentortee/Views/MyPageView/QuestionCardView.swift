@@ -43,14 +43,14 @@ struct QuestionCardView: View {
                             questionOwner: "Chemi")
                     }
                 }
-                // MARK: - 수정필요
-                    .navigationBarTitle("내가 만든 질문", displayMode: .inline)
+                // MARK: - 수정완료
+                .navigationBarTitle(TextName.myQuestionText, displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                     dismiss()
                     firstNaviLinkActive = false
                 }) {
-                    // MARK: - 수정필요
-                        Image(systemName: "chevron.backward")
+                    // MARK: - 수정완료
+                    Image(systemName: IconName.backward)
                             .font(.system(size: 20))
                             .foregroundColor(.black)
                     })

@@ -10,26 +10,26 @@ struct QuestionSub2: View {
                 .ignoresSafeArea()
             
             VStack {
-                // MARK: - 수정필요
-                Image("ManUser")
+                // MARK: - 수정완료
+                Image.manUser
                     .resizable()
                     .frame(width: 200, height: 200)
 
-                // MARK: - 수정필요
-                Text("작성 완료!")
+                // MARK: - 수정완료
+                Text(TextName.completeText)
                     .font(.title2)
                     .padding()
-                // MARK: - 수정필요
-                Text("스스로에게 한발짝 더 다가갔군요?")
+                // MARK: - 수정완료
+                Text(TextName.oneStepYourself)
                     .font(.subheadline)
-                // MARK: - 수정필요
-                Text("보관함에 내가 쓴 질문이 한개 더 쌓였네요!")
+                // MARK: - 수정완료
+                Text(TextName.stackMyQuestion)
                     .font(.subheadline)
 
                 NavigationLink(destination: QuestionCardView(firstNaviLinkActive: $firstNaviLinkActive)
                     .navigationBarHidden(true)){
-                        // MARK: - 수정필요
-                    Text("보관함으로 가볼래요?")
+                        // MARK: - 수정완료
+                        Text(TextName.goLocker)
                         .font(.title3)
                         .bold()
                         .foregroundColor(.white)

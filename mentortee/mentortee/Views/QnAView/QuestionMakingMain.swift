@@ -19,15 +19,11 @@ struct QuestionMakingMain: View {
         ScrollView {
             VStack {
                 VStack(alignment: .leading) {
-                    // MARK: - 수정필요 (한 Text로 수정)
-                    Text("평소 궁금했거나")
+                    // MARK: - 수정완료 (한 Text로 수정)
+                    Text(TextName.guideQuesition)
                         .font(.system(size: 24))
                         .bold()
                         .padding(.top, 30)
-
-                    Text("좋은 질문이 있으신가요?")
-                        .font(.system(size: 24))
-                        .bold()
 
                     ScrollView(.horizontal,
                         showsIndicators: false) {
@@ -55,7 +51,7 @@ struct QuestionMakingMain: View {
                         .foregroundColor(myQuestionColor)
                         .onTapGesture {
                             // MARK: - 수정필요
-                        if myQuestion == "무엇이든지 자유롭게 적어주세요!" {
+                            if myQuestion == TextName.freeAnythingText {
                             myQuestion = ""
                             myQuestionColor = Color.black
                         } else {
@@ -78,7 +74,8 @@ struct QuestionMakingMain: View {
                         .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
                         .foregroundColor(myThoughtColor)
                         .onTapGesture {
-                        if myThought == "무엇이든지 자유롭게 적어주세요!" {
+                            // MARK: - 수정완료
+                            if myThought == TextName.freeAnythingText {
                             myThought = ""
                             myThoughtColor = Color.black
                         } else {
@@ -88,10 +85,10 @@ struct QuestionMakingMain: View {
 
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("내 생각 공유하기")
+                            Text(TextName.checkShareMyThink)
                                 .font(.system(size: 24))
                                 .bold()
-                            Text("내가 작성한 질문이 모두에게 공개되요")
+                            Text(TextName.openMyThink)
                                 .font(.subheadline)
                                 .padding(.top, -5)
                         }
@@ -105,12 +102,13 @@ struct QuestionMakingMain: View {
                 .onTapGesture {
                 hideKeyboard()
             }
-                .navigationBarTitle(Text("질문 만들기"), displayMode: .inline)
+                .navigationBarTitle(Text(TextName.makeQuestion), displayMode: .inline)
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button(action: {
                 dismiss()
             }) {
-                    Image(systemName: "chevron.backward")
+                // MARK: - 수정완료
+                Image(systemName: IconName.backward)
                         .font(.system(size: 20))
                         .foregroundColor(.black)
                 },
@@ -118,7 +116,7 @@ struct QuestionMakingMain: View {
                         .navigationBarBackButtonHidden(true)
                 )
                 {
-                    Text("완료")
+                    Text(TextName.okText)
                 }
             )
                 .onTapGesture {

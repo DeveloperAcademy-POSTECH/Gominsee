@@ -7,14 +7,14 @@ struct ReplyAnswer: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                // MARK: - 수정필요
-                TextField("질문에 대한 나의 생각을 적어주세요", text: $answer)
+                // MARK: - 수정완료
+                TextField(TextName.answerText, text: $answer)
                     .multilineTextAlignment(.leading)
                     .font(.system(size: 16))
                     .padding(.leading, 5.0)
-                // MARK: - 수정필요
+                // MARK: - 수정완료
                 Button(action: {}) {
-                    Image(systemName: "arrow.up.circle.fill")
+                    Image(systemName: IconName.upArrowFill)
                         .resizable()
                         .frame(width: 30, height: 30)
                         .foregroundColor(Color.primaryColor)
@@ -26,12 +26,12 @@ struct ReplyAnswer: View {
             
             Button (action: { self.isChecked.toggle() }) {
                 HStack{
-                    // MARK: - 수정필요
-                    Image(systemName: isChecked ? "checkmark.circle.fill" : "checkmark.circle")
+                    // MARK: - 수정완료
+                    Image(systemName: isChecked ? IconName.checkMarkFill : IconName.checkMark)
                         .foregroundColor(isChecked ? Color.mainGreen : Color.gray)
                     
-                    // MARK: - 수정필요
-                    Text("내 생각 나만 볼래요")
+                    // MARK: - 수정완료
+                    Text(TextName.privateAnswer)
                         .font(.system(size: 14))
                         .foregroundColor(isChecked ? Color.black : Color.gray)
                 }
