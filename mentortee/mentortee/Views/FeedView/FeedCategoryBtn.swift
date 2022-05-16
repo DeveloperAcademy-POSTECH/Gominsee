@@ -1,5 +1,6 @@
 import SwiftUI
 
+// MARK: - 수정필요
 enum categoryBtn: String {
     case all = "전체"
     case veiwPoint = "가치관"
@@ -13,6 +14,7 @@ enum categoryBtn: String {
 }
 
 struct FeedCategoryBtn: View {
+    // MARK: - enum으로 수정필요
     @State var categoryList = ["전체" ,"가치관", "진로", "취향", "취미", "고민", "비밀", "회고", "습관"]
     @State var currentIdx = 0
     

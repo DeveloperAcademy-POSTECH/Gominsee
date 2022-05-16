@@ -1,10 +1,3 @@
-//
-//  AnswerCardView.swift
-//  mentortee
-//
-//  Created by 김민택 on 2022/04/10.
-//
-
 import SwiftUI
 
 struct CountAnswer: View {
@@ -44,6 +37,7 @@ struct FeedAnswer: View {
                 }
                 Spacer()
                 Button(action: { }) {
+                    // MARK: - 수정필요
                     Image(systemName: "ellipsis")
                         .foregroundColor(Color.black)
                         .rotationEffect(Angle(degrees: 90))
@@ -62,6 +56,7 @@ struct FeedAnswer: View {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.subLightGreen)
                         .frame(width: 100, height: 30)
+                    // MARK: - 수정필요
                         .overlay(Text("내 생각 보기").foregroundColor(Color.white))
                 }
                 .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet() }
@@ -71,6 +66,7 @@ struct FeedAnswer: View {
             Divider()
             HStack {
                 HStack {
+                    // MARK: - 수정필요
                     Text(questionOwner)
                         .font(.system(size: 16)).bold()
                     Text("의 질문")
@@ -117,10 +113,12 @@ struct AnswerCardView: View {
                             questionOwner: "Daon")
                     }
                 }
+                // MARK: - 수정필요
                     .navigationBarTitle("내가 답한 질문", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                     dismiss()
                 }) {
+                    // MARK: - 수정필요
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 20))
                             .foregroundColor(.black)

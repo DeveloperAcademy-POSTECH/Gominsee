@@ -1,10 +1,3 @@
-//
-//  QuestionCardView.swift
-//  mentortee
-//
-//  Created by Jihye Hong on 2022/04/07.
-//
-
 import Foundation
 import SwiftUI
 
@@ -26,6 +19,7 @@ struct FeedQuestionCardStyle: GroupBoxStyle {
 }
 
 struct FeedQuestion: View {
+    // MARK: - 수정필요 (struct로 수정)
     var category: String
     var otherThoughts: String
     var question: String
@@ -51,10 +45,12 @@ struct FeedQuestion: View {
                 Button(action: {
                     isShowingConfirmation = true
                 }) {
+                    // MARK: - 수정필요
                     Image(systemName: "ellipsis")
                         .foregroundColor(Color.black)
                         .rotationEffect(Angle(degrees: 90))
                 }
+                // MARK: - 수정필요
                     .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation) {
                     if(myName == nickname) {
                         Button("수정하기") {
@@ -76,6 +72,7 @@ struct FeedQuestion: View {
                     Text("게시글을 삭제하시면 복구할 수 없어요ㅠ^ㅠ 신중하게 생각하고 선택해주세요.")
                 }
                     .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility: .visible) {
+                        // MARK: - 수정필요 ForEach
                     Button("스팸") {
                         //신고 누르면 카운트 기능?
                     }
@@ -118,7 +115,8 @@ struct FeedQuestion: View {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.primaryColor)
                         .frame(width: 80, height: 30)
-                        .overlay(Text("생각 적기").foregroundColor(Color.white))
+                    // MARK: - 수정필요
+                        .overlay(Text("생각적기").foregroundColor(Color.white))
                 }
                     .sheet(isPresented: self.$showModal) {
                     AnswerModalSheet(feedQuestion: question)
@@ -175,11 +173,13 @@ struct QuestionCardView: View {
 
                     }
                 }
+                // MARK: - 수정필요
                     .navigationBarTitle("내가 만든 질문", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                     dismiss()
                     firstNaviLinkActive = false
                 }) {
+                    // MARK: - 수정필요
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 20))
                             .foregroundColor(.black)

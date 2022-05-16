@@ -1,10 +1,3 @@
-//
-//  AnswerModalSheet.swift
-//  mentortee
-//
-//  Created by 이지수 on 2022/04/07.
-//
-
 import SwiftUI
 
 struct AnswerModalSheet: View {
@@ -34,6 +27,7 @@ struct AnswerModalSheet: View {
                     .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
                 Divider()
                     .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
+                // MARK: - 수정필요
                 TextField("질문에 대한 나의 생각을 적어주세요.", text: $userAnswer)
                     .frame(maxWidth: .infinity, maxHeight: 150, alignment: .topLeading)
                     .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
@@ -41,6 +35,7 @@ struct AnswerModalSheet: View {
                 HStack {
                     Button (action: { self.checked.toggle() }) {
                         HStack {
+                            // MARK: - 수정필요
                             Image(systemName: checked ? "checkmark.circle.fill" : "checkmark.circle").foregroundColor(checked ? Color.mainGreen : Color.gray)
                             Text("내 생각 나만 볼래요").font(.system(size: 14)).foregroundColor(checked ? Color.black : Color.gray)
                         }
@@ -52,6 +47,7 @@ struct AnswerModalSheet: View {
                     saveAnswer()
                     dismiss()
                 }, label: {
+                    // MARK: - 수정필요
                         Text("작성완료:)").bold()
                             .frame(width: 310, height: 40, alignment: .center)
                     })

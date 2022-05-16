@@ -1,10 +1,3 @@
-//
-//  QuestionDetailView.swift
-//  mentortee
-//
-//  Created by Yu ahyeon on 2022/04/06.
-//
-
 import SwiftUI
 
 struct QuestionDetailView: View {
@@ -15,6 +8,7 @@ struct QuestionDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     var nickname: String
+    // MARK: - 수정필요
     var myName: String = "meenu"
     
     var body: some View {
@@ -28,17 +22,20 @@ struct QuestionDetailView: View {
                 .navigationBarItems(leading: Button(action: {
                     dismiss()
                     }) {
+                        // MARK: - 수정필요
                         Image(systemName: "chevron.backward")
                             .imageScale(.large)
                             .foregroundColor(.black)
                     }, trailing: Button(action: {
                         isShowingConfirmation = true
                     }) {
+                        // MARK: - 수정필요
                         Image(systemName: "ellipsis")
                             .imageScale(.large)
                             .foregroundColor(.black)
                             .rotationEffect(Angle(degrees: 90))
                     }
+                    // MARK: - 수정필요
                     .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation) {
                         if(myName == nickname) {
                             Button("수정하기") {
@@ -53,6 +50,7 @@ struct QuestionDetailView: View {
                             }
                         }
                     }
+                    // MARK: - 수정필요
                     .alert("게시글을 삭제하시겠습니까?", isPresented: $showingDeleteAlert) {
                         Button("삭제", role: .destructive) {}
                         Button("취소", role: .cancel) {}
@@ -60,6 +58,7 @@ struct QuestionDetailView: View {
                         Text("게시글을 삭제하시면 복구할 수 없어요ㅠ^ㅠ 신중하게 생각하고 선택해주세요.")
                     }
                     .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility:.visible) {
+                        // MARK: - 수정필요
                         Button("스팸") {
                             //신고 누르면 카운트 기능?
                         }
