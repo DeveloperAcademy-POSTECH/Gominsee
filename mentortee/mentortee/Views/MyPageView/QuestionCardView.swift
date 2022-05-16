@@ -18,133 +18,6 @@ struct FeedQuestionCardStyle: GroupBoxStyle {
     }
 }
 
-struct FeedQuestion: View {
-    // MARK: - 수정필요 (struct로 수정)
-    var category: String
-    var otherThoughts: String
-    var question: String
-    var questionOwner: String
-    var nickname: String
-    var myName: String = "meenu"
-    @State var showModal = false
-    @State var showQuestionDetailview = false
-    @State private var isShowingConfirmation = false
-    @State private var showingReportAlert = false
-    @State private var showingDeleteAlert = false
-
-    var body: some View {
-        GroupBox() {
-            HStack {
-                HStack {
-                    Text(category)
-                        .font(.system(size: 14))
-                        .foregroundColor(Color.gray)
-                        .padding(.bottom, 5)
-                }
-                Spacer()
-                Button(action: {
-                    isShowingConfirmation = true
-                }) {
-                    // MARK: - 수정완료
-                    Image(systemName: IconName.ellipsis)
-                        .foregroundColor(Color.black)
-                        .rotationEffect(Angle(degrees: 90))
-                }
-                // MARK: - 수정완료
-                .confirmationDialog(TextName.selectAct, isPresented: $isShowingConfirmation) {
-                    if(myName == nickname) {
-                        Button(TextName.editText) {
-                        }
-                        Button(TextName.deleteText, role: .destructive) {
-                            self.showingDeleteAlert = true
-                        }
-                    }
-                    else {
-                        Button(TextName.reportText, role: .destructive) {
-                            showingReportAlert = true
-                        }
-                    }
-                }
-                .alert(TextName.deleteBoard, isPresented: $showingDeleteAlert) {
-                    Button(TextName.deleteIt, role: .destructive) { }
-                    Button(TextName.noText, role: .cancel) { }
-                } message: {
-                    Text(TextName.checkDeleteText)
-                }
-                .confirmationDialog(TextName.selectReport, isPresented: $showingReportAlert, titleVisibility: .visible) {
-                        // MARK: - 수정필요 ForEach
-                    Button("스팸") {
-                        //신고 누르면 카운트 기능?
-                    }
-                    Button("성적인 발언") {
-                        //신고 누르면 카운트 기능?
-                    }
-                    Button("마음에 들지 않습니다") {
-                        //신고 누르면 카운트 기능?
-                    }
-                    Button("혐오 발언") {
-                        //신고 누르면 카운트 기능?
-                    }
-                    Button("사기 또는 거짓") {
-                        //신고 누르면 카운트 기능?
-                    }
-                    Button("따돌림 또는 괴롭힘") {
-                        //신고 누르면 카운트 기능?
-                    }
-                    Button("폭력 또는 위험한 단체") {
-                        //신고 누르면 카운트 기능?
-                    }
-                    Button("지식 재산권 침해") {
-                        //신고 누르면 카운트 기능?
-                    }
-                    Button("기타") {
-                        //신고 누르면 카운트 기능?
-                    }
-                }
-            }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
-
-            VStack(alignment: .leading) {
-                Text(question)
-                    .font(.system(size: 22))
-                    .fontWeight(.heavy)
-                    .lineSpacing(5)
-
-                Button(action: {
-                    self.showModal = true
-                }) {
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .fill(Color.primaryColor)
-                        .frame(width: 80, height: 30)
-                    // MARK: - 수정완료
-                        .overlay(Text(TextName.writeThink).foregroundColor(Color.white))
-                }
-                    .sheet(isPresented: self.$showModal) {
-                    AnswerModalSheet(feedQuestion: question)
-                }
-            }
-                .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25))
-            Divider()
-
-            HStack {
-                HStack {
-                    Text(questionOwner)
-                        .font(.system(size: 16)).bold()
-                    Text("의 질문")
-                        .font(.system(size: 16)).padding(.leading, -5)
-                }
-
-                Spacer()
-                NavigationLink(destination: QuestionDetailView(nickname: "노엘")
-                        .navigationBarHidden(true)) {
-                    VStack {
-                        Text(otherThoughts)
-                    }
-                }
-            }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
-        }.groupBoxStyle(QuestionCardStyle())
-    }
-}
-
 struct QuestionCardView: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var firstNaviLinkActive: Bool
@@ -157,8 +30,7 @@ struct QuestionCardView: View {
                 VStack {
                     CountQuestion()
                     ScrollView {
-
-                        FeedQuestion(category: "취미",
+                        QuestionCard(category: "취미",
                             otherThoughts: "다른 생각 0개",
                             question: "좋아하는 운동은 무엇인가요?",
                             questionOwner: "Chemi",
@@ -169,8 +41,6 @@ struct QuestionCardView: View {
                             otherThoughts: "다른 생각 5개",
                             question: "하루 중 가장 행복하다고 느끼는 순간은 언제인가요?",
                             questionOwner: "Chemi")
-
-
                     }
                 }
                 // MARK: - 수정완료
