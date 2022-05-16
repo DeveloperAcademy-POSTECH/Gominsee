@@ -5,6 +5,7 @@ struct AnswerView: View {
     var nickname: String
     var date: String
     var contents: String
+    // MARK: - 수정필요 (이전 View에서 전달하는 형식으로 변경)
     var myName: String = "meenu"
     @State private var isShowingOptions = false
     @State private var isShowingReportAlert = false
@@ -28,11 +29,13 @@ struct AnswerView: View {
                             .foregroundColor(Color.gray)
                         Spacer()
                         Button(action: { isShowingOptions = true }) {
+                            // MARK: - 수정필요
                             Image(systemName: "ellipsis")
                         }
                         .background(Rectangle().fill(Color.backgroundColor))
                         .foregroundColor(Color.black)
                             .rotationEffect(Angle(degrees: 90))
+                        // MARK: - 수정필요
                         .confirmationDialog("행동 선택", isPresented: $isShowingOptions) {
                             if (myName == nickname) {
                                 Button("수정하기") {
@@ -48,6 +51,7 @@ struct AnswerView: View {
                                 }
                             }
                         }
+                        // MARK: - 수정필요
                         .alert("정말 삭제하실 건가요?", isPresented: $isShowingDeleteAlert) {
                             Button("삭제할래요", role: .destructive) {}
                             Button("아니요", role: .cancel) {}

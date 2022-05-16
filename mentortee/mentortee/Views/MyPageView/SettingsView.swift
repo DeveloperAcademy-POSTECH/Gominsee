@@ -16,6 +16,7 @@ struct SettingsView: View {
             .navigationBarItems(leading: Button(action: {
             self.mode.wrappedValue.dismiss()
         }) {
+            // MARK: - 수정필요
                 Image(systemName: "chevron.backward")
                     .padding(.all, 16)
                     .font(.system(size: 20))

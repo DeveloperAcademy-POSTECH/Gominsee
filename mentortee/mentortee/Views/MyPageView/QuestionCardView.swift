@@ -1,10 +1,3 @@
-//
-//  QuestionCardView.swift
-//  mentortee
-//
-//  Created by Jihye Hong on 2022/04/07.
-//
-
 import Foundation
 import SwiftUI
 
@@ -25,7 +18,6 @@ struct FeedQuestionCardStyle: GroupBoxStyle {
     }
 }
 
-
 struct QuestionCardView: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var firstNaviLinkActive: Bool
@@ -38,7 +30,6 @@ struct QuestionCardView: View {
                 VStack {
                     CountQuestion()
                     ScrollView {
-
                         QuestionCard(category: "취미",
                             otherThoughts: "다른 생각 0개",
                             question: "좋아하는 운동은 무엇인가요?",
@@ -50,15 +41,15 @@ struct QuestionCardView: View {
                             otherThoughts: "다른 생각 5개",
                             question: "하루 중 가장 행복하다고 느끼는 순간은 언제인가요?",
                             questionOwner: "Chemi")
-
-
                     }
                 }
+                // MARK: - 수정필요
                     .navigationBarTitle("내가 만든 질문", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                     dismiss()
                     firstNaviLinkActive = false
                 }) {
+                    // MARK: - 수정필요
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 20))
                             .foregroundColor(.black)

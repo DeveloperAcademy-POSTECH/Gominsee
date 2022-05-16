@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct MainView: View {
-    
+    // MARK: - 수정필요
     var dailyQuestion = "Chemi님은 뭘 할 때 행복한가요 ?"
     var categoryList = ["가치관"]
     var today = Date()
-    
+    // MARK: - 수정필요
     @State private var answerText = "질문에 대한 나의 생각을 적어보세요."
     @State private var answerColor = Color.black.opacity(0.2)
     @State private var showAlert = false
@@ -46,7 +46,7 @@ struct MainView: View {
                             }
                             
                             VStack{
-                                
+                                // MARK: - 수정필요
                                 Button("제출하기", action: answerText.count == 0 || answerText == "질문에 대한 나의 생각을 적어보세요." ? {} : {
                                     showAlert = true
                                     hideKeyboard()
@@ -90,6 +90,7 @@ struct MainView: View {
                             .cornerRadius(10)
                             .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
                             .onTapGesture {
+                                // MARK: - 수정필요
                                 if answerText == "질문에 대한 나의 생각을 적어보세요."{
                                     answerText = ""
                                 }
