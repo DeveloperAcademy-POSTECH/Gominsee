@@ -20,8 +20,8 @@ struct MythoughtModalSheet: View {
                     Button(action: {
                         dismiss()
                     }, label: {
-                        // MARK: - 수정필요
-                        Text("닫기").bold()
+                        // MARK: - 수정완료
+                        Text(TextName.closeText).bold()
                             .frame(width: 310, height: 40, alignment: .center)
                     })
                     .frame(width: 310, height: 40, alignment: .center)

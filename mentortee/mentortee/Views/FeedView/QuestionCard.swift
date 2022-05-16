@@ -7,7 +7,8 @@ struct QuestionCard: View {
             HStack {
                 Text(tempData.category)
                 Spacer()
-                Image(systemName: "ellipsis")
+                // MARK: - 수정완료
+                Image(systemName: IconName.ellipsis)
                     .rotationEffect(Angle(degrees: 90))
             }
             Text(tempData.question)

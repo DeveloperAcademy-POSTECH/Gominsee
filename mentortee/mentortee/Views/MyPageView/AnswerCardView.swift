@@ -24,7 +24,7 @@ struct FeedAnswer: View {
     var questionOwner: String
     @State var showModal = false
     @Environment(\.presentationMode) var presentation
-    
+
 
     var body: some View {
         GroupBox() {
@@ -37,8 +37,8 @@ struct FeedAnswer: View {
                 }
                 Spacer()
                 Button(action: { }) {
-                    // MARK: - 수정필요
-                    Image(systemName: "ellipsis")
+                    // MARK: - 수정완료
+                    Image(systemName: IconName.ellipsis)
                         .foregroundColor(Color.black)
                         .rotationEffect(Angle(degrees: 90))
                 }
@@ -56,25 +56,23 @@ struct FeedAnswer: View {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.subLightGreen)
                         .frame(width: 100, height: 30)
-                    // MARK: - 수정필요
-                        .overlay(Text("내 생각 보기").foregroundColor(Color.white))
+                    // MARK: - 수정완료
+                    .overlay(Text(TextName.showMyThink).foregroundColor(Color.white))
                 }
-                .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet() }
+                    .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet() }
             }
                 .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25))
 
             Divider()
             HStack {
                 HStack {
-                    // MARK: - 수정필요
-                    Text(questionOwner)
+                    // MARK: - 수정완료
+                    Text("\(questionOwner)의 질문")
                         .font(.system(size: 16)).bold()
-                    Text("의 질문")
-                        .font(.system(size: 16)).padding(.leading, -5)
                 }
 
                 Spacer()
-                
+
                 NavigationLink(destination: QuestionDetailView(nickname: "노엘")
                         .navigationBarHidden(true)) {
                     VStack {
@@ -100,26 +98,26 @@ struct AnswerCardView: View {
                         FeedAnswer(category: "회고",
                             otherThoughts: "다른 생각 10개",
                             question: "오늘 하루 하고(사고)싶었는데 못한 것이 있나요??",
-                                   questionOwner: "Brown")
-                        
+                            questionOwner: "Brown")
+
                         FeedAnswer(category: "습관",
                             otherThoughts: "다른 생각 4개",
                             question: "아침에 일어나면 가장 먼저 무엇을 하시나요?",
                             questionOwner: "Meenu").padding(.vertical, 10)
-                        
+
                         FeedAnswer(category: "진로",
                             otherThoughts: "다른 생각 3개",
                             question: "진로를 선택한 순간을 떠올려보세요 선택에 영향을 준 요인은 무엇인가요?",
                             questionOwner: "Daon")
                     }
                 }
-                // MARK: - 수정필요
-                    .navigationBarTitle("내가 답한 질문", displayMode: .inline)
+                // MARK: - 수정완료
+                .navigationBarTitle(TextName.myAnswerText, displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                     dismiss()
                 }) {
-                    // MARK: - 수정필요
-                        Image(systemName: "chevron.backward")
+                        // MARK: - 수정완료
+                        Image(systemName: IconName.backward)
                             .font(.system(size: 20))
                             .foregroundColor(.black)
                     })

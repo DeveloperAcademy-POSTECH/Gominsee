@@ -6,11 +6,11 @@ struct QuestionDetailView: View {
     @State private var showingDeleteAlert = false
     @State private var showDialog = false
     @Environment(\.dismiss) private var dismiss
-    
+
     var nickname: String
     // MARK: - 수정필요
     var myName: String = "meenu"
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -19,45 +19,45 @@ struct QuestionDetailView: View {
                     QuestionView().padding(.top, -40)
                     AnswerDetailView()
                 }
-                .navigationBarItems(leading: Button(action: {
+                    .navigationBarItems(leading: Button(action: {
                     dismiss()
-                    }) {
-                        // MARK: - 수정필요
-                        Image(systemName: "chevron.backward")
+                }) {
+                        // MARK: - 수정완료
+                        Image(systemName: IconName.backward)
                             .imageScale(.large)
                             .foregroundColor(.black)
                     }, trailing: Button(action: {
                         isShowingConfirmation = true
                     }) {
-                        // MARK: - 수정필요
-                        Image(systemName: "ellipsis")
+                        // MARK: - 수정완료
+                        Image(systemName: IconName.ellipsis)
                             .imageScale(.large)
                             .foregroundColor(.black)
                             .rotationEffect(Angle(degrees: 90))
                     }
-                    // MARK: - 수정필요
-                    .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation) {
+                    // MARK: - 수정완료
+                    .confirmationDialog(TextName.selectAct, isPresented: $isShowingConfirmation) {
                         if(myName == nickname) {
-                            Button("수정하기") {
+                            Button(TextName.editText) {
                             }
-                            Button("삭제하기", role: .destructive) {
+                            Button(TextName.deleteText, role: .destructive) {
                                 self.showingDeleteAlert = true
                             }
                         }
                         else {
-                            Button("신고하기", role: .destructive) {
-                                    showingReportAlert = true
+                            Button(TextName.reportText, role: .destructive) {
+                                showingReportAlert = true
                             }
                         }
                     }
-                    // MARK: - 수정필요
-                    .alert("게시글을 삭제하시겠습니까?", isPresented: $showingDeleteAlert) {
-                        Button("삭제", role: .destructive) {}
-                        Button("취소", role: .cancel) {}
+                    // MARK: - 수정완료
+                        .alert(TextName.deleteBoard, isPresented: $showingDeleteAlert) {
+                        Button("삭제", role: .destructive) { }
+                        Button("취소", role: .cancel) { }
                     } message: {
                         Text("게시글을 삭제하시면 복구할 수 없어요ㅠ^ㅠ 신중하게 생각하고 선택해주세요.")
                     }
-                    .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility:.visible) {
+                        .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility: .visible) {
                         // MARK: - 수정필요
                         Button("스팸") {
                             //신고 누르면 카운트 기능?
@@ -90,12 +90,12 @@ struct QuestionDetailView: View {
                 )
             }
         }
-        .onTapGesture {
+            .onTapGesture {
             hideKeyboard()
         }
     }
 }
-        
+
 struct QuestionDetailView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionDetailView(nickname: "noel")

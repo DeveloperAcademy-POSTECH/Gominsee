@@ -45,33 +45,33 @@ struct FeedQuestion: View {
                 Button(action: {
                     isShowingConfirmation = true
                 }) {
-                    // MARK: - 수정필요
-                    Image(systemName: "ellipsis")
+                    // MARK: - 수정완료
+                    Image(systemName: IconName.ellipsis)
                         .foregroundColor(Color.black)
                         .rotationEffect(Angle(degrees: 90))
                 }
-                // MARK: - 수정필요
-                    .confirmationDialog("동작 선택", isPresented: $isShowingConfirmation) {
+                // MARK: - 수정완료
+                .confirmationDialog(TextName.selectAct, isPresented: $isShowingConfirmation) {
                     if(myName == nickname) {
-                        Button("수정하기") {
+                        Button(TextName.editText) {
                         }
-                        Button("삭제하기", role: .destructive) {
+                        Button(TextName.deleteText, role: .destructive) {
                             self.showingDeleteAlert = true
                         }
                     }
                     else {
-                        Button("신고하기", role: .destructive) {
+                        Button(TextName.reportText, role: .destructive) {
                             showingReportAlert = true
                         }
                     }
                 }
-                    .alert("게시글을 삭제하시겠습니까?", isPresented: $showingDeleteAlert) {
-                    Button("삭제", role: .destructive) { }
-                    Button("취소", role: .cancel) { }
+                .alert(TextName.deleteBoard, isPresented: $showingDeleteAlert) {
+                    Button(TextName.deleteIt, role: .destructive) { }
+                    Button(TextName.noText, role: .cancel) { }
                 } message: {
-                    Text("게시글을 삭제하시면 복구할 수 없어요ㅠ^ㅠ 신중하게 생각하고 선택해주세요.")
+                    Text(TextName.checkDeleteText)
                 }
-                    .confirmationDialog("게시글 신고 사유를 선택해주세요", isPresented: $showingReportAlert, titleVisibility: .visible) {
+                .confirmationDialog(TextName.selectReport, isPresented: $showingReportAlert, titleVisibility: .visible) {
                         // MARK: - 수정필요 ForEach
                     Button("스팸") {
                         //신고 누르면 카운트 기능?
@@ -115,8 +115,8 @@ struct FeedQuestion: View {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.primaryColor)
                         .frame(width: 80, height: 30)
-                    // MARK: - 수정필요
-                        .overlay(Text("생각적기").foregroundColor(Color.white))
+                    // MARK: - 수정완료
+                        .overlay(Text(TextName.writeThink).foregroundColor(Color.white))
                 }
                     .sheet(isPresented: self.$showModal) {
                     AnswerModalSheet(feedQuestion: question)
@@ -173,14 +173,14 @@ struct QuestionCardView: View {
 
                     }
                 }
-                // MARK: - 수정필요
-                    .navigationBarTitle("내가 만든 질문", displayMode: .inline)
+                // MARK: - 수정완료
+                .navigationBarTitle(TextName.myQuestionText, displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                     dismiss()
                     firstNaviLinkActive = false
                 }) {
-                    // MARK: - 수정필요
-                        Image(systemName: "chevron.backward")
+                    // MARK: - 수정완료
+                    Image(systemName: IconName.backward)
                             .font(.system(size: 20))
                             .foregroundColor(.black)
                     })
