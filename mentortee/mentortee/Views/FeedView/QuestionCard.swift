@@ -2,6 +2,8 @@ import SwiftUI
 
 // MARK: - 수정필요 (Card 완성 필요)
 struct QuestionCard: View {
+    @Binding var currentIdx: String
+    
     var body: some View {
         VStack {
             HStack {
@@ -65,6 +67,6 @@ struct BtnMyThought: View {
 
 struct QuestionCard_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionCard()
+        QuestionCard(currentIdx: .constant(""))
     }
 }

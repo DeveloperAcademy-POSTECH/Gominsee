@@ -1,11 +1,10 @@
 import SwiftUI
 
 struct FeedView: View {
+    @State var currentIdx = "전체"
     @State private var showModal = false
 
     var body: some View {
-        
-        
         GeometryReader { geo in
             VStack(alignment: .leading, spacing: 0) {
                 ZStack {
@@ -14,7 +13,7 @@ struct FeedView: View {
                         .ignoresSafeArea()
                     
                     VStack {
-                        FeedCategoryBtn()
+                        FeedCategoryBtn(currentIdx: $currentIdx)
                             .padding()
                         
                         ScrollView {
