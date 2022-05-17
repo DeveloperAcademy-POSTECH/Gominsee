@@ -27,7 +27,7 @@ struct ReplyAnswer: View {
             Button (action: { self.isChecked.toggle() }) {
                 HStack{
                     // MARK: - 수정완료
-                    Image(systemName: isChecked ? IconName.checkMarkFill : IconName.checkMark)
+                    Image(systemName: isChecked ? IconName.checkMarkCircleFill : IconName.checkMarkCircle)
                         .foregroundColor(isChecked ? Color.mainGreen : Color.gray)
                     
                     // MARK: - 수정완료

@@ -36,7 +36,7 @@ struct AnswerModalSheet: View {
                     Button (action: { self.checked.toggle() }) {
                         HStack {
                             // MARK: - 수정완료
-                            Image(systemName: checked ? IconName.checkMarkFill : IconName.checkMark).foregroundColor(checked ? Color.mainGreen : Color.gray)
+                            Image(systemName: checked ? IconName.checkMarkCircleFill : IconName.checkMarkCircle).foregroundColor(checked ? Color.mainGreen : Color.gray)
                             Text(TextName.privateAnswer).font(.system(size: 14)).foregroundColor(checked ? Color.black : Color.gray)
                         }
                     }
