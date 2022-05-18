@@ -2,6 +2,8 @@ import SwiftUI
 
 enum TextName {
     static let submission: String = "제출하기"
+    static let completeSubmit: String = "제출 완료"
+    static let checkMyPage: String = "마이페이지에서 확인할 수 있어요!"
     static let answerText: String = "질문에 대한 나의 생각을 적어보세요."
     static let privateAnswer: String = "내 생각 나만 볼래요"
     static let selectAct: String = "행동 선택"
