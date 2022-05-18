@@ -1,107 +1,24 @@
 import SwiftUI
 
 struct MainView: View {
-    // MARK: - 수정필요
     var dailyQuestion = "Chemi님은 뭘 할 때 행복한가요 ?"
     var categoryList = ["가치관"]
-    var today = Date()
-    // MARK: - 수정필요
     @State private var answerText = TextName.answerText
-    @State private var answerColor = Color.black.opacity(0.2)
+    @State private var answerColor = Color.answerColor
     @State private var showAlert = false
-    @State private var cardHeight = UIScreen.main.bounds.height * 0.45
-    @State private var cardTextHeight = UIScreen.main.bounds.height * 0.2
-    @State private var cardOpacity: Double = 1
+    @State private var cardOpacity: Double = 1.0
 
     var body: some View {
-
         GeometryReader { geo in
-
-            ZStack {
-                Color.backgroundColor
-                    .ignoresSafeArea()
-
-                ScrollView {
-                    VStack(alignment: .center, spacing: -10) {
-
-                        VStack(alignment: .leading) {
-                            Text("\(today, formatter: MainView.dateformat)")
-                                .bold()
-                            Text(dailyQuestion)
-                                .bold()
-                                .font(.system(size: 35))
-                                .frame(width: nil, height: geo.size.height * 0.2)
-                                .minimumScaleFactor(0.5)
-
-                            HStack {
-                                ForEach(categoryList, id: \.self) { value in
-                                    Text(value)
-                                        .padding(.vertical, 3)
-                                        .padding(.horizontal, 10)
-                                        .font(.system(size: 14))
-                                        .foregroundColor(Color.primaryColor)
-                                        .background(RoundedRectangle(cornerRadius: 10))
-                                }
-                                Spacer()
-                            }
-
-                            VStack {
-                                // MARK: - 수정완료
-                                Button(TextName.submission, action: answerText.count == 0 || answerText == TextName.answerText ? { }: {
-                                        showAlert = true
-                                        hideKeyboard()
-                                        answerColor = Color.black.opacity(0.2)
-                                        answerText = TextName.answerText
-                                        cardHeight = geo.size.height * 0.45
-                                        cardTextHeight = geo.size.height * 0.2
-
-                                    })
-                                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                                    .foregroundColor(answerText.count == 0 || answerText == TextName.answerText ? Color.mainGreen.opacity(0.4) : Color.mainGreen)
-                                    .background(
-                                    RoundedRectangle(cornerRadius: 10))
-                                    .alert(isPresented: $showAlert) {
-                                    Alert(
-                                        title: Text("제출 완료"),
-                                        message: Text("마이페이지에서 확인할 수 있어요!")
-                                    )
-                                }
-                            }
-                                .frame(width: geo.size.width * 0.8, alignment: .trailing)
-                                .padding(.top, 50)
-                        }
-                            .padding()
-                            .frame(width: geo.size.width * 0.87, height: geo.size.height * 0.5)
-                            .foregroundColor(.white)
-                            .background(
-                            LinearGradient(
-                                gradient: Gradient(
-                                    colors: [Color.primaryColor, Color.subIvory]),
-                                startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .cornerRadius(10)
-                            .opacity(cardOpacity)
-
-
-                        TextEditor(text: $answerText)
-                            .padding()
-                            .frame(width: geo.size.width * 0.87, height: geo.size.width * 0.5, alignment: .top)
-                            .foregroundColor(answerColor)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
-                            .onTapGesture {
-                            // MARK: - 수정완료
-                            if answerText == TextName.answerText {
-                                answerText = ""
-                            }
-                            answerColor = Color.black
-                            cardOpacity = 0.7
-
-                        }
-                        Spacer()
-                    }
-                }.padding(.top, 15)
+            ScrollView(.vertical) {
+                VStack(alignment: .center, spacing: -10) {
+                    dailyQuestionCard(geo: geo)
+                    textEditor(geo: geo)
+                }
+                    .frame(width: geo.size.width)
+                    .frame(minHeight: geo.size.height)
             }
+                .background(Color.backgroundColor.ignoresSafeArea())
                 .onTapGesture {
                 hideKeyboard()
                 cardOpacity = 1.0
@@ -109,14 +26,61 @@ struct MainView: View {
         }
     }
 
+    private func dailyQuestionCard(geo: GeometryProxy) -> some View {
+        VStack(alignment: .leading) {
+            Text("\(Date(), formatter: dateFormatKR())")
+                .dateTextStyle()
+            Text(dailyQuestion)
+                .dailyQuestionTextStyle()
+                .minimumScaleFactor(0.5)
+                .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.2, alignment: .leading)
 
-    static let dateformat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko-KR")
-        formatter.dateFormat = "YY년 M월 d일 (eeee)"
-        return formatter
-    }()
+            HStack {
+                ForEach(categoryList, id: \.self) { value in
+                    Text(value)
+                        .dailyCategoryTextStyle()
+                        .dailyCategoryStyle()
+                }
+            }
+            submitButton(geo: geo)
+        }
+            .dailyQuestionCardStyle(geo: geo)
+            .opacity(cardOpacity)
+    }
 
+    private func submitButton(geo: GeometryProxy) -> some View {
+        Button(TextName.submission, action: answerText.count == 0 || answerText == TextName.answerText ? { }: {
+                onSubmitButton()
+            })
+            .dailySubmitButtonStyle(answerText: answerText, geo: geo)
+            .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text(TextName.completeSubmit),
+                message: Text(TextName.checkMyPage),
+                dismissButton: .default(Text(TextName.okText), action: { })
+            )
+        }
+    }
+
+    private func textEditor(geo: GeometryProxy) -> some View {
+        TextEditor(text: $answerText)
+            .dailyTextEditorStyle(geo: geo, answerColor: answerColor)
+            .onTapGesture {
+            if answerText == TextName.answerText {
+                answerText = ""
+            }
+            answerColor = Color.black
+            cardOpacity = 0.7
+        }
+    }
+
+    private func onSubmitButton() {
+        showAlert = true
+        hideKeyboard()
+        answerColor = Color.black.opacity(0.2)
+        answerText = TextName.answerText
+        cardOpacity = 1.0
+    }
 }
 
 struct MainView_Previews: PreviewProvider {
