@@ -16,7 +16,7 @@ struct CategoryView: View {
             Text("")
                 .padding(.top, 10)
             HStack {
-                // MARK: - 수정필요 ForEach로 수정
+                // TODO: - ForEach로 수정필요
                 Group {
                     VStack {
                         Image("category_1")

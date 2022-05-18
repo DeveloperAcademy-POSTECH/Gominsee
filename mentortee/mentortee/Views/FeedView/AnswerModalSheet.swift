@@ -27,17 +27,17 @@ struct AnswerModalSheet: View {
                     .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
                 Divider()
                     .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
-                // MARK: - 수정필요
-                TextField("질문에 대한 나의 생각을 적어주세요.", text: $userAnswer)
+                // MARK: - 수정완료
+                TextField(TextName.answerText, text: $userAnswer)
                     .frame(maxWidth: .infinity, maxHeight: 150, alignment: .topLeading)
                     .padding(EdgeInsets(top: 10, leading: 40, bottom: 10, trailing: 40))
 
                 HStack {
                     Button (action: { self.checked.toggle() }) {
                         HStack {
-                            // MARK: - 수정필요
-                            Image(systemName: checked ? "checkmark.circle.fill" : "checkmark.circle").foregroundColor(checked ? Color.mainGreen : Color.gray)
-                            Text("내 생각 나만 볼래요").font(.system(size: 14)).foregroundColor(checked ? Color.black : Color.gray)
+                            // MARK: - 수정완료
+                            Image(systemName: checked ? IconName.checkMarkCircleFill : IconName.checkMarkCircle).foregroundColor(checked ? Color.mainGreen : Color.gray)
+                            Text(TextName.privateAnswer).font(.system(size: 14)).foregroundColor(checked ? Color.black : Color.gray)
                         }
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading)
@@ -47,8 +47,8 @@ struct AnswerModalSheet: View {
                     saveAnswer()
                     dismiss()
                 }, label: {
-                    // MARK: - 수정필요
-                        Text("작성완료:)").bold()
+                    // MARK: - 수정완료
+                    Text(TextName.completeText).bold()
                             .frame(width: 310, height: 40, alignment: .center)
                     })
                     .frame(width: 310, height: 40, alignment: .center)

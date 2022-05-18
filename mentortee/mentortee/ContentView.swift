@@ -8,10 +8,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
-                MainView().tabItem { Image(systemName: "house").environment(\.symbolVariants, .none) }.tag(1)
-                FeedView().tabItem { Image(systemName: "square.text.square").environment(\.symbolVariants, .none) }.tag(2)
+                MainView().tabItem { Image(systemName: IconName.house).environment(\.symbolVariants, .none) }.tag(1)
+                FeedView().tabItem { Image(systemName: IconName.textSquare).environment(\.symbolVariants, .none) }.tag(2)
 
-                MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: "person").environment(\.symbolVariants, .none) }.tag(3)
+                MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: IconName.person).environment(\.symbolVariants, .none) }.tag(3)
             }
                 .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -22,7 +22,7 @@ struct ContentView: View {
 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: getDestination(), isActive: $firstNaviLinkActive) {
-                        Image(systemName: selection == 3 ? "gearshape" : "square.and.pencil")
+                        Image(systemName: selection == 3 ? IconName.settings : IconName.pencil)
                             .padding(.all, 16)
                             .font(.system(size: 20))
                             .foregroundColor(.mainGreen) } }

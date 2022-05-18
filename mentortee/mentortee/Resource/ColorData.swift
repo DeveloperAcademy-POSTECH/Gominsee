@@ -9,6 +9,7 @@ extension Color {
     static let subIvory = Color(hex: "#E6E7D5")
     static let backgroundColor = Color(hex: "#EEEEEE")
     static let inactiveColor = Color(hex: "#999999")
+    static let answerColor = Color.black.opacity(0.2)
 
     init(hex: String) {
         let scanner = Scanner(string: hex)

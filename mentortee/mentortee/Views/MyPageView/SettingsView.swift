@@ -6,7 +6,8 @@ struct SettingsView: View {
     var body: some View {
         List {
             NavigationLink(destination: CategoryView().navigationBarHidden(true)){
-                Text("관심 카테고리")}
+                // MARK: - 수정완료
+                Text(TextName.favoriteCategoryText)}
             .foregroundColor(.black)
             Text("닉네임 변경")
             Text("로그아웃")
@@ -16,8 +17,8 @@ struct SettingsView: View {
             .navigationBarItems(leading: Button(action: {
             self.mode.wrappedValue.dismiss()
         }) {
-            // MARK: - 수정필요
-                Image(systemName: "chevron.backward")
+            // MARK: - 수정완료
+            Image(systemName: IconName.backward)
                     .padding(.all, 16)
                     .font(.system(size: 20))
                     .foregroundColor(.black)
