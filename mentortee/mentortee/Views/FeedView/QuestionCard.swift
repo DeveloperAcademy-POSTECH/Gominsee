@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct QuestionCard: View {
+    @Binding var currentIdx: String
     var category: String
     var otherThoughts: String
     var question: String
