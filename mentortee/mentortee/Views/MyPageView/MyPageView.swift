@@ -11,16 +11,14 @@ struct MyPageView: View {
     
     var body: some View {
         VStack {
-            
             Text("\(username)의 질문상자")
                 .font(.system(size: 24).weight(.bold))
-            
             HStack {
                 NavigationLink(destination: QuestionCardView(firstNaviLinkActive: $firstNaviLinkActive).navigationBarHidden(true)) {
                         VStack {
-                            // MARK: - 수정완료
                             Text(TextName.myQuestionText).font(.system(size: 14)).bold()
                             Text("\(myQuestionCount)").font(.system(size: 30)).bold()
+                                .opacity(0.8)
                         }
                         .frame(width: (screenWidth - 50) / 2)
                     }
@@ -30,9 +28,9 @@ struct MyPageView: View {
                 
                 NavigationLink(destination: AnswerCardView().navigationBarHidden(true)) {
                         VStack {
-                            // MARK: - 수정완료
                             Text(TextName.myAnswerText).font(.system(size: 14)).bold()
                             Text("\(myAnswerCount)").font(.system(size: 30)).bold()
+                                .opacity(0.8)
                         }
                         .frame(width: (screenWidth - 50) / 2)
                     }
@@ -45,14 +43,12 @@ struct MyPageView: View {
             
             ZStack {
                 VStack {
-                    // MARK: - 수정완료
                     Image.level_1.shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
                     Spacer()
                 }
                 VStack {
                     HStack {
                         HStack {
-                            // MARK: - 수정완료
                             Text(TextName.characterName).font(.system(size: 20)).bold()
                             Text("Lv. \(userLV)").font(.system(size: 14))
                         }.frame(alignment: .leading).padding(10)

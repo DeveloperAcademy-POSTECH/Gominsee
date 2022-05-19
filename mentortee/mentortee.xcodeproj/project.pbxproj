@@ -57,7 +57,7 @@
 		A752B59C280034BF00B41987 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752B59B280034BF00B41987 /* FeedView.swift */; };
 		A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D877D727FF2641001257EC /* AnswerModalSheet.swift */; };
 		A7D877DA27FF70F6001257EC /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D877D927FF70F6001257EC /* KeyboardHandler.swift */; };
-		A952D08728051F210098DBE8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A952D08628051F210098DBE8 /* CategoryView.swift */; };
+		A952D08728051F210098DBE8 /* FavoriteCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A952D08628051F210098DBE8 /* FavoriteCategoryView.swift */; };
 		A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A952D08828051F3D0098DBE8 /* LogInView.swift */; };
 		A952D08C280520400098DBE8 /* MakingNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A952D08B280520400098DBE8 /* MakingNicknameView.swift */; };
 		A9CFEE5C27FF3AE300EBE12E /* QuestionMakingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */; };
@@ -117,7 +117,7 @@
 		A752B59B280034BF00B41987 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		A7D877D727FF2641001257EC /* AnswerModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModalSheet.swift; sourceTree = "<group>"; };
 		A7D877D927FF70F6001257EC /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
-		A952D08628051F210098DBE8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		A952D08628051F210098DBE8 /* FavoriteCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCategoryView.swift; sourceTree = "<group>"; };
 		A952D08828051F3D0098DBE8 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		A952D08B280520400098DBE8 /* MakingNicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakingNicknameView.swift; sourceTree = "<group>"; };
 		A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMakingMain.swift; sourceTree = "<group>"; };
@@ -180,8 +180,8 @@
 		26F56B4D27FBEC1B0066C0D1 /* mentortee */ = {
 			isa = PBXGroup;
 			children = (
-				3944F76728323A5200A9B02E /* Resource */,
 				39B618D2282A967F00678A00 /* System */,
+				3944F76728323A5200A9B02E /* Resource */,
 				39B618D3282A977B00678A00 /* Helper */,
 				39B618CF282A8A4400678A00 /* Datas */,
 				3973A05F27FD26CE00CDC599 /* Views */,
@@ -229,8 +229,8 @@
 			children = (
 				3973A06027FD26D400CDC599 /* MainView */,
 				3973A06127FD26DD00CDC599 /* FeedView */,
-				3973A06327FD26F200CDC599 /* MyPageView */,
 				3973A06227FD26EA00CDC599 /* QnAView */,
+				3973A06327FD26F200CDC599 /* MyPageView */,
 				A952D08A28051FD00098DBE8 /* LogInView */,
 			);
 			path = Views;
@@ -271,10 +271,10 @@
 		3973A06327FD26F200CDC599 /* MyPageView */ = {
 			isa = PBXGroup;
 			children = (
+				26A1D6792802CB3C002373FB /* MyPageView.swift */,
 				26A1D6772802CA7C002373FB /* AnswerCardView.swift */,
 				275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */,
 				388749662806B3E70005D616 /* MythoughtModalSheet.swift */,
-				26A1D6792802CB3C002373FB /* MyPageView.swift */,
 				390223DE2805241A008D9C64 /* SettingsView.swift */,
 			);
 			path = MyPageView;
@@ -312,7 +312,7 @@
 		A952D08A28051FD00098DBE8 /* LogInView */ = {
 			isa = PBXGroup;
 			children = (
-				A952D08628051F210098DBE8 /* CategoryView.swift */,
+				A952D08628051F210098DBE8 /* FavoriteCategoryView.swift */,
 				A952D08828051F3D0098DBE8 /* LogInView.swift */,
 				A952D08B280520400098DBE8 /* MakingNicknameView.swift */,
 			);
@@ -428,7 +428,7 @@
 				26317626280564C300C13368 /* QuestionCategory+CoreDataClass.swift in Sources */,
 				38AE0782281A7EE80035EB0C /* QuestionCard.swift in Sources */,
 				26A1D67A2802CB3C002373FB /* MyPageView.swift in Sources */,
-				A952D08728051F210098DBE8 /* CategoryView.swift in Sources */,
+				A952D08728051F210098DBE8 /* FavoriteCategoryView.swift in Sources */,
 				3944F76B28323F5300A9B02E /* Images.swift in Sources */,
 				26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */,
 				394D105028192A6C00CD538D /* AnswerView.swift in Sources */,
