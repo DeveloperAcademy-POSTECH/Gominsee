@@ -4,6 +4,7 @@ struct ContentView: View {
     @State private var selection = 1
     @State private var isShowingDetailView = false
     @State var firstNaviLinkActive: Bool = false
+    @EnvironmentObject var userInformation : UserInformation
 
     var body: some View {
         NavigationView {
@@ -11,7 +12,7 @@ struct ContentView: View {
                 MainView().tabItem { Image(systemName: IconName.house).environment(\.symbolVariants, .none) }.tag(1)
                 FeedView().tabItem { Image(systemName: IconName.textSquare).environment(\.symbolVariants, .none) }.tag(2)
 
-                MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: IconName.person).environment(\.symbolVariants, .none) }.tag(3)
+                MyPageView(firstNaviLinkActive: $firstNaviLinkActive, myPageData: userInformation.myPageData).tabItem { Image(systemName: IconName.person).environment(\.symbolVariants, .none) }.tag(3)
             }
                 .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -44,5 +45,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(UserInformation())
     }
 }

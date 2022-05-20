@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct mentorteeApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject private var userInformation = UserInformation()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(userInformation)
         }
     }
 }
