@@ -8,7 +8,8 @@ struct QuestionCard: View {
     @State private var showingDeleteAlert = false
     @State private var showQuestionDetailview = false
     @State var questionData: QuestionData
-    @Binding var currentIdx: String
+    
+    var currentIdx: String
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -69,6 +70,7 @@ struct QuestionCard: View {
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
+                    .minimumScaleFactor(0.4)
 
                 Button(action: {
                     showModal = true
@@ -119,6 +121,6 @@ struct QuestionCard: View {
 
 struct QuestionCard_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionCard(questionData: QuestionData(category: "가치관", otherThoughts: "다른생각", question: "오늘은 어떤 음식을 먹을까요", questionOwner: "브라운", nickname: "브라운", uploadTime: Date()), currentIdx: .constant("전체"))
+        QuestionCard(questionData: QuestionData(category: "가치관", otherThoughts: "다른생각", question: "오늘은 어떤 음식을 먹을까요", questionOwner: "브라운", nickname: "브라운", uploadTime: Date()), currentIdx: "전체")
     }
 }
