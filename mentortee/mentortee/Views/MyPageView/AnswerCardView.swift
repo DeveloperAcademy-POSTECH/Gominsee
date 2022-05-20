@@ -24,10 +24,11 @@ struct FeedAnswer: View {
     var questionOwner: String
     @State var showModal = false
     @Environment(\.presentationMode) var presentation
+    @State var exampleData = QuestionData(category: "", otherThoughts: "", question: "", questionOwner: "", nickname: "", uploadTime: Date())
 
 
     var body: some View {
-        GroupBox() {
+        VStack {
             HStack {
                 HStack {
                     Text(category)
@@ -50,6 +51,7 @@ struct FeedAnswer: View {
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
+                    .frame(minWidth: UIScreen.main.bounds.width * 0.8, alignment: .leading)
 
                 Button(action: {
                     self.showModal = true
@@ -57,7 +59,6 @@ struct FeedAnswer: View {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.subLightGreen)
                         .frame(width: 100, height: 30)
-                    // MARK: - 수정완료
                     .overlay(Text(TextName.showMyThink).foregroundColor(Color.white))
                 }
                     .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet() }
@@ -67,7 +68,6 @@ struct FeedAnswer: View {
             Divider()
             HStack {
                 HStack {
-                    // MARK: - 수정완료
                     Text("\(questionOwner)의 질문")
                         .foregroundColor(.mainBlack)
                         .bold()
@@ -76,7 +76,7 @@ struct FeedAnswer: View {
 
                 Spacer()
 
-                NavigationLink(destination: QuestionDetailView(nickname: "노엘")
+                NavigationLink(destination: QuestionCardDetailView(questionData: $exampleData)
                         .navigationBarHidden(true)) {
                     VStack {
                         // TODO: 색상 정하기
@@ -84,7 +84,11 @@ struct FeedAnswer: View {
                     }
                 }
             }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
-        }.groupBoxStyle(QuestionCardStyle())
+        }
+            .background(RoundedRectangle(cornerRadius: 10.0)
+                .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
     }
 }
 

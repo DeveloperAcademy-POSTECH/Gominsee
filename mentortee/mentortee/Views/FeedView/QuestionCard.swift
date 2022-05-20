@@ -7,7 +7,6 @@ struct QuestionCard: View {
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
     @State private var showQuestionDetailview = false
-
     @State var questionData: QuestionData
     @Binding var currentIdx: String
 
@@ -27,8 +26,9 @@ struct QuestionCard: View {
                         .foregroundColor(.mainBlack)
                         .rotationEffect(Angle(degrees: 90))
                 }
-                .confirmationDialog("수정/삭제", isPresented: $isShowingConfirmation) {
-                    if(questionData.myName == questionData.nickname) {
+                    .confirmationDialog("수정/삭제", isPresented: $isShowingConfirmation) {
+                    // TODO: Auth연동 후 User name으로 설정
+                    if("브라운" == questionData.nickname) {
                         Button("\(TextName.editText)") {
                         }
                         Button("\(TextName.deleteText)", role: .destructive) {
@@ -41,35 +41,35 @@ struct QuestionCard: View {
                         }
                     }
                 }
-                .alert("\(TextName.deleteBoard)", isPresented: $showingDeleteAlert) {
+                    .alert("\(TextName.deleteBoard)", isPresented: $showingDeleteAlert) {
                     Button("\(TextName.deleteText)", role: .destructive) { }
-                    Button("\(TextName.closeText)", role: .cancel) { }
+                    Button("\(TextName.cancleText)", role: .cancel) { }
                 } message: {
-                    Text("\(TextName.checkDeleteText)")
+                    Text("\(TextName.checkDeleteAnswerText)")
                 }
-                .confirmationDialog("\(TextName.selectReport)", isPresented: $showingReportAlert, titleVisibility: .visible) {
+                    .confirmationDialog("\(TextName.selectReport)", isPresented: $showingReportAlert, titleVisibility: .visible) {
                     ForEach(ReportDialog.allCases, id: \.self) { word in
-                        Button(word.rawValue){
+                        Button(word.rawValue) {
                             isReport = true
                         }
                     }
                 }
-                .alert("\(TextName.checkReport)", isPresented: $isReport) {
+                    .alert("\(TextName.checkReport)", isPresented: $isReport) {
                     Button("\(TextName.yesText)", role: .destructive) { }
                     Button("\(TextName.noText)", role: .cancel) { }
                 } message: {
                     Text("\(TextName.checkReportText)")
                 }
             }
-            .padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
-            
+                .padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
+
             VStack(alignment: .leading) {
                 Text(questionData.question)
                     .foregroundColor(Color.mainBlack)
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
-                
+
                 Button(action: {
                     showModal = true
                 }) {
@@ -79,14 +79,14 @@ struct QuestionCard: View {
                         .background(Color.primaryColor)
                         .cornerRadius(10)
                 }
-                .sheet(isPresented: self.$showModal) {
+                    .sheet(isPresented: self.$showModal) {
                     AnswerModalSheet(feedQuestion: questionData.question)
                 }
             }
-            .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25))
-            
+                .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25))
+
             Divider()
-            
+
             HStack {
                 HStack(spacing: 0) {
                     Text(questionData.questionOwner)
@@ -97,28 +97,28 @@ struct QuestionCard: View {
                         .foregroundColor(.mainBlack).opacity(0.9)
                         .font(.system(size: 16))
                 }
-                
+
                 Spacer()
-                
-                NavigationLink(destination: QuestionDetailView(nickname: "노엘")
-                    .navigationBarHidden(true)) {
-                        VStack {
-                            Text(questionData.otherThoughts)
-                                .padding()
-                        }
+
+                NavigationLink(destination: QuestionCardDetailView(questionData: $questionData)
+                        .navigationBarHidden(true)) {
+                    VStack {
+                        Text(questionData.otherThoughts)
+                            .padding()
                     }
+                }
             }
-            .padding(.leading,20)
+                .padding(.leading, 20)
         }
-        .frame(width: 350, height: 200)
-        .background(.white)
-        .cornerRadius(10)
-        .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+            .frame(width: 350, height: 200)
+            .background(.white)
+            .cornerRadius(10)
+            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
     }
 }
 
-//struct QuestionCard_Previews: PreviewProvider {
-//    static var previews: some View {
-//        QuestionCard(category: "가치관", otherThoughts: "다른생각", question: "오늘은 어떤 음식을 먹을까요", questionOwner: "브라운", nickname: "브라운")
-//    }
-//}
+struct QuestionCard_Previews: PreviewProvider {
+    static var previews: some View {
+        QuestionCard(questionData: QuestionData(category: "가치관", otherThoughts: "다른생각", question: "오늘은 어떤 음식을 먹을까요", questionOwner: "브라운", nickname: "브라운", uploadTime: Date()), currentIdx: .constant("전체"))
+    }
+}

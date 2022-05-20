@@ -16,12 +16,12 @@ struct MythoughtModalSheet: View {
                             .foregroundColor(.mainBlack)
                     }
                 }
-                    .groupBoxStyle(PlainGroupBoxStyle())
+                    .background(Color.backgroundColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
 
                 Button(action: {
                     dismiss()
                 }, label: {
-                        // MARK: - 수정완료
                         Text(TextName.closeText).bold()
                             .frame(width: 310, height: 40, alignment: .center)
                     })

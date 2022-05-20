@@ -12,16 +12,22 @@ enum ReportDialog: String, CaseIterable {
     case ect = "기타"
 }
 
+struct Comment {
+    let thumbnail: String
+    let nickname: String
+    let date: String
+    let contents: String
+}
 
-extension AnswerView {
-    static func all() -> [AnswerView] {
+extension Comment {
+    static func all() -> [Comment] {
         return [
-            AnswerView(thumbnail: "thumbnail_lv1", nickname: "meenu", date: "1시간 전", contents: "노란색을 보면 기분이 좋아짐"),
-            AnswerView(thumbnail: "thumbnail_lv2", nickname: "chemi", date: "2시간 전", contents: "보라색"),
-            AnswerView(thumbnail: "thumbnail_lv3", nickname: "brown", date: "3시간 전", contents: "브라운"),
-            AnswerView(thumbnail: "thumbnail_lv1", nickname: "noel", date: "4시간 전", contents: "보라색"),
-            AnswerView(thumbnail: "thumbnail_lv3", nickname: "rookie", date: "5시간 전", contents: "주황색"),
-            AnswerView(thumbnail: "thumbnail_lv2", nickname: "daon", date: "6시간 전", contents: "연두색")
+            Comment(thumbnail: "thumbnail_lv1", nickname: "meenu", date: "1시간 전", contents: "노란색을 보면 기분이 좋아짐"),
+            Comment(thumbnail: "thumbnail_lv2", nickname: "chemi", date: "2시간 전", contents: "보라색"),
+            Comment(thumbnail: "thumbnail_lv3", nickname: "brown", date: "3시간 전", contents: "브라운"),
+            Comment(thumbnail: "thumbnail_lv1", nickname: "noel", date: "4시간 전", contents: "보라색"),
+            Comment(thumbnail: "thumbnail_lv3", nickname: "rookie", date: "5시간 전", contents: "주황색"),
+            Comment(thumbnail: "thumbnail_lv2", nickname: "daon", date: "6시간 전", contents: "연두색")
         ]
     }
 }
