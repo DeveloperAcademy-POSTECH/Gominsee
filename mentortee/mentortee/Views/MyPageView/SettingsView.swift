@@ -5,10 +5,11 @@ struct SettingsView: View {
 
     var body: some View {
         List {
-            NavigationLink(destination: CategoryView().navigationBarHidden(true)){
-                // MARK: - 수정완료
-                Text(TextName.favoriteCategoryText)}
-            .foregroundColor(.black)
+            NavigationLink(destination: FavoriteCategoryView()
+                    .navigationBarBackButtonHidden(true)
+                    .navigationTitle(Text(TextName.favoriteCategoryText))) {
+                Text(TextName.favoriteCategoryText) }
+                .foregroundColor(.mainBlack)
             Text("닉네임 변경")
             Text("로그아웃")
             Text("버전 정보 1.0.0")
@@ -17,11 +18,10 @@ struct SettingsView: View {
             .navigationBarItems(leading: Button(action: {
             self.mode.wrappedValue.dismiss()
         }) {
-            // MARK: - 수정완료
-            Image(systemName: IconName.backward)
+                Image(systemName: IconName.backward)
                     .padding(.all, 16)
                     .font(.system(size: 20))
-                    .foregroundColor(.black)
+                    .foregroundColor(.mainBlack)
             }
         )
     }

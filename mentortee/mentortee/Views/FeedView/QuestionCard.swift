@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct QuestionCard: View {
-
     @State private var isReport = false
     @State private var isShowingConfirmation = false
     @State private var showModal = false
@@ -25,7 +24,7 @@ struct QuestionCard: View {
                     isShowingConfirmation = true
                 }) {
                     Image(systemName: IconName.ellipsis)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(.mainBlack)
                         .rotationEffect(Angle(degrees: 90))
                 }
                 .confirmationDialog("수정/삭제", isPresented: $isShowingConfirmation) {
@@ -66,6 +65,7 @@ struct QuestionCard: View {
             
             VStack(alignment: .leading) {
                 Text(questionData.question)
+                    .foregroundColor(Color.mainBlack)
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
@@ -90,8 +90,11 @@ struct QuestionCard: View {
             HStack {
                 HStack(spacing: 0) {
                     Text(questionData.questionOwner)
-                        .font(.system(size: 16)).bold()
+                        .bold()
+                        .foregroundColor(.mainBlack).opacity(0.9)
+                        .font(.system(size: 16))
                     Text("의 질문")
+                        .foregroundColor(.mainBlack).opacity(0.9)
                         .font(.system(size: 16))
                 }
                 

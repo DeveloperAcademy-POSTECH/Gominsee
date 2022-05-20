@@ -52,7 +52,7 @@ struct QuestionCardView: View {
                     // MARK: - 수정완료
                     Image(systemName: IconName.backward)
                             .font(.system(size: 20))
-                            .foregroundColor(.black)
+                            .foregroundColor(.mainBlack)
                     })
             }
         }

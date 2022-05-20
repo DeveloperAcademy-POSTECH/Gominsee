@@ -37,7 +37,7 @@ struct AnswerModalSheet: View {
                         HStack {
                             // MARK: - 수정완료
                             Image(systemName: checked ? IconName.checkMarkCircleFill : IconName.checkMarkCircle).foregroundColor(checked ? Color.mainGreen : Color.gray)
-                            Text(TextName.privateAnswer).font(.system(size: 14)).foregroundColor(checked ? Color.black : Color.gray)
+                            Text(TextName.privateAnswer).font(.system(size: 14)).foregroundColor(checked ? .mainBlack : Color.gray)
                         }
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading)

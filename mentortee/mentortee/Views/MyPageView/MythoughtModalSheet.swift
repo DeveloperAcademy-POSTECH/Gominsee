@@ -5,34 +5,35 @@ struct MythoughtModalSheet: View {
     // MARK: - 수정필요
     var answerDatetime = ["2022.04.14"]
     var myAnswer = ["건강하면서 좋아하는 일을 할 수 있는 삶이라고 생각한다."]
-    
+
     var body: some View {
-       
-            ZStack{
-                VStack {
-                    List{
-                        Section(header: Text(answerDatetime[0])) {
-                            Text(myAnswer[0])
-                        }
+
+        ZStack {
+            VStack {
+                List {
+                    Section(header: Text(answerDatetime[0])) {
+                        Text(myAnswer[0])
+                            .foregroundColor(.mainBlack)
                     }
+                }
                     .groupBoxStyle(PlainGroupBoxStyle())
-                    
-                    Button(action: {
-                        dismiss()
-                    }, label: {
+
+                Button(action: {
+                    dismiss()
+                }, label: {
                         // MARK: - 수정완료
                         Text(TextName.closeText).bold()
                             .frame(width: 310, height: 40, alignment: .center)
                     })
+                    .foregroundColor(.mainBlack)
                     .frame(width: 310, height: 40, alignment: .center)
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.backgroundColor))
                     .font(.system(size: 18))
-                    .foregroundColor(Color.black)
-                }
-                .background(Color.backgroundColor)
             }
+                .background(Color.backgroundColor)
         }
     }
+}
 
 
 

@@ -14,4 +14,9 @@ extension Text {
         font(.system(size: 14))
             .foregroundColor(Color.primaryColor)
     }
+
+    func categoryDoneTextStyle() -> Text {
+        bold()
+            .font(.system(size: 20))
+    }
 }

@@ -25,14 +25,14 @@ struct QuestionDetailView: View {
                         // MARK: - 수정완료
                         Image(systemName: IconName.backward)
                             .imageScale(.large)
-                            .foregroundColor(.black)
+                            .foregroundColor(.mainBlack)
                     }, trailing: Button(action: {
                         isShowingConfirmation = true
                     }) {
                         // MARK: - 수정완료
                         Image(systemName: IconName.ellipsis)
                             .imageScale(.large)
-                            .foregroundColor(.black)
+                            .foregroundColor(.mainBlack)
                             .rotationEffect(Angle(degrees: 90))
                     }
                     // MARK: - 수정완료

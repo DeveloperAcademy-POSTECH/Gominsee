@@ -39,13 +39,14 @@ struct FeedAnswer: View {
                 Button(action: { }) {
                     // MARK: - 수정완료
                     Image(systemName: IconName.ellipsis)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(.mainBlack)
                         .rotationEffect(Angle(degrees: 90))
                 }
             }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
 
             VStack(alignment: .leading) {
                 Text(question)
+                    .foregroundColor(.mainBlack)
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
@@ -68,7 +69,9 @@ struct FeedAnswer: View {
                 HStack {
                     // MARK: - 수정완료
                     Text("\(questionOwner)의 질문")
-                        .font(.system(size: 16)).bold()
+                        .foregroundColor(.mainBlack)
+                        .bold()
+                        .font(.system(size: 16))
                 }
 
                 Spacer()
@@ -76,6 +79,7 @@ struct FeedAnswer: View {
                 NavigationLink(destination: QuestionDetailView(nickname: "노엘")
                         .navigationBarHidden(true)) {
                     VStack {
+                        // TODO: 색상 정하기
                         Text(otherThoughts)
                     }
                 }
@@ -119,7 +123,7 @@ struct AnswerCardView: View {
                         // MARK: - 수정완료
                         Image(systemName: IconName.backward)
                             .font(.system(size: 20))
-                            .foregroundColor(.black)
+                            .foregroundColor(.mainBlack)
                     })
             }
         }

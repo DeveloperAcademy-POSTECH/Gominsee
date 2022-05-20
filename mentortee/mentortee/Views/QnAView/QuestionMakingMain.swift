@@ -4,8 +4,8 @@ struct QuestionMakingMain: View {
     @State private var isShare = false
     @State private var myQuestion: String = "무엇이든지 자유롭게 적어주세요!"
     @State private var myThought: String = "무엇이든지 자유롭게 적어주세요!"
-    @State private var myQuestionColor = Color.black.opacity(0.2)
-    @State private var myThoughtColor = Color.black.opacity(0.2)
+    @State private var myQuestionColor = Color.mainBlack.opacity(0.2)
+    @State private var myThoughtColor = Color.mainBlack.opacity(0.2)
     @Binding var firstNaviLinkActive: Bool
 
     let screenWidth1 = UIScreen.main.bounds.size.width
@@ -21,6 +21,7 @@ struct QuestionMakingMain: View {
                 VStack(alignment: .leading) {
                     // MARK: - 수정완료 (한 Text로 수정)
                     Text(TextName.guideQuesition)
+                        .foregroundColor(.mainBlack)
                         .font(.system(size: 24))
                         .bold()
                         .padding(.top, 30)
@@ -50,21 +51,17 @@ struct QuestionMakingMain: View {
                         .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
                         .foregroundColor(myQuestionColor)
                         .onTapGesture {
-                            // MARK: - 수정필요
-                            if myQuestion == TextName.freeAnythingText {
+                        // MARK: - 수정필요
+                        if myQuestion == TextName.freeAnythingText {
                             myQuestion = ""
-                            myQuestionColor = Color.black
+                            myQuestionColor = .mainBlack
                         } else {
                             hideKeyboard()
                         }
                     }
 
-                    Text("작성해주신 질문에 대한")
-                        .font(.system(size: 24))
-                        .bold()
-
-                    // MARK: - 수정필요 (닉네임 변수로 변경)
-                    Text("Chemi님의 생각은 어떠신가요?")
+                    Text("작성해주신 질문에 대한\nChemi님의 생각은 어떠신가요?")
+                        .foregroundColor(.mainBlack)
                         .font(.system(size: 24))
                         .bold()
 
@@ -74,10 +71,10 @@ struct QuestionMakingMain: View {
                         .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
                         .foregroundColor(myThoughtColor)
                         .onTapGesture {
-                            // MARK: - 수정완료
-                            if myThought == TextName.freeAnythingText {
+                        // MARK: - 수정완료
+                        if myThought == TextName.freeAnythingText {
                             myThought = ""
-                            myThoughtColor = Color.black
+                            myThoughtColor = .mainBlack
                         } else {
                             hideKeyboard()
                         }
@@ -86,9 +83,11 @@ struct QuestionMakingMain: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(TextName.checkShareMyThink)
+                                .foregroundColor(.mainBlack)
                                 .font(.system(size: 24))
                                 .bold()
                             Text(TextName.openMyThink)
+                                .foregroundColor(.mainBlack)
                                 .font(.subheadline)
                                 .padding(.top, -5)
                         }
@@ -107,10 +106,10 @@ struct QuestionMakingMain: View {
                 .navigationBarItems(leading: Button(action: {
                 dismiss()
             }) {
-                // MARK: - 수정완료
-                Image(systemName: IconName.backward)
+                    // MARK: - 수정완료
+                    Image(systemName: IconName.backward)
                         .font(.system(size: 20))
-                        .foregroundColor(.black)
+                        .foregroundColor(.mainBlack)
                 },
                 trailing: NavigationLink(destination: getDestination()
                         .navigationBarBackButtonHidden(true)

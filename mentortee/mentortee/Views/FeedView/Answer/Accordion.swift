@@ -26,7 +26,7 @@ struct Accordion: View {
                         // MARK: - 수정필요
                         Text("6개의 생각이 있어요.")
                             .font(.system(size: 14))
-                            .foregroundColor(Color.black)
+                            .foregroundColor(.mainBlack)
                         Spacer()
                         // MARK: - 수정완료
                         Image(systemName: collapsed

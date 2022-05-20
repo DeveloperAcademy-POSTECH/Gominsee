@@ -38,10 +38,10 @@ struct LogInView: View {
                        HStack {
                            // MARK: - 수정완료
                            Image(systemName: IconName.applelogo)
-                               .foregroundColor(.black)
+                               .foregroundColor(.mainBlack)
                            
                            Text("Apple로 로그인")
-                               .foregroundColor(.black)
+                               .foregroundColor(.mainBlack)
                                .padding()
 
                        }
