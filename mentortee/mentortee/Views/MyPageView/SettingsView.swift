@@ -9,7 +9,7 @@ struct SettingsView: View {
                     .navigationBarBackButtonHidden(true)
                     .navigationTitle(Text(TextName.favoriteCategoryText))) {
                 Text(TextName.favoriteCategoryText) }
-                .foregroundColor(.black)
+                .foregroundColor(.mainBlack)
             Text("닉네임 변경")
             Text("로그아웃")
             Text("버전 정보 1.0.0")
@@ -21,7 +21,7 @@ struct SettingsView: View {
                 Image(systemName: IconName.backward)
                     .padding(.all, 16)
                     .font(.system(size: 20))
-                    .foregroundColor(.black)
+                    .foregroundColor(.mainBlack)
             }
         )
     }

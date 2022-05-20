@@ -34,6 +34,6 @@ extension View {
             .foregroundColor(answerColor)
             .background(.white)
             .cornerRadius(10)
-            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
+            .shadow(color: Color.mainBlack.opacity(0.1), radius: 10, x: 0, y: 0)
     }
 }

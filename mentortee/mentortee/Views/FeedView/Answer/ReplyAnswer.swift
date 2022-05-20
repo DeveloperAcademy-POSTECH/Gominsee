@@ -33,7 +33,7 @@ struct ReplyAnswer: View {
                     // MARK: - 수정완료
                     Text(TextName.privateAnswer)
                         .font(.system(size: 14))
-                        .foregroundColor(isChecked ? Color.black : Color.gray)
+                        .foregroundColor(isChecked ? .mainBlack : Color.gray)
                 }
             }
             .padding(.leading, 10)

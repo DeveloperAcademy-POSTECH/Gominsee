@@ -19,7 +19,7 @@ struct FavoriteCategoryView: View {
                 Image(systemName: IconName.backward)
                     .padding(.all, 16)
                     .font(.system(size: 20))
-                    .foregroundColor(.black)
+                    .foregroundColor(.mainBlack)
             }))
     }
 

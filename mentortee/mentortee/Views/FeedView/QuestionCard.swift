@@ -6,6 +6,7 @@ struct QuestionCard: View {
     var question: String
     var questionOwner: String
     var nickname: String
+    
     var myName: String = "케미"
     var alarmList = ["스팸", "성적인 발언","혐오 발언","사기 또는 거짓","따돌림 또는 괴롭힘","폭력 또는 위험한 단체","지식 재산권 침해", "기타"]
     
@@ -29,7 +30,7 @@ struct QuestionCard: View {
                     isShowingConfirmation = true
                 }) {
                     Image(systemName: IconName.ellipsis)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(.mainBlack)
                         .rotationEffect(Angle(degrees: 90))
                 }
                 .confirmationDialog("수정/삭제", isPresented: $isShowingConfirmation) {
@@ -70,6 +71,7 @@ struct QuestionCard: View {
             
             VStack(alignment: .leading) {
                 Text(question)
+                    .foregroundColor(Color.mainBlack)
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .lineSpacing(5)
@@ -94,8 +96,11 @@ struct QuestionCard: View {
             HStack {
                 HStack(spacing: 0) {
                     Text(questionOwner)
-                        .font(.system(size: 16)).bold()
+                        .bold()
+                        .foregroundColor(.mainBlack).opacity(0.9)
+                        .font(.system(size: 16))
                     Text("의 질문")
+                        .foregroundColor(.mainBlack).opacity(0.9)
                         .font(.system(size: 16))
                 }
                 

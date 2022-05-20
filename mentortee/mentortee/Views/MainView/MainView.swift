@@ -69,7 +69,7 @@ struct MainView: View {
             if answerText == TextName.answerText {
                 answerText = ""
             }
-            answerColor = Color.black
+            answerColor = Color.mainBlack
             cardOpacity = 0.7
         }
     }
@@ -77,7 +77,7 @@ struct MainView: View {
     private func onSubmitButton() {
         showAlert = true
         hideKeyboard()
-        answerColor = Color.black.opacity(0.2)
+        answerColor = Color.mainBlack.opacity(0.2)
         answerText = TextName.answerText
         cardOpacity = 1.0
     }

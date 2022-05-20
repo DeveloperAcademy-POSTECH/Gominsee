@@ -33,7 +33,7 @@ struct AnswerView: View {
                             Image(systemName: IconName.ellipsis)
                         }
                             .background(Rectangle().fill(Color.backgroundColor))
-                            .foregroundColor(Color.black)
+                            .foregroundColor(.mainBlack)
                             .rotationEffect(Angle(degrees: 90))
                         // MARK: - 수정완료
                         .confirmationDialog(TextName.selectAct, isPresented: $isShowingOptions) {
