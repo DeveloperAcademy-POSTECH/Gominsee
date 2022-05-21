@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct mentorteeApp: App {
     let persistenceController = PersistenceController.shared
     @StateObject private var userInformation = UserInformation()
+    
+    init() {
+        FirebaseApp.configure()
+    }
 
     var body: some Scene {
         WindowGroup {
