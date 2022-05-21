@@ -40,9 +40,9 @@ struct FeedView: View {
             VStack {
                 ForEach(questionData, id: \.self) { data in
                     if currentIdx == "전체" {
-                        QuestionCard(questionData: data, currentIdx: $currentIdx)
+                        QuestionCard(questionData: data, currentIdx: currentIdx)
                     } else if currentIdx == data.category {
-                        QuestionCard(questionData: data, currentIdx: $currentIdx)
+                        QuestionCard(questionData: data, currentIdx: currentIdx)
                     }
                 }
             }

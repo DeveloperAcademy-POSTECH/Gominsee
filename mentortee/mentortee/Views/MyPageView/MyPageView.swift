@@ -2,16 +2,15 @@
 import SwiftUI
 
 struct MyPageView: View {
+    
     @Binding var firstNaviLinkActive: Bool
-    var username: String = "Chemi"
-    var myQuestionCount: Int = 2
-    var myAnswerCount: Int = 3
-    var userLV: Int = 1
+    
+    var myPageData : MyPageData
     let screenWidth = UIScreen.main.bounds.width
 
     var body: some View {
         VStack {
-            Text("\(username)의 질문상자")
+            Text("\(myPageData.username)의 질문상자")
                 .foregroundColor(.mainBlack)
                 .font(.system(size: 24).weight(.bold))
             HStack {
@@ -20,7 +19,7 @@ struct MyPageView: View {
                         Text(TextName.myQuestionText)
                             .bold()
                             .font(.system(size: 14))
-                        Text("\(myQuestionCount)")
+                        Text("\(myPageData.myQuestionCount)")
                             .bold()
                             .font(.system(size: 30))
                             .opacity(0.8)
@@ -37,7 +36,7 @@ struct MyPageView: View {
                             .bold()
                             .font(.system(size: 14))
 
-                        Text("\(myAnswerCount)")
+                        Text("\(myPageData.myAnswerCount)")
                             .bold()
                             .font(.system(size: 30))
                             .opacity(0.8)
@@ -62,7 +61,7 @@ struct MyPageView: View {
                             Text(TextName.characterName)
                                 .bold()
                                 .font(.system(size: 20))
-                            Text("Lv. \(userLV)")
+                            Text("Lv. \(myPageData.userLV)")
                                 .font(.system(size: 14))
                         }
                             .foregroundColor(.mainBlack)
@@ -75,7 +74,7 @@ struct MyPageView: View {
                     HStack {
                         HStack {
                             Text("다음 성장까지")
-                            Text("질문 \(myQuestionCount)개, 답변 \(myAnswerCount)개")
+                            Text("질문 \(myPageData.myQuestionCount)개, 답변 \(myPageData.myAnswerCount)개")
                                 .bold()
                                 .font(.system(size: 16))
                             Text("가 필요해요!")
@@ -99,9 +98,9 @@ struct MyPageView: View {
 }
 
 
-
-struct MyPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyPageView(firstNaviLinkActive: .constant(true))
-    }
-}
+//
+//struct MyPageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MyPageView(firstNaviLinkActive: .constant(true))
+//    }
+//}
