@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseAuth
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -11,7 +12,15 @@ struct SettingsView: View {
                 Text(TextName.favoriteCategoryText) }
                 .foregroundColor(.mainBlack)
             Text("닉네임 변경")
-            Text("로그아웃")
+            Button(action: {
+                do {
+                    try Auth.auth().signOut()
+                } catch let signOutError as NSError {
+                  print("Error signing out: %@", signOutError)
+                }
+            }, label: {
+                Text("로그아웃")
+            })
             Text("버전 정보 1.0.0")
         }
             .navigationBarBackButtonHidden(true)
