@@ -2,7 +2,7 @@
 //  UserInformation.swift
 //  mentortee
 //
-//  Created by Jisu Jang on 2022/05/20.
+//  Created by Jisu Jang on 2022/05/21.
 //
 
 import Foundation
