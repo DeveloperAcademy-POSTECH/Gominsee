@@ -13,7 +13,6 @@ struct SettingsView: View {
                     Text(TextName.favoriteCategoryText) }
                 .foregroundColor(.mainBlack)
             Text("닉네임 변경")
-            Text("로그아웃")
             Button(action: {
                 do {
                     try Auth.auth().signOut()

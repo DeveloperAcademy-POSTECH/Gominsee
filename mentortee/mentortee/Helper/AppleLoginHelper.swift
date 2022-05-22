@@ -5,6 +5,7 @@ import FirebaseAuth
 
 class AppleAuthCoordinator: NSObject {
     @AppStorage("log_status") var log_Status = false
+
     var currentNonce: String?
     let window: UIWindow?
 
