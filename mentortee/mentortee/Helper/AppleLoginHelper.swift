@@ -4,6 +4,8 @@ import AuthenticationServices
 import FirebaseAuth
 
 class AppleAuthCoordinator: NSObject {
+    @AppStorage("log_status") var log_Status = false
+
     var currentNonce: String?
     let window: UIWindow?
 
@@ -91,6 +93,9 @@ extension AppleAuthCoordinator: ASAuthorizationControllerDelegate {
 
             //Firebase 작업
             Auth.auth().signIn(with: credential) { (authResult, error) in
+                withAnimation(.easeInOut) {
+                    self.log_Status = true
+                }
 //        if error {
 //          // Error. If error.code == .MissingOrInvalidNonce, make sure
 //          // you're sending the SHA256-hashed nonce as a hex string with
