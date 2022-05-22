@@ -2,8 +2,8 @@ import SwiftUI
 
 struct QuestionMakingMain: View {
     @State private var isShare = false
-    @State private var myQuestion: String = "무엇이든지 자유롭게 적어주세요!"
-    @State private var myThought: String = "무엇이든지 자유롭게 적어주세요!"
+    @State private var myQuestion: String = TextName.freeAnythingText
+    @State private var myThought: String = TextName.freeAnythingText
     @State private var myQuestionColor = Color.mainBlack.opacity(0.2)
     @State private var myThoughtColor = Color.mainBlack.opacity(0.2)
     @Binding var firstNaviLinkActive: Bool
@@ -19,7 +19,6 @@ struct QuestionMakingMain: View {
         ScrollView {
             VStack {
                 VStack(alignment: .leading) {
-                    // MARK: - 수정완료 (한 Text로 수정)
                     Text(TextName.guideQuesition)
                         .foregroundColor(.mainBlack)
                         .font(.system(size: 24))
@@ -51,7 +50,6 @@ struct QuestionMakingMain: View {
                         .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
                         .foregroundColor(myQuestionColor)
                         .onTapGesture {
-                        // MARK: - 수정필요
                         if myQuestion == TextName.freeAnythingText {
                             myQuestion = ""
                             myQuestionColor = .mainBlack
@@ -71,7 +69,6 @@ struct QuestionMakingMain: View {
                         .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
                         .foregroundColor(myThoughtColor)
                         .onTapGesture {
-                        // MARK: - 수정완료
                         if myThought == TextName.freeAnythingText {
                             myThought = ""
                             myThoughtColor = .mainBlack
@@ -106,7 +103,6 @@ struct QuestionMakingMain: View {
                 .navigationBarItems(leading: Button(action: {
                 dismiss()
             }) {
-                    // MARK: - 수정완료
                     Image(systemName: IconName.backward)
                         .font(.system(size: 20))
                         .foregroundColor(.mainBlack)
