@@ -13,23 +13,23 @@ struct SettingsView: View {
                     Text(TextName.favoriteCategoryText) }
                 .foregroundColor(.mainBlack)
             Text("닉네임 변경")
-            Button(action: {
-                do {
-                    try Auth.auth().signOut()
-                } catch let signOutError as NSError {
-                    print("Error signing out: %@", signOutError)
-                }
-            }, label: {
-                Text("로그아웃")
-                    .onTapGesture {
-                        DispatchQueue.global(qos: .background).async {
-                            try? Auth.auth().signOut()
-                        }
-                        withAnimation(.easeInOut) {
-                            log_Status = false
-                        }
+            Text("로그아웃")
+                .foregroundColor(.blue)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    do {
+                        try Auth.auth().signOut()
+                    } catch let signOutError as NSError {
+                        print("Error signing out: %@", signOutError)
                     }
-            })
+                    DispatchQueue.global(qos: .background).async {
+                        try? Auth.auth().signOut()
+                    }
+                    withAnimation(.easeInOut) {
+                        log_Status = false
+                    }
+                }
             Text("버전 정보 1.0.0")
         }
         .navigationBarBackButtonHidden(true)
