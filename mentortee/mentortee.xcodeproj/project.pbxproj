@@ -36,6 +36,7 @@
 		275EDE0727FE83CC002D1CA4 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */; };
 		388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388749662806B3E70005D616 /* MythoughtModalSheet.swift */; };
 		388809BB2832469800891435 /* CategoryBtnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388809BA2832469800891435 /* CategoryBtnData.swift */; };
+		389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */; };
 		38AE0782281A7EE80035EB0C /* QuestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0781281A7EE80035EB0C /* QuestionCard.swift */; };
 		38AE0784281A86D60035EB0C /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0783281A86D60035EB0C /* QuestionData.swift */; };
 		390223DF2805241A008D9C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390223DE2805241A008D9C64 /* SettingsView.swift */; };
@@ -96,6 +97,7 @@
 		275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 		388749662806B3E70005D616 /* MythoughtModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythoughtModalSheet.swift; sourceTree = "<group>"; };
 		388809BA2832469800891435 /* CategoryBtnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBtnData.swift; sourceTree = "<group>"; };
+		389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		38AE0781281A7EE80035EB0C /* QuestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCard.swift; sourceTree = "<group>"; };
 		38AE0783281A86D60035EB0C /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		390223DE2805241A008D9C64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				3958848A2834DEFC0006243B /* ViewStyle.swift */,
 				A7D877D927FF70F6001257EC /* KeyboardHandler.swift */,
 				39BED12328338D5800DB08F2 /* DateHandler.swift */,
+				389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				263175E72805230000C13368 /* Persistence.swift in Sources */,
 				399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */,
 				A9F7C50B27FE664000052F36 /* QuestionSub1.swift in Sources */,
+				389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */,
 				263175E9280558C200C13368 /* createTestData.swift in Sources */,
 				A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */,
 				2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */,
@@ -571,7 +575,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mentortee/Preview Content\"";
-				DEVELOPMENT_TEAM = HF8GHZB58X;
+				DEVELOPMENT_TEAM = 82DRSFKFS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -585,7 +589,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "pw.k-r.mentortee.mentortee";
+				PRODUCT_BUNDLE_IDENTIFIER = pw.kr.mentortee.mentortee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -601,7 +605,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mentortee/Preview Content\"";
-				DEVELOPMENT_TEAM = HF8GHZB58X;
+				DEVELOPMENT_TEAM = 82DRSFKFS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -615,7 +619,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "pw.k-r.mentortee.mentortee";
+				PRODUCT_BUNDLE_IDENTIFIER = pw.kr.mentortee.mentortee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
