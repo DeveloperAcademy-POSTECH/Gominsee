@@ -48,6 +48,8 @@
 		394D105328192B7E00CD538D /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D105228192B7E00CD538D /* AnswerData.swift */; };
 		3958848B2834DEFC0006243B /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3958848A2834DEFC0006243B /* ViewStyle.swift */; };
 		3973A06527FD272F00CDC599 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3973A06427FD272F00CDC599 /* MainView.swift */; };
+		397A5D71283B5389002DEF6F /* FirestoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A5D70283B5389002DEF6F /* FirestoreAPI.swift */; };
+		397A5D73283B53FA002DEF6F /* DailyQuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A5D72283B53FA002DEF6F /* DailyQuestionData.swift */; };
 		399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B32FA27FE73BE0005F887 /* ColorData.swift */; };
 		39AF59202838C55E00425D1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39AF591F2838C55E00425D1B /* GoogleService-Info.plist */; };
 		39AF59242838C61D00425D1B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF59232838C61D00425D1B /* FirebaseAnalytics */; };
@@ -55,7 +57,6 @@
 		39AF59282838C61D00425D1B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF59272838C61D00425D1B /* FirebaseAuth */; };
 		39AF592A2838C61D00425D1B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF59292838C61D00425D1B /* FirebaseFirestore */; };
 		39AF592C2838C61D00425D1B /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF592B2838C61D00425D1B /* FirebaseFirestoreSwift */; };
-		39AF592F2838C70A00425D1B /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF592E2838C70A00425D1B /* AppleLoginHelper.swift */; };
 		39B618D1282A8A6400678A00 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B618D0282A8A6400678A00 /* CategoryData.swift */; };
 		39BED12428338D5800DB08F2 /* DateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BED12328338D5800DB08F2 /* DateHandler.swift */; };
 		7B23C96627FD8D9A00EA7C2E /* QuestionCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B23C96527FD8D9A00EA7C2E /* QuestionCardDetailView.swift */; };
@@ -116,10 +117,11 @@
 		394D105228192B7E00CD538D /* AnswerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
 		3958848A2834DEFC0006243B /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
 		3973A06427FD272F00CDC599 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		397A5D70283B5389002DEF6F /* FirestoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAPI.swift; sourceTree = "<group>"; };
+		397A5D72283B53FA002DEF6F /* DailyQuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionData.swift; sourceTree = "<group>"; };
 		399B32FA27FE73BE0005F887 /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		39AF591F2838C55E00425D1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		39AF592D2838C6F200425D1B /* mentortee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mentortee.entitlements; sourceTree = "<group>"; };
-		39AF592E2838C70A00425D1B /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		39B618D0282A8A6400678A00 /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
 		39BED12328338D5800DB08F2 /* DateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHandler.swift; sourceTree = "<group>"; };
 		7B23C96527FD8D9A00EA7C2E /* QuestionCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardDetailView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		26F56B4D27FBEC1B0066C0D1 /* mentortee */ = {
 			isa = PBXGroup;
 			children = (
+				397A5D6F283B533E002DEF6F /* Service */,
 				39AF592D2838C6F200425D1B /* mentortee.entitlements */,
 				39B618D2282A967F00678A00 /* System */,
 				3944F76728323A5200A9B02E /* Resource */,
@@ -296,6 +299,15 @@
 			path = MyPageView;
 			sourceTree = "<group>";
 		};
+		397A5D6F283B533E002DEF6F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */,
+				397A5D70283B5389002DEF6F /* FirestoreAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		39B618CF282A8A4400678A00 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +317,7 @@
 				A989F4F228388CF000F6979E /* UserInformation.swift */,
 				39B618D0282A8A6400678A00 /* CategoryData.swift */,
 				388809BA2832469800891435 /* CategoryBtnData.swift */,
+				397A5D72283B53FA002DEF6F /* DailyQuestionData.swift */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -324,7 +337,6 @@
 				3958848A2834DEFC0006243B /* ViewStyle.swift */,
 				A7D877D927FF70F6001257EC /* KeyboardHandler.swift */,
 				39BED12328338D5800DB08F2 /* DateHandler.swift */,
-				389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -437,6 +449,7 @@
 				2631762A280564C300C13368 /* Character+CoreDataClass.swift in Sources */,
 				263175E72805230000C13368 /* Persistence.swift in Sources */,
 				399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */,
+				397A5D73283B53FA002DEF6F /* DailyQuestionData.swift in Sources */,
 				A9F7C50B27FE664000052F36 /* QuestionSub1.swift in Sources */,
 				389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */,
 				263175E9280558C200C13368 /* createTestData.swift in Sources */,
@@ -454,6 +467,7 @@
 				26317625280564C300C13368 /* Question+CoreDataProperties.swift in Sources */,
 				A752B59C280034BF00B41987 /* FeedView.swift in Sources */,
 				3973A06527FD272F00CDC599 /* MainView.swift in Sources */,
+				397A5D71283B5389002DEF6F /* FirestoreAPI.swift in Sources */,
 				2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */,
 				26317624280564C300C13368 /* Question+CoreDataClass.swift in Sources */,
 				26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */,
@@ -604,7 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mentortee/Preview Content\"";
-				DEVELOPMENT_TEAM = 82DRSFKFS9;
+				DEVELOPMENT_TEAM = HF8GHZB58X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -618,7 +632,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pw.k-r.mentortee.mentortee;
+				PRODUCT_BUNDLE_IDENTIFIER = "pw.k-r.mentortee.mentortee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -635,7 +649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mentortee/Preview Content\"";
-				DEVELOPMENT_TEAM = 82DRSFKFS9;
+				DEVELOPMENT_TEAM = HF8GHZB58X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -649,7 +663,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pw.k-r.mentortee.mentortee;
+				PRODUCT_BUNDLE_IDENTIFIER = "pw.k-r.mentortee.mentortee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
