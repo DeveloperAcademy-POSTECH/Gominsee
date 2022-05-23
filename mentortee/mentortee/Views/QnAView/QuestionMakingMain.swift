@@ -6,51 +6,50 @@ struct QuestionMakingMain: View {
     @State private var myThought: String = "무엇이든지 자유롭게 적어주세요!"
     @State private var myQuestionColor = Color.mainBlack.opacity(0.2)
     @State private var myThoughtColor = Color.mainBlack.opacity(0.2)
-    @Binding var firstNaviLinkActive: Bool
-
+    @State private var selection: Set<Category> = []
+    
+    @Environment(\.dismiss) private var dismiss
+    @Binding var firstNaviLinkActive : Bool
+    
     let screenWidth1 = UIScreen.main.bounds.size.width
     let screenHeight1 = UIScreen.main.bounds.size.height
-
-    @State private var selection: Set<Category> = []
-    @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
-
+        
         ScrollView {
-            VStack {
-                VStack(alignment: .leading) {
-                    // MARK: - 수정완료 (한 Text로 수정)
-                    Text(TextName.guideQuesition)
-                        .foregroundColor(.mainBlack)
-                        .font(.system(size: 24))
-                        .bold()
-                        .padding(.top, 30)
-
-                    ScrollView(.horizontal,
-                        showsIndicators: false) {
-                        HStack {
-                            ForEach(Category.allCases, id: \.self) { category in
-                                Button(action: {
-                                    checkSelection(category: category)
-                                }, label: {
-                                        Text(category.rawValue)
-                                            .categoryTextStyle()
-                                            .frame(width: 60, height: 35, alignment: .center)
-                                    })
-                                    .categoryButtonStyle()
-                                    .background(RoundedRectangle(cornerRadius: 40)
-                                        .fill(selection.contains(category) ? Color.primaryColor : Color.gray))
-                            }
+            VStack(alignment: .leading) {
+                // MARK: - 수정완료 (한 Text로 수정)
+                Text(TextName.guideQuesition)
+                    .foregroundColor(.mainBlack)
+                    .font(.system(size: 24))
+                    .bold()
+                    .padding(.top, 30)
+                
+                ScrollView(.horizontal,
+                           showsIndicators: false) {
+                    HStack {
+                        ForEach(Category.allCases, id: \.self) { category in
+                            Button(action: {
+                                checkSelection(category: category)
+                            }, label: {
+                                Text(category.rawValue)
+                                    .categoryTextStyle()
+                                    .frame(width: 60, height: 35, alignment: .center)
+                            })
+                            .categoryButtonStyle()
+                            .background(RoundedRectangle(cornerRadius: 40)
+                                .fill(selection.contains(category) ? Color.primaryColor : Color.gray))
                         }
                     }
-                        .padding(.bottom, 10)
-
-                    TextEditor(text: $myQuestion)
-                        .padding(EdgeInsets(top: 5, leading: 8, bottom: 10, trailing: 25))
-                        .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.2)
-                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
-                        .foregroundColor(myQuestionColor)
-                        .onTapGesture {
+                }
+                           .padding(.bottom, 10)
+                
+                TextEditor(text: $myQuestion)
+                    .padding(EdgeInsets(top: 5, leading: 8, bottom: 10, trailing: 25))
+                    .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.2)
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+                    .foregroundColor(myQuestionColor)
+                    .onTapGesture {
                         // MARK: - 수정필요
                         if myQuestion == TextName.freeAnythingText {
                             myQuestion = ""
@@ -59,18 +58,18 @@ struct QuestionMakingMain: View {
                             hideKeyboard()
                         }
                     }
-
-                    Text("작성해주신 질문에 대한\nChemi님의 생각은 어떠신가요?")
-                        .foregroundColor(.mainBlack)
-                        .font(.system(size: 24))
-                        .bold()
-
-                    TextEditor(text: $myThought)
-                        .padding(EdgeInsets(top: 5, leading: 8, bottom: 10, trailing: 25))
-                        .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.2)
-                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
-                        .foregroundColor(myThoughtColor)
-                        .onTapGesture {
+                
+                Text("작성해주신 질문에 대한\nChemi님의 생각은 어떠신가요?")
+                    .foregroundColor(.mainBlack)
+                    .font(.system(size: 24))
+                    .bold()
+                
+                TextEditor(text: $myThought)
+                    .padding(EdgeInsets(top: 5, leading: 8, bottom: 10, trailing: 25))
+                    .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.2)
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+                    .foregroundColor(myThoughtColor)
+                    .onTapGesture {
                         // MARK: - 수정완료
                         if myThought == TextName.freeAnythingText {
                             myThought = ""
@@ -79,51 +78,49 @@ struct QuestionMakingMain: View {
                             hideKeyboard()
                         }
                     }
-
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(TextName.checkShareMyThink)
-                                .foregroundColor(.mainBlack)
-                                .font(.system(size: 24))
-                                .bold()
-                            Text(TextName.openMyThink)
-                                .foregroundColor(.mainBlack)
-                                .font(.subheadline)
-                                .padding(.top, -5)
-                        }
-                        Toggle("", isOn: $isShare)
-                            .frame(width: screenWidth1 * 0.3, height: screenHeight1 * 0.1)
-                            .toggleStyle(SwitchToggleStyle(tint: .primaryColor))
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(TextName.checkShareMyThink)
+                            .foregroundColor(.mainBlack)
+                            .font(.system(size: 24))
+                            .bold()
+                        Text(TextName.openMyThink)
+                            .foregroundColor(.mainBlack)
+                            .font(.subheadline)
+                            .padding(.top, -5)
                     }
+                    Toggle("", isOn: $isShare)
+                        .frame(width: screenWidth1 * 0.3, height: screenHeight1 * 0.1)
+                        .toggleStyle(SwitchToggleStyle(tint: .primaryColor))
                 }
-            }
-                .padding()
-                .onTapGesture {
-                hideKeyboard()
-            }
-                .navigationBarTitle(Text(TextName.makeQuestion), displayMode: .inline)
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: Button(action: {
-                dismiss()
-            }) {
-                    // MARK: - 수정완료
-                    Image(systemName: IconName.backward)
-                        .font(.system(size: 20))
-                        .foregroundColor(.mainBlack)
-                },
-                trailing: NavigationLink(destination: getDestination()
-                        .navigationBarBackButtonHidden(true)
-                )
-                {
-                    Text(TextName.okText)
-                }
-            )
-                .onTapGesture {
-                hideKeyboard()
             }
         }
+        .padding()
+        .navigationTitle(TextName.makeQuestion)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: IconName.backward)
+                        .font(.system(size: 20))
+                    .foregroundColor(.mainBlack)}
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: getDestination()){
+                    Text(TextName.okText)
+                        .foregroundColor(.mainBlack)
+                }
+                
+            }
+            
+        }
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
-
+    
     func checkSelection(category: Category) {
         if selection.contains(category) {
             selection.remove(category)
@@ -131,22 +128,22 @@ struct QuestionMakingMain: View {
             selection.insert(category)
         }
     }
-
+    
     func getDestination() -> AnyView {
         if (isShare == true) {
-            return AnyView(QuestionSub1(firstNaviLinkActive: $firstNaviLinkActive)
-                    .navigationBarHidden(true))
+            return AnyView(QuestionSub1(firstNaviLinkActive: $firstNaviLinkActive))
         }
         else {
-            return AnyView(QuestionSub2(firstNaviLinkActive: $firstNaviLinkActive)
-                    .navigationBarHidden(true))
+            return AnyView(QuestionSub2(firstNaviLinkActive: $firstNaviLinkActive))
         }
     }
 }
 
-struct QuestionMakingMain_Previews: PreviewProvider {
-    @State var firstNaviLinkActive: Bool
-    static var previews: some View {
-        QuestionMakingMain(firstNaviLinkActive: .constant(true))
-    }
-}
+
+
+//
+//struct QuestionMakingMain_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuestionMakingMain()
+//    }
+//}
