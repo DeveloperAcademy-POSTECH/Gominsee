@@ -3,9 +3,8 @@ import SwiftUI
 struct QuestionSub1: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var firstNaviLinkActive: Bool
-    
-    var body: some View {
-        
+
+    var body: some View { 
         ZStack {
             Color.backgroundColor
                 .ignoresSafeArea()

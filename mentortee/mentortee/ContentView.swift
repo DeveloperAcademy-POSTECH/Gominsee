@@ -6,11 +6,11 @@ struct ContentView: View {
     @State private var isShowingDetailView = false
     @State private var firstNaviLinkActive: Bool = false
     @EnvironmentObject var userInformation : UserInformation
-    
+    @AppStorage("log_status") var log_Status = false
     
     var body: some View {
-        NavigationView {
-            if Auth.auth().currentUser != nil {
+        if log_Status {
+            NavigationView {
                 TabView(selection: $selection) {
                     MainView().tabItem { Image(systemName: IconName.house).environment(\.symbolVariants, .none) }.tag(1)
                     FeedView().tabItem { Image(systemName: IconName.textSquare).environment(\.symbolVariants, .none) }.tag(2)
@@ -32,12 +32,12 @@ struct ContentView: View {
                             .foregroundColor(.mainGreen) } }
                 }
                 .navigationBarTitleDisplayMode(.inline)
-            } else {
-                LogInView()
             }
-        }
-        .onAppear() {
-            print("ContentView 시작")
+            .onAppear() {
+                print("ContentView 시작")
+            }
+        } else {
+            LogInView()
         }
     }
     
