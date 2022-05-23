@@ -12,6 +12,7 @@ import Firebase
 struct mentorteeApp: App {
     let persistenceController = PersistenceController.shared
     @StateObject private var userInformation = UserInformation()
+    @StateObject var firestoreManager = FireStoreManager()
     
     init() {
         FirebaseApp.configure()
@@ -22,6 +23,7 @@ struct mentorteeApp: App {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(userInformation)
+                .environmentObject(firestoreManager)
         }
     }
 }
