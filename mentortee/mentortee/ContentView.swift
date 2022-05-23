@@ -4,9 +4,10 @@ import FirebaseAuth
 struct ContentView: View {
     @State private var selection = 1
     @State private var isShowingDetailView = false
-    @State var firstNaviLinkActive: Bool = false
+    @State private var firstNaviLinkActive: Bool = false
     @EnvironmentObject var userInformation : UserInformation
-
+    
+    
     var body: some View {
         NavigationView {
             if Auth.auth().currentUser != nil {
@@ -14,7 +15,7 @@ struct ContentView: View {
                     MainView().tabItem { Image(systemName: IconName.house).environment(\.symbolVariants, .none) }.tag(1)
                     FeedView().tabItem { Image(systemName: IconName.textSquare).environment(\.symbolVariants, .none) }.tag(2)
                     
-                    MyPageView(firstNaviLinkActive: $firstNaviLinkActive, myPageData: userInformation.myPageData).tabItem { Image(systemName: IconName.person).environment(\.symbolVariants, .none) }.tag(3)
+                    MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: IconName.person).environment(\.symbolVariants, .none) }.tag(3)
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -39,7 +40,7 @@ struct ContentView: View {
             print("ContentView 시작")
         }
     }
-
+    
     func getDestination() -> AnyView {
         if (selection == 3) {
             return AnyView(SettingsView())
