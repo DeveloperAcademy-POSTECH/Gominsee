@@ -19,16 +19,15 @@ struct SettingsView: View {
                 } catch let signOutError as NSError {
                     print("Error signing out: %@", signOutError)
                 }
+                DispatchQueue.global(qos: .background).async {
+                    try? Auth.auth().signOut()
+                }
+                withAnimation(.easeInOut) {
+                    log_Status = false
+                }
             }, label: {
                 Text("로그아웃")
-                    .onTapGesture {
-                        DispatchQueue.global(qos: .background).async {
-                            try? Auth.auth().signOut()
-                        }
-                        withAnimation(.easeInOut) {
-                            log_Status = false
-                        }
-                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
             })
             Text("버전 정보 1.0.0")
         }
