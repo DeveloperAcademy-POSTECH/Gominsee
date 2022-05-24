@@ -40,4 +40,5 @@ enum TextName {
     static let stackMyQuestion: String = "보관함에 내가 쓴 질문이 한개 더 쌓였네요!"
     static let goLocker: String = "보관함으로 가볼래요?"
     static let choosingDone: String = "다 골랐어요!"
+    static let addQuestionText: String = "질문이 추가 되었어요 !"
 }

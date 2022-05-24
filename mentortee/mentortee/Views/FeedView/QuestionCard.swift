@@ -7,16 +7,18 @@ struct QuestionCard: View {
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
     @State private var showQuestionDetailview = false
-    @State var questionData: QuestionData
+    @State var questionData: UserQuestion
     
-    var currentIdx: String
+    var currentIdx: Category
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(questionData.category)
-                    .font(.system(size: 14))
-                    .foregroundColor(Color.gray)
+                ForEach(questionData.cateogory, id: \.self) { value in
+                    Text(value.rawValue)
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.gray)
+                }
 
                 Spacer()
 
@@ -29,7 +31,7 @@ struct QuestionCard: View {
                 }
                     .confirmationDialog("수정/삭제", isPresented: $isShowingConfirmation) {
                     // TODO: Auth연동 후 User name으로 설정
-                    if("브라운" == questionData.nickname) {
+                        if("브라운" == questionData.nickname) {
                         Button("\(TextName.editText)") {
                         }
                         Button("\(TextName.deleteText)", role: .destructive) {
@@ -91,7 +93,7 @@ struct QuestionCard: View {
 
             HStack {
                 HStack(spacing: 0) {
-                    Text(questionData.questionOwner)
+                    Text(questionData.nickname)
                         .bold()
                         .foregroundColor(.mainBlack).opacity(0.9)
                         .font(.system(size: 16))
@@ -105,7 +107,7 @@ struct QuestionCard: View {
                 NavigationLink(destination: QuestionCardDetailView(questionData: $questionData)
                         .navigationBarHidden(true)) {
                     VStack {
-                        Text(questionData.otherThoughts)
+                        Text(questionData.myThought)
                             .padding()
                     }
                 }
@@ -119,8 +121,8 @@ struct QuestionCard: View {
     }
 }
 
-struct QuestionCard_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionCard(questionData: QuestionData(category: "가치관", otherThoughts: "다른생각", question: "오늘은 어떤 음식을 먹을까요", questionOwner: "브라운", nickname: "브라운", uploadTime: Date()), currentIdx: "전체")
-    }
-}
+//struct QuestionCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuestionCard(questionData: QuestionData(category: "가치관", otherThoughts: "다른생각", question: "오늘은 어떤 음식을 먹을까요", questionOwner: "브라운", nickname: "브라운", uploadTime: Date()), currentIdx: "전체")
+//    }
+//}

@@ -24,7 +24,7 @@ struct FeedAnswer: View {
     var questionOwner: String
     @State var showModal = false
     @Environment(\.presentationMode) var presentation
-    @State var exampleData = QuestionData(category: "", otherThoughts: "", question: "", questionOwner: "", nickname: "", uploadTime: Date())
+    @State var testData = UserQuestion(id: "", nickname: "케미", question: "1", cateogory: [.aptitude], uploadDate: Date(), myThought: "")
 
 
     var body: some View {
@@ -59,7 +59,7 @@ struct FeedAnswer: View {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(Color.subLightGreen)
                         .frame(width: 100, height: 30)
-                    .overlay(Text(TextName.showMyThink).foregroundColor(Color.white))
+                        .overlay(Text(TextName.showMyThink).foregroundColor(Color.white))
                 }
                     .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet() }
             }
@@ -76,7 +76,7 @@ struct FeedAnswer: View {
 
                 Spacer()
 
-                NavigationLink(destination: QuestionCardDetailView(questionData: $exampleData)
+                NavigationLink(destination: QuestionCardDetailView(questionData: $testData)
                         .navigationBarHidden(true)) {
                     VStack {
                         // TODO: 색상 정하기
