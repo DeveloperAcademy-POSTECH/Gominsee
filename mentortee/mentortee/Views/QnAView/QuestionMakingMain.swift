@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseAuth
 
 struct QuestionMakingMain: View {
     @State private var isShare = false
@@ -7,6 +8,10 @@ struct QuestionMakingMain: View {
     @State private var myQuestionColor = Color.mainBlack.opacity(0.2)
     @State private var myThoughtColor = Color.mainBlack.opacity(0.2)
     @Binding var firstNaviLinkActive: Bool
+    @EnvironmentObject var userInfo: UserInformation
+    @EnvironmentObject var firestoreData: FireStoreManager
+    @State private var isDone: Bool = false
+    @State private var isDoneAlert = false
 
     let screenWidth1 = UIScreen.main.bounds.size.width
     let screenHeight1 = UIScreen.main.bounds.size.height
@@ -29,16 +34,18 @@ struct QuestionMakingMain: View {
                         showsIndicators: false) {
                         HStack {
                             ForEach(Category.allCases, id: \.self) { category in
-                                Button(action: {
-                                    checkSelection(category: category)
-                                }, label: {
-                                        Text(category.rawValue)
-                                            .categoryTextStyle()
-                                            .frame(width: 60, height: 35, alignment: .center)
-                                    })
-                                    .categoryButtonStyle()
-                                    .background(RoundedRectangle(cornerRadius: 40)
-                                        .fill(selection.contains(category) ? Color.primaryColor : Color.gray))
+                                if category != .all {
+                                    Button(action: {
+                                        checkSelection(category: category)
+                                    }, label: {
+                                            Text(category.rawValue)
+                                                .categoryTextStyle()
+                                                .frame(width: 60, height: 35, alignment: .center)
+                                        })
+                                        .categoryButtonStyle()
+                                        .background(RoundedRectangle(cornerRadius: 40)
+                                            .fill(selection.contains(category) ? Color.primaryColor : Color.gray))
+                                }
                             }
                         }
                     }
@@ -94,6 +101,11 @@ struct QuestionMakingMain: View {
                     }
                 }
             }
+                .alert(isPresented: $isDoneAlert) {
+                Alert(title: Text(TextName.addQuestionText), dismissButton: .default(Text(TextName.okText), action: {
+                            dismiss()
+                        }))
+            }
                 .padding()
                 .onTapGesture {
                 hideKeyboard()
@@ -107,16 +119,17 @@ struct QuestionMakingMain: View {
                         .font(.system(size: 20))
                         .foregroundColor(.mainBlack)
                 },
-                trailing: NavigationLink(destination: getDestination()
-                        .navigationBarBackButtonHidden(true)
-                )
-                {
-                    Text(TextName.okText)
+                trailing: Button(action: {
+                    firestoreData.userQuestionList.append(UserQuestion(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: myQuestion, cateogory: selection.map { $0 }, uploadDate: Date(), myThought: ""))
+                    firestoreData.addUserQuestionData(questionData: UserQuestion(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: myQuestion, cateogory: selection.map { $0 }, uploadDate: Date(), myThought: ""))
+                    isDoneAlert = true
+                }, label: {
+                        Text(TextName.okText)
+                    })
+                    .onTapGesture {
+                    hideKeyboard()
                 }
             )
-                .onTapGesture {
-                hideKeyboard()
-            }
         }
     }
 
@@ -127,22 +140,11 @@ struct QuestionMakingMain: View {
             selection.insert(category)
         }
     }
-
-    func getDestination() -> AnyView {
-        if (isShare == true) {
-            return AnyView(QuestionSub1(firstNaviLinkActive: $firstNaviLinkActive)
-                    .navigationBarHidden(true))
-        }
-        else {
-            return AnyView(QuestionSub2(firstNaviLinkActive: $firstNaviLinkActive)
-                    .navigationBarHidden(true))
-        }
-    }
 }
 
-struct QuestionMakingMain_Previews: PreviewProvider {
-    @State var firstNaviLinkActive: Bool
-    static var previews: some View {
-        QuestionMakingMain(firstNaviLinkActive: .constant(true))
-    }
-}
+//struct QuestionMakingMain_Previews: PreviewProvider {
+//    @State var firstNaviLinkActive: Bool
+//    static var previews: some View {
+//        QuestionMakingMain(firstNaviLinkActive: .constant(true))
+//    }
+//}
