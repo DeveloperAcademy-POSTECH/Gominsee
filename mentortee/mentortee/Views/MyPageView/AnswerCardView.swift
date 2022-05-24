@@ -2,45 +2,45 @@ import SwiftUI
 
 struct AnswerCardView: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var myData : UserInformation
-    
+    @EnvironmentObject var myData: UserInformation
+
     var body: some View {
         ZStack {
             Color.backgroundColor
                 .ignoresSafeArea()
             VStack {
-                Text("총\(myData.myAnswerCount)개")
+                Text("총\(myData.myPageData.myAnswerCount)개")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 16.0)
-                
+
                 ScrollView {
                     FeedAnswer(category: "회고",
-                               otherThoughts: "다른 생각 10개",
-                               question: "오늘 하루 하고(사고)싶었는데 못한 것이 있나요??",
-                               questionOwner: "Brown")
-                    
+                        otherThoughts: "다른 생각 10개",
+                        question: "오늘 하루 하고(사고)싶었는데 못한 것이 있나요??",
+                        questionOwner: "Brown")
+
                     FeedAnswer(category: "습관",
-                               otherThoughts: "다른 생각 4개",
-                               question: "아침에 일어나면 가장 먼저 무엇을 하시나요?",
-                               questionOwner: "Meenu").padding(.vertical, 10)
-                    
+                        otherThoughts: "다른 생각 4개",
+                        question: "아침에 일어나면 가장 먼저 무엇을 하시나요?",
+                        questionOwner: "Meenu").padding(.vertical, 10)
+
                     FeedAnswer(category: "진로",
-                               otherThoughts: "다른 생각 3개",
-                               question: "진로를 선택한 순간을 떠올려보세요 선택에 영향을 준 요인은 무엇인가요?",
-                               questionOwner: "Daon")
+                        otherThoughts: "다른 생각 3개",
+                        question: "진로를 선택한 순간을 떠올려보세요 선택에 영향을 준 요인은 무엇인가요?",
+                        questionOwner: "Daon")
                 }
             }
             // MARK: - 수정완료
             .navigationTitle(TextName.myAnswerText)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: { dismiss() }) {
                         Image(systemName: IconName.backward)
                             .font(.system(size: 20))
-                        .foregroundColor(.mainBlack)}
-                    
+                            .foregroundColor(.mainBlack) }
+
                 }
             }
         }
@@ -74,7 +74,7 @@ struct FeedAnswer: View {
                         .rotationEffect(Angle(degrees: 90))
                 }
             }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
-            
+
             VStack(alignment: .leading) {
                 Text(question)
                     .foregroundColor(.mainBlack)
@@ -82,7 +82,7 @@ struct FeedAnswer: View {
                     .fontWeight(.heavy)
                     .lineSpacing(5)
                     .frame(minWidth: UIScreen.main.bounds.width * 0.8, alignment: .leading)
-                
+
                 Button(action: {
                     self.showModal = true
                 }) {
@@ -91,12 +91,12 @@ struct FeedAnswer: View {
                         .frame(width: 100, height: 30)
                         .overlay(Text(TextName.showMyThink).foregroundColor(Color.white))
                 }
-                .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet() }
+                    .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet() }
             }
-            .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25))
-            
+                .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25))
+
             Divider()
-            
+
             HStack {
                 HStack {
                     Text("\(questionOwner)의 질문")
@@ -104,7 +104,7 @@ struct FeedAnswer: View {
                         .bold()
                         .font(.system(size: 16))
                 }
-                
+
                 Spacer()
 
                 NavigationLink(destination: QuestionCardDetailView(questionData: $testData)
@@ -113,18 +113,19 @@ struct FeedAnswer: View {
                         // TODO: 색상 정하기
                         Text(otherThoughts)
                     }
-            }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
+                }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
+            }
+                .background(RoundedRectangle(cornerRadius: 10.0)
+                    .foregroundColor(.white)
+                    .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }
-        .background(RoundedRectangle(cornerRadius: 10.0)
-            .foregroundColor(.white)
-            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
-        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
     }
-}
 
 
-struct AnswerCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        AnswerCardView()
+    struct AnswerCardView_Previews: PreviewProvider {
+        static var previews: some View {
+            AnswerCardView()
+        }
     }
 }

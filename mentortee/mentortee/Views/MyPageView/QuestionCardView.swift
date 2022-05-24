@@ -8,7 +8,7 @@ struct QuestionCardView: View {
     
     var body: some View {
         VStack {
-            Text("총\(myData.myQuestionCount)개")
+            Text("총\(myData.myPageData.myQuestionCount)개")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 16.0)
             ScrollView {
