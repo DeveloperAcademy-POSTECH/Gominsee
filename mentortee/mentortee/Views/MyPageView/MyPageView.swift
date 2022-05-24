@@ -3,23 +3,22 @@ import SwiftUI
 
 struct MyPageView: View {
     
+    @EnvironmentObject var myData : UserInformation
     @Binding var firstNaviLinkActive: Bool
-    
-    var myPageData : MyPageData
     let screenWidth = UIScreen.main.bounds.width
 
     var body: some View {
         VStack {
-            Text("\(myPageData.username)의 질문상자")
+            Text("\(myData.myPageData.username)의 질문상자")
                 .foregroundColor(.mainBlack)
                 .font(.system(size: 24).weight(.bold))
             HStack {
-                NavigationLink(destination: QuestionCardView(firstNaviLinkActive: $firstNaviLinkActive).navigationBarHidden(true)) {
+                NavigationLink(destination: QuestionCardView(firstNaviLinkActive: $firstNaviLinkActive)) {
                     VStack {
                         Text(TextName.myQuestionText)
                             .bold()
                             .font(.system(size: 14))
-                        Text("\(myPageData.myQuestionCount)")
+                        Text("\(myData.myPageData.myQuestionCount)")
                             .bold()
                             .font(.system(size: 30))
                             .opacity(0.8)
@@ -30,13 +29,13 @@ struct MyPageView: View {
 
                 Divider()
 
-                NavigationLink(destination: AnswerCardView().navigationBarHidden(true)) {
+                NavigationLink(destination: AnswerCardView()) {
                     VStack {
                         Text(TextName.myAnswerText)
                             .bold()
                             .font(.system(size: 14))
 
-                        Text("\(myPageData.myAnswerCount)")
+                        Text("\(myData.myPageData.myAnswerCount)")
                             .bold()
                             .font(.system(size: 30))
                             .opacity(0.8)
@@ -61,7 +60,7 @@ struct MyPageView: View {
                             Text(TextName.characterName)
                                 .bold()
                                 .font(.system(size: 20))
-                            Text("Lv. \(myPageData.userLV)")
+                            Text("Lv. \(myData.myPageData.userLV)")
                                 .font(.system(size: 14))
                         }
                             .foregroundColor(.mainBlack)
@@ -74,7 +73,7 @@ struct MyPageView: View {
                     HStack {
                         HStack {
                             Text("다음 성장까지")
-                            Text("질문 \(myPageData.myQuestionCount)개, 답변 \(myPageData.myAnswerCount)개")
+                            Text("질문 \(myData.myPageData.myQuestionCount)개, 답변 \(myData.myPageData.myAnswerCount)개")
                                 .bold()
                                 .font(.system(size: 16))
                             Text("가 필요해요!")

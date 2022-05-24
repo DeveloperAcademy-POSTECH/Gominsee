@@ -18,9 +18,9 @@ struct QuestionMakingMain: View {
 
     @State private var selection: Set<Category> = []
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
-
+        
         ScrollView {
             VStack {
                 VStack(alignment: .leading) {
@@ -49,14 +49,17 @@ struct QuestionMakingMain: View {
                             }
                         }
                     }
-                        .padding(.bottom, 10)
+                }
+                           .padding(.bottom, 10)
+                
+                TextEditor(text: $myQuestion)
+                    .padding(EdgeInsets(top: 5, leading: 8, bottom: 10, trailing: 25))
+                    .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.2)
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
+                    .foregroundColor(myQuestionColor)
+                    .onTapGesture {
+                        // MARK: - 수정필요
 
-                    TextEditor(text: $myQuestion)
-                        .padding(EdgeInsets(top: 5, leading: 8, bottom: 10, trailing: 25))
-                        .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.2)
-                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0))
-                        .foregroundColor(myQuestionColor)
-                        .onTapGesture {
                         if myQuestion == TextName.freeAnythingText {
                             myQuestion = ""
                             myQuestionColor = .mainBlack
@@ -64,6 +67,7 @@ struct QuestionMakingMain: View {
                             hideKeyboard()
                         }
                     }
+
 
                     Text("작성해주신 질문에 대한\nChemi님의 생각은 어떠신가요?")
                         .foregroundColor(.mainBlack)
@@ -83,22 +87,21 @@ struct QuestionMakingMain: View {
                             hideKeyboard()
                         }
                     }
-
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(TextName.checkShareMyThink)
-                                .foregroundColor(.mainBlack)
-                                .font(.system(size: 24))
-                                .bold()
-                            Text(TextName.openMyThink)
-                                .foregroundColor(.mainBlack)
-                                .font(.subheadline)
-                                .padding(.top, -5)
-                        }
-                        Toggle("", isOn: $isShare)
-                            .frame(width: screenWidth1 * 0.3, height: screenHeight1 * 0.1)
-                            .toggleStyle(SwitchToggleStyle(tint: .primaryColor))
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(TextName.checkShareMyThink)
+                            .foregroundColor(.mainBlack)
+                            .font(.system(size: 24))
+                            .bold()
+                        Text(TextName.openMyThink)
+                            .foregroundColor(.mainBlack)
+                            .font(.subheadline)
+                            .padding(.top, -5)
                     }
+                    Toggle("", isOn: $isShare)
+                        .frame(width: screenWidth1 * 0.3, height: screenHeight1 * 0.1)
+                        .toggleStyle(SwitchToggleStyle(tint: .primaryColor))
                 }
             }
                 .alert(isPresented: $isDoneAlert) {
@@ -132,7 +135,7 @@ struct QuestionMakingMain: View {
             )
         }
     }
-
+    
     func checkSelection(category: Category) {
         if selection.contains(category) {
             selection.remove(category)
@@ -146,5 +149,6 @@ struct QuestionMakingMain: View {
 //    @State var firstNaviLinkActive: Bool
 //    static var previews: some View {
 //        QuestionMakingMain(firstNaviLinkActive: .constant(true))
+
 //    }
 //}

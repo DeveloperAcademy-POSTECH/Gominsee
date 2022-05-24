@@ -104,8 +104,7 @@ struct QuestionCard: View {
 
                 Spacer()
 
-                NavigationLink(destination: QuestionCardDetailView(questionData: $questionData)
-                        .navigationBarHidden(true)) {
+                NavigationLink(destination: QuestionCardDetailView(questionData: $questionData)) {
                     VStack {
                         Text(questionData.myThought)
                             .padding()
