@@ -26,13 +26,15 @@ struct FavoriteCategoryView: View {
     private func selectFavoriteCategory() -> some View {
         LazyVGrid(columns: colunmn, spacing: 60) {
             ForEach(Category.allCases, id: \.rawValue) { value in
-                Group {
-                    Button(action: { checkSelection(category: value) }) {
-                        VStack {
-                            value.categoryImage
-                                .resizable()
-                                .frame(width: 80, height: 80)
-                            categoryImage(value: value)
+                if value != .all {
+                    Group {
+                        Button(action: { checkSelection(category: value) }) {
+                            VStack {
+                                value.categoryImage
+                                    .resizable()
+                                    .frame(width: 80, height: 80)
+                                categoryImage(value: value)
+                            }
                         }
                     }
                 }

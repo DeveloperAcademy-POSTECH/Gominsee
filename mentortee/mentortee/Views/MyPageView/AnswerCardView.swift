@@ -55,9 +55,8 @@ struct FeedAnswer: View {
     var questionOwner: String
     @State var showModal = false
     @Environment(\.presentationMode) var presentation
-    @State var exampleData = QuestionData(category: "", otherThoughts: "", question: "", questionOwner: "", nickname: "", uploadTime: Date())
-    
-    
+    @State var testData = UserQuestion(id: "", nickname: "케미", question: "1", cateogory: [.aptitude], uploadDate: Date(), myThought: "")
+
     var body: some View {
         VStack {
             HStack {
@@ -107,12 +106,12 @@ struct FeedAnswer: View {
                 }
                 
                 Spacer()
-                
-                NavigationLink(destination: QuestionCardDetailView(questionData: $exampleData)) {
-                        VStack {
-                            // TODO: 색상 정하기
-                            Text(otherThoughts)
-                        }
+
+                NavigationLink(destination: QuestionCardDetailView(questionData: $testData)
+                        .navigationBarHidden(true)) {
+                    VStack {
+                        // TODO: 색상 정하기
+                        Text(otherThoughts)
                     }
             }.padding(EdgeInsets(top: 15, leading: 25, bottom: 10, trailing: 25))
         }

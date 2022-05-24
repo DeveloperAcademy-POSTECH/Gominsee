@@ -1,6 +1,7 @@
 import SwiftUI
 
 enum Category: String, CaseIterable, Hashable {
+    case all = "전체"
     case values = "가치관"
     case aptitude = "적성"
     case career = "진로"
@@ -15,6 +16,8 @@ enum Category: String, CaseIterable, Hashable {
 extension Category {
     var categoryImage: Image {
         switch self {
+        case .all:
+            return Image("")
         case .values:
             return Image.valuesImage
         case .aptitude:

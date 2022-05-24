@@ -6,8 +6,8 @@ struct QuestionCardDetailView: View {
     @State private var showingDeleteAlert = false
     @State private var showDialog = false
     @Environment(\.dismiss) private var dismiss
-    @Binding var questionData: QuestionData
-    
+    @Binding var questionData: UserQuestion
+
     // TODO: Auth 연동 후 User name으로 설정
     //    var myName: String = "meenu"
     var body: some View {
@@ -66,6 +66,6 @@ struct QuestionCardDetailView: View {
 
 struct QuestionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionCardDetailView(questionData: .constant(QuestionData.all()[0]))
+        QuestionCardDetailView(questionData: .constant(UserQuestion.all()[0]))
     }
 }

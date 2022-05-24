@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseAuth
 
 struct QuestionMakingMain: View {
     @State private var isShare = false
@@ -6,39 +7,46 @@ struct QuestionMakingMain: View {
     @State private var myThought: String = TextName.freeAnythingText
     @State private var myQuestionColor = Color.mainBlack.opacity(0.2)
     @State private var myThoughtColor = Color.mainBlack.opacity(0.2)
-    @State private var selection: Set<Category> = []
-    
-    @Environment(\.dismiss) private var dismiss
-    @Binding var firstNaviLinkActive : Bool
-    
+    @Binding var firstNaviLinkActive: Bool
+    @EnvironmentObject var userInfo: UserInformation
+    @EnvironmentObject var firestoreData: FireStoreManager
+    @State private var isDone: Bool = false
+    @State private var isDoneAlert = false
+
     let screenWidth1 = UIScreen.main.bounds.size.width
     let screenHeight1 = UIScreen.main.bounds.size.height
+
+    @State private var selection: Set<Category> = []
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         
         ScrollView {
-            VStack(alignment: .leading) {
-                // MARK: - 수정완료 (한 Text로 수정)
-                Text(TextName.guideQuesition)
-                    .foregroundColor(.mainBlack)
-                    .font(.system(size: 24))
-                    .bold()
-                    .padding(.top, 30)
-                
-                ScrollView(.horizontal,
-                           showsIndicators: false) {
-                    HStack {
-                        ForEach(Category.allCases, id: \.self) { category in
-                            Button(action: {
-                                checkSelection(category: category)
-                            }, label: {
-                                Text(category.rawValue)
-                                    .categoryTextStyle()
-                                    .frame(width: 60, height: 35, alignment: .center)
-                            })
-                            .categoryButtonStyle()
-                            .background(RoundedRectangle(cornerRadius: 40)
-                                .fill(selection.contains(category) ? Color.primaryColor : Color.gray))
+            VStack {
+                VStack(alignment: .leading) {
+                    Text(TextName.guideQuesition)
+                        .foregroundColor(.mainBlack)
+                        .font(.system(size: 24))
+                        .bold()
+                        .padding(.top, 30)
+
+                    ScrollView(.horizontal,
+                        showsIndicators: false) {
+                        HStack {
+                            ForEach(Category.allCases, id: \.self) { category in
+                                if category != .all {
+                                    Button(action: {
+                                        checkSelection(category: category)
+                                    }, label: {
+                                            Text(category.rawValue)
+                                                .categoryTextStyle()
+                                                .frame(width: 60, height: 35, alignment: .center)
+                                        })
+                                        .categoryButtonStyle()
+                                        .background(RoundedRectangle(cornerRadius: 40)
+                                            .fill(selection.contains(category) ? Color.primaryColor : Color.gray))
+                                }
+                            }
                         }
                     }
                 }
@@ -96,29 +104,35 @@ struct QuestionMakingMain: View {
                         .toggleStyle(SwitchToggleStyle(tint: .primaryColor))
                 }
             }
-        }
-        .padding()
-        .navigationTitle(TextName.makeQuestion)
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: { dismiss() }) {
-
+                .alert(isPresented: $isDoneAlert) {
+                Alert(title: Text(TextName.addQuestionText), dismissButton: .default(Text(TextName.okText), action: {
+                            dismiss()
+                        }))
+            }
+                .padding()
+                .onTapGesture {
+                hideKeyboard()
+            }
+                .navigationBarTitle(Text(TextName.makeQuestion), displayMode: .inline)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: Button(action: {
+                dismiss()
+            }) {
                     Image(systemName: IconName.backward)
                         .font(.system(size: 20))
-                    .foregroundColor(.mainBlack)}
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: getDestination()){
-                    Text(TextName.okText)
                         .foregroundColor(.mainBlack)
+                },
+                trailing: Button(action: {
+                    firestoreData.userQuestionList.append(UserQuestion(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: myQuestion, cateogory: selection.map { $0 }, uploadDate: Date(), myThought: ""))
+                    firestoreData.addUserQuestionData(questionData: UserQuestion(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: myQuestion, cateogory: selection.map { $0 }, uploadDate: Date(), myThought: ""))
+                    isDoneAlert = true
+                }, label: {
+                        Text(TextName.okText)
+                    })
+                    .onTapGesture {
+                    hideKeyboard()
                 }
-            }
-            
-        }
-        .onTapGesture {
-            hideKeyboard()
+            )
         }
     }
     
@@ -129,22 +143,12 @@ struct QuestionMakingMain: View {
             selection.insert(category)
         }
     }
-    
-    func getDestination() -> AnyView {
-        if (isShare == true) {
-            return AnyView(QuestionSub1(firstNaviLinkActive: $firstNaviLinkActive))
-        }
-        else {
-            return AnyView(QuestionSub2(firstNaviLinkActive: $firstNaviLinkActive))
-        }
-    }
 }
 
-
-
-//
 //struct QuestionMakingMain_Previews: PreviewProvider {
+//    @State var firstNaviLinkActive: Bool
 //    static var previews: some View {
-//        QuestionMakingMain()
+//        QuestionMakingMain(firstNaviLinkActive: .constant(true))
+
 //    }
 //}

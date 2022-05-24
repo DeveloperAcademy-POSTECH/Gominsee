@@ -2,7 +2,7 @@ import SwiftUI
 
 struct QuestionAnswerCard: View {
     @Environment(\.dismiss) private var dismiss
-    @Binding var questionData: QuestionData
+    @Binding var questionData: UserQuestion
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,7 +17,7 @@ struct QuestionAnswerCard: View {
                 }
                 Spacer()
                 // TODO: 시간 계산 필요
-                Text(questionData.uploadTime, formatter: dateFormatKR())
+                Text(questionData.uploadDate, formatter: dateFormatKR())
                     .frame(alignment: .trailing)
                     .font(.system(size: 14))
             }
@@ -25,9 +25,11 @@ struct QuestionAnswerCard: View {
             Divider()
                 .padding(.horizontal, 15)
             VStack(alignment: .leading) {
-                Text(questionData.category)
-                    .font(.system(size: 14))
-                    .padding(.bottom, 5)
+                ForEach(questionData.cateogory, id: \.self) { value in
+                    Text(value.rawValue)
+                        .font(.system(size: 14))
+                        .padding(.bottom, 5)
+                }
                 Text(questionData.question)
                     .font(.system(size: 22))
                     .fontWeight(.heavy)
@@ -45,6 +47,6 @@ struct QuestionAnswerCard: View {
 
 struct QuestionAnswerCard_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionAnswerCard(questionData: .constant(QuestionData.all()[1]))
+        QuestionAnswerCard(questionData: .constant(UserQuestion.all()[1]))
     }
 }

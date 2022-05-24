@@ -35,10 +35,9 @@
 		26F56B5627FBEC1E0066C0D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F56B5527FBEC1E0066C0D1 /* Preview Assets.xcassets */; };
 		275EDE0727FE83CC002D1CA4 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */; };
 		388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388749662806B3E70005D616 /* MythoughtModalSheet.swift */; };
-		388809BB2832469800891435 /* CategoryBtnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388809BA2832469800891435 /* CategoryBtnData.swift */; };
 		389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */; };
 		38AE0782281A7EE80035EB0C /* QuestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0781281A7EE80035EB0C /* QuestionCard.swift */; };
-		38AE0784281A86D60035EB0C /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0783281A86D60035EB0C /* QuestionData.swift */; };
+		38AE0784281A86D60035EB0C /* UserQuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0783281A86D60035EB0C /* UserQuestionData.swift */; };
 		390223DF2805241A008D9C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390223DE2805241A008D9C64 /* SettingsView.swift */; };
 		390469B4281BE00E0085BACA /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390469B3281BE00E0085BACA /* TextStyle.swift */; };
 		3944F76928323A7900A9B02E /* IconName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3944F76828323A7900A9B02E /* IconName.swift */; };
@@ -70,8 +69,6 @@
 		A989F4F128388CDA00F6979E /* MyPageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989F4F028388CDA00F6979E /* MyPageData.swift */; };
 		A989F4F328388CF000F6979E /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989F4F228388CF000F6979E /* UserInformation.swift */; };
 		A9CFEE5C27FF3AE300EBE12E /* QuestionMakingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */; };
-		A9F7C50B27FE664000052F36 /* QuestionSub1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7C50A27FE664000052F36 /* QuestionSub1.swift */; };
-		A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7C50C27FE665F00052F36 /* QuestionSub2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,10 +101,9 @@
 		26F56B5527FBEC1E0066C0D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 		388749662806B3E70005D616 /* MythoughtModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythoughtModalSheet.swift; sourceTree = "<group>"; };
-		388809BA2832469800891435 /* CategoryBtnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBtnData.swift; sourceTree = "<group>"; };
 		389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		38AE0781281A7EE80035EB0C /* QuestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCard.swift; sourceTree = "<group>"; };
-		38AE0783281A86D60035EB0C /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
+		38AE0783281A86D60035EB0C /* UserQuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionData.swift; sourceTree = "<group>"; };
 		390223DE2805241A008D9C64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		390469B3281BE00E0085BACA /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		3944F76828323A7900A9B02E /* IconName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconName.swift; sourceTree = "<group>"; };
@@ -135,8 +131,6 @@
 		A989F4F028388CDA00F6979E /* MyPageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageData.swift; sourceTree = "<group>"; };
 		A989F4F228388CF000F6979E /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMakingMain.swift; sourceTree = "<group>"; };
-		A9F7C50A27FE664000052F36 /* QuestionSub1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSub1.swift; sourceTree = "<group>"; };
-		A9F7C50C27FE665F00052F36 /* QuestionSub2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSub2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,11 +194,11 @@
 		26F56B4D27FBEC1B0066C0D1 /* mentortee */ = {
 			isa = PBXGroup;
 			children = (
-				397A5D6F283B533E002DEF6F /* Service */,
 				39AF592D2838C6F200425D1B /* mentortee.entitlements */,
 				39B618D2282A967F00678A00 /* System */,
 				3944F76728323A5200A9B02E /* Resource */,
 				39B618D3282A977B00678A00 /* Helper */,
+				397A5D6F283B533E002DEF6F /* Service */,
 				39B618CF282A8A4400678A00 /* Datas */,
 				3973A05F27FD26CE00CDC599 /* Views */,
 				263175E62805230000C13368 /* Persistence.swift */,
@@ -281,8 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */,
-				A9F7C50A27FE664000052F36 /* QuestionSub1.swift */,
-				A9F7C50C27FE665F00052F36 /* QuestionSub2.swift */,
 			);
 			path = QnAView;
 			sourceTree = "<group>";
@@ -311,12 +303,11 @@
 		39B618CF282A8A4400678A00 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
-				38AE0783281A86D60035EB0C /* QuestionData.swift */,
+				38AE0783281A86D60035EB0C /* UserQuestionData.swift */,
 				394D105228192B7E00CD538D /* AnswerData.swift */,
 				A989F4F028388CDA00F6979E /* MyPageData.swift */,
 				A989F4F228388CF000F6979E /* UserInformation.swift */,
 				39B618D0282A8A6400678A00 /* CategoryData.swift */,
-				388809BA2832469800891435 /* CategoryBtnData.swift */,
 				397A5D72283B53FA002DEF6F /* DailyQuestionData.swift */,
 			);
 			path = Datas;
@@ -450,18 +441,15 @@
 				263175E72805230000C13368 /* Persistence.swift in Sources */,
 				399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */,
 				397A5D73283B53FA002DEF6F /* DailyQuestionData.swift in Sources */,
-				A9F7C50B27FE664000052F36 /* QuestionSub1.swift in Sources */,
 				389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */,
 				263175E9280558C200C13368 /* createTestData.swift in Sources */,
-				A9F7C50D27FE665F00052F36 /* QuestionSub2.swift in Sources */,
 				2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */,
-				38AE0784281A86D60035EB0C /* QuestionData.swift in Sources */,
+				38AE0784281A86D60035EB0C /* UserQuestionData.swift in Sources */,
 				39BED12428338D5800DB08F2 /* DateHandler.swift in Sources */,
 				A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */,
 				26317622280564C300C13368 /* Category+CoreDataClass.swift in Sources */,
 				3944F76928323A7900A9B02E /* IconName.swift in Sources */,
 				A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */,
-				388809BB2832469800891435 /* CategoryBtnData.swift in Sources */,
 				A7D877DA27FF70F6001257EC /* KeyboardHandler.swift in Sources */,
 				388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */,
 				26317625280564C300C13368 /* Question+CoreDataProperties.swift in Sources */,
