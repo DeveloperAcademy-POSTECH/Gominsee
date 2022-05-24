@@ -6,7 +6,7 @@ struct ContentView: View {
     @State private var isShowingDetailView = false
     @State var firstNaviLinkActive: Bool = false
     @EnvironmentObject var userInformation : UserInformation
-    @AppStorage("log_status") var log_Status = false
+    @AppStorage("log_status") var log_Status = true
     
     var body: some View {
         ZStack {
