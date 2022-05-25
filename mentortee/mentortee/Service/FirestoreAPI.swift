@@ -22,23 +22,51 @@ class FireStoreManager: ObservableObject {
                 for document in querySnapshot!.documents {
                     self.dailyQuestion.append(DailyQuestion(id: document.documentID, question: document.data()["question"] as? String ?? "", category: document.data()["category"].map { $0 } as? [String] ?? [""]))
                 }
-                print("dailyQuestion : \(self.dailyQuestion)")
             }
         }
     }
 
     func fetchUserQuestionData() {
+        var categoryList: [Category] = []
         db.collection("UserQuestion").whereField("isShared", isEqualTo: false)
             .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    // TODO: category enum형식으로 파싱해야함
-                    self.userQuestionList.append(UserQuestion(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", cateogory: (document.data()["category"].map { $0 } as? [Category]) ?? [Category.all], uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: ""))
+                    categoryList.removeAll()
+                    let array = document.data()["category"] as? [String] ?? [""]
+                    for index in array {
+                        categoryList.append(self.castingCategory(category: index))
+                    }
+                    self.userQuestionList.append(UserQuestion(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", cateogory: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: ""))
                 }
-                print("List : \(self.userQuestionList)")
             }
+        }
+    }
+
+    func castingCategory(category: String) -> Category {
+        switch category {
+        case Category.values.rawValue:
+            return Category.values
+        case Category.aptitude.rawValue:
+            return Category.aptitude
+        case Category.career.rawValue:
+            return Category.career
+        case Category.taste.rawValue:
+            return Category.taste
+        case Category.hobby.rawValue:
+            return Category.hobby
+        case Category.thinking.rawValue:
+            return Category.thinking
+        case Category.secret.rawValue:
+            return Category.secret
+        case Category.reflection.rawValue:
+            return Category.reflection
+        case Category.habit.rawValue:
+            return Category.habit
+        default:
+            return Category.all
         }
     }
 
@@ -51,7 +79,7 @@ class FireStoreManager: ObservableObject {
             "isShared": questionData.isShared,
             "uploadDate": questionData.uploadDate
         ]
-        
+
         db.collection("UserQuestion").document().setData(docData) { err in
             if let err = err {
                 print("Error writing document: \(err)")

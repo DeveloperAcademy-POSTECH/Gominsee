@@ -24,6 +24,7 @@ struct QuestionCardView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
+                    dismiss()
                     firstNaviLinkActive = false
                 }) {
                     Image(systemName: IconName.backward)
