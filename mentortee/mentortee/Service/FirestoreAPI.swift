@@ -14,13 +14,22 @@ class FireStoreManager: ObservableObject {
     }
 
     func fetchDailyQuestionData() {
+        var categoryList: [Category] = []
         db.collection("DailyQuestion").whereField("question", notIn: blackQuestion)
             .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    self.dailyQuestion.append(DailyQuestion(id: document.documentID, question: document.data()["question"] as? String ?? "", category: document.data()["category"].map { $0 } as? [String] ?? [""]))
+                    categoryList.removeAll()
+                    let array = document.data()["category"] as? [String] ?? [""]
+                    for index in array {
+                        categoryList.append(self.castingCategory(category: index))
+                    }
+                    self.dailyQuestion.append(DailyQuestion(id: document.documentID, question: document.data()["question"] as? String ?? "", category: categoryList))
+                }
+                for index in self.dailyQuestion {
+                    print("index : \(index)")
                 }
             }
         }
