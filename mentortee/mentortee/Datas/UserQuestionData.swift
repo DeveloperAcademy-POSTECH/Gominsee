@@ -1,7 +1,8 @@
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct UserQuestion: Identifiable, Hashable {
-    var id: String
+    @DocumentID var id: String?
     var nickname: String
     var question: String
     var cateogory: [Category]
