@@ -4,7 +4,6 @@ import FirebaseAuth
 struct ContentView: View {
     @State private var selection = 1
     @State private var isShowingDetailView = false
-    @State private var firstNaviLinkActive: Bool = false
     @EnvironmentObject var userInformation : UserInformation
     @AppStorage("log_status") var log_Status = true
     
@@ -15,7 +14,7 @@ struct ContentView: View {
                     MainView().tabItem { Image(systemName: IconName.house).environment(\.symbolVariants, .none) }.tag(1)
                     FeedView().tabItem { Image(systemName: IconName.textSquare).environment(\.symbolVariants, .none) }.tag(2)
                     
-                    MyPageView(firstNaviLinkActive: $firstNaviLinkActive).tabItem { Image(systemName: IconName.person).environment(\.symbolVariants, .none) }.tag(3)
+                    MyPageView().tabItem { Image(systemName: IconName.person).environment(\.symbolVariants, .none) }.tag(3)
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -25,7 +24,7 @@ struct ContentView: View {
                         .foregroundColor(.primaryColor) }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: getDestination(), isActive: $firstNaviLinkActive) {
+                        NavigationLink(destination: getDestination()) {
                             Image(systemName: selection == 3 ? IconName.settings : IconName.pencil)
                                 .padding(.all, 16)
                                 .font(.system(size: 20))
@@ -46,7 +45,7 @@ struct ContentView: View {
             return AnyView(SettingsView())
         }
         else {
-            return AnyView(QuestionMakingMain(firstNaviLinkActive: $firstNaviLinkActive))
+            return AnyView(QuestionMakingMain())
         }
     }
 }

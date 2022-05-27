@@ -4,7 +4,6 @@ import SwiftUI
 struct QuestionCardView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var myData : UserInformation
-    @Binding var firstNaviLinkActive: Bool
     
     var body: some View {
         VStack {
@@ -25,7 +24,6 @@ struct QuestionCardView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     dismiss()
-                    firstNaviLinkActive = false
                 }) {
                     Image(systemName: IconName.backward)
                         .font(.system(size: 20))
