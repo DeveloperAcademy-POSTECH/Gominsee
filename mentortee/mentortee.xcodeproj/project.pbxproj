@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608E43627FD39500063E059 /* AnswerDetailView.swift */; };
+		2608E43727FD39500063E059 /* AnswerComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608E43627FD39500063E059 /* AnswerComments.swift */; };
 		263175C62805211900C13368 /* mentortee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 263175C42805211900C13368 /* mentortee.xcdatamodeld */; };
 		263175E72805230000C13368 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263175E62805230000C13368 /* Persistence.swift */; };
 		263175E9280558C200C13368 /* createTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263175E8280558C200C13368 /* createTestData.swift */; };
@@ -27,7 +27,7 @@
 		2631762B280564C300C13368 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761D280564C300C13368 /* Character+CoreDataProperties.swift */; };
 		2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761E280564C300C13368 /* UserCategory+CoreDataClass.swift */; };
 		2631762D280564C300C13368 /* UserCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631761F280564C300C13368 /* UserCategory+CoreDataProperties.swift */; };
-		26A1D6782802CA7C002373FB /* AnswerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1D6772802CA7C002373FB /* AnswerCardView.swift */; };
+		26A1D6782802CA7C002373FB /* AnswerCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1D6772802CA7C002373FB /* AnswerCardList.swift */; };
 		26A1D67A2802CB3C002373FB /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A1D6792802CB3C002373FB /* MyPageView.swift */; };
 		26F56B4F27FBEC1B0066C0D1 /* mentorteeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */; };
 		26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F56B5027FBEC1B0066C0D1 /* ContentView.swift */; };
@@ -37,7 +37,7 @@
 		388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388749662806B3E70005D616 /* MythoughtModalSheet.swift */; };
 		389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */; };
 		38AE0782281A7EE80035EB0C /* QuestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0781281A7EE80035EB0C /* QuestionCard.swift */; };
-		38AE0784281A86D60035EB0C /* UserQuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0783281A86D60035EB0C /* UserQuestionData.swift */; };
+		38AE0784281A86D60035EB0C /* UserQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0783281A86D60035EB0C /* UserQuestion.swift */; };
 		390223DF2805241A008D9C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390223DE2805241A008D9C64 /* SettingsView.swift */; };
 		390469B4281BE00E0085BACA /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390469B3281BE00E0085BACA /* TextStyle.swift */; };
 		3944F76928323A7900A9B02E /* IconName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3944F76828323A7900A9B02E /* IconName.swift */; };
@@ -48,7 +48,7 @@
 		3958848B2834DEFC0006243B /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3958848A2834DEFC0006243B /* ViewStyle.swift */; };
 		3973A06527FD272F00CDC599 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3973A06427FD272F00CDC599 /* MainView.swift */; };
 		397A5D71283B5389002DEF6F /* FirestoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A5D70283B5389002DEF6F /* FirestoreAPI.swift */; };
-		397A5D73283B53FA002DEF6F /* DailyQuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A5D72283B53FA002DEF6F /* DailyQuestionData.swift */; };
+		397A5D73283B53FA002DEF6F /* DailyQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A5D72283B53FA002DEF6F /* DailyQuestion.swift */; };
 		399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B32FA27FE73BE0005F887 /* ColorData.swift */; };
 		39AF59202838C55E00425D1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39AF591F2838C55E00425D1B /* GoogleService-Info.plist */; };
 		39AF59242838C61D00425D1B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 39AF59232838C61D00425D1B /* FirebaseAnalytics */; };
@@ -68,11 +68,13 @@
 		A952D08C280520400098DBE8 /* MakingNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A952D08B280520400098DBE8 /* MakingNicknameView.swift */; };
 		A989F4F128388CDA00F6979E /* MyPageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989F4F028388CDA00F6979E /* MyPageData.swift */; };
 		A989F4F328388CF000F6979E /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989F4F228388CF000F6979E /* UserInformation.swift */; };
+		A9CB246A2841D13600B8AA51 /* AnswerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB24692841D13600B8AA51 /* AnswerCard.swift */; };
+		A9CB2470284250F300B8AA51 /* UserAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB246F284250F300B8AA51 /* UserAnswer.swift */; };
 		A9CFEE5C27FF3AE300EBE12E /* QuestionMakingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2608E43627FD39500063E059 /* AnswerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailView.swift; sourceTree = "<group>"; };
+		2608E43627FD39500063E059 /* AnswerComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerComments.swift; sourceTree = "<group>"; };
 		263175C52805211900C13368 /* Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Test.xcdatamodel; sourceTree = "<group>"; };
 		263175E62805230000C13368 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		263175E8280558C200C13368 /* createTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createTestData.swift; sourceTree = "<group>"; };
@@ -92,7 +94,7 @@
 		2631761D280564C300C13368 /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2631761E280564C300C13368 /* UserCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2631761F280564C300C13368 /* UserCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		26A1D6772802CA7C002373FB /* AnswerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCardView.swift; sourceTree = "<group>"; };
+		26A1D6772802CA7C002373FB /* AnswerCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCardList.swift; sourceTree = "<group>"; };
 		26A1D6792802CB3C002373FB /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		26F56B4B27FBEC1B0066C0D1 /* mentortee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mentortee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F56B4E27FBEC1B0066C0D1 /* mentorteeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mentorteeApp.swift; sourceTree = "<group>"; };
@@ -103,7 +105,7 @@
 		388749662806B3E70005D616 /* MythoughtModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythoughtModalSheet.swift; sourceTree = "<group>"; };
 		389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		38AE0781281A7EE80035EB0C /* QuestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCard.swift; sourceTree = "<group>"; };
-		38AE0783281A86D60035EB0C /* UserQuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionData.swift; sourceTree = "<group>"; };
+		38AE0783281A86D60035EB0C /* UserQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestion.swift; sourceTree = "<group>"; };
 		390223DE2805241A008D9C64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		390469B3281BE00E0085BACA /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		3944F76828323A7900A9B02E /* IconName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconName.swift; sourceTree = "<group>"; };
@@ -114,7 +116,7 @@
 		3958848A2834DEFC0006243B /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
 		3973A06427FD272F00CDC599 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		397A5D70283B5389002DEF6F /* FirestoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAPI.swift; sourceTree = "<group>"; };
-		397A5D72283B53FA002DEF6F /* DailyQuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionData.swift; sourceTree = "<group>"; };
+		397A5D72283B53FA002DEF6F /* DailyQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestion.swift; sourceTree = "<group>"; };
 		399B32FA27FE73BE0005F887 /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		39AF591F2838C55E00425D1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		39AF592D2838C6F200425D1B /* mentortee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mentortee.entitlements; sourceTree = "<group>"; };
@@ -130,6 +132,8 @@
 		A952D08B280520400098DBE8 /* MakingNicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakingNicknameView.swift; sourceTree = "<group>"; };
 		A989F4F028388CDA00F6979E /* MyPageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageData.swift; sourceTree = "<group>"; };
 		A989F4F228388CF000F6979E /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		A9CB24692841D13600B8AA51 /* AnswerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCard.swift; sourceTree = "<group>"; };
+		A9CB246F284250F300B8AA51 /* UserAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnswer.swift; sourceTree = "<group>"; };
 		A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMakingMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,7 +236,10 @@
 		394D105128192AE700CD538D /* Answer */ = {
 			isa = PBXGroup;
 			children = (
-				2608E43627FD39500063E059 /* AnswerDetailView.swift */,
+				26A1D6772802CA7C002373FB /* AnswerCardList.swift */,
+				A9CB24692841D13600B8AA51 /* AnswerCard.swift */,
+				388749662806B3E70005D616 /* MythoughtModalSheet.swift */,
+				2608E43627FD39500063E059 /* AnswerComments.swift */,
 				394D104F28192A6C00CD538D /* CommentView.swift */,
 			);
 			path = Answer;
@@ -264,7 +271,6 @@
 				394D105128192AE700CD538D /* Answer */,
 				A752B59B280034BF00B41987 /* FeedView.swift */,
 				38AE0781281A7EE80035EB0C /* QuestionCard.swift */,
-				7B23C96527FD8D9A00EA7C2E /* QuestionCardDetailView.swift */,
 				7B23C96727FD8E5D00EA7C2E /* QuestionAnswerCard.swift */,
 				A7D877D727FF2641001257EC /* AnswerModalSheet.swift */,
 			);
@@ -283,9 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				26A1D6792802CB3C002373FB /* MyPageView.swift */,
-				26A1D6772802CA7C002373FB /* AnswerCardView.swift */,
 				275EDE0627FE83CC002D1CA4 /* QuestionCardView.swift */,
-				388749662806B3E70005D616 /* MythoughtModalSheet.swift */,
+				7B23C96527FD8D9A00EA7C2E /* QuestionCardDetailView.swift */,
 				390223DE2805241A008D9C64 /* SettingsView.swift */,
 			);
 			path = MyPageView;
@@ -303,12 +308,13 @@
 		39B618CF282A8A4400678A00 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
-				38AE0783281A86D60035EB0C /* UserQuestionData.swift */,
+				38AE0783281A86D60035EB0C /* UserQuestion.swift */,
+				A9CB246F284250F300B8AA51 /* UserAnswer.swift */,
 				394D105228192B7E00CD538D /* AnswerData.swift */,
 				A989F4F028388CDA00F6979E /* MyPageData.swift */,
 				A989F4F228388CF000F6979E /* UserInformation.swift */,
 				39B618D0282A8A6400678A00 /* CategoryData.swift */,
-				397A5D72283B53FA002DEF6F /* DailyQuestionData.swift */,
+				397A5D72283B53FA002DEF6F /* DailyQuestion.swift */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -440,15 +446,16 @@
 				2631762A280564C300C13368 /* Character+CoreDataClass.swift in Sources */,
 				263175E72805230000C13368 /* Persistence.swift in Sources */,
 				399B32FB27FE73BE0005F887 /* ColorData.swift in Sources */,
-				397A5D73283B53FA002DEF6F /* DailyQuestionData.swift in Sources */,
+				397A5D73283B53FA002DEF6F /* DailyQuestion.swift in Sources */,
 				389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */,
 				263175E9280558C200C13368 /* createTestData.swift in Sources */,
 				2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */,
-				38AE0784281A86D60035EB0C /* UserQuestionData.swift in Sources */,
+				38AE0784281A86D60035EB0C /* UserQuestion.swift in Sources */,
 				39BED12428338D5800DB08F2 /* DateHandler.swift in Sources */,
 				A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */,
 				26317622280564C300C13368 /* Category+CoreDataClass.swift in Sources */,
 				3944F76928323A7900A9B02E /* IconName.swift in Sources */,
+				A9CB2470284250F300B8AA51 /* UserAnswer.swift in Sources */,
 				A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */,
 				A7D877DA27FF70F6001257EC /* KeyboardHandler.swift in Sources */,
 				388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */,
@@ -456,7 +463,8 @@
 				A752B59C280034BF00B41987 /* FeedView.swift in Sources */,
 				3973A06527FD272F00CDC599 /* MainView.swift in Sources */,
 				397A5D71283B5389002DEF6F /* FirestoreAPI.swift in Sources */,
-				2608E43727FD39500063E059 /* AnswerDetailView.swift in Sources */,
+				2608E43727FD39500063E059 /* AnswerComments.swift in Sources */,
+				A9CB246A2841D13600B8AA51 /* AnswerCard.swift in Sources */,
 				26317624280564C300C13368 /* Question+CoreDataClass.swift in Sources */,
 				26F56B5127FBEC1B0066C0D1 /* ContentView.swift in Sources */,
 				263176112805647E00C13368 /* Answer+CoreDataProperties.swift in Sources */,
@@ -472,7 +480,7 @@
 				A952D08C280520400098DBE8 /* MakingNicknameView.swift in Sources */,
 				26317629280564C300C13368 /* Report+CoreDataProperties.swift in Sources */,
 				263175C62805211900C13368 /* mentortee.xcdatamodeld in Sources */,
-				26A1D6782802CA7C002373FB /* AnswerCardView.swift in Sources */,
+				26A1D6782802CA7C002373FB /* AnswerCardList.swift in Sources */,
 				2631762D280564C300C13368 /* UserCategory+CoreDataProperties.swift in Sources */,
 				26317627280564C300C13368 /* QuestionCategory+CoreDataProperties.swift in Sources */,
 				275EDE0727FE83CC002D1CA4 /* QuestionCardView.swift in Sources */,

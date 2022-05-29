@@ -122,9 +122,10 @@ struct QuestionMakingMain: View {
                         .font(.system(size: 20))
                         .foregroundColor(.mainBlack)
                 },
+        // 버튼을 누를 시에,
                 trailing: Button(action: {
-                    firestoreData.userQuestionList.append(UserQuestion(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: myQuestion, cateogory: selection.map { $0 }, uploadDate: Date(), myThought: ""))
-                    firestoreData.addUserQuestionData(questionData: UserQuestion(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: myQuestion, cateogory: selection.map { $0 }, uploadDate: Date(), myThought: ""))
+                    firestoreData.userQuestionList.append(UserQuestion(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: myQuestion, category: selection.map { $0 }, uploadDate: Date(), myThought: ""))
+                    firestoreData.addUserQuestionData(questionData: UserQuestion(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: myQuestion, category: selection.map { $0 }, uploadDate: Date(), myThought: ""))
                     isDoneAlert = true
                 }, label: {
                         Text(TextName.okText)
