@@ -3,7 +3,7 @@ import FirebaseFirestoreSwift
 
 struct MythoughtModalSheet: View {
     @Environment(\.dismiss) private var dismiss
-    // MARK: - 수정필요
+    // MARK: - 수정필요 필요필요
     
     var answerDateTime : Date
     var myAnswer : String
