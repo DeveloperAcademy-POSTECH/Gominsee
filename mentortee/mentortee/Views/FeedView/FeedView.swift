@@ -11,7 +11,7 @@ struct FeedView: View {
             VStack(alignment: .leading, spacing: 0) {
                 VStack {
                     feedCategoryButtonList()
-                    feedCategoryList()
+                    QuestionCardList()
                         .frame(height: geo.size.height * 0.88)
                 }
                     .background(Color.backgroundColor.ignoresSafeArea())
@@ -36,13 +36,13 @@ struct FeedView: View {
             .padding()
     }
 
-    private func feedCategoryList() -> some View {
+    private func QuestionCardList() -> some View {
         ScrollView {
             VStack {
                 ForEach(firestoreData.userQuestionList, id: \.id) { data in
                     if currentIdx == .all {
                         QuestionCard(questionData: data, currentIdx: currentIdx)
-                    } else if data.cateogory.contains(currentIdx) {
+                    } else if data.category.contains(currentIdx) {
                         QuestionCard(questionData: data, currentIdx: currentIdx)
                     }
                 }
@@ -56,5 +56,6 @@ struct FeedView: View {
 struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
         FeedView()
+            .environmentObject(FireStoreManager())
     }
 }
