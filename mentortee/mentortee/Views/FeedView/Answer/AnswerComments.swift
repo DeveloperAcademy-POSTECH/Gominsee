@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct AnswerDetailView: View {
+struct AnswerComments: View {
     @State private var collapsed = false
     @State private var isChecked = false
     @State private var commentList = Comment.all()
@@ -93,6 +93,6 @@ struct AnswerDetailView: View {
 
 struct AnswerDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AnswerDetailView()
+        AnswerComments()
     }
 }
