@@ -1,9 +1,13 @@
 import SwiftUI
+import FirebaseAuth
+
+// submit 버튼 수정 
 
 struct MainView: View {
-    var dailyQuestion = "Chemi님은 뭘 할 때 행복한가요 ?"
-    var categoryList = ["가치관"]
+    @EnvironmentObject var mainViewData : FireStoreManager
+    @EnvironmentObject var userInfo : UserInformation
     @State private var answerText = TextName.answerText
+    @State private var submitAnswer = ""
     @State private var answerColor = Color.answerColor
     @State private var showAlert = false
     @State private var cardOpacity: Double = 1.0
@@ -30,14 +34,14 @@ struct MainView: View {
         VStack(alignment: .leading) {
             Text("\(Date(), formatter: dateFormatKR())")
                 .dateTextStyle()
-            Text(dailyQuestion)
+            Text(mainViewData.dailyQuestion.question)
                 .dailyQuestionTextStyle()
                 .minimumScaleFactor(0.5)
                 .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.2, alignment: .leading)
 
             HStack {
-                ForEach(categoryList, id: \.self) { value in
-                    Text(value)
+                ForEach(mainViewData.dailyQuestion.category, id: \.self) { value in
+                    Text(value.rawValue)
                         .dailyCategoryTextStyle()
                         .dailyCategoryStyle()
                 }
@@ -50,6 +54,7 @@ struct MainView: View {
 
     private func submitButton(geo: GeometryProxy) -> some View {
         Button(TextName.submission, action: answerText.count == 0 || answerText == TextName.answerText ? { }: {
+            submitAnswer = answerText
                 onSubmitButton()
             })
             .dailySubmitButtonStyle(answerText: answerText, geo: geo)
@@ -80,11 +85,17 @@ struct MainView: View {
         answerColor = Color.mainBlack.opacity(0.2)
         answerText = TextName.answerText
         cardOpacity = 1.0
+
+        mainViewData.userAnswerList.append(UserAnswer(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: mainViewData.dailyQuestion.question, category: mainViewData.dailyQuestion.category, uploadDate: Date(), myThought: submitAnswer))
+        
+        mainViewData.addUserAnswerData(answerData: UserAnswer(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: mainViewData.dailyQuestion.question, category: mainViewData.dailyQuestion.category, uploadDate: Date(), myThought: submitAnswer, isShared: false, isDeleted: false))
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(UserInformation())
+            .environmentObject(FireStoreManager())
     }
 }
