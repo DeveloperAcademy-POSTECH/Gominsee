@@ -139,3 +139,10 @@ struct QuestionCard: View {
     
 }
 
+
+// struct QuestionCard_Previews: PreviewProvider {
+//     static var previews: some View {
+//         QuestionCard(questionData: UserQuestion(id: "abc", nickname: "chemi", question: "오늘 점심은 뭘 드셨나요?", cateogory: [.all], uploadDate: Date(), myThought: "", isShared: false, isDeleted: false), currentIdx: .all)
+//     }
+// }
+

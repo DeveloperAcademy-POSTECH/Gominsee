@@ -4,7 +4,6 @@ import SwiftUI
 struct MyPageView: View {
     
     @EnvironmentObject var myData : UserInformation
-    @Binding var firstNaviLinkActive: Bool
     let screenWidth = UIScreen.main.bounds.width
 
     var body: some View {
@@ -13,7 +12,7 @@ struct MyPageView: View {
                 .foregroundColor(.mainBlack)
                 .font(.system(size: 24).weight(.bold))
             HStack {
-                NavigationLink(destination: QuestionCardView(firstNaviLinkActive: $firstNaviLinkActive)) {
+                NavigationLink(destination: QuestionCardView()) {
                     VStack {
                         Text(TextName.myQuestionText)
                             .bold()
