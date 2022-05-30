@@ -28,7 +28,7 @@ struct MyPageView: View {
 
                 Divider()
 
-                NavigationLink(destination: AnswerCardView()) {
+                NavigationLink(destination: AnswerCardList()) {
                     VStack {
                         Text(TextName.myAnswerText)
                             .bold()

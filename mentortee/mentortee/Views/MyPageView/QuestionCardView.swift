@@ -11,8 +11,7 @@ struct QuestionCardView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 16.0)
             ScrollView {
-//                QuestionCard(questionData: <#T##QuestionData#>, currentIdx: <#T##String#>)
-//                QuestionCard(questionData: <#T##QuestionData#>, currentIdx: <#T##String#>)
+//                AnswerCardList()
 
             }
         }
@@ -33,6 +32,8 @@ struct QuestionCardView: View {
             
         }
     }
+
+    
 }
 
 //struct QuestionCardView_Previews: PreviewProvider {

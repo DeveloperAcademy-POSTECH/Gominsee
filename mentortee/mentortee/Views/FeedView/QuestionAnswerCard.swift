@@ -25,7 +25,7 @@ struct QuestionAnswerCard: View {
             Divider()
                 .padding(.horizontal, 15)
             VStack(alignment: .leading) {
-                ForEach(questionData.cateogory, id: \.self) { value in
+                ForEach(questionData.category, id: \.self) { value in
                     Text(value.rawValue)
                         .font(.system(size: 14))
                         .padding(.bottom, 5)

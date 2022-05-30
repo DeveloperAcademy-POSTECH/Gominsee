@@ -1,13 +1,14 @@
+
 import SwiftUI
 
-struct QuestionCard: View {
+struct AnswerCard: View {
     @State private var isReport = false
     @State private var isShowingConfirmation = false
     @State private var showModal = false
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
     @State private var showQuestionDetailview = false
-    @State var questionData: UserQuestion
+    @State var answerData: UserAnswer
     
     var currentIdx: Category
     
@@ -43,7 +44,7 @@ struct QuestionCard: View {
     
     // Stack구조 끝 , 각 함수별 설명 시작
     private func categoryList() -> some View {
-        ForEach(questionData.category, id: \.self) { value in
+        ForEach(answerData.category, id: \.self) { value in
             Text(value.rawValue)
                 .font(.system(size: 14))
                 .foregroundColor(Color.gray)
@@ -60,7 +61,7 @@ struct QuestionCard: View {
         }
         .confirmationDialog("수정/삭제", isPresented: $isShowingConfirmation) {
             // TODO: Auth연동 후 User name으로 설정
-            if("브라운" == questionData.nickname) {
+            if("브라운" == answerData.nickname) {
                 Button("\(TextName.editText)") {
                 }
                 Button("\(TextName.deleteText)", role: .destructive) {
@@ -95,7 +96,7 @@ struct QuestionCard: View {
     }
     
     private func questionInformation() -> some View {
-        Text(questionData.question)
+        Text(answerData.question)
             .foregroundColor(Color.mainBlack)
             .font(.system(size: 22))
             .fontWeight(.heavy)
@@ -107,20 +108,18 @@ struct QuestionCard: View {
         Button(action: {
             showModal = true
         }) {
-            Text("\(TextName.writeThink)")
+            Text("\(TextName.showMyThink)")
                 .padding(5)
                 .foregroundColor(.white)
-                .background(Color.primaryColor)
+                .background(Color.subLightGreen)
                 .cornerRadius(10)
         }
-        .sheet(isPresented: self.$showModal) {
-            AnswerModalSheet(feedQuestion: questionData.question)
-        }
+        .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet(answerDateTime: answerData.uploadDate, myAnswer: answerData.myThought) }
     }
     
     private func whoseQuestion() -> some View {
         HStack(spacing: 0) {
-            Text(questionData.nickname)
+            Text(answerData.nickname)
                 .bold()
                 .foregroundColor(.mainBlack).opacity(0.9)
                 .font(.system(size: 16))
@@ -131,18 +130,16 @@ struct QuestionCard: View {
     }
     
     private func lookOthersThought() -> some View {
-        NavigationLink(destination: QuestionCardDetailView(questionData: $questionData)) {
-            Text(questionData.myThought)
+//        NavigationLink(destination: QuestionCardDetailView(questionData: $answerData)) {
+            Text("다른 생각")
                 .padding()
-        }
+//        }
     }
     
 }
 
-
-// struct QuestionCard_Previews: PreviewProvider {
-//     static var previews: some View {
-//         QuestionCard(questionData: UserQuestion(id: "abc", nickname: "chemi", question: "오늘 점심은 뭘 드셨나요?", cateogory: [.all], uploadDate: Date(), myThought: "", isShared: false, isDeleted: false), currentIdx: .all)
-//     }
-// }
-
+//struct AnswerCard_Preview: PreviewProvider {
+//    static var previews: some View {
+//        AnswerCard(questionData: UserQuestion.all()[1], currentIdx: Category)
+//    }
+//}

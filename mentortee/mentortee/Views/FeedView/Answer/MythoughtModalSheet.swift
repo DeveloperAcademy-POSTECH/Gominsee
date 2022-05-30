@@ -1,18 +1,20 @@
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct MythoughtModalSheet: View {
     @Environment(\.dismiss) private var dismiss
-    // MARK: - 수정필요
-    var answerDatetime = ["2022.04.14"]
-    var myAnswer = ["건강하면서 좋아하는 일을 할 수 있는 삶이라고 생각한다."]
+    // MARK: - 수정필요 필요필요
+    
+    var answerDateTime : Date
+    var myAnswer : String
 
     var body: some View {
 
         ZStack {
             VStack {
                 List {
-                    Section(header: Text(answerDatetime[0])) {
-                        Text(myAnswer[0])
+                    Section(header: Text(answerDateTime.formatted())) {
+                        Text(myAnswer)
                             .foregroundColor(.mainBlack)
                     }
                 }
@@ -37,9 +39,9 @@ struct MythoughtModalSheet: View {
 
 
 
-struct MythoughtModalSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        MythoughtModalSheet()
-    }
-}
-
+//struct MythoughtModalSheet_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MythoughtModalSheet()
+//    }
+//}
+//

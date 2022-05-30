@@ -13,7 +13,7 @@ struct QuestionCardDetailView: View {
     var body: some View {
         VStack {
             QuestionAnswerCard(questionData: $questionData)
-            AnswerDetailView()
+            AnswerComments()
         }
         .onTapGesture {
             hideKeyboard()
