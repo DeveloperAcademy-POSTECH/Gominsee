@@ -2,7 +2,7 @@ import SwiftUI
 
 struct QuestionAnswerCard: View {
     @Environment(\.dismiss) private var dismiss
-    @Binding var questionData: UserQuestion
+    @Binding var questionData: QuestionData
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -45,8 +45,8 @@ struct QuestionAnswerCard: View {
     }
 }
 
-struct QuestionAnswerCard_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionAnswerCard(questionData: .constant(UserQuestion.all()[1]))
-    }
-}
+//struct QuestionAnswerCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuestionAnswerCard(questionData: .constant(UserQuestion.all()[1]))
+//    }
+//}

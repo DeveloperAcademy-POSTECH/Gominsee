@@ -37,7 +37,6 @@
 		388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388749662806B3E70005D616 /* MythoughtModalSheet.swift */; };
 		389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */; };
 		38AE0782281A7EE80035EB0C /* QuestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0781281A7EE80035EB0C /* QuestionCard.swift */; };
-		38AE0784281A86D60035EB0C /* UserQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AE0783281A86D60035EB0C /* UserQuestion.swift */; };
 		390223DF2805241A008D9C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390223DE2805241A008D9C64 /* SettingsView.swift */; };
 		390469B4281BE00E0085BACA /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390469B3281BE00E0085BACA /* TextStyle.swift */; };
 		3944F76928323A7900A9B02E /* IconName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3944F76828323A7900A9B02E /* IconName.swift */; };
@@ -69,7 +68,7 @@
 		A989F4F128388CDA00F6979E /* MyPageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989F4F028388CDA00F6979E /* MyPageData.swift */; };
 		A989F4F328388CF000F6979E /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989F4F228388CF000F6979E /* UserInformation.swift */; };
 		A9CB246A2841D13600B8AA51 /* AnswerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB24692841D13600B8AA51 /* AnswerCard.swift */; };
-		A9CB2470284250F300B8AA51 /* UserAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB246F284250F300B8AA51 /* UserAnswer.swift */; };
+		A9CB2470284250F300B8AA51 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB246F284250F300B8AA51 /* QuestionData.swift */; };
 		A9CFEE5C27FF3AE300EBE12E /* QuestionMakingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +104,6 @@
 		388749662806B3E70005D616 /* MythoughtModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythoughtModalSheet.swift; sourceTree = "<group>"; };
 		389607B3283A5A5B001D4110 /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		38AE0781281A7EE80035EB0C /* QuestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCard.swift; sourceTree = "<group>"; };
-		38AE0783281A86D60035EB0C /* UserQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestion.swift; sourceTree = "<group>"; };
 		390223DE2805241A008D9C64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		390469B3281BE00E0085BACA /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		3944F76828323A7900A9B02E /* IconName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconName.swift; sourceTree = "<group>"; };
@@ -133,7 +131,7 @@
 		A989F4F028388CDA00F6979E /* MyPageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageData.swift; sourceTree = "<group>"; };
 		A989F4F228388CF000F6979E /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		A9CB24692841D13600B8AA51 /* AnswerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCard.swift; sourceTree = "<group>"; };
-		A9CB246F284250F300B8AA51 /* UserAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnswer.swift; sourceTree = "<group>"; };
+		A9CB246F284250F300B8AA51 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		A9CFEE5B27FF3AE300EBE12E /* QuestionMakingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMakingMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -308,8 +306,7 @@
 		39B618CF282A8A4400678A00 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
-				38AE0783281A86D60035EB0C /* UserQuestion.swift */,
-				A9CB246F284250F300B8AA51 /* UserAnswer.swift */,
+				A9CB246F284250F300B8AA51 /* QuestionData.swift */,
 				394D105228192B7E00CD538D /* AnswerData.swift */,
 				A989F4F028388CDA00F6979E /* MyPageData.swift */,
 				A989F4F228388CF000F6979E /* UserInformation.swift */,
@@ -450,12 +447,11 @@
 				389607B4283A5A5B001D4110 /* AppleLoginHelper.swift in Sources */,
 				263175E9280558C200C13368 /* createTestData.swift in Sources */,
 				2631762C280564C300C13368 /* UserCategory+CoreDataClass.swift in Sources */,
-				38AE0784281A86D60035EB0C /* UserQuestion.swift in Sources */,
 				39BED12428338D5800DB08F2 /* DateHandler.swift in Sources */,
 				A7D877D827FF2641001257EC /* AnswerModalSheet.swift in Sources */,
 				26317622280564C300C13368 /* Category+CoreDataClass.swift in Sources */,
 				3944F76928323A7900A9B02E /* IconName.swift in Sources */,
-				A9CB2470284250F300B8AA51 /* UserAnswer.swift in Sources */,
+				A9CB2470284250F300B8AA51 /* QuestionData.swift in Sources */,
 				A952D08928051F3D0098DBE8 /* LogInView.swift in Sources */,
 				A7D877DA27FF70F6001257EC /* KeyboardHandler.swift in Sources */,
 				388749672806B3E70005D616 /* MythoughtModalSheet.swift in Sources */,

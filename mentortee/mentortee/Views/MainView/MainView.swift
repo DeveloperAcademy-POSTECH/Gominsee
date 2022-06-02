@@ -76,7 +76,7 @@ struct MainView: View {
         hideKeyboard()
         answerColor = Color.mainBlack.opacity(0.2)
 
-        mainViewData.userAnswerList.append(UserAnswer(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: mainViewData.dailyQuestion.question, category: mainViewData.dailyQuestion.category, uploadDate: Date(), myThought: answerText))
+        mainViewData.userAnswerList.append(QuestionData(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: mainViewData.dailyQuestion.question, category: mainViewData.dailyQuestion.category, uploadDate: Date(), myThought: [answerText]))
         
         mainViewData.addDailyQuestionData(myAnswer: answerText)
     }
