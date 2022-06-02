@@ -1,16 +1,12 @@
 import SwiftUI
 import FirebaseAuth
 
-// submit 버튼 수정 
-
 struct MainView: View {
     @EnvironmentObject var mainViewData : FireStoreManager
     @EnvironmentObject var userInfo : UserInformation
     @State private var answerText = TextName.answerText
-    @State private var submitAnswer = ""
     @State private var answerColor = Color.answerColor
     @State private var showAlert = false
-    @State private var cardOpacity: Double = 1.0
 
     var body: some View {
         GeometryReader { geo in
@@ -25,7 +21,6 @@ struct MainView: View {
                 .background(Color.backgroundColor.ignoresSafeArea())
                 .onTapGesture {
                 hideKeyboard()
-                cardOpacity = 1.0
             }
         }
     }
@@ -49,12 +44,10 @@ struct MainView: View {
             submitButton(geo: geo)
         }
             .dailyQuestionCardStyle(geo: geo)
-            .opacity(cardOpacity)
     }
 
     private func submitButton(geo: GeometryProxy) -> some View {
         Button(TextName.submission, action: answerText.count == 0 || answerText == TextName.answerText ? { }: {
-            submitAnswer = answerText
                 onSubmitButton()
             })
             .dailySubmitButtonStyle(answerText: answerText, geo: geo)
@@ -75,7 +68,6 @@ struct MainView: View {
                 answerText = ""
             }
             answerColor = Color.mainBlack
-            cardOpacity = 0.7
         }
     }
 
@@ -83,12 +75,10 @@ struct MainView: View {
         showAlert = true
         hideKeyboard()
         answerColor = Color.mainBlack.opacity(0.2)
-        answerText = TextName.answerText
-        cardOpacity = 1.0
 
-        mainViewData.userAnswerList.append(UserAnswer(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: mainViewData.dailyQuestion.question, category: mainViewData.dailyQuestion.category, uploadDate: Date(), myThought: submitAnswer))
+        mainViewData.userAnswerList.append(UserAnswer(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: mainViewData.dailyQuestion.question, category: mainViewData.dailyQuestion.category, uploadDate: Date(), myThought: answerText))
         
-        mainViewData.addUserAnswerData(answerData: UserAnswer(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: mainViewData.dailyQuestion.question, category: mainViewData.dailyQuestion.category, uploadDate: Date(), myThought: submitAnswer, isShared: false, isDeleted: false))
+        mainViewData.addDailyQuestionData(myAnswer: answerText)
     }
 }
 
