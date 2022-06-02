@@ -7,6 +7,7 @@ struct AnswerCardList: View {
     @State private var showModal = false
     @EnvironmentObject var userInfo: UserInformation
     @EnvironmentObject var firestoreData: FireStoreManager
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         ZStack {
@@ -18,9 +19,19 @@ struct AnswerCardList: View {
                         AnswerCard(answerData: data, currentIdx: Category.all)
                         
                     }
-//                    AnswerCardList()
-//                        .frame(height: geo.size.height * 0.88)
                 }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: IconName.backward)
+                        .font(.system(size: 20))
+                    .foregroundColor(.mainBlack)}
+                
             }
         }
     }
