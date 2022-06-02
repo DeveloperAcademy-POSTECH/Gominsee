@@ -6,8 +6,8 @@ class FireStoreManager: ObservableObject {
 //    @Published var dailyQuestion: [DailyQuestion] = []
     @Published var dailyQuestion: DailyQuestion = DailyQuestion(id: "", question: "", category: [])
     @Published var userQuestionList: [UserQuestion] = []
-    @Published var userAnswerList : [UserAnswer] = []
-    
+    @Published var userAnswerList: [UserAnswer] = []
+
     var blackQuestion: [String] = ["아침에 일어나면 가장 먼저 무엇을 하시나요?"]
     let db = Firestore.firestore()
 
@@ -18,7 +18,7 @@ class FireStoreManager: ObservableObject {
     }
 
     func fetchDailyQuestionData() {
-        var categoryList : [Category] = []
+        var categoryList: [Category] = []
         db.collection("DailyQuestion").whereField("question", notIn: blackQuestion)
             .getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -54,7 +54,7 @@ class FireStoreManager: ObservableObject {
             }
         }
     }
-    
+
     func fetchUserAnswerData() {
         var categoryList: [Category] = []
         db.collection("UserAnswer").whereField("isShared", isEqualTo: false)
@@ -118,7 +118,7 @@ class FireStoreManager: ObservableObject {
             }
         }
     }
-    
+
     func addUserAnswerData(answerData: UserAnswer) {
         let docData: [String: Any] = [
             "question": answerData.question,
@@ -139,4 +139,20 @@ class FireStoreManager: ObservableObject {
         }
     }
     
+    func addDailyQuestionData(myAnswer: String) {
+        let docData: [String: Any] = [
+            "questionUid": dailyQuestion.id,
+            "isDeleted": false,
+            "uploadDate": Date(),
+            "myThought": myAnswer
+        ]
+
+        db.collection("UserAnswer").document(Auth.auth().currentUser!.uid).collection("MyAnswer").document().setData(docData) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+    }
 }
