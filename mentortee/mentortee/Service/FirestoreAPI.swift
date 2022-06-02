@@ -118,26 +118,6 @@ class FireStoreManager: ObservableObject {
             }
         }
     }
-
-    func addUserAnswerData(answerData: UserAnswer) {
-        let docData: [String: Any] = [
-            "question": answerData.question,
-            "category": answerData.category.map { $0.rawValue },
-            "nickname": answerData.nickname,
-            "isDeleted": answerData.isDeleted,
-            "isShared": answerData.isShared,
-            "uploadDate": answerData.uploadDate,
-            "myThought": answerData.myThought
-        ]
-
-        db.collection("UserAnswer").document().setData(docData) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-            }
-        }
-    }
     
     func addDailyQuestionData(myAnswer: String) {
         let docData: [String: Any] = [
