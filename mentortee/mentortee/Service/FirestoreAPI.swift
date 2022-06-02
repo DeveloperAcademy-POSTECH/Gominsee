@@ -5,8 +5,8 @@ class FireStoreManager: ObservableObject {
     // TODO: User가 답한 질문 필드를 만들어서 저장 후 해당값 제외한 오늘의 질문을 받아야 함
 //    @Published var dailyQuestion: [DailyQuestion] = []
     @Published var dailyQuestion: DailyQuestion = DailyQuestion(id: "", question: "", category: [])
-    @Published var userQuestionList: [UserQuestion] = []
-    @Published var userAnswerList: [UserAnswer] = []
+    @Published var userQuestionList: [QuestionData] = []
+    @Published var userAnswerList: [QuestionData] = []
 
     var blackQuestion: [String] = ["아침에 일어나면 가장 먼저 무엇을 하시나요?"]
     let db = Firestore.firestore()
@@ -49,7 +49,7 @@ class FireStoreManager: ObservableObject {
                     for index in array {
                         categoryList.append(self.castingCategory(category: index))
                     }
-                    self.userQuestionList.append(UserQuestion(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: ""))
+                    self.userQuestionList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: ""))
                 }
             }
         }
@@ -68,7 +68,7 @@ class FireStoreManager: ObservableObject {
                     for index in array {
                         categoryList.append(self.castingCategory(category: index))
                     }
-                    self.userAnswerList.append(UserAnswer(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: document.data()["myThought"] as? String ?? ""))
+                    self.userAnswerList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: document.data()["myThought"] as? String ?? ""))
                 }
             }
         }
@@ -100,7 +100,7 @@ class FireStoreManager: ObservableObject {
         }
     }
 
-    func addUserQuestionData(questionData: UserQuestion) {
+    func addUserQuestionData(questionData: QuestionData) {
         let docData: [String: Any] = [
             "question": questionData.question,
             "category": questionData.category.map { $0.rawValue },
@@ -118,7 +118,7 @@ class FireStoreManager: ObservableObject {
             }
         }
     }
-    
+
     func addDailyQuestionData(myAnswer: String) {
         let docData: [String: Any] = [
             "questionUid": dailyQuestion.id,
@@ -132,6 +132,35 @@ class FireStoreManager: ObservableObject {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+            }
+        }
+    }
+
+    func loadMyAnswerData() {
+        var categoryList: [Category] = []
+        db.collection("UserAnswer").document(Auth.auth().currentUser!.uid).collection("MyAnswer")
+            .getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    // TODO: 작성 후 fetchUserAnswerData 함수 삭제
+                }
+            }
+        }
+        db.collection("UserAnswer").whereField("isShared", isEqualTo: false)
+            .getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    categoryList.removeAll()
+                    let array = document.data()["category"] as? [String] ?? [""]
+                    for index in array {
+                        categoryList.append(self.castingCategory(category: index))
+                    }
+                    self.userAnswerList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: document.data()["myThought"] as? String ?? ""))
+                }
             }
         }
     }

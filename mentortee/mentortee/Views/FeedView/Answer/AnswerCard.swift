@@ -8,7 +8,7 @@ struct AnswerCard: View {
     @State private var showingReportAlert = false
     @State private var showingDeleteAlert = false
     @State private var showQuestionDetailview = false
-    @State var answerData: UserAnswer
+    @State var answerData: QuestionData
     
     var currentIdx: Category
     
