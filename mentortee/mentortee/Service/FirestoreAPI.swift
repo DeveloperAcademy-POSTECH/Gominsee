@@ -49,7 +49,7 @@ class FireStoreManager: ObservableObject {
                     for index in array {
                         categoryList.append(self.castingCategory(category: index))
                     }
-                    self.userQuestionList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: ""))
+                    self.userQuestionList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: document.data()["myThought"] as? [String] ?? [""]))
                 }
             }
         }
@@ -68,7 +68,7 @@ class FireStoreManager: ObservableObject {
                     for index in array {
                         categoryList.append(self.castingCategory(category: index))
                     }
-                    self.userAnswerList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: document.data()["myThought"] as? String ?? ""))
+                    self.userAnswerList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: document.data()["myThought"] as? [String] ?? [""]))
                 }
             }
         }
@@ -145,6 +145,7 @@ class FireStoreManager: ObservableObject {
             } else {
                 for document in querySnapshot!.documents {
                     // TODO: 작성 후 fetchUserAnswerData 함수 삭제
+                    
                 }
             }
         }
@@ -159,7 +160,7 @@ class FireStoreManager: ObservableObject {
                     for index in array {
                         categoryList.append(self.castingCategory(category: index))
                     }
-                    self.userAnswerList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: document.data()["myThought"] as? String ?? ""))
+                    self.userAnswerList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: document.data()["myThought"] as? [String] ?? [""]))
                 }
             }
         }

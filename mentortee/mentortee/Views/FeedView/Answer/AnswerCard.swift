@@ -114,7 +114,7 @@ struct AnswerCard: View {
                 .background(Color.subLightGreen)
                 .cornerRadius(10)
         }
-        .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet(answerDateTime: answerData.uploadDate, myAnswer: answerData.myThought) }
+        .fullScreenCover(isPresented: self.$showModal) { MythoughtModalSheet(questionData: $answerData) }
     }
     
     private func whoseQuestion() -> some View {

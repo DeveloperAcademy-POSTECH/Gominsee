@@ -31,7 +31,7 @@ struct QuestionCard: View {
             HStack {
                 whoseQuestion()
                 Spacer()
-                lookOthersThought()
+//                lookOthersThought()
             }
             .padding(.leading, 20)
         }
@@ -130,19 +130,22 @@ struct QuestionCard: View {
         }
     }
     
-    private func lookOthersThought() -> some View {
-        NavigationLink(destination: QuestionCardDetailView(questionData: $questionData)) {
-            Text(questionData.myThought)
-                .padding()
-        }
-    }
+    // TODO: 다른 생각보기 View 만들어야함
+//    private func lookOthersThought() -> some View {
+//        NavigationLink(destination: QuestionCardDetailView(questionData: $questionData)) {
+//            ForEach(questionData.myThought, id: \.self) { value in
+//                Text(value)
+//                    .padding()
+//            }
+//        }
+//    }
     
 }
 
 
-// struct QuestionCard_Previews: PreviewProvider {
-//     static var previews: some View {
-//         QuestionCard(questionData: UserQuestion(id: "abc", nickname: "chemi", question: "오늘 점심은 뭘 드셨나요?", cateogory: [.all], uploadDate: Date(), myThought: "", isShared: false, isDeleted: false), currentIdx: .all)
-//     }
-// }
+ struct QuestionCard_Previews: PreviewProvider {
+     static var previews: some View {
+         QuestionCard(questionData: QuestionData.all()[0], currentIdx: .all)
+     }
+ }
 

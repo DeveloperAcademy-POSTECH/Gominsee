@@ -3,19 +3,17 @@ import FirebaseFirestoreSwift
 
 struct MythoughtModalSheet: View {
     @Environment(\.dismiss) private var dismiss
-    // MARK: - 수정필요 필요필요
-    
-    var answerDateTime : Date
-    var myAnswer : String
+    @Binding var questionData: QuestionData
 
     var body: some View {
-
         ZStack {
             VStack {
                 List {
-                    Section(header: Text(answerDateTime.formatted())) {
-                        Text(myAnswer)
-                            .foregroundColor(.mainBlack)
+                    Section(header: Text(questionData.uploadDate.formatted())) {
+                        ForEach(questionData.myThought, id: \.self) { value in
+                            Text(value)
+                                .foregroundColor(.mainBlack)
+                        }
                     }
                 }
                     .background(Color.backgroundColor)
@@ -37,11 +35,9 @@ struct MythoughtModalSheet: View {
     }
 }
 
+struct MythoughtModalSheet_Previews: PreviewProvider {
+    static var previews: some View {
+        MythoughtModalSheet(questionData: .constant(QuestionData.all()[0]))
+    }
+}
 
-
-//struct MythoughtModalSheet_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MythoughtModalSheet()
-//    }
-//}
-//
