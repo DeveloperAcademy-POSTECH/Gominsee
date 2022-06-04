@@ -11,7 +11,7 @@ struct MythoughtModalSheet: View {
                 List {
                     Section(header: Text(questionData.uploadDate.formatted())) {
                         ForEach(questionData.myThought, id: \.self) { value in
-                            Text(value)
+                            Text(value.thought)
                                 .foregroundColor(.mainBlack)
                         }
                     }
