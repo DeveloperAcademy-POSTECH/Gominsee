@@ -8,7 +8,8 @@ struct ContentView: View {
     @AppStorage("log_status") var log_Status = true
     
     var body: some View {
-        if log_Status {
+        // MARK: 시뮬레이터 빌드시 필요
+        if log_Status == false {
             NavigationView {
                 TabView(selection: $selection) {
                     MainView().tabItem { Image(systemName: IconName.house).environment(\.symbolVariants, .none) }.tag(1)
@@ -32,9 +33,9 @@ struct ContentView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .onAppear() {
-                print("ContentView 시작")
-            }
+//            .onAppear() {
+//                print("내 UID : \(Auth.auth().currentUser?.uid)")
+//            }
         } else {
             LogInView()
         }

@@ -3,7 +3,6 @@ import FirebaseFirestoreSwift
 
 class FireStoreManager: ObservableObject {
     // TODO: User가 답한 질문 필드를 만들어서 저장 후 해당값 제외한 오늘의 질문을 받아야 함
-//    @Published var dailyQuestion: [DailyQuestion] = []
     @Published var dailyQuestion: DailyQuestion = DailyQuestion(id: "", question: "", category: [])
     @Published var userQuestionList: [QuestionData] = []
     @Published var userAnswerList: [QuestionData] = []
@@ -15,7 +14,6 @@ class FireStoreManager: ObservableObject {
     init() {
         fetchDailyQuestionData()
         fetchUserQuestionData()
-        fetchUserAnswerData()
         loadMyAnswerData()
     }
 
@@ -52,25 +50,6 @@ class FireStoreManager: ObservableObject {
                         categoryList.append(self.castingCategory(category: index))
                     }
                     self.userQuestionList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: [MyAnswer(thought: document.data()["myThought"] as? String ?? "")]))
-                }
-            }
-        }
-    }
-
-    func fetchUserAnswerData() {
-        var categoryList: [Category] = []
-        db.collection("UserAnswer").whereField("isShared", isEqualTo: false)
-            .getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    categoryList.removeAll()
-                    let array = document.data()["category"] as? [String] ?? [""]
-                    for index in array {
-                        categoryList.append(self.castingCategory(category: index))
-                    }
-                    self.userAnswerList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: [MyAnswer(thought: document.data()["myThought"] as? String ?? "")]))
                 }
             }
         }
@@ -137,7 +116,7 @@ class FireStoreManager: ObservableObject {
             }
         }
     }
-    
+
     func loadMyAnswerData() {
         var categoryList: [Category] = []
         db.collection("UserAnswer").document(testerUID).collection("MyAnswer")
@@ -146,35 +125,20 @@ class FireStoreManager: ObservableObject {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    // TODO: 작성 후 fetchUserAnswerData 함수 삭제
-                    print("data : \(document.data())")
                     categoryList.removeAll()
                     let array = document.data()["category"] as? [String] ?? [""]
                     for index in array {
                         categoryList.append(self.castingCategory(category: index))
                     }
-//                    var tempData = QuestionData(id: document.documentID, nickname: document.data()["내 닉네임"], question: "", category: categoryList, uploadDate: document.data()["uploadDate"], myThought: <#T##[String]#>, isShared: <#T##Bool#>, isDeleted: <#T##Bool#>)
-//                    userAnswerList.append(<#T##newElement: QuestionData##QuestionData#>)
-//                    if userAnswerList.contains(where: { $0.id == document.documentID }) {
-//
-//                    } else {
-//
-//                    }
-                }
-            }
-        }
-        db.collection("UserAnswer").whereField("isShared", isEqualTo: false)
-            .getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    categoryList.removeAll()
-                    let array = document.data()["category"] as? [String] ?? [""]
-                    for index in array {
-                        categoryList.append(self.castingCategory(category: index))
+
+                    let tempData = QuestionData(id: document.documentID, nickname: "내 닉네임", question: document.data()["questionUid"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: [MyAnswer(thought: document.data()["myThought"] as? String ?? "")], isShared: false, isDeleted: document.data()["isDeleted"] as? Bool ?? false)
+                    let searchIndex = self.userAnswerList.firstIndex(where: { $0.question == document.data()["questionUid"] as? String ?? "" }) ?? nil
+
+                    if searchIndex != nil {
+                        self.userAnswerList[searchIndex!].myThought.append(tempData.myThought[0])
+                    } else {
+                        self.userAnswerList.append(tempData)
                     }
-                    self.userAnswerList.append(QuestionData(id: document.documentID, nickname: document.data()["nickname"] as? String ?? "", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: [MyAnswer(thought: document.data()["myThought"] as? String ?? "")]))
                 }
             }
         }
