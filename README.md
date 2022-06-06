@@ -56,12 +56,18 @@ with 곰민, 제이슨
 
 ```powershell
 mentortee
-├── mentorteeApp.swift
-├── ContentView.swift
-└── Chemi & Rookie
-    ├── MainPage.swift
-    ├── TabView.swift
-    └── TopBar.swift
+├── System
+│   └── mentorteeApp.swift
+├── Resource
+├── Helper
+├── Service
+├── Datas
+└── Views
+    ├── MainView
+    ├── FeedView
+    ├── QnAView
+    ├── MyPageView
+    └── LogInView
 ```
 
 ### View 종속 구조 <a name="view-dependency-structure"></a>
