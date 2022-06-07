@@ -102,13 +102,13 @@ class FireStoreManager: ObservableObject {
 
     func addDailyQuestionData(myAnswer: String) {
         let docData: [String: Any] = [
-            "questionUid": dailyQuestion.id,
+            "question": dailyQuestion.question,
             "isDeleted": false,
             "uploadDate": Date(),
             "myThought": myAnswer
         ]
 
-        db.collection("UserAnswer").document(Auth.auth().currentUser!.uid).collection("MyAnswer").document().setData(docData) { err in
+        db.collection("UserAnswer").document(testerUID).collection("MyAnswer").document().setData(docData) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
@@ -131,8 +131,8 @@ class FireStoreManager: ObservableObject {
                         categoryList.append(self.castingCategory(category: index))
                     }
 
-                    let tempData = QuestionData(id: document.documentID, nickname: "내 닉네임", question: document.data()["questionUid"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: [MyAnswer(thought: document.data()["myThought"] as? String ?? "")], isShared: false, isDeleted: document.data()["isDeleted"] as? Bool ?? false)
-                    let searchIndex = self.userAnswerList.firstIndex(where: { $0.question == document.data()["questionUid"] as? String ?? "" }) ?? nil
+                    let tempData = QuestionData(id: document.documentID, nickname: "내 닉네임", question: document.data()["question"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: [MyAnswer(thought: document.data()["myThought"] as? String ?? "")], isShared: false, isDeleted: document.data()["isDeleted"] as? Bool ?? false)
+                    let searchIndex = self.userAnswerList.firstIndex(where: { $0.question == document.data()["question"] as? String ?? "" }) ?? nil
 
                     if searchIndex != nil {
                         self.userAnswerList[searchIndex!].myThought.append(tempData.myThought[0])
