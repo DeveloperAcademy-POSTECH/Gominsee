@@ -7,10 +7,15 @@ struct AnswerCardList: View {
     var body: some View {
         ZStack {
             Rectangle().foregroundColor(.backgroundColor).ignoresSafeArea()
-            ScrollView {
-                VStack(alignment: .leading) {
-                    ForEach(firestoreData.userAnswerList, id: \.id) { data in
-                        AnswerCard(answerData: data, currentIdx: Category.all)
+            VStack {
+                Text("총 \(firestoreData.userAnswerList.count)개")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 16.0)
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        ForEach(firestoreData.userAnswerList, id: \.id) { data in
+                            AnswerCard(answerData: data, currentIdx: Category.all)
+                        }
                     }
                 }
             }
