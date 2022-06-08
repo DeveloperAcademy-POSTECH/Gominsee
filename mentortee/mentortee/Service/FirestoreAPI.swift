@@ -14,7 +14,7 @@ class FireStoreManager: ObservableObject {
     init() {
         fetchDailyQuestionData()
         fetchUserQuestionData()
-        loadMyAnswerData()
+        initLoadMyAnswerData()
     }
 
     func fetchDailyQuestionData() {
@@ -102,13 +102,13 @@ class FireStoreManager: ObservableObject {
 
     func addDailyQuestionData(myAnswer: String) {
         let docData: [String: Any] = [
-            "questionUid": dailyQuestion.id,
+            "question": dailyQuestion.question,
             "isDeleted": false,
             "uploadDate": Date(),
             "myThought": myAnswer
         ]
 
-        db.collection("UserAnswer").document(Auth.auth().currentUser!.uid).collection("MyAnswer").document().setData(docData) { err in
+        db.collection("UserAnswer").document(testerUID).collection("MyAnswer").document().setData(docData) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
@@ -117,7 +117,7 @@ class FireStoreManager: ObservableObject {
         }
     }
 
-    func loadMyAnswerData() {
+    func initLoadMyAnswerData() {
         var categoryList: [Category] = []
         db.collection("UserAnswer").document(testerUID).collection("MyAnswer")
             .getDocuments() { (querySnapshot, err) in
@@ -127,20 +127,31 @@ class FireStoreManager: ObservableObject {
                 for document in querySnapshot!.documents {
                     categoryList.removeAll()
                     let array = document.data()["category"] as? [String] ?? [""]
-                    for index in array {
-                        categoryList.append(self.castingCategory(category: index))
+                    for value in array {
+                        categoryList.append(self.castingCategory(category: value))
                     }
 
-                    let tempData = QuestionData(id: document.documentID, nickname: "내 닉네임", question: document.data()["questionUid"] as? String ?? "", category: categoryList, uploadDate: document.data()["uploadDate"] as? Date ?? Date(), myThought: [MyAnswer(thought: document.data()["myThought"] as? String ?? "")], isShared: false, isDeleted: document.data()["isDeleted"] as? Bool ?? false)
-                    let searchIndex = self.userAnswerList.firstIndex(where: { $0.question == document.data()["questionUid"] as? String ?? "" }) ?? nil
+                    let tempData = QuestionData(
+                        id: document.documentID,
+                        nickname: "내 닉네임",
+                        question: document.data()["question"] as? String ?? "",
+                        category: categoryList,
+                        uploadDate: document.data()["uploadDate"] as? Date ?? Date(),
+                        myThought: [MyAnswer(thought: document.data()["myThought"] as? String ?? "")],
+                        isShared: false, isDeleted: document.data()["isDeleted"] as? Bool ?? false)
 
-                    if searchIndex != nil {
-                        self.userAnswerList[searchIndex!].myThought.append(tempData.myThought[0])
-                    } else {
-                        self.userAnswerList.append(tempData)
-                    }
+                    self.addLocalAnswerData(data: tempData)
                 }
             }
+        }
+    }
+
+    func addLocalAnswerData(data: QuestionData) {
+        let searchIndex = self.userAnswerList.firstIndex(where: { $0.question == data.question }) ?? nil
+        if searchIndex != nil {
+            self.userAnswerList[searchIndex!].myThought.append(data.myThought[0])
+        } else {
+            self.userAnswerList.append(data)
         }
     }
 }

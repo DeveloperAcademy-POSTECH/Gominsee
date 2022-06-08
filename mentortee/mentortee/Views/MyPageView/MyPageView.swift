@@ -1,14 +1,13 @@
-
 import SwiftUI
 
 struct MyPageView: View {
-    
-    @EnvironmentObject var myData : UserInformation
+    @EnvironmentObject var myData: FireStoreManager
     let screenWidth = UIScreen.main.bounds.width
 
     var body: some View {
         VStack {
-            Text("\(myData.myPageData.username)의 질문상자")
+            // TODO: 닉네임 설정 후 닉네임 표시
+            Text("Chemi의 질문상자")
                 .foregroundColor(.mainBlack)
                 .font(.system(size: 24).weight(.bold))
             HStack {
@@ -17,7 +16,7 @@ struct MyPageView: View {
                         Text(TextName.myQuestionText)
                             .bold()
                             .font(.system(size: 14))
-                        Text("\(myData.myPageData.myQuestionCount)")
+                        Text("\(myData.userQuestionList.count)")
                             .bold()
                             .font(.system(size: 30))
                             .opacity(0.8)
@@ -34,7 +33,7 @@ struct MyPageView: View {
                             .bold()
                             .font(.system(size: 14))
 
-                        Text("\(myData.myPageData.myAnswerCount)")
+                        Text("\(myData.userAnswerList.count)")
                             .bold()
                             .font(.system(size: 30))
                             .opacity(0.8)
@@ -59,7 +58,8 @@ struct MyPageView: View {
                             Text(TextName.characterName)
                                 .bold()
                                 .font(.system(size: 20))
-                            Text("Lv. \(myData.myPageData.userLV)")
+                            // TODO: User정보 만들어야 함 (닉네임, 레벨)
+                            Text("Lv. 1")
                                 .font(.system(size: 14))
                         }
                             .foregroundColor(.mainBlack)
@@ -72,7 +72,7 @@ struct MyPageView: View {
                     HStack {
                         HStack {
                             Text("다음 성장까지")
-                            Text("질문 \(myData.myPageData.myQuestionCount)개, 답변 \(myData.myPageData.myAnswerCount)개")
+                            Text("질문 2개, 답변 4개")
                                 .bold()
                                 .font(.system(size: 16))
                             Text("가 필요해요!")
@@ -88,17 +88,14 @@ struct MyPageView: View {
                 }.frame(maxWidth: .infinity, alignment: .leading)
                     .padding(25)
             }
-
         }
             .padding(.top, 15)
             .background(Color.backgroundColor)
     }
 }
 
-
-//
-//struct MyPageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MyPageView(firstNaviLinkActive: .constant(true))
-//    }
-//}
+struct MyPageView_Previews: PreviewProvider {
+    static var previews: some View {
+        MyPageView()
+    }
+}
