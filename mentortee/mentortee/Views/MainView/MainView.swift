@@ -2,8 +2,8 @@ import SwiftUI
 import FirebaseAuth
 
 struct MainView: View {
-    @EnvironmentObject var mainViewData : FireStoreManager
-    @EnvironmentObject var userInfo : UserInformation
+    @EnvironmentObject var mainViewData: FireStoreManager
+    @EnvironmentObject var userInfo: UserInformation
     @State private var answerText = TextName.answerText
     @State private var answerColor = Color.answerColor
     @State private var showAlert = false
@@ -76,9 +76,14 @@ struct MainView: View {
         hideKeyboard()
         answerColor = Color.mainBlack.opacity(0.2)
 
-        mainViewData.userAnswerList.append(QuestionData(id: Auth.auth().currentUser?.uid ?? "", nickname: userInfo.myPageData.username, question: mainViewData.dailyQuestion.question, category: mainViewData.dailyQuestion.category, uploadDate: Date(), myThought: [MyAnswer(thought: answerText)]))
-        
         mainViewData.addDailyQuestionData(myAnswer: answerText)
+        mainViewData.addLocalAnswerData(data: QuestionData(
+            id: Auth.auth().currentUser?.uid ?? "",
+            nickname: userInfo.myPageData.username,
+            question: mainViewData.dailyQuestion.question,
+            category: mainViewData.dailyQuestion.category,
+            uploadDate: Date(),
+            myThought: [MyAnswer(thought: answerText)]))
     }
 }
 
